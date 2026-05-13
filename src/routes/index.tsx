@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import worwfHeader from "@/assets/worwf/worwf-header.png";
+
 import ffrwLogo from "@/assets/worwf/ffrw.png";
 import nfrwLogo from "@/assets/worwf/nfrw.png";
 import speakerTorisi from "@/assets/worwf/speaker-torisi.png";
