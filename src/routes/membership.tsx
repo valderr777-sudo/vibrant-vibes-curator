@@ -334,7 +334,7 @@ function Membership() {
               { left: { label: "*Birthday (mo/day)", key: "birthday" as const, type: "text" }, right: null },
               { left: { label: "*Phone (xxx-xxx-xxxx)", key: "phone" as const, type: "tel" }, right: null },
             ].map((row, i) => (
-              <RowField key={i} row={row} form={form} setForm={setForm} />
+              <RowField key={i} row={row} form={form as unknown as Record<string, unknown>} setForm={setForm as unknown as (v: Record<string, unknown>) => void} />
             ))}
 
             <div className="md:col-start-2">
@@ -562,5 +562,3 @@ function RowField({
   );
 }
 
-// silence unused type
-export type _FS = FormState;
