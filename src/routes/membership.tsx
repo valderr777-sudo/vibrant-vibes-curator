@@ -12,6 +12,7 @@ import memberGroup from "@/assets/worwf/member-group.jpg";
 import voterId from "@/assets/worwf/voter-id.jpg";
 import precinctFlag from "@/assets/worwf/precinct-flag.jpg";
 import fireworksBg from "@/assets/worwf/fireworks-bg.jpg";
+import elephantImg from "@/assets/worwf/elephant.jpg";
 
 export const Route = createFileRoute("/membership")({
   component: Membership,
@@ -57,16 +58,7 @@ const renewalOptions = [
 ];
 
 function ElephantIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 64 56" className={className} aria-hidden>
-      <path d="M2 14c0-6 5-11 11-11h12c4 0 7 1 9 3l4 3 6-2c5-1 10 3 10 8 0 2-1 4-2 5l-4 3v18c0 2-2 4-4 4h-4c-2 0-4-2-4-4v-4h-12v4c0 2-2 4-4 4h-4c-2 0-4-2-4-4V28c-3-1-6-4-7-7l-3-2c-2-1-3-3-3-5z" fill="#1e3a8a" />
-      <path d="M22 8h6l-1 4h-6z M30 4h5l-1 5h-4z M37 7h4l-1 4h-3z" fill="#dc2626" />
-      <circle cx="20" cy="14" r="1.2" fill="#fff" />
-      <circle cx="22" cy="9" r="1" fill="#fff" />
-      <circle cx="28" cy="6" r="1" fill="#fff" />
-      <circle cx="35" cy="9" r="1" fill="#fff" />
-    </svg>
-  );
+  return <img src={elephantImg} alt="GOP elephant" className={className} />;
 }
 
 function Membership() {
