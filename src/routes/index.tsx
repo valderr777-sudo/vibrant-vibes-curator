@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
@@ -33,14 +33,14 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const navLinks = [
-  { label: "Home", active: true },
-  { label: "About Us" },
-  { label: "Membership" },
-  { label: "Events" },
-  { label: "News to Know", caret: true },
-  { label: "Gallery" },
-  { label: "Contact Us" },
+const navLinks: { label: string; to: "/" | "/about-us"; active?: boolean; caret?: boolean }[] = [
+  { label: "Home", to: "/", active: true },
+  { label: "About Us", to: "/about-us" },
+  { label: "Membership", to: "/" },
+  { label: "Events", to: "/" },
+  { label: "News to Know", to: "/", caret: true },
+  { label: "Gallery", to: "/" },
+  { label: "Contact Us", to: "/" },
 ];
 
 const motivations = [
@@ -131,9 +131,9 @@ function Index() {
           </a>
           <nav className="hidden items-center gap-8 lg:flex">
             {navLinks.map((l) => (
-              <a
+              <Link
                 key={l.label}
-                href="#"
+                to={l.to}
                 className={`relative text-[15px] font-medium transition-colors hover:text-secondary ${
                   l.active ? "text-secondary" : "text-foreground"
                 }`}
@@ -143,7 +143,7 @@ function Index() {
                 {l.active && (
                   <span className="absolute -bottom-2 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-secondary" />
                 )}
-              </a>
+              </Link>
             ))}
           </nav>
           <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
