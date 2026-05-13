@@ -38,7 +38,7 @@ export const Route = createFileRoute("/about-us")({
 const navLinks = [
   { label: "Home", to: "/" as const },
   { label: "About Us", to: "/about-us" as const, active: true },
-  { label: "Membership", to: "/" as const },
+  { label: "Membership", to: "/membership" as const },
   { label: "Events", to: "/" as const },
   { label: "News to Know", to: "/" as const, caret: true },
   { label: "Gallery", to: "/" as const },
