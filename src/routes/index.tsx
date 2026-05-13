@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
+import worwfLogo from "@/assets/worwf/worwf-logo.png";
+
+import ffrwLogo from "@/assets/worwf/ffrw.png";
+import nfrwLogo from "@/assets/worwf/nfrw.png";
+import speakerTorisi from "@/assets/worwf/speaker-torisi.png";
+import voteImg from "@/assets/worwf/vote.png";
+import groupImg from "@/assets/worwf/group.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,7 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Mail, Calendar, MapPin, Users, BookOpen, Megaphone, HandHeart, Vote, Check } from "lucide-react";
+import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,32 +33,25 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const navLinks = ["Home", "About Us", "Membership", "Events", "News to Know", "Gallery", "Contact Us"];
-
-const motivations = [
-  { icon: Users, text: "Grassroots advocacy and voter registration" },
-  { icon: Vote, text: "Supporting Republican candidates through campaigns" },
-  { icon: Megaphone, text: "Legislative engagement with elected officials" },
-  { icon: BookOpen, text: "Promoting conservative values and constitutional rights" },
-  { icon: Calendar, text: "Monthly educational meetings with guest speakers" },
-  { icon: Users, text: "Networking opportunities for like-minded individuals" },
-  { icon: HandHeart, text: "Community service through charitable initiatives" },
-  { icon: Megaphone, text: "Encouraging active participation of women in politics" },
+const navLinks = [
+  { label: "Home", active: true },
+  { label: "About Us" },
+  { label: "Membership" },
+  { label: "Events" },
+  { label: "News to Know", caret: true },
+  { label: "Gallery" },
+  { label: "Contact Us" },
 ];
 
-const events = [
-  {
-    date: "THURSDAY, SEPTEMBER 11, 2025",
-    title: "General Luncheon Meeting",
-    venue: "WEST ORANGE CC",
-    speaker: "MICHAEL TORISI, Retired NYPD",
-  },
-  {
-    date: "THURSDAY, OCTOBER 9, 2025",
-    title: "General Luncheon Meeting",
-    venue: "WEST ORANGE CC",
-    speaker: "TOPIC: TBA",
-  },
+const motivations = [
+  "Grassroots advocacy and voter registration",
+  "Supporting Republican candidates through campaigns",
+  "Legislative engagement with elected officials",
+  "Promoting conservative values and constitutional rights",
+  "Monthly educational meetings with guest speakers",
+  "Networking opportunities for like-minded individuals",
+  "Community service through charitable initiatives",
+  "Encouraging active participation of women in politics",
 ];
 
 const faqs = [
@@ -65,19 +65,37 @@ const faqs = [
 ];
 
 function Marquee() {
-  const items = ["Educate", "Motivate", "Activate"];
-  const repeated = Array(8).fill(items).flat();
+  // Alternating: solid, outlined, solid, outlined...
+  const words = ["EDUCATE", "MOTIVATE", "ACTIVATE", "EDUCATE", "MOTIVATE", "ACTIVATE", "EDUCATE", "MOTIVATE", "ACTIVATE", "EDUCATE", "MOTIVATE", "ACTIVATE"];
   return (
-    <div className="overflow-hidden border-y border-border bg-primary py-6">
-      <div className="flex animate-[marquee_30s_linear_infinite] gap-12 whitespace-nowrap">
-        {repeated.map((w, i) => (
-          <span key={i} className="flex items-center gap-12 text-3xl font-bold tracking-wider text-primary-foreground/90 md:text-5xl">
-            {w}
-            <span className="inline-block size-2 rounded-full bg-secondary" />
+    <div className="overflow-hidden bg-secondary py-5">
+      <div className="flex animate-[marquee_40s_linear_infinite] items-center gap-8 whitespace-nowrap">
+        {words.concat(words).map((w, i) => (
+          <span key={i} className="flex items-center gap-8">
+            <span className="text-2xl text-primary-foreground">★</span>
+            <span
+              className={`text-3xl font-extrabold tracking-wide md:text-4xl ${
+                i % 2 === 1
+                  ? "text-transparent [-webkit-text-stroke:1.5px_white]"
+                  : "text-primary-foreground"
+              }`}
+            >
+              {w}
+            </span>
           </span>
         ))}
       </div>
     </div>
+  );
+}
+
+function CheckBadge() {
+  return (
+    <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-secondary text-primary-foreground">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="size-3">
+        <polyline points="20 6 9 17 4 12" />
+      </svg>
+    </span>
   );
 }
 
@@ -86,37 +104,49 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <style>{`@keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }`}</style>
+      <style>{`
+        @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+      `}</style>
 
       {/* Top bar */}
       <div className="bg-primary text-primary-foreground">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2.5 text-sm">
           <a href="mailto:info@worwf.org" className="flex items-center gap-2 hover:text-secondary">
             <Mail className="size-4" /> info@worwf.org
           </a>
-          <p className="hidden font-semibold tracking-widest md:block">Educate. Motivate. Activate.</p>
-          <a href="#membership" className="hidden font-medium hover:text-secondary md:block">
+          <p className="hidden font-semibold tracking-wide md:block">
+            Educate. Motivate. Activate.
+          </p>
+          <a href="#membership" className="hidden text-sm font-medium hover:text-secondary md:block">
             Become a Member
           </a>
         </div>
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4">
-          <a href="#" className="flex items-center gap-3">
-            <div className="flex size-14 items-center justify-center rounded-full border-4 border-primary bg-background font-black text-primary">
-              <span className="text-xs">WORWF</span>
-            </div>
+      <header className="sticky top-0 z-50 border-b border-border bg-background">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
+          <a href="#" className="flex items-center">
+            <img src={worwfLogo} alt="WORWF" className="size-16 object-contain" />
           </a>
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             {navLinks.map((l) => (
-              <a key={l} href="#" className="text-sm font-medium text-foreground transition-colors hover:text-secondary">
-                {l}
+              <a
+                key={l.label}
+                href="#"
+                className={`relative text-[15px] font-medium transition-colors hover:text-secondary ${
+                  l.active ? "text-secondary" : "text-foreground"
+                }`}
+              >
+                {l.label}
+                {l.caret && <span className="ml-1">▾</span>}
+                {l.active && (
+                  <span className="absolute -bottom-2 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-secondary" />
+                )}
               </a>
             ))}
           </nav>
-          <Button variant="destructive" className="font-bold tracking-wider">
+          <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
             DONATE
           </Button>
         </div>
@@ -126,111 +156,163 @@ function Index() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.88), oklch(0.45 0.2 27 / 0.55)), url(${heroFlag})`,
+          backgroundImage: `linear-gradient(110deg, oklch(0.22 0.14 265 / 0.92) 0%, oklch(0.22 0.14 265 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${heroFlag})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto max-w-7xl px-4 py-24 md:py-36">
-          <p className="text-sm font-medium text-primary-foreground/90">— Women strengthening our community</p>
-          <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-tight text-primary-foreground md:text-7xl">
+        <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
+          <p className="text-sm text-primary-foreground/90">— Women strengthening our community</p>
+          <h1 className="mt-5 max-w-3xl text-5xl font-extrabold leading-[1.1] text-primary-foreground md:text-7xl">
             West Orange Republican Women Federated
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-primary-foreground/90">
-            United together to create positive change. Supporting good government and constitutional rights. Actively
-            working for the good of our country.
+          <p className="mt-6 max-w-xl text-primary-foreground/90">
+            United together to create positive change. Supporting good government and constitutional
+            rights. Actively working for the good of our country.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button variant="destructive" size="lg" className="font-bold">
+          <div className="mt-9 flex flex-wrap gap-4">
+            <Button variant="destructive" size="lg" className="rounded-md px-7 font-semibold">
               Become a Member
             </Button>
-            <Button size="lg" className="border border-primary-foreground/40 bg-transparent font-bold text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <button className="rounded-md border-2 border-primary-foreground bg-transparent px-7 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary">
               Donate Us
-            </Button>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Quote band */}
-      <section className="bg-secondary py-14 text-secondary-foreground">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-2xl font-semibold leading-snug md:text-3xl">
-            "United together to create positive change. Supporting good government and constitutional rights."
+      {/* Quote + 3 logos */}
+      <section className="relative overflow-hidden bg-muted py-20">
+        <div
+          className="pointer-events-none absolute right-10 top-10 size-72 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(circle, oklch(0.45 0.2 27) 0%, transparent 70%)",
+          }}
+        />
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-3xl font-bold italic leading-snug text-primary md:text-4xl">
+            "United together to create positive change. Supporting good government and constitutional
+            rights."
           </h2>
-          <p className="mt-4 text-sm tracking-wider opacity-90">— Women strengthening our community —</p>
+          <p className="mt-5 text-sm text-muted-foreground">– Women strengthening our community –</p>
+        </div>
+        <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-12 px-6">
+          <img src={worwfLogo} alt="WORWF" className="h-24 w-auto object-contain" />
+          <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-20 w-auto object-contain" />
+          <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-24 w-auto object-contain" />
         </div>
       </section>
 
       <Marquee />
 
       {/* What motivates us */}
-      <section className="py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-secondary">What Motivates Us</p>
-            <h2 className="mt-3 text-4xl font-bold text-primary md:text-5xl">
-              We love America and our Constitution — and take responsibility for both!
+      <section className="relative overflow-hidden py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col items-center text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <img src={worwfLogo} alt="" className="size-6 object-contain" />
+              What Motivates Us
+            </span>
+            <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-tight text-primary md:text-4xl">
+              We love America and our Constitution - and take responsibility for both!
             </h2>
-            <p className="mt-6 text-muted-foreground">
-              We advance the voice of 'We The People' so Americans are represented at the local level through our
-              communications, connections, and activities as we strategically engage the important issues that support
-              our Constitution, our Schools, and our Community.
+            <p className="mt-6 max-w-3xl text-muted-foreground">
+              We advance the voice of 'We The People' so Americans are represented at the local
+              level through our communications, connections, and activities as we strategically
+              engage the important issues that support our Constitution, our Schools, and our
+              Community.
             </p>
-            <h3 className="mt-8 text-xl font-semibold text-primary">
-              We Empower Women, Strengthen Community, and Uphold Values
-            </h3>
-            <p className="mt-3 text-muted-foreground">
-              The West Orange Republican Women Federated (WORWF) is an organization of passionate women dedicated to
-              strengthening our community and advancing good government at the national, state, and local levels.
-            </p>
-            <Button variant="destructive" className="mt-8 font-bold">
+          </div>
+
+          <div className="mt-14 grid gap-12 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-bold text-primary">
+                We Empower Women, Strengthen Community, and Uphold Values
+              </h3>
+              <p className="mt-4 text-sm text-muted-foreground">
+                The West Orange Republican Women Federated (WORWF) is an organization of passionate
+                women dedicated to strengthening our community and advancing good government at the
+                national, state, and local levels. We are part of the largest grassroots Republican
+                Women's organization, committed to making a tangible difference.
+              </p>
+              <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+                {motivations.map((m) => (
+                  <li key={m} className="flex items-start gap-3 text-sm text-foreground">
+                    <CheckBadge />
+                    <span>{m}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
+              <img
+                src={groupImg}
+                alt="WORWF members at FFRW Convention"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button variant="destructive" size="lg" className="rounded-md px-7 font-semibold">
               Learn More About Us
             </Button>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {motivations.map((m) => (
-              <li
-                key={m.text}
-                className="flex items-start gap-3 rounded-lg border border-border bg-card p-4 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary text-secondary-foreground">
-                  <Check className="size-4" />
-                </span>
-                <span className="text-sm font-medium text-foreground">{m.text}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
-      {/* Events */}
-      <section id="events" className="bg-muted py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-primary md:text-5xl">Event &amp; Luncheon Reservations</h2>
-            <p className="mt-4 text-muted-foreground">WORWF meets monthly at West Orange Country Club</p>
-            <p className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="size-4" /> 3300 West Orange Country Club Drive, Winter Garden, FL 34787
-            </p>
-            <Button variant="destructive" className="mt-6 font-bold">
-              View All Events
-            </Button>
+      {/* Events - curved navy section */}
+      <section className="relative bg-primary py-20 text-primary-foreground">
+        <div
+          aria-hidden
+          className="absolute inset-x-0 -top-px h-12 bg-background"
+          style={{ borderBottomLeftRadius: "50% 100%", borderBottomRightRadius: "50% 100%" }}
+        />
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid items-end gap-8 md:grid-cols-2">
+            <div>
+              <h2 className="text-4xl font-extrabold leading-tight md:text-5xl">
+                Event &amp; Luncheon
+                <br />
+                Reservations
+              </h2>
+            </div>
+            <div className="text-sm">
+              <p>WORWF meets monthly at West Orange Country Club</p>
+              <p className="mt-2 opacity-90">
+                3300 West Orange Country Club Drive, Winter Garden, FL 34787
+              </p>
+              <a href="#" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-secondary">
+                View All Events <ArrowRight className="size-4" />
+              </a>
+            </div>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {events.map((e) => (
-              <article
-                key={e.date}
-                className="overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-elegant)]"
-              >
-                <div className="flex aspect-[16/9] items-center justify-center bg-[var(--gradient-primary)] text-primary-foreground">
-                  <Calendar className="size-20 opacity-40" />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-bold uppercase tracking-wider text-secondary">{e.date}</p>
-                  <h3 className="mt-2 text-2xl font-bold text-primary">{e.title}</h3>
-                  <p className="mt-2 text-sm font-semibold italic text-foreground">{e.venue}</p>
-                  <p className="mt-4 text-sm font-bold uppercase text-muted-foreground">Speaker:</p>
-                  <p className="text-lg font-semibold text-foreground">{e.speaker}</p>
+          <div className="mt-10 h-px bg-primary-foreground/20" />
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {[
+              { img: speakerTorisi, date: "THURSDAY, SEPTEMBER 11, 2025", speaker: "MICHAEL TORISI, Retired NYPD", showSpeaker: true },
+              { img: voteImg, date: "THURSDAY, OCTOBER 9th", speaker: "TOPIC: TBA", showSpeaker: false },
+            ].map((e, i) => (
+              <article key={i} className="flex items-stretch gap-4 rounded-lg bg-card p-4 text-card-foreground shadow-[var(--shadow-elegant)]">
+                <img src={e.img} alt="" className="size-32 shrink-0 rounded object-cover" loading="lazy" />
+                <div className="flex flex-col py-1">
+                  <p className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <Calendar className="size-3.5" /> {e.date}
+                  </p>
+                  <h3 className="mt-2 text-xl font-bold text-primary">General Luncheon Meeting</h3>
+                  <a href="#" className="mt-1 text-sm font-semibold italic text-secondary underline">
+                    WEST ORANGE CC
+                  </a>
+                  {e.showSpeaker ? (
+                    <>
+                      <p className="mt-3 text-xs font-bold uppercase text-muted-foreground">Speaker:</p>
+                      <p className="text-sm font-bold text-foreground">{e.speaker}</p>
+                    </>
+                  ) : (
+                    <p className="mt-3 text-sm font-bold text-foreground">{e.speaker}</p>
+                  )}
                 </div>
               </article>
             ))}
@@ -238,126 +320,226 @@ function Index() {
         </div>
       </section>
 
-      {/* Voter resources band */}
-      <section
-        className="relative py-20 text-primary-foreground"
-        style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.45 0.2 27 / 0.7)), url(${heroFlag})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Find Your Elected Officials, Check Your Voter Status, and Connect with Republican Organizations
+      {/* Voter resources */}
+      <section className="bg-muted py-20">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-3xl font-bold leading-tight text-primary md:text-4xl">
+            Find Your Elected Officials, Check Your Voter Status, and Connect with Republican
+            Organizations
           </h2>
-          <Button variant="destructive" size="lg" className="mt-8 font-bold">
+          <Button variant="destructive" size="lg" className="mt-8 rounded-md px-7 font-semibold">
             Voter Resources
           </Button>
         </div>
       </section>
 
-      {/* Donate */}
-      <section className="py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-secondary">Together, we turn aspirations into reality.</p>
-          <h2 className="mt-3 text-4xl font-bold text-primary md:text-5xl">Support Our Mission, Invest in the Future</h2>
-          <p className="mt-6 text-muted-foreground">
-            Show your support and donate – To invest in the future of our country and to keep electing our leadership.
-            Your donation helps us empower women, strengthen our community, and uphold the values that matter.
-          </p>
-          <Button variant="destructive" size="lg" className="mt-8 font-bold">
-            Donate Us
-          </Button>
+      {/* Donate band */}
+      <section
+        className="relative overflow-hidden py-20 text-primary-foreground"
+        style={{
+          backgroundImage: `linear-gradient(135deg, oklch(0.45 0.2 27 / 0.85), oklch(0.35 0.18 27 / 0.85)), url(${groupImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2">
+          <div>
+            <h2 className="text-4xl font-extrabold leading-tight md:text-5xl">
+              Together, we turn aspirations into reality.
+            </h2>
+            <div className="mt-12 rounded-lg bg-card p-8 text-card-foreground shadow-[var(--shadow-elegant)]">
+              <h3 className="text-xl font-bold text-primary">
+                Support Our Mission, Invest in the Future
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Your donation helps us empower women, strengthen our community, and uphold the
+                values that matter. Together, we can create lasting change and ensure strong
+                leadership for the future.
+              </p>
+              <button className="mt-6 w-full rounded-md bg-primary py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90">
+                Donate Us
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col items-start justify-start">
+            <p className="max-w-sm text-sm">
+              Show your support and donate – To invest in the future of our country and to keep
+              electing our leadership
+            </p>
+            <div className="mt-6 h-px w-64 bg-primary-foreground/40" />
+            <img src={worwfLogo} alt="WORWF" className="mt-12 size-44 object-contain lg:ml-auto" />
+          </div>
         </div>
       </section>
 
-      <Marquee />
-
       {/* Membership form */}
-      <section id="membership" className="bg-muted py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-secondary">Our movement needs you!</p>
-            <h2 className="mt-3 text-4xl font-bold text-primary md:text-5xl">
-              Would you like to become one of our honourable members?
+      <section id="membership" className="relative overflow-hidden py-20">
+        <div className="absolute -left-20 top-20 size-72 rounded-full bg-secondary/15" />
+        <div className="absolute -right-20 bottom-10 size-80 rounded-full bg-secondary/10" />
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <img src={worwfLogo} alt="" className="size-6 object-contain" />
+              Our movement needs you!
+            </span>
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-primary md:text-4xl">
+              Would you like to become one of our honourable member?
             </h2>
-            <p className="mt-6 text-muted-foreground">
-              Join a network of passionate women who are making a real impact in West Orange County and beyond. Fill
-              out the form and we'll be in touch.
-            </p>
           </div>
+
           <form
             onSubmit={(e) => {
               e.preventDefault();
               alert("Thanks! We'll be in touch.");
             }}
-            className="space-y-4 rounded-xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)]"
+            className="relative mt-12 rounded-lg border border-border bg-card p-8 shadow-[var(--shadow-elegant)]"
           >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Input placeholder="First Name" value={form.first} onChange={(e) => setForm({ ...form, first: e.target.value })} required />
-              <Input placeholder="Last Name" value={form.last} onChange={(e) => setForm({ ...form, last: e.target.value })} required />
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label className="text-sm font-medium text-foreground">First Name</label>
+                <Input className="mt-2 bg-muted" placeholder="First Name" value={form.first} onChange={(e) => setForm({ ...form, first: e.target.value })} />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-foreground">Last Name</label>
+                <Input className="mt-2 bg-muted" placeholder="Last Name" value={form.last} onChange={(e) => setForm({ ...form, last: e.target.value })} />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-foreground">Phone Number*</label>
+                <Input type="tel" required className="mt-2 bg-muted" placeholder="Phone Number*" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-foreground">Email Address</label>
+                <Input type="email" className="mt-2 bg-muted" placeholder="Email Address" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+              </div>
             </div>
-            <Input type="tel" placeholder="Phone Number *" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} required />
-            <Input type="email" placeholder="Email Address" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-            <Textarea placeholder="Message" rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
-            <Button type="submit" variant="destructive" className="w-full font-bold">
+            <div className="mt-5">
+              <label className="text-sm font-medium text-foreground">Message</label>
+              <Textarea rows={4} className="mt-2 bg-muted" placeholder="Message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+            </div>
+            <Button type="submit" variant="destructive" className="mt-6 rounded-md px-7 font-semibold">
               Submit Form
             </Button>
           </form>
         </div>
       </section>
 
+      <Marquee />
+
       {/* FAQ */}
-      <section className="py-20">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-center text-sm font-semibold uppercase tracking-wider text-secondary">
-            Frequently Asked Questions
-          </p>
-          <h2 className="mt-3 text-center text-4xl font-bold text-primary md:text-5xl">
-            We're here to answer all your questions
-          </h2>
-          <Accordion type="single" collapsible className="mt-10">
+      <section className="bg-muted py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <img src={worwfLogo} alt="" className="size-6 object-contain" />
+              Frequently Asked Questions (FAQ)
+            </span>
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-primary md:text-4xl">
+              We here to answer all your questions
+            </h2>
+          </div>
+          <Accordion type="single" collapsible defaultValue="item-0" className="mt-10 space-y-3">
             {faqs.map((f, i) => (
-              <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left text-lg font-semibold">
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="rounded-md border border-border bg-card px-5 data-[state=open]:border-secondary"
+              >
+                <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline">
                   {i + 1}. {f.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+                <AccordionContent className="text-sm text-muted-foreground">{f.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+          <p className="mt-8 text-center text-sm text-muted-foreground">
+            Still you have a questions?{" "}
+            <a href="#" className="font-semibold text-secondary underline">
+              Contact with us
+            </a>
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary py-12 text-primary-foreground">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-3">
-          <div>
-            <h3 className="text-xl font-bold">WORWF</h3>
-            <p className="mt-3 text-sm opacity-80">
-              West Orange Republican Women Federated. United together to create positive change.
-            </p>
+      <footer
+        className="relative text-primary-foreground"
+        style={{
+          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${groupImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <div className="flex items-center gap-3">
+                <img src={worwfLogo} alt="WORWF" className="size-14 object-contain" />
+                <span className="text-lg font-semibold">West Orange Republican Women Federated</span>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {["Upcoming Events", "Donate", "Join Us", "Gallery", "Voter Resources", "News to Know", "About Us"].map((l) => (
+                  <a key={l} href="#" className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary">
+                    {l}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="lg:text-right">
+              <div className="flex items-center gap-3 lg:justify-end">
+                <a href="#" className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/40 hover:bg-primary-foreground hover:text-primary">
+                  <Facebook className="size-4" />
+                </a>
+                <a href="#" className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/40 hover:bg-primary-foreground hover:text-primary">
+                  <span className="text-sm font-bold">𝕏</span>
+                </a>
+              </div>
+              <h4 className="mt-8 text-lg font-bold">Contact Info</h4>
+              <p className="mt-4 flex items-start gap-2 text-sm lg:justify-end">
+                <span>3300 West Orange Country Club Drive,<br />Winter Garden, FL 34787</span>
+                <MapPin className="mt-1 size-4 shrink-0" />
+              </p>
+              <p className="mt-3 flex items-center gap-2 text-sm lg:justify-end">
+                info@worwf.org <Mail className="size-4" />
+              </p>
+            </div>
           </div>
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider">Contact</h4>
-            <p className="mt-3 flex items-center gap-2 text-sm opacity-90">
-              <Mail className="size-4" /> info@worwf.org
-            </p>
-            <p className="mt-2 flex items-start gap-2 text-sm opacity-90">
-              <MapPin className="size-4 shrink-0" /> West Orange Country Club, Winter Garden, FL 34787
-            </p>
-          </div>
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider">Affiliations</h4>
-            <p className="mt-3 text-sm opacity-90">Florida Federation of Republican Women (FFRW)</p>
-            <p className="mt-2 text-sm opacity-90">National Federation of Republican Women (NFRW)</p>
+
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-primary-foreground/20 pt-8">
+            <div className="flex items-center gap-3">
+              <span className="text-sm">Sponsors</span>
+              <div className="rounded-md bg-primary-foreground px-4 py-2 text-sm font-extrabold text-secondary">
+                <span className="text-secondary">RBS</span>
+                <span className="ml-1 text-[10px] text-primary">CONSTRUCTION &amp; ROOFING</span>
+              </div>
+            </div>
+            <Button variant="destructive" className="rounded-md px-6 font-semibold">
+              Contact Us
+            </Button>
           </div>
         </div>
-        <div className="mx-auto mt-10 max-w-7xl border-t border-primary-foreground/20 px-4 pt-6 text-center text-xs opacity-70">
-          © {new Date().getFullYear()} West Orange Republican Women Federated. All rights reserved.
+
+        <div className="border-t border-primary-foreground/20">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs">
+            <p className="opacity-80">
+              Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
+            </p>
+            <div className="flex gap-5 opacity-80">
+              <a href="#">Terms &amp; Conditions</a>
+              <a href="#">Cookie Policy</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
         </div>
+
+        <button
+          aria-label="Back to top"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 flex size-10 items-center justify-center rounded-md bg-card text-foreground shadow-lg hover:bg-muted"
+        >
+          <ChevronUp className="size-5" />
+        </button>
       </footer>
+
     </div>
   );
 }
