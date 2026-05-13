@@ -37,7 +37,7 @@ const navLinks: { label: string; to: "/" | "/about-us" | "/membership"; active?:
   { label: "Home", to: "/", active: true },
   { label: "About Us", to: "/about-us" },
   { label: "Membership", to: "/membership" },
-  { label: "Events", to: "/" },
+  { label: "Events", to: "/events" },
   { label: "News to Know", to: "/", caret: true },
   { label: "Gallery", to: "/" },
   { label: "Contact Us", to: "/" },
