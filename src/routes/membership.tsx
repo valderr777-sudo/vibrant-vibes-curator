@@ -519,8 +519,6 @@ function Membership() {
   );
 }
 
-type FormState = Parameters<typeof Membership>[0] extends never ? never : never;
-
 function RowField({
   row,
   form,
