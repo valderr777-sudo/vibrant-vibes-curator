@@ -33,14 +33,14 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const navLinks: { label: string; to: "/" | "/about-us" | "/membership"; active?: boolean; caret?: boolean }[] = [
+const navLinks: { label: string; to: "/" | "/about-us" | "/membership" | "/events" | "/gallery" | "/contact-us"; active?: boolean; caret?: boolean }[] = [
   { label: "Home", to: "/", active: true },
   { label: "About Us", to: "/about-us" },
   { label: "Membership", to: "/membership" },
   { label: "Events", to: "/events" },
   { label: "News to Know", to: "/", caret: true },
-  { label: "Gallery", to: "/" },
-  { label: "Contact Us", to: "/" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "Contact Us", to: "/contact-us" },
 ];
 
 const motivations = [
