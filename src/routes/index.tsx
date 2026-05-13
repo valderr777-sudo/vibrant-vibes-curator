@@ -33,10 +33,10 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const navLinks: { label: string; to: "/" | "/about-us"; active?: boolean; caret?: boolean }[] = [
+const navLinks: { label: string; to: "/" | "/about-us" | "/membership"; active?: boolean; caret?: boolean }[] = [
   { label: "Home", to: "/", active: true },
   { label: "About Us", to: "/about-us" },
-  { label: "Membership", to: "/" },
+  { label: "Membership", to: "/membership" },
   { label: "Events", to: "/" },
   { label: "News to Know", to: "/", caret: true },
   { label: "Gallery", to: "/" },
