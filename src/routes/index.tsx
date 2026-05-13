@@ -540,8 +540,6 @@ function Index() {
         </button>
       </footer>
 
-      {/* unused import suppress */}
-      <span className="hidden">{worwfHeader as unknown as string}</span>
     </div>
   );
 }
