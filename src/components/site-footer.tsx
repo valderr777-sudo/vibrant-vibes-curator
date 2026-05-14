@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import sponsorRbs from "@/assets/worwf/sponsors/rbs.png";
-import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.jpg";
+import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.png";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/" }[] = [
   { label: "Upcoming Events", to: "/events" },
