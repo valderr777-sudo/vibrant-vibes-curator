@@ -390,7 +390,7 @@ function Membership() {
           href="#"
           className="relative flex h-56 items-center justify-center overflow-hidden bg-cover bg-center text-accent-foreground"
           style={{
-            backgroundImage: `linear-gradient(135deg, oklch(0.30 0.15 25 / 0.75), oklch(0.20 0.10 25 / 0.85)), url(${usaFlag})`,
+            backgroundImage: `linear-gradient(135deg, oklch(0.30 0.15 250 / 0.75), oklch(0.20 0.10 250 / 0.85)), url(${usaFlag})`,
           }}
         >
           <div className="text-center">
