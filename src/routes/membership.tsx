@@ -343,7 +343,7 @@ function Membership() {
             </div>
 
             <div className="md:col-span-2 flex justify-center pt-4">
-              <Button type="submit" variant="destructive" className="rounded-md px-12 py-6 text-base font-semibold">
+              <Button type="submit" variant="cta" className="rounded-md px-12 py-6 text-base font-semibold">
                 Register
               </Button>
             </div>
@@ -431,7 +431,7 @@ function Membership() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0 0 0 / 0.85), oklch(0 0 0 / 0.78)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -481,7 +481,7 @@ function Membership() {
                 <span className="ml-1 text-[10px] text-primary">CONSTRUCTION &amp; ROOFING</span>
               </div>
             </div>
-            <Button variant="destructive" className="rounded-md px-6 font-semibold">
+            <Button variant="cta" className="rounded-md px-6 font-semibold">
               Contact Us
             </Button>
           </div>

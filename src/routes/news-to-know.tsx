@@ -231,7 +231,7 @@ function NewsPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link to="/membership">
-              <Button variant="destructive" className="rounded-md px-7 py-6 text-base font-semibold">
+              <Button variant="cta" className="rounded-md px-7 py-6 text-base font-semibold">
                 Become a Member
               </Button>
             </Link>
@@ -412,7 +412,7 @@ function NewsPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0 0 0 / 0.85), oklch(0 0 0 / 0.78)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -463,7 +463,7 @@ function NewsPage() {
               </div>
             </div>
             <Link to="/contact-us">
-              <Button variant="destructive" className="rounded-md px-6 font-semibold">
+              <Button variant="cta" className="rounded-md px-6 font-semibold">
                 Contact Us
               </Button>
             </Link>

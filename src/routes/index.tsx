@@ -234,7 +234,7 @@ function Index() {
             rights. Actively working for the good of our country.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <Button variant="destructive" size="lg" className="rounded-md px-7 font-semibold">
+            <Button variant="cta" size="lg" className="rounded-md px-7 font-semibold">
               Become a Member
             </Button>
             <button className="rounded-md border-2 border-primary-foreground bg-transparent px-7 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary">
@@ -319,7 +319,7 @@ function Index() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button variant="destructive" size="lg" className="rounded-md px-7 font-semibold">
+            <Button variant="cta" size="lg" className="rounded-md px-7 font-semibold">
               Learn More About Us
             </Button>
           </div>
@@ -528,7 +528,7 @@ function Index() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0 0 0 / 0.85), oklch(0 0 0 / 0.78)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -576,7 +576,7 @@ function Index() {
                 <span className="ml-1 text-[10px] text-primary">CONSTRUCTION &amp; ROOFING</span>
               </div>
             </div>
-            <Button variant="destructive" className="rounded-md px-6 font-semibold">
+            <Button variant="cta" className="rounded-md px-6 font-semibold">
               Contact Us
             </Button>
           </div>

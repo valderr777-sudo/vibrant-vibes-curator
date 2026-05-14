@@ -347,7 +347,7 @@ function EventsPage() {
             <img src={elephantImg} alt="GOP" className="mx-auto size-12 object-contain" />
             <h3 className="mt-3 text-2xl font-bold">Orange GOP Calendar</h3>
             <div className="mx-auto mt-4 h-px w-full bg-border" />
-            <Button variant="destructive" className="mt-8 rounded-md px-6 font-semibold">
+            <Button variant="cta" className="mt-8 rounded-md px-6 font-semibold">
               View Orange GOP Calendar
             </Button>
           </div>
@@ -387,7 +387,7 @@ function EventsPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0 0 0 / 0.85), oklch(0 0 0 / 0.78)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -437,7 +437,7 @@ function EventsPage() {
                 <span className="ml-1 text-[10px] text-primary">CONSTRUCTION &amp; ROOFING</span>
               </div>
             </div>
-            <Button variant="destructive" className="rounded-md px-6 font-semibold">
+            <Button variant="cta" className="rounded-md px-6 font-semibold">
               Contact Us
             </Button>
           </div>
