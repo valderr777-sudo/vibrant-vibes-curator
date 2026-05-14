@@ -467,12 +467,27 @@ function MembershipForm({
             </button>
           </div>
 
-          <p className="text-center text-xs text-muted-foreground">
-            Prefer paper?{" "}
-            <a href="#" className="inline-flex items-center gap-1 font-semibold text-secondary underline">
-              <Printer className="size-3.5" /> Printer-friendly form
+          <div className="flex flex-col items-center gap-2 text-center text-xs text-muted-foreground sm:flex-row sm:gap-4">
+            {mode === "renew" && (
+              <a
+                href="http://worwf.square.site/product/membership/worwf/2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-semibold text-secondary underline"
+              >
+                <RefreshCw className="size-3.5" /> Renew online via Square
+              </a>
+            )}
+            <a
+              href={mode === "renew" ? "/forms/worwf-membership-renewal.png" : "/forms/worwf-membership-new.png"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-secondary underline"
+            >
+              <Printer className="size-3.5" /> Printer-friendly {mode === "renew" ? "renewal" : "new member"} form
             </a>
-          </p>
+          </div>
+
         </div>
 
         {/* Stepper */}
