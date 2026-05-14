@@ -16,6 +16,7 @@ import precinctFlag from "@/assets/worwf/precinct-flag.jpg";
 import fireworksBg from "@/assets/worwf/fireworks-bg.jpg";
 import elephantImg from "@/assets/worwf/elephant.jpg";
 import usaFlag from "@/assets/worwf/usa-flag.jpg";
+import voteRegistration from "@/assets/worwf/vote-registration.jpg";
 
 export const Route = createFileRoute("/membership")({
   component: Membership,
