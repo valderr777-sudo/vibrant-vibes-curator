@@ -459,8 +459,7 @@ function Index() {
                   href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-6 flex w-full items-center justify-center gap-2 rounded-md py-3.5 font-semibold text-primary-foreground shadow-md transition-transform hover:-translate-y-0.5"
-                  style={{ background: "var(--gradient-accent)" }}
+                  className="group mt-6 flex w-full items-center justify-center gap-2 rounded-md bg-primary py-3.5 font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground"
                 >
                   Donate Now
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
