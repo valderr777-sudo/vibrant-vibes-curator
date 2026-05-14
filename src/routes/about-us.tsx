@@ -7,8 +7,7 @@ import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 import capitolSteps from "@/assets/worwf/about/capitol-steps.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
-import ffrwLogo from "@/assets/worwf/ffrw.png";
-import nfrwLogo from "@/assets/worwf/nfrw.png";
+import { UnitedQuoteBand } from "@/components/united-quote-band";
 
 import handshake from "@/assets/worwf/about/handshake.png";
 import usa from "@/assets/worwf/about/usa.png";

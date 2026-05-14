@@ -5,6 +5,7 @@ import heroVideo from "@/assets/worwf/hero-bg.mp4";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import membershipBg from "@/assets/worwf/membership-bg.png";
 import { CountUpStat } from "@/components/count-up-stat";
+import { UnitedQuoteBand } from "@/components/united-quote-band";
 
 import ffrwLogo from "@/assets/worwf/ffrw.png";
 import nfrwLogo from "@/assets/worwf/nfrw.png";
