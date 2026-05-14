@@ -344,9 +344,6 @@ function Index() {
             </div>
             <div className="text-sm">
               <p>WORWF meets monthly at West Orange Country Club</p>
-              <p className="mt-2 opacity-90">
-                3300 West Orange Country Club Drive, Winter Garden, FL 34787
-              </p>
               <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-secondary">
                 View All Events <ArrowRight className="size-4" />
               </Link>
@@ -447,7 +444,7 @@ function Index() {
               Our movement needs you!
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              Would you like to become one of our honourable member?
+              Would you like to become one of our valued members?
             </h2>
           </div>
 
@@ -558,10 +555,6 @@ function Index() {
                 </a>
               </div>
               <h4 className="mt-8 text-lg font-bold">Contact Info</h4>
-              <p className="mt-4 flex items-start gap-2 text-sm lg:justify-end">
-                <span>3300 West Orange Country Club Drive,<br />Winter Garden, FL 34787</span>
-                <MapPin className="mt-1 size-4 shrink-0" />
-              </p>
               <p className="mt-3 flex items-center gap-2 text-sm lg:justify-end">
                 info@worwf.org <Mail className="size-4" />
               </p>

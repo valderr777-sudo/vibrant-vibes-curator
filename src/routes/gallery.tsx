@@ -180,10 +180,6 @@ function GalleryPage() {
                 </a>
               </div>
               <h4 className="mt-8 text-lg font-bold">Contact Info</h4>
-              <p className="mt-4 flex items-start gap-2 text-sm lg:justify-end">
-                <span>3300 West Orange Country Club Drive,<br />Winter Garden, FL 34787</span>
-                <MapPin className="mt-1 size-4 shrink-0" />
-              </p>
               <p className="mt-3 flex items-center gap-2 text-sm lg:justify-end">
                 info@worwf.org <Mail className="size-4" />
               </p>

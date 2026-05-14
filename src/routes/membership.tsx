@@ -234,7 +234,7 @@ function Membership() {
             </p>
             <p className="italic text-muted-foreground">
               (It's a shortened renewal form to make your online renewal process quick &amp; easy.
-              If you have a new email address/mailing address, please provide updated info in the
+              If you have a new email address, please provide updated info in the
               'comments' section upon checkout.)
             </p>
             <p>
@@ -318,10 +318,7 @@ function Membership() {
             {[
               { left: { label: "*First Name", key: "firstName" as const, type: "text" }, right: { label: "*Member Referral Name", key: "referral" as const, type: "text" } },
               { left: { label: "*Last Name", key: "lastName" as const, type: "text" }, right: { label: "*Username", key: "username" as const, type: "text" } },
-              { left: { label: "*Street Address", key: "street" as const, type: "textarea" }, right: { label: "*Password", key: "password" as const, type: "password" } },
-              { left: { label: "*City", key: "city" as const, type: "text" }, right: { label: "*Confirm Password", key: "confirmPassword" as const, type: "password" } },
-              { left: { label: "*State", key: "state" as const, type: "text" }, right: null },
-              { left: { label: "*Zip", key: "zip" as const, type: "text" }, right: { label: "*Country", key: "country" as const, type: "text" } },
+              { left: { label: "*Password", key: "password" as const, type: "password" }, right: { label: "*Confirm Password", key: "confirmPassword" as const, type: "password" } },
               { left: { label: "*Email", key: "email" as const, type: "email" }, right: null },
               { left: { label: "*Confirm Email", key: "confirmEmail" as const, type: "email" }, right: null },
               { left: { label: "*Birthday (mo/day)", key: "birthday" as const, type: "text" }, right: null },
@@ -463,10 +460,6 @@ function Membership() {
                 </a>
               </div>
               <h4 className="mt-8 text-lg font-bold">Contact Info</h4>
-              <p className="mt-4 flex items-start gap-2 text-sm lg:justify-end">
-                <span>3300 West Orange Country Club Drive,<br />Winter Garden, FL 34787</span>
-                <MapPin className="mt-1 size-4 shrink-0" />
-              </p>
               <p className="mt-3 flex items-center gap-2 text-sm lg:justify-end">
                 info@worwf.org <Mail className="size-4" />
               </p>
