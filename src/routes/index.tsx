@@ -7,8 +7,6 @@ import membershipBg from "@/assets/worwf/membership-bg.png";
 import { CountUpStat } from "@/components/count-up-stat";
 import { UnitedQuoteBand } from "@/components/united-quote-band";
 
-import ffrwLogo from "@/assets/worwf/ffrw.png";
-import nfrwLogo from "@/assets/worwf/nfrw.png";
 import sliderCapitol from "@/assets/worwf/slider/capitol.jpg";
 import sliderLegislative from "@/assets/worwf/slider/legislative.jpg";
 import sliderExec from "@/assets/worwf/slider/exec.jpg";
