@@ -277,7 +277,7 @@ function AboutUs() {
               >
                 <div className="flex h-full flex-col items-center justify-end p-8 text-center text-white">
                   <span className="mb-6 flex size-28 items-center justify-center rounded-full border-2 border-white/80">
-                    <img src={c.icon} alt="" className="size-20 object-contain" />
+                    <img src={c.icon} alt="" className="size-20 object-contain brightness-0 invert" />
                   </span>
                   <h3 className="text-xl font-bold leading-snug text-white">{c.title}</h3>
                   <p className="mt-3 text-sm text-white/90">{c.text}</p>
