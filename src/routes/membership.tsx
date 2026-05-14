@@ -142,7 +142,7 @@ function Membership() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.22 0.14 265 / 0.65), oklch(0.22 0.14 265 / 0.85)), url(${memberHero})`,
+          backgroundImage: `linear-gradient(180deg, oklch(0.20 0.08 25 / 0.65), oklch(0.20 0.08 25 / 0.85)), url(${memberHero})`,
           backgroundSize: "cover",
           backgroundPosition: "center top",
         }}
@@ -357,7 +357,7 @@ function Membership() {
           href="#"
           className="relative flex h-56 items-center justify-center overflow-hidden text-primary-foreground"
           style={{
-            backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.7), oklch(0.45 0.2 27 / 0.6)), url(${precinctFlag})`,
+            backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.7), oklch(0.45 0.2 27 / 0.6)), url(${precinctFlag})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -373,7 +373,7 @@ function Membership() {
           href="#"
           className="relative flex h-56 items-center justify-center overflow-hidden text-primary-foreground"
           style={{
-            backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.55), oklch(0.45 0.2 27 / 0.7)), url(${voterId})`,
+            backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.55), oklch(0.45 0.2 27 / 0.7)), url(${voterId})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -391,7 +391,7 @@ function Membership() {
       <section
         className="relative py-24 text-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.45 0.2 27 / 0.75), oklch(0.22 0.14 265 / 0.75)), url(${fireworksBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.45 0.2 27 / 0.75), oklch(0.20 0.08 25 / 0.75)), url(${fireworksBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -431,7 +431,7 @@ function Membership() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

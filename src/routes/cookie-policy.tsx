@@ -95,7 +95,7 @@ function CookiePolicyPage() {
 
       <section
         className="relative isolate overflow-hidden"
-        style={{ backgroundColor: "oklch(0.22 0.14 265)" }}
+        style={{ backgroundColor: "oklch(0.20 0.08 25)" }}
       >
         <div className="mx-auto max-w-7xl px-6 py-20 text-primary-foreground md:py-24">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
@@ -210,7 +210,7 @@ function SiteFooter() {
     <footer
       className="relative text-primary-foreground"
       style={{
-        backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${groupImg})`,
+        backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${groupImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

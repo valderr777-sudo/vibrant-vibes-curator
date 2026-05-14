@@ -122,7 +122,7 @@ function ContactPage() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.18 0.05 260 / 0.55), oklch(0.18 0.05 260 / 0.55)), url(${heroImg})`,
+          backgroundImage: `linear-gradient(180deg, oklch(0.12 0.02 25 / 0.55), oklch(0.12 0.02 25 / 0.55)), url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -156,7 +156,7 @@ function ContactPage() {
               className="relative overflow-hidden rounded-md p-8 shadow-2xl md:p-12"
               style={{
                 background:
-                  "linear-gradient(135deg, oklch(0.45 0.18 260), oklch(0.38 0.18 260))",
+                  "linear-gradient(135deg, oklch(0.50 0.22 25), oklch(0.45 0.22 25))",
               }}
             >
               <div className="grid gap-10 md:grid-cols-[1fr_1.6fr]">
@@ -284,7 +284,7 @@ function ContactPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

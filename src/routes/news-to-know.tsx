@@ -217,7 +217,7 @@ function NewsPage() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.18 0.05 260 / 0.55), oklch(0.18 0.05 260 / 0.55)), url(${heroImg})`,
+          backgroundImage: `linear-gradient(180deg, oklch(0.12 0.02 25 / 0.55), oklch(0.12 0.02 25 / 0.55)), url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -279,7 +279,7 @@ function NewsPage() {
       <section
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.32 0.18 260 / 0.85), oklch(0.32 0.18 260 / 0.7)), url(${termLimitsBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.38 0.20 25 / 0.85), oklch(0.38 0.20 25 / 0.7)), url(${termLimitsBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -342,7 +342,7 @@ function NewsPage() {
       <section
         className="relative py-20"
         style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.2 0.04 260 / 0.6), oklch(0.2 0.04 260 / 0.6)), url(${activateBg})`,
+          backgroundImage: `linear-gradient(180deg, oklch(0.14 0.02 25 / 0.6), oklch(0.14 0.02 25 / 0.6)), url(${activateBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -352,7 +352,7 @@ function NewsPage() {
             className="rounded-md p-8 md:p-14"
             style={{
               background:
-                "linear-gradient(135deg, oklch(0.32 0.16 260 / 0.92), oklch(0.28 0.16 260 / 0.92))",
+                "linear-gradient(135deg, oklch(0.35 0.20 25 / 0.92), oklch(0.30 0.18 25 / 0.92))",
             }}
           >
             <div className="text-center text-primary-foreground">
@@ -412,7 +412,7 @@ function NewsPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
