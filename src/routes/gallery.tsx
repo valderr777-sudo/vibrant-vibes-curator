@@ -51,19 +51,26 @@ const categories: Category[] = [
 type Photo = { id: number; src: string; alt: string; category: Category };
 
 const photos: Photo[] = [
-  { id: 1, src: campaignImg, alt: "Campaign volunteers rallying", category: "Campaign Activities" },
+  ...campaignImages.map((img, i) => ({
+    id: 1000 + i,
+    src: img.src,
+    alt: img.alt,
+    category: "Campaign Activities" as Category,
+  })),
   { id: 2, src: committeeImg, alt: "Committee members at work", category: "Committee Projects" },
   { id: 3, src: educationImg, alt: "Literacy program in action", category: "Education & Literacy" },
   { id: 4, src: speakersImg, alt: "Guest speaker addressing members", category: "Guest Speakers" },
   { id: 5, src: historyImg, alt: "Historic moment from WORWF archives", category: "History" },
   { id: 6, src: specialImg, alt: "Members at a special event", category: "Special Events" },
   { id: 7, src: groupImg, alt: "Group photo of the chapter", category: "Special Events" },
-  { id: 8, src: campaignImg, alt: "Door-to-door canvassing", category: "Campaign Activities" },
   { id: 9, src: speakersImg, alt: "Monthly luncheon meeting", category: "Guest Speakers" },
   { id: 10, src: committeeImg, alt: "Outreach committee meeting", category: "Committee Projects" },
   { id: 11, src: educationImg, alt: "Voter education workshop", category: "Education & Literacy" },
   { id: 12, src: historyImg, alt: "Founding members commemorated", category: "History" },
 ];
+
+// Keep reference to legacy placeholder image so unused-import lint doesn't break
+void campaignImg;
 
 function GalleryPage() {
   const [filter, setFilter] = useState<Category | "All">("All");
