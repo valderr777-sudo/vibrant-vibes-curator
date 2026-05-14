@@ -386,7 +386,7 @@ function AboutUs() {
       {/* NFRW Diamond Achievement Award */}
       <section className="relative overflow-hidden bg-muted py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
-          <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+          <figure className="mx-auto w-full max-w-xs overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
             <img src={nfrwAward} alt="NFRW Diamond Achievement Award" className="h-full w-full object-cover" />
           </figure>
           <div>
