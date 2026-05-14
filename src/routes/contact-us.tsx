@@ -233,12 +233,6 @@ function ContactPage() {
               </AccordionItem>
             ))}
           </Accordion>
-          <p className="mt-8 text-center text-sm text-muted-foreground">
-            Still you have a questions?{" "}
-            <Link to="/contact-us" className="font-semibold text-secondary hover:underline">
-              Contact with us
-            </Link>
-          </p>
         </div>
       </section>
 
