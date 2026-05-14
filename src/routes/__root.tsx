@@ -113,13 +113,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const { pathname } = useLocation();
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col bg-background text-foreground">
         <SiteHeader />
-        <main key={pathname} className="flex-1 animate-page-in">
+        <main className="flex-1">
           <Outlet />
         </main>
         <SiteFooter />
