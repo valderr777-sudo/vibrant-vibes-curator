@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Facebook, ChevronUp, Plus, X, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Mail, MapPin, Facebook, ChevronUp } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
@@ -36,38 +37,16 @@ const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resou
 ];
 
 const faqs = [
-  {
-    q: "1. What is WORWF?",
-    a: "WORWF stands for West Orange Republican Women Federated. We are a group of passionate women dedicated to advancing the cause of good government in our community, state, and nation.",
-  },
-  {
-    q: "2. Who can join West Orange Republican Women Federated?",
-    a: "Membership is open to women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community.",
-  },
-  {
-    q: "3. How can I become a member?",
-    a: "To join, please visit our Contact Us page and send us an email expressing your interest. We'll provide you with all the necessary information to get started.",
-  },
-  {
-    q: "4. What activities does WORWF engage in?",
-    a: "Our organization participates in various activities, including hosting monthly luncheons, organizing community events, supporting local candidates, and promoting civic engagement through education and advocacy.",
-  },
-  {
-    q: "5. How can I stay informed about upcoming events?",
-    a: "We regularly update our members and the public about upcoming events through our website and social media channels. Be sure to check our homepage for the latest news and event announcements.",
-  },
-  {
-    q: "6. Can I attend a meeting before deciding to join?",
-    a: "Absolutely! We encourage prospective members to attend one of our meetings or events to learn more about our organization and meet our members.",
-  },
-  {
-    q: "7. How can I contact WORWF for more information?",
-    a: "For any inquiries or additional information, please reach out to us via our Contact Us page. We're happy to answer any questions you may have.",
-  },
+  { q: "What is WORWF?", a: "WORWF stands for West Orange Republican Women Federated. We are a group of passionate women dedicated to advancing the cause of good government in our community, state, and nation." },
+  { q: "Who can join West Orange Republican Women Federated?", a: "Membership is open to women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community." },
+  { q: "How can I become a member?", a: "To join, please visit our Contact Us page and send us an email expressing your interest. We'll provide you with all the necessary information to get started." },
+  { q: "What activities does WORWF engage in?", a: "Our organization participates in various activities, including hosting monthly luncheons, organizing community events, supporting local candidates, and promoting civic engagement through education and advocacy." },
+  { q: "How can I stay informed about upcoming events?", a: "We regularly update our members and the public about upcoming events through our website and social media channels. Be sure to check our homepage for the latest news and event announcements." },
+  { q: "Can I attend a meeting before deciding to join?", a: "Absolutely! We encourage prospective members to attend one of our meetings or events to learn more about our organization and meet our members." },
+  { q: "How can I contact WORWF for more information?", a: "For any inquiries or additional information, please reach out to us via our Contact Us page. We're happy to answer any questions you may have." },
 ];
 
 function ContactPage() {
-  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -229,55 +208,32 @@ function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-muted/40 py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center gap-3">
-              <img src={worwfLogo} alt="WORWF" className="size-8 object-contain" />
-              <span className="text-sm font-medium text-foreground">Frequently Asked Questions (FAQ)</span>
-            </div>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">
+      <section className="bg-muted py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <img src={worwfLogo} alt="" className="size-6 object-contain" />
+              Frequently Asked Questions (FAQ)
+            </span>
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
               We here to answer all your questions
             </h2>
           </div>
-
-          <div className="relative mt-12">
-            <HelpCircle className="pointer-events-none absolute -left-10 top-0 size-28 text-muted-foreground/20" strokeWidth={1} />
-            <div className="space-y-4">
-              {faqs.map((f, i) => {
-                const isOpen = open === i;
-                return (
-                  <div
-                    key={f.q}
-                    className={`overflow-hidden rounded-md border bg-card transition-shadow ${
-                      isOpen ? "border-secondary shadow-md" : "border-border"
-                    }`}
-                  >
-                    <button
-                      onClick={() => setOpen(isOpen ? null : i)}
-                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-                    >
-                      <span className="text-base font-bold md:text-lg">{f.q}</span>
-                      <span
-                        className={`flex size-9 shrink-0 items-center justify-center rounded ${
-                          isOpen ? "bg-secondary text-secondary-foreground" : "bg-muted text-foreground"
-                        }`}
-                      >
-                        {isOpen ? <X className="size-4" /> : <Plus className="size-4" />}
-                      </span>
-                    </button>
-                    {isOpen && (
-                      <div className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground">
-                        {f.a}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <p className="mt-12 text-center text-sm text-muted-foreground">
+          <Accordion type="single" collapsible defaultValue="item-0" className="mt-10 space-y-3">
+            {faqs.map((f, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="rounded-md border border-border bg-card px-5 data-[state=open]:border-secondary"
+              >
+                <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline">
+                  {i + 1}. {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <p className="mt-8 text-center text-sm text-muted-foreground">
             Still you have a questions?{" "}
             <Link to="/contact-us" className="font-semibold text-secondary hover:underline">
               Contact with us
