@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Facebook, ChevronUp, Plus, X, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Mail, MapPin, Facebook, ChevronUp } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
