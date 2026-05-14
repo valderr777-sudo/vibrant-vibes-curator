@@ -200,7 +200,7 @@ function Index() {
               </Link>
             ))}
           </nav>
-          <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
+          <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
             DONATE
           </Button>
         </div>
@@ -391,7 +391,7 @@ function Index() {
             Find Your Elected Officials, Check Your Voter Status, and Connect with Republican
             Organizations
           </h2>
-          <Button variant="destructive" size="lg" className="mt-8 rounded-md px-7 font-semibold">
+          <Button variant="cta" size="lg" className="mt-8 rounded-md px-7 font-semibold">
             Voter Resources
           </Button>
         </div>
@@ -480,7 +480,7 @@ function Index() {
               <label className="text-sm font-medium text-foreground">Message</label>
               <Textarea rows={4} className="mt-2 bg-muted" placeholder="Message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
             </div>
-            <Button type="submit" variant="destructive" className="mt-6 rounded-md px-7 font-semibold">
+            <Button type="submit" variant="cta" className="mt-6 rounded-md px-7 font-semibold">
               Submit Form
             </Button>
           </form>
