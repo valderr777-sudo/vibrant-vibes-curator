@@ -501,7 +501,7 @@ function AboutUs() {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-2 bg-secondary" />
+                  <div className="absolute inset-x-0 bottom-0 h-2 bg-accent" />
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-foreground">{m.name}</h3>
                 <p className="text-sm text-muted-foreground">{m.role}</p>
