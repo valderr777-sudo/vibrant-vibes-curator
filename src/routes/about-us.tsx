@@ -438,7 +438,7 @@ function AboutUs() {
               <h3 className="mt-8 text-2xl font-bold">{president.name}</h3>
               <p className="mt-1 text-sm">
                 Email:{" "}
-                <a href={`mailto:${president.email}`} className="font-semibold text-secondary">
+                <a href={`mailto:${president.email}`} className="font-semibold text-primary-foreground/90 hover:text-primary-foreground">
                   {president.email}
                 </a>
               </p>
@@ -467,7 +467,7 @@ function AboutUs() {
                       onClick={() => setPresidentIdx(i)}
                       aria-label={`Slide ${i + 1}`}
                       className={`size-2.5 rounded-full transition-colors ${
-                        i === presidentIdx ? "bg-secondary" : "bg-primary-foreground/30"
+                        i === presidentIdx ? "bg-accent" : "bg-primary-foreground/30"
                       }`}
                     />
                   ))}
