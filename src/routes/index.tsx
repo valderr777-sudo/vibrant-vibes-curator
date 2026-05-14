@@ -444,7 +444,7 @@ function Index() {
               Our movement needs you!
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              Would you like to become one of our honourable member?
+              Would you like to become one of our valued members?
             </h2>
           </div>
 
