@@ -105,11 +105,11 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-primary-foreground/20">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs">
-          <p className="opacity-80">
+        <div className="mx-auto flex max-w-7xl flex-col-reverse flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs lg:flex-row">
+          <p className="text-center opacity-80 lg:text-left">
             Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
           </p>
-          <div className="flex gap-5 opacity-80">
+          <div className="flex flex-wrap justify-center gap-5 opacity-80">
             <Link to="/terms-and-conditions" className="hover:underline">Terms &amp; Conditions</Link>
             <Link to="/cookie-policy" className="hover:underline">Cookie Policy</Link>
             <Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link>
