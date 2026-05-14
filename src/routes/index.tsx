@@ -145,7 +145,7 @@ function ImageSlider() {
 
 function CheckBadge() {
   return (
-    <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-secondary text-primary-foreground">
+    <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="size-3">
         <polyline points="20 6 9 17 4 12" />
       </svg>
