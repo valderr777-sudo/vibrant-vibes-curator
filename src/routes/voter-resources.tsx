@@ -230,7 +230,7 @@ function NewsPage() {
       >
         <div className="mx-auto max-w-7xl px-6 py-24 text-primary-foreground md:py-32">
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
-            News to Know, Education, and Ways to Activate
+            Voter Resources, Education, and Ways to Activate
           </h1>
           <p className="mt-6 max-w-2xl text-base md:text-lg">
             Join the community: stay informed with top news, educational updates, and voter resources.
