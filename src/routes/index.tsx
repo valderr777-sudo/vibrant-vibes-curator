@@ -1,11 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
 import heroVideo from "@/assets/worwf/hero-bg.mp4";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 import ffrwLogo from "@/assets/worwf/ffrw.png";
 import nfrwLogo from "@/assets/worwf/nfrw.png";
+import sliderCapitol from "@/assets/worwf/slider/capitol.jpg";
+import sliderLegislative from "@/assets/worwf/slider/legislative.jpg";
+import sliderExec from "@/assets/worwf/slider/exec.jpg";
+import sliderBarbara from "@/assets/worwf/slider/barbara.jpg";
+import sliderAwards from "@/assets/worwf/slider/awards.jpg";
+import sliderConvention from "@/assets/worwf/slider/convention.jpg";
 import speakerTorisi from "@/assets/worwf/speaker-torisi.png";
 import voteImg from "@/assets/worwf/vote.png";
 import groupImg from "@/assets/worwf/group.jpg";
