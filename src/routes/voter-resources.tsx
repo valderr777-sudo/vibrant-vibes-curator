@@ -1,18 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Facebook, ChevronUp, ArrowUpRight, Globe2, Landmark, Users, BadgeCheck } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import heroImg from "@/assets/worwf/news/hero.jpg";
-import goldAward from "@/assets/worwf/news/gold-award.jpg";
-import foodDrive from "@/assets/worwf/news/food-drive.jpg";
-import roundup from "@/assets/worwf/news/roundup.jpg";
-import schoolImg from "@/assets/worwf/news/school.jpg";
-import kirbyImg from "@/assets/worwf/news/kirby.jpg";
-import activateBg from "@/assets/worwf/news/activate-bg.jpg";
-import termLimitsBg from "@/assets/worwf/news/term-limits-bg.jpg";
 
 export const Route = createFileRoute("/voter-resources")({
   component: NewsPage,
