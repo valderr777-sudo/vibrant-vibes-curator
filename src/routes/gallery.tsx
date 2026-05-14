@@ -148,7 +148,7 @@ function GalleryPage() {
         <div
           className="absolute inset-0 -z-10"
           style={{
-            backgroundImage: `linear-gradient(110deg, oklch(0.25 0.12 250 / 0.55) 0%, oklch(0.32 0.16 320 / 0.40) 50%, oklch(0.40 0.20 25 / 0.50) 100%)`,
+            backgroundImage: `linear-gradient(110deg, oklch(0.18 0.10 250 / 0.85) 0%, oklch(0.22 0.14 320 / 0.75) 50%, oklch(0.30 0.18 25 / 0.80) 100%), linear-gradient(oklch(0 0 0 / 0.35), oklch(0 0 0 / 0.35))`,
           }}
           aria-hidden="true"
         />
