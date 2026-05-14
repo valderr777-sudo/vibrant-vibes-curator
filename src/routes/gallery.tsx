@@ -87,11 +87,6 @@ const photos: Photo[] = [
 void committeeImg;
 void educationImg;
 void speakersImg;
-
-void committeeImg;
-void educationImg;
-
-// Keep reference to legacy placeholder image so unused-import lint doesn't break
 void campaignImg;
 
 function GalleryPage() {
