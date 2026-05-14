@@ -234,11 +234,11 @@ function Index() {
             rights. Actively working for the good of our country.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <Button variant="cta" size="lg" className="rounded-md px-7 font-semibold">
-              Become a Member
+            <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+              BECOME A MEMBER
             </Button>
-            <button className="rounded-md border-2 border-primary-foreground bg-transparent px-7 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary">
-              Donate Us
+            <button className="inline-flex h-9 items-center justify-center rounded-md border-2 border-primary-foreground bg-transparent px-6 text-sm font-bold tracking-wider text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary">
+              DONATE US
             </button>
           </div>
         </div>
