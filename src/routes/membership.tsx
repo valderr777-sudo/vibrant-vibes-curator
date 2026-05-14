@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Facebook, ChevronUp } from "lucide-react";
+import { Mail, MapPin, Facebook, ChevronUp, Vote, Users, Check, X } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
@@ -126,33 +126,107 @@ function Membership() {
       </section>
 
       {/* Active / Associate Members */}
-      <section className="py-20">
-        <div className="mx-auto grid max-w-7xl items-stretch gap-12 px-6 lg:grid-cols-2">
-          <div
-            className="min-h-[420px] rounded-lg bg-cover bg-center bg-fixed shadow-[var(--shadow-elegant)]"
-            style={{ backgroundImage: `url(${membersParallax})` }}
-            role="img"
-            aria-label="WORWF members at a community event"
-          />
-          <div className="space-y-10 text-center">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">ACTIVE MEMBERS:</h2>
-              <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                To be an Active Member, you must be in good standing. Active members may vote,
-                participate in debates, hold office, and serve as a delegate to National, State
-                Conventions or Conferences. Active membership includes membership in the National
-                Federation of Republican Women and in the Florida Federation of Republican Women.
+      <section className="relative overflow-hidden bg-muted/40 py-24">
+        {/* Parallax hero strip */}
+        <div
+          className="absolute inset-x-0 top-0 h-72 bg-cover bg-center bg-fixed opacity-30"
+          style={{ backgroundImage: `url(${membersParallax})` }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-transparent via-muted/40 to-muted/40"
+          aria-hidden="true"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Membership Tiers
+            </span>
+            <h2 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">
+              Two Ways to Join Our Community
+            </h2>
+            <div className="mx-auto mt-4 h-1 w-16 bg-secondary" />
+          </div>
+
+          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+            {/* ACTIVE */}
+            <article className="group relative flex flex-col overflow-hidden rounded-2xl border-t-4 border-primary bg-card p-8 shadow-[var(--shadow-elegant)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="absolute right-6 top-6 text-6xl font-black text-primary/10">01</div>
+              <div className="flex items-center gap-4">
+                <div className="flex size-14 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                  <Vote className="size-7" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Tier 01
+                  </p>
+                  <h3 className="text-2xl font-bold text-foreground">Active Members</h3>
+                </div>
+              </div>
+
+              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+                To be an Active Member, you must be in good standing. Active membership includes
+                membership in the National Federation of Republican Women and in the Florida
+                Federation of Republican Women.
               </p>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">ASSOCIATE MEMBERS:</h2>
-              <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                To be an Associate Member, you must be in good standing – that includes your
-                membership in another Federated club. Associate members may not vote, hold office,
-                serve as a delegate or alternate for WORWF to National, State Conferences or
-                Conventions. Men are welcome to join as Associate Members.
+
+              <ul className="mt-6 space-y-3 text-sm">
+                {[
+                  "Voting privileges in club decisions",
+                  "Participate in debates & hold office",
+                  "Serve as delegate at National & State Conventions",
+                  "Includes NFRW + FFRW membership",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                    <span className="text-foreground/80">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            {/* ASSOCIATE */}
+            <article className="group relative flex flex-col overflow-hidden rounded-2xl border-t-4 border-secondary bg-card p-8 shadow-[var(--shadow-elegant)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="absolute right-6 top-6 text-6xl font-black text-secondary/10">02</div>
+              <div className="flex items-center gap-4">
+                <div className="flex size-14 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
+                  <Users className="size-7" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Tier 02
+                  </p>
+                  <h3 className="text-2xl font-bold text-foreground">Associate Members</h3>
+                </div>
+              </div>
+
+              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+                To be an Associate Member, you must be in good standing — that includes your
+                membership in another Federated club. Men are warmly welcomed to join as
+                Associate Members.
               </p>
-            </div>
+
+              <ul className="mt-6 space-y-3 text-sm">
+                {[
+                  { ok: true, text: "Open to members of other Federated clubs" },
+                  { ok: true, text: "Men are welcome as Associate Members" },
+                  { ok: false, text: "No voting rights or office holding" },
+                  { ok: false, text: "Cannot serve as WORWF delegate" },
+                ].map((item) => (
+                  <li key={item.text} className="flex items-start gap-3">
+                    {item.ok ? (
+                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                    ) : (
+                      <X className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+                    )}
+                    <span className={item.ok ? "text-foreground/80" : "text-muted-foreground line-through"}>
+                      {item.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           </div>
         </div>
       </section>
