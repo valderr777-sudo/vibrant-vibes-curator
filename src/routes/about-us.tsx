@@ -467,7 +467,7 @@ function AboutUs() {
                       onClick={() => setPresidentIdx(i)}
                       aria-label={`Slide ${i + 1}`}
                       className={`size-2.5 rounded-full transition-colors ${
-                        i === presidentIdx ? "bg-secondary" : "bg-primary-foreground/30"
+                        i === presidentIdx ? "bg-accent" : "bg-primary-foreground/30"
                       }`}
                     />
                   ))}
