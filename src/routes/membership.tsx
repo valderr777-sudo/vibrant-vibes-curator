@@ -16,6 +16,7 @@ import precinctFlag from "@/assets/worwf/precinct-flag.jpg";
 import fireworksBg from "@/assets/worwf/fireworks-bg.jpg";
 import elephantImg from "@/assets/worwf/elephant.jpg";
 import usaFlag from "@/assets/worwf/usa-flag.jpg";
+import voteRegistration from "@/assets/worwf/vote-registration.jpg";
 
 export const Route = createFileRoute("/membership")({
   component: Membership,
@@ -401,10 +402,13 @@ function Membership() {
         </a>
         <a
           href="#"
-          className="relative flex h-56 items-center justify-center overflow-hidden bg-accent text-accent-foreground"
+          className="relative flex h-56 items-center justify-center overflow-hidden bg-cover bg-center text-accent-foreground"
+          style={{
+            backgroundImage: `linear-gradient(135deg, oklch(0.30 0.15 25 / 0.75), oklch(0.20 0.10 25 / 0.85)), url(${voteRegistration})`,
+          }}
         >
           <div className="text-center">
-            <h3 className="text-2xl font-bold md:text-3xl">Check voter ID Status</h3>
+            <h3 className="text-2xl font-bold text-primary-foreground md:text-3xl">Check voter ID Status</h3>
             <span className="mt-4 inline-block rounded-md bg-card px-6 py-2 text-sm font-semibold text-foreground">
               Click Here
             </span>
