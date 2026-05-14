@@ -4,7 +4,7 @@ import { Mail, Facebook, ChevronUp, ArrowUpRight, Globe2, Landmark, Users, Badge
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
-import heroImg from "@/assets/worwf/news/hero.jpg";
+import heroImg from "@/assets/worwf/voter-resources-hero.jpg";
 
 export const Route = createFileRoute("/voter-resources")({
   component: NewsPage,
@@ -169,7 +169,7 @@ function NewsPage() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.12 0.02 25 / 0.55), oklch(0.12 0.02 25 / 0.55)), url(${heroImg})`,
+          backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
