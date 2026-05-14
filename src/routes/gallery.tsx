@@ -92,7 +92,7 @@ function GalleryPage() {
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-[oklch(0.18_0.08_25/0.55)] via-[oklch(0.18_0.08_25/0.30)] to-[oklch(0.15_0.05_250/0.85)]"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/85 via-black/60 to-red-700/80"
           aria-hidden="true"
         />
 
