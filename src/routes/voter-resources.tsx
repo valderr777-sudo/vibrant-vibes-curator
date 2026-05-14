@@ -238,10 +238,10 @@ function NewsPage() {
                             href={l.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group/link flex items-center justify-between gap-4 py-3 text-sm font-medium text-foreground transition-colors hover:text-secondary"
+                            className="group/link flex items-center justify-between gap-4 py-3 text-sm font-medium text-foreground transition-colors hover:text-accent"
                           >
                             <span className="flex-1 leading-snug">{l.label}</span>
-                            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 group-hover/link:bg-secondary group-hover/link:text-secondary-foreground group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5">
+                            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 group-hover/link:bg-accent group-hover/link:text-accent-foreground group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5">
                               <ArrowUpRight className="size-4" />
                             </span>
                           </a>
