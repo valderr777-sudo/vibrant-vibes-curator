@@ -45,7 +45,7 @@ const voterResources: {
     heading: "National / State / Local",
     description: "Official party, government, and policy resources from the national level down to Orange County.",
     icon: Globe2,
-    accent: "from-primary/15 to-primary/0 text-primary",
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "RNC", href: "https://gop.com/" },
       { label: "US House of Representatives", href: "https://www.house.gov/" },
@@ -62,7 +62,7 @@ const voterResources: {
     heading: "Florida Representatives",
     description: "Find and contact your elected officials at the state level — governor, senators, and representatives.",
     icon: Landmark,
-    accent: "from-secondary/15 to-secondary/0 text-secondary",
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "Florida Governor – Ron DeSantis", href: "https://flgov.com/contact-governor/" },
       { label: "Find your Legislator", href: "https://www.flsenate.gov/senators/find" },
@@ -89,7 +89,7 @@ const voterResources: {
     heading: "Voter ID & Status",
     description: "Verify your registration, find your polling place, and make sure your vote is ready to count.",
     icon: BadgeCheck,
-    accent: "from-primary/15 to-primary/0 text-primary",
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "Check your Voter ID Status", href: "https://registration.elections.myflorida.com/CheckVoterStatus" },
       { label: "Voter Precinct Lookup", href: "https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/" },
