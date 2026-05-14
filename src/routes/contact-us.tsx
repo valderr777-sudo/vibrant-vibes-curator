@@ -31,7 +31,7 @@ const navLinks = [
   { label: "About Us", to: "/about-us" as const },
   { label: "Membership", to: "/membership" as const },
   { label: "Events", to: "/events" as const },
-  { label: "News to Know", to: "/" as const, caret: true },
+  { label: "News to Know", to: "/news-to-know" as const, caret: true },
   { label: "Gallery", to: "/gallery" as const },
   { label: "Contact Us", to: "/contact-us" as const, active: true },
 ];
