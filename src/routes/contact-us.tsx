@@ -37,34 +37,13 @@ const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resou
 ];
 
 const faqs = [
-  {
-    q: "1. What is WORWF?",
-    a: "WORWF stands for West Orange Republican Women Federated. We are a group of passionate women dedicated to advancing the cause of good government in our community, state, and nation.",
-  },
-  {
-    q: "2. Who can join West Orange Republican Women Federated?",
-    a: "Membership is open to women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community.",
-  },
-  {
-    q: "3. How can I become a member?",
-    a: "To join, please visit our Contact Us page and send us an email expressing your interest. We'll provide you with all the necessary information to get started.",
-  },
-  {
-    q: "4. What activities does WORWF engage in?",
-    a: "Our organization participates in various activities, including hosting monthly luncheons, organizing community events, supporting local candidates, and promoting civic engagement through education and advocacy.",
-  },
-  {
-    q: "5. How can I stay informed about upcoming events?",
-    a: "We regularly update our members and the public about upcoming events through our website and social media channels. Be sure to check our homepage for the latest news and event announcements.",
-  },
-  {
-    q: "6. Can I attend a meeting before deciding to join?",
-    a: "Absolutely! We encourage prospective members to attend one of our meetings or events to learn more about our organization and meet our members.",
-  },
-  {
-    q: "7. How can I contact WORWF for more information?",
-    a: "For any inquiries or additional information, please reach out to us via our Contact Us page. We're happy to answer any questions you may have.",
-  },
+  { q: "What is WORWF?", a: "WORWF stands for West Orange Republican Women Federated. We are a group of passionate women dedicated to advancing the cause of good government in our community, state, and nation." },
+  { q: "Who can join West Orange Republican Women Federated?", a: "Membership is open to women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community." },
+  { q: "How can I become a member?", a: "To join, please visit our Contact Us page and send us an email expressing your interest. We'll provide you with all the necessary information to get started." },
+  { q: "What activities does WORWF engage in?", a: "Our organization participates in various activities, including hosting monthly luncheons, organizing community events, supporting local candidates, and promoting civic engagement through education and advocacy." },
+  { q: "How can I stay informed about upcoming events?", a: "We regularly update our members and the public about upcoming events through our website and social media channels. Be sure to check our homepage for the latest news and event announcements." },
+  { q: "Can I attend a meeting before deciding to join?", a: "Absolutely! We encourage prospective members to attend one of our meetings or events to learn more about our organization and meet our members." },
+  { q: "How can I contact WORWF for more information?", a: "For any inquiries or additional information, please reach out to us via our Contact Us page. We're happy to answer any questions you may have." },
 ];
 
 function ContactPage() {
