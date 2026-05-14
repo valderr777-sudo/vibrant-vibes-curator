@@ -136,9 +136,6 @@ function EventsPage() {
               <span className="font-bold">WORWF meets monthly at </span>
               <span className="font-bold text-secondary">West Orange Country Club</span>
             </p>
-            <p className="mt-3 text-sm text-muted-foreground">
-              3300 West Orange Country Club Drive, Winter Garden, FL 34787
-            </p>
             <div className="mt-6 flex items-start gap-3 rounded-md bg-muted p-4">
               <Clock className="mt-0.5 size-5 shrink-0 text-secondary" />
               <p className="text-sm text-muted-foreground">
