@@ -136,7 +136,7 @@ function ContactPage() {
 
       {/* Contact cards — overlap hero */}
       <section className="relative -mt-20 px-6">
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
           {contactCards.map((c) => (
             <a
               key={c.label}
@@ -158,7 +158,7 @@ function ContactPage() {
 
       {/* Form + Aside */}
       <section className="px-6 py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1.4fr]">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.4fr]">
           {/* Aside */}
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <span className="inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
