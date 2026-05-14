@@ -169,7 +169,9 @@ function EventsPage() {
                     Candidate for Orange County Mayor
                   </p>
                   <a
-                    href="#"
+                    href="https://preview--vibrant-vibes-curator.lovable.app/events#"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center border-b-2 border-transparent pb-1 text-sm font-bold text-primary transition-all hover:border-primary"
                   >
                     Candidate Vision Statement
@@ -192,7 +194,9 @@ function EventsPage() {
                     State Committeewoman • Candidate for FL House District 42
                   </p>
                   <a
-                    href="#"
+                    href="https://jacksonforflorida.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center border-b-2 border-transparent pb-1 text-sm font-bold text-primary transition-all hover:border-primary"
                   >
                     District 42 Campaign Plan
