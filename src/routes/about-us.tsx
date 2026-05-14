@@ -211,7 +211,7 @@ function AboutUs() {
         <div
           ref={bgRef}
           aria-hidden
-          className="absolute inset-0 -z-10 will-change-transform"
+          className="absolute inset-0 z-0 will-change-transform"
           style={{
             backgroundImage: `url(${capitolSteps})`,
             backgroundSize: "cover",
@@ -220,20 +220,20 @@ function AboutUs() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 z-[1]"
           style={{
             backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%)`,
           }}
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-40 -top-40 size-[640px] rounded-full border border-primary-foreground/10"
+          className="pointer-events-none absolute -right-40 -top-40 z-[2] size-[640px] rounded-full border border-primary-foreground/10"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-24 top-10 size-[480px] rounded-full border border-primary-foreground/10"
+          className="pointer-events-none absolute -right-24 top-10 z-[2] size-[480px] rounded-full border border-primary-foreground/10"
         />
-        <div className="mx-auto max-w-7xl px-6 text-center w-full">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 text-center w-full">
           <p className="text-sm font-semibold tracking-wide text-primary-foreground/80">
             Educate. Motivate. Activate.
           </p>
