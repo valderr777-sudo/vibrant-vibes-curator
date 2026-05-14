@@ -47,7 +47,6 @@ const faqs = [
 ];
 
 function ContactPage() {
-  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
