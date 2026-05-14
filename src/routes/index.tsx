@@ -403,17 +403,17 @@ function Index() {
               {/* Impact stats */}
               <dl className="mt-10 grid max-w-lg grid-cols-3 gap-px overflow-hidden rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 backdrop-blur">
                 {[
-                  { icon: Users, n: "135+", l: "Active Members" },
-                  { icon: Star, n: "16+", l: "Years of Impact" },
-                  { icon: Heart, n: "100%", l: "Community First" },
-                ].map(({ icon: Icon, n, l }) => (
-                  <div key={l} className="bg-primary/40 px-5 py-5 text-center">
-                    <Icon className="mx-auto size-5 text-accent" />
-                    <div className="mt-2 font-serif text-2xl font-bold leading-none">{n}</div>
-                    <div className="mt-1.5 text-[11px] uppercase tracking-wider text-primary-foreground/70">
-                      {l}
-                    </div>
-                  </div>
+                  { icon: Users, target: 135, suffix: "+", label: "Active Members" },
+                  { icon: Star, target: 16, suffix: "+", label: "Years of Impact" },
+                  { icon: Heart, target: 100, suffix: "%", label: "Community First" },
+                ].map((s) => (
+                  <CountUpStat
+                    key={s.label}
+                    icon={s.icon}
+                    target={s.target}
+                    suffix={s.suffix}
+                    label={s.label}
+                  />
                 ))}
               </dl>
             </div>
