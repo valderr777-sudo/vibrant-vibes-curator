@@ -214,8 +214,8 @@ function Index() {
 
       {/* What motivates us */}
       <section
-        className="relative overflow-hidden bg-no-repeat py-20"
-        style={{ backgroundImage: `url(${motivatesBg})`, backgroundSize: "100% 100%", backgroundPosition: "center" }}
+        className="relative overflow-hidden bg-no-repeat bg-cover bg-center py-20 md:[background-size:100%_100%]"
+        style={{ backgroundImage: `url(${motivatesBg})` }}
       >
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-center text-center">
