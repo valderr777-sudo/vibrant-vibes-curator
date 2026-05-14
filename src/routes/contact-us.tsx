@@ -49,7 +49,7 @@ const faqs = [
 function ContactPage() {
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
 
 
       {/* Hero */}
@@ -186,6 +186,6 @@ function ContactPage() {
       </section>
 
       {/* Footer */}
-    </div>
+    </>
   );
 }

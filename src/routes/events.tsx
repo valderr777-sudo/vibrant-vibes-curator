@@ -62,7 +62,7 @@ const futureDates = [
 
 function EventsPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
 
 
       {/* Hero */}
@@ -337,6 +337,6 @@ function EventsPage() {
       </section>
 
       {/* Footer */}
-    </div>
+    </>
   );
 }

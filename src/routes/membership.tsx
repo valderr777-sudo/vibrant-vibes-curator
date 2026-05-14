@@ -87,7 +87,7 @@ function Membership() {
   });
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
       <style>{`
         @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
       `}</style>
@@ -381,7 +381,7 @@ function Membership() {
       </section>
 
       {/* Footer */}
-    </div>
+    </>
   );
 }
 

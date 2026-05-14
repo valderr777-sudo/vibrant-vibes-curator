@@ -101,7 +101,7 @@ const voterResources: {
 
 function NewsPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
 
 
       {/* Hero */}
@@ -195,6 +195,6 @@ function NewsPage() {
         </div>
       </section>
 
-    </div>
+    </>
   );
 }

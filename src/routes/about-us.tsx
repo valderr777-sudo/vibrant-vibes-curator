@@ -178,7 +178,7 @@ function AboutUs() {
   const president = presidents[presidentIdx];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
       <style>{`
         @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
       `}</style>
@@ -515,6 +515,6 @@ function AboutUs() {
       <Marquee />
 
       {/* Footer (matches home) */}
-    </div>
+    </>
   );
 }
