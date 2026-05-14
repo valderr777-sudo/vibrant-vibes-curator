@@ -26,7 +26,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp } from "lucide-react";
+import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp, Heart, Star, Users } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
