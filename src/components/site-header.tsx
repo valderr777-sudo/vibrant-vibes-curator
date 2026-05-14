@@ -5,7 +5,7 @@ import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 const navLinks: {
   label: string;
-  to: "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us";
+  to: "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us" | "/members";
 }[] = [
   { label: "About Us", to: "/about-us" },
   { label: "Membership", to: "/membership" },
@@ -74,6 +74,9 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
               <Link to="/events">EVENTS</Link>
+            </Button>
+            <Button asChild variant="ghost" className="hidden rounded-md px-4 font-bold tracking-wider text-secondary hover:bg-secondary/10 hover:text-secondary md:inline-flex">
+              <Link to="/members">MEMBERS</Link>
             </Button>
             <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">DONATE</Button>
           </div>

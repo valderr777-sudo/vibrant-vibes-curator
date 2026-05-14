@@ -13,6 +13,7 @@ import { Route as VoterResourcesRouteImport } from './routes/voter-resources'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as MembershipRouteImport } from './routes/membership'
+import { Route as MembersRouteImport } from './routes/members'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
@@ -41,6 +42,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
 const MembershipRoute = MembershipRouteImport.update({
   id: '/membership',
   path: '/membership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembersRoute = MembersRouteImport.update({
+  id: '/members',
+  path: '/members',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/cookie-policy': typeof CookiePolicyRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/members': typeof MembersRoute
   '/membership': typeof MembershipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/cookie-policy': typeof CookiePolicyRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/members': typeof MembersRoute
   '/membership': typeof MembershipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/cookie-policy': typeof CookiePolicyRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/members': typeof MembersRoute
   '/membership': typeof MembershipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/cookie-policy'
     | '/events'
     | '/gallery'
+    | '/members'
     | '/membership'
     | '/privacy-policy'
     | '/terms-and-conditions'
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/cookie-policy'
     | '/events'
     | '/gallery'
+    | '/members'
     | '/membership'
     | '/privacy-policy'
     | '/terms-and-conditions'
@@ -175,6 +186,7 @@ export interface FileRouteTypes {
     | '/cookie-policy'
     | '/events'
     | '/gallery'
+    | '/members'
     | '/membership'
     | '/privacy-policy'
     | '/terms-and-conditions'
@@ -191,6 +203,7 @@ export interface RootRouteChildren {
   CookiePolicyRoute: typeof CookiePolicyRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
+  MembersRoute: typeof MembersRoute
   MembershipRoute: typeof MembershipRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
@@ -228,6 +241,13 @@ declare module '@tanstack/react-router' {
       path: '/membership'
       fullPath: '/membership'
       preLoaderRoute: typeof MembershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/members': {
+      id: '/members'
+      path: '/members'
+      fullPath: '/members'
+      preLoaderRoute: typeof MembersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   CookiePolicyRoute: CookiePolicyRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
+  MembersRoute: MembersRoute,
   MembershipRoute: MembershipRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
@@ -314,3 +335,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
