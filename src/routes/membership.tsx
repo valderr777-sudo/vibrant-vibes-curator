@@ -10,6 +10,7 @@ import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import memberHero from "@/assets/worwf/member-hero.jpg";
 import memberGroup from "@/assets/worwf/member-group.jpg";
+import membersParallax from "@/assets/worwf/members-parallax.jpg";
 import voterId from "@/assets/worwf/voter-id.jpg";
 import precinctFlag from "@/assets/worwf/precinct-flag.jpg";
 import fireworksBg from "@/assets/worwf/fireworks-bg.jpg";
@@ -104,7 +105,7 @@ function Membership() {
         }}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-24 md:py-36">
-          <h1 className="text-center text-5xl font-light italic text-primary-foreground md:text-7xl">
+          <h1 className="text-center text-5xl font-light text-primary-foreground md:text-7xl">
             Become a Member
           </h1>
         </div>
@@ -126,13 +127,16 @@ function Membership() {
 
       {/* Active / Associate Members */}
       <section className="py-20">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
-            <img src={memberGroup} alt="WORWF members at a community event" className="h-full w-full object-cover" />
-          </div>
+        <div className="mx-auto grid max-w-7xl items-stretch gap-12 px-6 lg:grid-cols-2">
+          <div
+            className="min-h-[420px] rounded-lg bg-cover bg-center bg-fixed shadow-[var(--shadow-elegant)]"
+            style={{ backgroundImage: `url(${membersParallax})` }}
+            role="img"
+            aria-label="WORWF members at a community event"
+          />
           <div className="space-y-10 text-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary md:text-4xl">ACTIVE MEMBERS:</h2>
+              <h2 className="text-3xl font-bold text-foreground md:text-4xl">ACTIVE MEMBERS:</h2>
               <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
                 To be an Active Member, you must be in good standing. Active members may vote,
                 participate in debates, hold office, and serve as a delegate to National, State
@@ -141,7 +145,7 @@ function Membership() {
               </p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-primary md:text-4xl">ASSOCIATE MEMBERS:</h2>
+              <h2 className="text-3xl font-bold text-foreground md:text-4xl">ASSOCIATE MEMBERS:</h2>
               <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
                 To be an Associate Member, you must be in good standing – that includes your
                 membership in another Federated club. Associate members may not vote, hold office,
@@ -154,7 +158,7 @@ function Membership() {
       </section>
 
       {/* Become a member red band */}
-      <section className="bg-secondary py-16 text-primary-foreground">
+      <section className="bg-primary py-16 text-primary-foreground">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 md:grid-cols-[auto_1fr_auto]">
           <img src={worwfLogo} alt="WORWF" className="size-32 object-contain md:size-40" />
           <div className="text-center">
@@ -180,7 +184,7 @@ function Membership() {
       {/* Membership Form */}
       <section id="form" className="py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center text-4xl font-bold text-primary md:text-5xl">Membership Form</h2>
+          <h2 className="text-center text-4xl font-bold text-foreground md:text-5xl">Membership Form</h2>
 
           <div className="mt-8 space-y-3 text-center text-sm text-foreground">
             <p>
