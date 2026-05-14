@@ -118,7 +118,7 @@ function ContactPage() {
 
         <div className="mx-auto max-w-7xl px-6 pt-24 pb-32 md:pt-32 md:pb-40">
           <div className="max-w-3xl animate-fade-in">
-            <h1 className="mt-6 whitespace-nowrap text-4xl font-extrabold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:whitespace-nowrap lg:text-7xl">
               Let&apos;s Start a <span className="text-orange-500">Conversation</span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-primary-foreground/90 md:text-lg">
