@@ -264,14 +264,8 @@ function Index() {
                 ))}
               </ul>
             </div>
-            <div className="overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
-              <img
-                src={groupImg}
-                alt="WORWF members at FFRW Convention"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            <ImageSlider />
+
           </div>
 
           <div className="mt-12 text-center">
