@@ -102,8 +102,8 @@ function TermsPage() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.18 0.05 260 / 0.7), oklch(0.18 0.05 260 / 0.7))`,
-          backgroundColor: "oklch(0.22 0.14 265)",
+          backgroundImage: `linear-gradient(180deg, oklch(0.12 0.02 25 / 0.7), oklch(0.12 0.02 25 / 0.7))`,
+          backgroundColor: "oklch(0.20 0.08 25)",
         }}
       >
         <div className="mx-auto max-w-7xl px-6 py-20 text-primary-foreground md:py-24">
@@ -254,7 +254,7 @@ function TermsPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${groupImg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${groupImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

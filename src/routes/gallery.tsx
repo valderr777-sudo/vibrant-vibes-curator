@@ -91,7 +91,7 @@ function GalleryPage() {
               </Link>
             ))}
           </nav>
-          <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
+          <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
             DONATE
           </Button>
         </div>
@@ -101,7 +101,7 @@ function GalleryPage() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(90deg, oklch(0.32 0.16 265 / 0.78), oklch(0.55 0.20 25 / 0.55), oklch(0.32 0.16 265 / 0.78)), url(${groupImg})`,
+          backgroundImage: `linear-gradient(90deg, oklch(0.35 0.20 25 / 0.78), oklch(0.55 0.20 25 / 0.55), oklch(0.35 0.20 25 / 0.78)), url(${groupImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -148,7 +148,7 @@ function GalleryPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

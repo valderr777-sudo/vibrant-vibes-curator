@@ -223,7 +223,7 @@ function AboutUs() {
               </Link>
             ))}
           </nav>
-          <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
+          <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
             DONATE
           </Button>
         </div>
@@ -283,7 +283,7 @@ function AboutUs() {
                 key={c.title}
                 className="group relative overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]"
                 style={{
-                  backgroundImage: `linear-gradient(180deg, oklch(0.22 0.14 265 / 0.55), oklch(0.22 0.14 265 / 0.85)), url(${c.bg})`,
+                  backgroundImage: `linear-gradient(180deg, oklch(0.20 0.08 25 / 0.55), oklch(0.20 0.08 25 / 0.85)), url(${c.bg})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   minHeight: "380px",
@@ -562,7 +562,7 @@ function AboutUs() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -200,7 +200,7 @@ function Index() {
               </Link>
             ))}
           </nav>
-          <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
+          <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
             DONATE
           </Button>
         </div>
@@ -221,7 +221,7 @@ function Index() {
           aria-hidden
           className="absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(110deg, oklch(0.22 0.14 265 / 0.92) 0%, oklch(0.22 0.14 265 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%)`,
+            backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%)`,
           }}
         />
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-40">
@@ -391,7 +391,7 @@ function Index() {
             Find Your Elected Officials, Check Your Voter Status, and Connect with Republican
             Organizations
           </h2>
-          <Button variant="destructive" size="lg" className="mt-8 rounded-md px-7 font-semibold">
+          <Button variant="cta" size="lg" className="mt-8 rounded-md px-7 font-semibold">
             Voter Resources
           </Button>
         </div>
@@ -480,7 +480,7 @@ function Index() {
               <label className="text-sm font-medium text-foreground">Message</label>
               <Textarea rows={4} className="mt-2 bg-muted" placeholder="Message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
             </div>
-            <Button type="submit" variant="destructive" className="mt-6 rounded-md px-7 font-semibold">
+            <Button type="submit" variant="cta" className="mt-6 rounded-md px-7 font-semibold">
               Submit Form
             </Button>
           </form>
@@ -528,7 +528,7 @@ function Index() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
