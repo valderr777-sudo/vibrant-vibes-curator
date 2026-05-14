@@ -18,13 +18,13 @@ export const Route = createFileRoute("/voter-resources")({
   component: NewsPage,
   head: () => ({
     meta: [
-      { title: "News to Know — West Orange Republican Women Federated" },
+      { title: "Voter Resources — West Orange Republican Women Federated" },
       {
         name: "description",
         content:
           "Stay informed with WORWF: top news, member engagement, education updates, calls to action, and voter resources.",
       },
-      { property: "og:title", content: "News to Know — WORWF" },
+      { property: "og:title", content: "Voter Resources — WORWF" },
       {
         property: "og:description",
         content:
