@@ -343,46 +343,527 @@ function Membership() {
   );
 }
 
-function RowField({
-  row,
+type FormState = {
+  newMember: string;
+  spouse: string;
+  voterReg: string;
+  renewal: string;
+  precinct: string;
+  learn: string;
+  firstName: string;
+  referral: string;
+  lastName: string;
+  username: string;
+  street: string;
+  password: string;
+  city: string;
+  confirmPassword: string;
+  state: string;
+  zip: string;
+  country: string;
+  email: string;
+  confirmEmail: string;
+  birthday: string;
+  phone: string;
+  accepted: boolean;
+};
+
+type ApplyMode = "new" | "renew";
+
+function MembershipForm({
   form,
   setForm,
 }: {
-  row: {
-    left: { label: string; key: string; type: string };
-    right: { label: string; key: string; type: string } | null;
-  };
-  form: Record<string, unknown>;
-  setForm: (v: Record<string, unknown>) => void;
+  form: FormState;
+  setForm: React.Dispatch<React.SetStateAction<FormState>>;
 }) {
-  const renderField = (f: { label: string; key: string; type: string }) => (
-    <div>
-      <label className="block text-sm font-bold text-foreground">
-        {f.label.startsWith("*") && <span className="text-secondary">*</span>}
-        {f.label.replace(/^\*/, "")}
-      </label>
-      {f.type === "textarea" ? (
-        <Textarea
-          rows={3}
-          className="mt-2 bg-muted"
-          value={String(form[f.key] ?? "")}
-          onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-        />
-      ) : (
-        <Input
-          type={f.type}
-          className="mt-2 bg-muted"
-          value={String(form[f.key] ?? "")}
-          onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-        />
-      )}
-    </div>
-  );
+  const [mode, setMode] = useState<ApplyMode>("new");
+  const [step, setStep] = useState(0);
+  const [showPwd, setShowPwd] = useState(false);
+  const [showConfirmPwd, setShowConfirmPwd] = useState(false);
+
+  const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
+    setForm((prev) => ({ ...prev, [key]: value }));
+
+  const steps = [
+    { id: "tier", label: "Membership", icon: ShieldCheck },
+    { id: "personal", label: "About You", icon: User },
+    { id: "address", label: "Address", icon: Home },
+    { id: "account", label: "Account", icon: Lock },
+    { id: "review", label: "Review", icon: Check },
+  ];
+
+  const totalSteps = steps.length;
+  const progress = ((step + 1) / totalSteps) * 100;
+
+  const tierOptions = mode === "new" ? membershipOptions : renewalOptions;
+  const tierValue = mode === "new" ? form.newMember : form.renewal;
+  const setTierValue = (v: string) =>
+    mode === "new" ? update("newMember", v) : update("renewal", v);
+
+  const canContinue = (() => {
+    if (step === 0) return Boolean(tierValue);
+    if (step === 1)
+      return Boolean(form.firstName && form.lastName && form.email && form.confirmEmail && form.phone && form.birthday);
+    if (step === 2) return Boolean(form.street && form.city && form.state && form.zip);
+    if (step === 3)
+      return Boolean(form.username && form.password && form.confirmPassword && form.referral && form.voterReg && form.precinct);
+    if (step === 4) return form.accepted && form.email === form.confirmEmail && form.password === form.confirmPassword;
+    return true;
+  })();
+
+  const next = () => setStep((s) => Math.min(s + 1, totalSteps - 1));
+  const prev = () => setStep((s) => Math.max(s - 1, 0));
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!canContinue) return;
+    alert("Thank you for registering! We'll be in touch shortly.");
+  };
+
   return (
-    <>
-      {renderField(row.left)}
-      {row.right ? renderField(row.right) : <div className="hidden md:block" />}
-    </>
+    <section id="form" className="relative overflow-hidden py-24">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-muted/30 via-background to-background" />
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Heading */}
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+            <Sparkles className="size-3.5" /> Join WORWF
+          </span>
+          <h2 className="mt-4 text-4xl font-bold text-foreground md:text-5xl">Membership Form</h2>
+          <div className="mx-auto mt-4 h-1 w-16 bg-secondary" />
+          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+            Complete the form below to apply or renew. Required fields are marked with{" "}
+            <span className="font-semibold text-secondary">*</span>.
+          </p>
+        </div>
+
+        {/* Mode toggle + helpers */}
+        <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-4">
+          <div className="inline-flex rounded-full border border-border bg-card p-1 shadow-sm">
+            <button
+              type="button"
+              onClick={() => {
+                setMode("new");
+                setStep(0);
+              }}
+              className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                mode === "new" ? "bg-primary text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <UserPlus className="size-4" /> New Membership
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMode("renew");
+                setStep(0);
+              }}
+              className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                mode === "renew" ? "bg-primary text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <RefreshCw className="size-4" /> Renew Membership
+            </button>
+          </div>
+
+          <p className="text-center text-xs text-muted-foreground">
+            Prefer paper?{" "}
+            <a href="#" className="inline-flex items-center gap-1 font-semibold text-secondary underline">
+              <Printer className="size-3.5" /> Printer-friendly form
+            </a>
+          </p>
+        </div>
+
+        {/* Stepper */}
+        <div className="mx-auto mt-10 max-w-3xl">
+          <div className="flex items-center justify-between">
+            {steps.map((s, i) => {
+              const Icon = s.icon;
+              const done = i < step;
+              const active = i === step;
+              return (
+                <button
+                  type="button"
+                  key={s.id}
+                  onClick={() => i <= step && setStep(i)}
+                  className="flex flex-1 flex-col items-center gap-2"
+                >
+                  <div
+                    className={`flex size-10 items-center justify-center rounded-full border-2 transition-all ${
+                      active
+                        ? "border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                        : done
+                        ? "border-primary bg-primary/10 text-primary"
+                        : "border-border bg-card text-muted-foreground"
+                    }`}
+                  >
+                    {done ? <Check className="size-5" /> : <Icon className="size-5" />}
+                  </div>
+                  <span
+                    className={`hidden text-[11px] font-semibold uppercase tracking-wider md:block ${
+                      active ? "text-primary" : done ? "text-foreground" : "text-muted-foreground"
+                    }`}
+                  >
+                    {s.label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
+
+        {/* Form Card */}
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto mt-10 max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] md:p-10"
+        >
+          {/* Step 0: Tier */}
+          {step === 0 && (
+            <div className="animate-fade-in space-y-6">
+              <StepHeader
+                icon={ShieldCheck}
+                title={mode === "new" ? "Choose Your Membership" : "Choose Renewal Type"}
+                description={
+                  mode === "new"
+                    ? "Select the type of membership you'd like to sign up for."
+                    : "Select the type of membership you wish to renew."
+                }
+              />
+              <div className="grid gap-3">
+                {tierOptions.map((opt) => {
+                  const selected = tierValue === opt;
+                  return (
+                    <label
+                      key={opt}
+                      className={`flex cursor-pointer items-start gap-4 rounded-xl border-2 p-4 transition-all ${
+                        selected
+                          ? "border-primary bg-primary/5 shadow-sm"
+                          : "border-border bg-background hover:border-primary/50"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="tier"
+                        className="sr-only"
+                        checked={selected}
+                        onChange={() => setTierValue(opt)}
+                      />
+                      <div
+                        className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border-2 ${
+                          selected ? "border-primary bg-primary" : "border-muted-foreground/40"
+                        }`}
+                      >
+                        {selected && <div className="size-2 rounded-full bg-primary-foreground" />}
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">{opt}</span>
+                    </label>
+                  );
+                })}
+              </div>
+              <Field label="How did you learn about our organization?" required>
+                <Input
+                  className="bg-background"
+                  value={form.learn}
+                  onChange={(e) => update("learn", e.target.value)}
+                  placeholder="Friend, event, social media…"
+                />
+              </Field>
+            </div>
+          )}
+
+          {/* Step 1: Personal */}
+          {step === 1 && (
+            <div className="animate-fade-in space-y-6">
+              <StepHeader icon={User} title="Tell Us About You" description="Your basic contact details." />
+              <div className="grid gap-5 md:grid-cols-2">
+                <Field label="First Name" required>
+                  <Input className="bg-background" value={form.firstName} onChange={(e) => update("firstName", e.target.value)} />
+                </Field>
+                <Field label="Last Name" required>
+                  <Input className="bg-background" value={form.lastName} onChange={(e) => update("lastName", e.target.value)} />
+                </Field>
+                <Field label="Spouse">
+                  <Input className="bg-background" value={form.spouse} onChange={(e) => update("spouse", e.target.value)} />
+                </Field>
+                <Field label="Birthday (mo/day)" required icon={Calendar}>
+                  <Input
+                    className="bg-background"
+                    placeholder="MM/DD"
+                    value={form.birthday}
+                    onChange={(e) => update("birthday", e.target.value)}
+                  />
+                </Field>
+                <Field label="Email" required icon={Mail}>
+                  <Input
+                    type="email"
+                    className="bg-background"
+                    value={form.email}
+                    onChange={(e) => update("email", e.target.value)}
+                  />
+                </Field>
+                <Field label="Confirm Email" required icon={Mail}>
+                  <Input
+                    type="email"
+                    className="bg-background"
+                    value={form.confirmEmail}
+                    onChange={(e) => update("confirmEmail", e.target.value)}
+                  />
+                  {form.confirmEmail && form.email !== form.confirmEmail && (
+                    <p className="mt-1 text-xs text-destructive">Emails do not match</p>
+                  )}
+                </Field>
+                <Field label="Phone" required icon={Phone}>
+                  <Input
+                    type="tel"
+                    placeholder="xxx-xxx-xxxx"
+                    className="bg-background"
+                    value={form.phone}
+                    onChange={(e) => update("phone", e.target.value)}
+                  />
+                </Field>
+              </div>
+            </div>
+          )}
+
+          {/* Step 2: Address */}
+          {step === 2 && (
+            <div className="animate-fade-in space-y-6">
+              <StepHeader icon={Home} title="Mailing Address" description="Where can we send your member info?" />
+              <div className="grid gap-5 md:grid-cols-2">
+                <div className="md:col-span-2">
+                  <Field label="Street Address" required icon={MapPin}>
+                    <Input className="bg-background" value={form.street} onChange={(e) => update("street", e.target.value)} />
+                  </Field>
+                </div>
+                <Field label="City" required>
+                  <Input className="bg-background" value={form.city} onChange={(e) => update("city", e.target.value)} />
+                </Field>
+                <Field label="State" required>
+                  <Input className="bg-background" value={form.state} onChange={(e) => update("state", e.target.value)} />
+                </Field>
+                <Field label="Zip" required>
+                  <Input className="bg-background" value={form.zip} onChange={(e) => update("zip", e.target.value)} />
+                </Field>
+                <Field label="Country" required>
+                  <Input className="bg-background" value={form.country} onChange={(e) => update("country", e.target.value)} />
+                </Field>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Account & Verification */}
+          {step === 3 && (
+            <div className="animate-fade-in space-y-6">
+              <StepHeader
+                icon={Lock}
+                title="Account & Verification"
+                description="Set up your login and verify your eligibility."
+              />
+              <div className="grid gap-5 md:grid-cols-2">
+                <Field label="Member Referral Name" required>
+                  <Input
+                    className="bg-background"
+                    value={form.referral}
+                    onChange={(e) => update("referral", e.target.value)}
+                    placeholder="Name of current WORWF member"
+                  />
+                </Field>
+                <Field label="Username" required>
+                  <Input className="bg-background" value={form.username} onChange={(e) => update("username", e.target.value)} />
+                </Field>
+                <Field label="Voter Registration #" required>
+                  <Input className="bg-background" value={form.voterReg} onChange={(e) => update("voterReg", e.target.value)} />
+                </Field>
+                <Field label="Precinct #" required hint="Located on Voter Registration Card">
+                  <Input className="bg-background" value={form.precinct} onChange={(e) => update("precinct", e.target.value)} />
+                </Field>
+                <Field label="Password" required>
+                  <div className="relative">
+                    <Input
+                      type={showPwd ? "text" : "password"}
+                      className="bg-background pr-10"
+                      value={form.password}
+                      onChange={(e) => update("password", e.target.value)}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPwd((v) => !v)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    >
+                      {showPwd ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+                    </button>
+                  </div>
+                </Field>
+                <Field label="Confirm Password" required>
+                  <div className="relative">
+                    <Input
+                      type={showConfirmPwd ? "text" : "password"}
+                      className="bg-background pr-10"
+                      value={form.confirmPassword}
+                      onChange={(e) => update("confirmPassword", e.target.value)}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPwd((v) => !v)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    >
+                      {showConfirmPwd ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+                    </button>
+                  </div>
+                  {form.confirmPassword && form.password !== form.confirmPassword && (
+                    <p className="mt-1 text-xs text-destructive">Passwords do not match</p>
+                  )}
+                </Field>
+              </div>
+            </div>
+          )}
+
+          {/* Step 4: Review */}
+          {step === 4 && (
+            <div className="animate-fade-in space-y-6">
+              <StepHeader icon={Check} title="Review & Submit" description="Confirm your information below." />
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <ReviewBlock title="Membership">
+                  <ReviewRow label="Type" value={tierValue || "—"} />
+                  <ReviewRow label="Source" value={form.learn || "—"} />
+                </ReviewBlock>
+                <ReviewBlock title="Contact">
+                  <ReviewRow label="Name" value={`${form.firstName} ${form.lastName}`.trim() || "—"} />
+                  <ReviewRow label="Email" value={form.email || "—"} />
+                  <ReviewRow label="Phone" value={form.phone || "—"} />
+                </ReviewBlock>
+                <ReviewBlock title="Address">
+                  <ReviewRow label="Street" value={form.street || "—"} />
+                  <ReviewRow label="City/State/Zip" value={`${form.city}, ${form.state} ${form.zip}`} />
+                </ReviewBlock>
+                <ReviewBlock title="Verification">
+                  <ReviewRow label="Referral" value={form.referral || "—"} />
+                  <ReviewRow label="Voter Reg #" value={form.voterReg || "—"} />
+                  <ReviewRow label="Precinct" value={form.precinct || "—"} />
+                </ReviewBlock>
+              </div>
+
+              <label className="flex items-start gap-3 rounded-xl border border-border bg-muted/40 p-4">
+                <Checkbox
+                  checked={form.accepted}
+                  onCheckedChange={(v) => update("accepted", Boolean(v))}
+                  className="mt-0.5"
+                />
+                <span className="text-sm text-foreground">
+                  I accept the{" "}
+                  <a href="#" className="font-semibold text-secondary underline">
+                    Terms &amp; Conditions
+                  </a>{" "}
+                  and confirm that I am a registered Republican as required by NFRW Bylaws.
+                </span>
+              </label>
+            </div>
+          )}
+
+          {/* Nav buttons */}
+          <div className="mt-10 flex items-center justify-between gap-3 border-t border-border pt-6">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={prev}
+              disabled={step === 0}
+              className="gap-2"
+            >
+              <ArrowLeft className="size-4" /> Back
+            </Button>
+
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Step {step + 1} of {totalSteps}
+            </span>
+
+            {step < totalSteps - 1 ? (
+              <Button type="button" onClick={next} disabled={!canContinue} variant="cta" className="gap-2">
+                Continue <ArrowRight className="size-4" />
+              </Button>
+            ) : (
+              <Button type="submit" disabled={!canContinue} variant="cta" className="gap-2">
+                Register <Check className="size-4" />
+              </Button>
+            )}
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }
+
+function StepHeader({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: typeof User;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="flex items-start gap-4 border-b border-border pb-5">
+      <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        <Icon className="size-6" />
+      </div>
+      <div>
+        <h3 className="text-xl font-bold text-foreground">{title}</h3>
+        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+      </div>
+    </div>
+  );
+}
+
+function Field({
+  label,
+  required,
+  hint,
+  icon: Icon,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  hint?: string;
+  icon?: typeof User;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <Label className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-foreground">
+        {Icon && <Icon className="size-3.5 text-muted-foreground" />}
+        {label}
+        {required && <span className="text-secondary">*</span>}
+      </Label>
+      {children}
+      {hint && <p className="mt-1 text-xs text-muted-foreground">{hint}</p>}
+    </div>
+  );
+}
+
+function ReviewBlock({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-xl border border-border bg-muted/30 p-4">
+      <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-primary">{title}</h4>
+      <dl className="space-y-1">{children}</dl>
+    </div>
+  );
+}
+
+function ReviewRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-start justify-between gap-3 text-sm">
+      <dt className="text-muted-foreground">{label}</dt>
+      <dd className="text-right font-medium text-foreground">{value}</dd>
+    </div>
+  );
+}
+
 
