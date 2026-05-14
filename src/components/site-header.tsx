@@ -156,7 +156,9 @@ export function SiteHeader() {
                   <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
                     <Link to="/events">EVENTS</Link>
                   </Button>
-                  <Button variant="cta" className="rounded-md font-bold tracking-wider">DONATE</Button>
+                  <Button asChild variant="cta" className="rounded-md font-bold tracking-wider">
+                    <Link to="/membership">BECOME A MEMBER</Link>
+                  </Button>
                 </div>
               </nav>
             </div>
