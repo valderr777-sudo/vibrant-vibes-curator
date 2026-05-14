@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
@@ -47,25 +48,38 @@ const futureDates = [
 ];
 
 function EventsPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       {/* Page hero — matches other pages */}
       <section className="relative overflow-hidden text-primary-foreground min-h-[60vh] flex items-center py-24 md:py-32">
         <div
           aria-hidden
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 will-change-transform"
           style={{
             backgroundImage: `url(${venueImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            transform: `translate3d(0, ${scrollY * 0.4}px, 0) scale(1.15)`,
           }}
         />
         <div
           aria-hidden
           className="absolute inset-0 z-[1]"
           style={{
-            backgroundImage: `linear-gradient(110deg, oklch(0.25 0.12 250 / 0.55) 0%, oklch(0.32 0.16 320 / 0.40) 50%, oklch(0.40 0.20 25 / 0.50) 100%)`,
+            backgroundImage: `linear-gradient(110deg, oklch(0.18 0.12 250 / 0.85) 0%, oklch(0.22 0.16 320 / 0.75) 50%, oklch(0.28 0.20 25 / 0.80) 100%)`,
           }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 z-[1] bg-black/30"
         />
         <div
           aria-hidden
