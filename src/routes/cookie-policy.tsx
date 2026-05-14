@@ -87,7 +87,7 @@ function CookiePolicyPage() {
               </Link>
             ))}
           </nav>
-          <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
+          <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
             DONATE
           </Button>
         </div>
@@ -210,7 +210,7 @@ function SiteFooter() {
     <footer
       className="relative text-primary-foreground"
       style={{
-        backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.92), oklch(0.20 0.08 25 / 0.85)), url(${groupImg})`,
+        backgroundImage: `linear-gradient(135deg, oklch(0 0 0 / 0.85), oklch(0 0 0 / 0.78)), url(${groupImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -261,7 +261,7 @@ function SiteFooter() {
             </div>
           </div>
           <Link to="/contact-us">
-            <Button variant="destructive" className="rounded-md px-6 font-semibold">
+            <Button variant="cta" className="rounded-md px-6 font-semibold">
               Contact Us
             </Button>
           </Link>
