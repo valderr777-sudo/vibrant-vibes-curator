@@ -348,8 +348,8 @@ function ContactPage() {
             </p>
             <div className="flex gap-5 opacity-80">
               <Link to="/terms-and-conditions" className="hover:underline">Terms &amp; Conditions</Link>
-              <a href="#">Cookie Policy</a>
-              <a href="#">Privacy Policy</a>
+              <Link to="/cookie-policy" className="hover:underline">Cookie Policy</Link>
+              <Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link>
             </div>
           </div>
         </div>

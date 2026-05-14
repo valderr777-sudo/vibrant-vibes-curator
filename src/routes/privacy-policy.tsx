@@ -5,21 +5,18 @@ import { Mail, MapPin, Facebook, ChevronUp } from "lucide-react";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
 
-export const Route = createFileRoute("/terms-and-conditions")({
-  component: TermsPage,
+export const Route = createFileRoute("/privacy-policy")({
+  component: PrivacyPolicyPage,
   head: () => ({
     meta: [
-      { title: "Terms & Conditions — West Orange Republican Women Federated" },
+      { title: "Privacy Policy — West Orange Republican Women Federated" },
       {
         name: "description",
         content:
-          "Terms and conditions governing your use of worwf.org and services from West Orange Republican Women Federated.",
+          "How WORWF collects, uses, shares, and protects your personal information on worwf.org.",
       },
-      { property: "og:title", content: "Terms & Conditions — WORWF" },
-      {
-        property: "og:description",
-        content: "The terms governing your use of worwf.org.",
-      },
+      { property: "og:title", content: "Privacy Policy — WORWF" },
+      { property: "og:description", content: "Privacy practices for worwf.org." },
     ],
   }),
 });
@@ -55,10 +52,9 @@ function Section({
   );
 }
 
-function TermsPage() {
+function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Top utility bar */}
       <div className="bg-primary text-primary-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 text-xs">
           <a href="mailto:info@worwf.org" className="flex items-center gap-2 hover:text-secondary">
@@ -74,7 +70,6 @@ function TermsPage() {
         </div>
       </div>
 
-      {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-background">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
           <Link to="/" className="flex items-center">
@@ -98,146 +93,179 @@ function TermsPage() {
         </div>
       </header>
 
-      {/* Hero */}
       <section
         className="relative isolate overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.18 0.05 260 / 0.7), oklch(0.18 0.05 260 / 0.7))`,
-          backgroundColor: "oklch(0.22 0.14 265)",
-        }}
+        style={{ backgroundColor: "oklch(0.22 0.14 265)" }}
       >
         <div className="mx-auto max-w-7xl px-6 py-20 text-primary-foreground md:py-24">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
-            Terms &amp; Conditions
+            Privacy Policy
           </h1>
-          <p className="mt-4 text-base opacity-90 md:text-lg">
-            Effective date: August 26, 2025
-          </p>
+          <p className="mt-4 text-base opacity-90 md:text-lg">Effective date: August 26, 2025</p>
         </div>
       </section>
 
-      {/* Body */}
       <section className="bg-background py-16">
         <div className="mx-auto max-w-3xl px-6">
           <p className="text-[15px] leading-relaxed text-muted-foreground">
-            Welcome to worwf.org. These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern
-            your use of the website and any services accessible at or through worwf.org
-            (the &ldquo;Site&rdquo;). By accessing or using the Site you agree to these
-            Terms. If you do not agree, please do not use the Site.
+            This Privacy Policy explains how West Orange Republican Women Federated
+            (WORWF, &ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our&rdquo;) collects,
+            uses, shares, and protects personal information when you visit worwf.org or
+            interact with our services.
           </p>
 
-          <Section number="1" title="Who we are / Contact">
+          <Section number="1" title="Scope & who we are">
             <p>
-              The Site is operated by West Orange Republican Women Federated
-              (&ldquo;WORWF,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our&rdquo;).
-              You can contact us at{" "}
+              This Policy applies to personal data collected on the Site and through
+              related services (membership, event sign-ups, donations). WORWF serves
+              the West Orange County / Central Florida community. Contact:{" "}
               <a
                 href="mailto:info@worwf.org"
                 className="text-sky-600 hover:text-secondary hover:underline"
               >
                 info@worwf.org
               </a>
-              . Our activities serve members and the public in West Orange County,
-              Florida.
+              .
             </p>
           </Section>
 
-          <Section number="2" title="Use of the Site">
-            <ol className="list-decimal space-y-3 pl-6">
+          <Section number="2" title="Information we may collect">
+            <p>We collect different types of personal information depending on how you use the Site:</p>
+            <ul className="list-disc space-y-3 pl-6">
               <li>
-                You may use the Site for lawful, personal, informational, and
-                non-commercial purposes only.
+                <strong className="text-foreground">Contact information:</strong> name,
+                email address, phone number when you contact us or join as a member.
               </li>
               <li>
-                You must not use the Site in any way that violates applicable law or
-                these Terms. Prohibited conduct includes, but is not limited to, fraud,
-                harassment, transmitting malware, or attempting unauthorized access to
-                systems.
+                <strong className="text-foreground">Payment/donation data:</strong> when
+                you donate we process payment via a third-party. We do not store full
+                card details on our servers.
               </li>
-            </ol>
+              <li>
+                <strong className="text-foreground">Communications:</strong> messages,
+                comments, or content you provide.
+              </li>
+              <li>
+                <strong className="text-foreground">Technical &amp; usage data:</strong>{" "}
+                IP address, browser type, pages visited, cookies and similar
+                technologies.
+              </li>
+              <li>
+                <strong className="text-foreground">Social media data:</strong> if you
+                interact with social widgets, those platforms may collect data under
+                their policies.
+              </li>
+            </ul>
           </Section>
 
-          <Section number="3" title="Memberships, Donations & Payments">
-            <ol className="list-decimal space-y-3 pl-6">
-              <li>
-                Membership sign-ups, event reservations, and donations may be processed
-                through third-party services. By submitting payment or donation details
-                you agree to the third-party provider&rsquo;s terms.
-              </li>
-              <li>
-                All donations are final unless otherwise stated. Receipts and
-                tax-deduction eligibility (if any) are subject to applicable laws.
-              </li>
-            </ol>
+          <Section number="3" title="How we use personal data">
+            <p>We use personal data to:</p>
+            <ul className="list-disc space-y-3 pl-6">
+              <li>Provide and operate the Site and services (memberships, events).</li>
+              <li>Process donations and send receipts.</li>
+              <li>Communicate with you (newsletters, event info) where you&rsquo;ve consented.</li>
+              <li>Improve the Site, monitor analytics, and ensure security.</li>
+              <li>Comply with legal obligations.</li>
+            </ul>
           </Section>
 
-          <Section number="4" title="Content & Intellectual Property">
-            <ol className="list-decimal space-y-3 pl-6">
-              <li>
-                The Site&rsquo;s content (text, logos, images) is owned by WORWF or
-                licensed to WORWF. You may not reproduce, distribute, or create
-                derivative works from the Site&rsquo;s content without written
-                permission.
-              </li>
-              <li>
-                If you send us content (messages, images, feedback) you grant WORWF a
-                non-exclusive, royalty-free right to use, reproduce, and publish that
-                content for the Site&rsquo;s purposes (subject to any applicable
-                member/privacy agreements).
-              </li>
-            </ol>
-          </Section>
-
-          <Section number="5" title="External Links & Third-Party Sites">
+          <Section number="4" title="Legal bases and residents’ rights">
             <p>
-              The Site may link to third-party websites (social media, donation
-              portals). We do not control those sites and are not responsible for their
-              content, privacy practices, or terms. Links are provided for convenience
-              only.
+              For U.S. visitors we rely on legitimate interests, contractual necessity,
+              or consent where required. For visitors from regions with data-protection
+              laws, such as the EU/EEA/UK, processing is based on lawful bases such as
+              consent or legitimate interest. State privacy laws (for example those in
+              California or Florida) may provide additional rights to residents.
             </p>
           </Section>
 
-          <Section number="6" title="Disclaimers & Limitation of Liability">
-            <ol className="list-decimal space-y-3 pl-6">
+          <Section number="5" title="How to exercise your rights">
+            <p>
+              To exercise privacy rights (access, correction, deletion, opt-out), email{" "}
+              <a
+                href="mailto:info@worwf.org"
+                className="text-sky-600 hover:text-secondary hover:underline"
+              >
+                info@worwf.org
+              </a>{" "}
+              with subject line &ldquo;Privacy Rights Request&rdquo;. We will verify
+              your identity before responding and will respond in accordance with
+              applicable law.
+            </p>
+          </Section>
+
+          <Section number="6" title="Sharing & disclosure">
+            <p>We may share personal data:</p>
+            <ul className="list-disc space-y-3 pl-6">
               <li>
-                The Site is provided &ldquo;as is.&rdquo; To the fullest extent
-                permitted by law, WORWF disclaims all warranties (express or implied).
+                With service providers (payment processors, hosting, email providers)
+                who act as processors on our behalf.
               </li>
+              <li>When required by law or to protect rights and safety.</li>
               <li>
-                WORWF is not liable for indirect, incidental, special, or consequential
-                damages arising from use of the Site. Our aggregate liability to you
-                for any claim arising hereunder will not exceed $100 (or the minimum
-                allowed by applicable law).
+                In connection with mergers or transfers (in the event of organizational
+                changes).
               </li>
-            </ol>
-          </Section>
-
-          <Section number="7" title="Indemnification">
+            </ul>
             <p>
-              You agree to indemnify and hold WORWF harmless from any claims,
-              liabilities, damages, losses, or expenses (including reasonable legal
-              fees) arising from your violation of these Terms or your use of the Site.
+              We do not sell personal data for money; if applicable laws consider any
+              transfer a &ldquo;sale,&rdquo; you may have a right to opt out.
             </p>
           </Section>
 
-          <Section number="8" title="Governing Law; Dispute Resolution">
+          <Section number="7" title="Data retention & security">
             <p>
-              These Terms are governed by the laws of the State of Florida, United
-              States. Any disputes will be resolved under Florida law.
+              We retain personal data only as long as necessary to fulfill the purposes
+              described or as required by law. We implement reasonable administrative,
+              technical, and physical safeguards to protect personal data, but no
+              internet transmission is completely secure. If you believe your data has
+              been compromised contact{" "}
+              <a
+                href="mailto:info@worwf.org"
+                className="text-sky-600 hover:text-secondary hover:underline"
+              >
+                info@worwf.org
+              </a>{" "}
+              immediately.
             </p>
           </Section>
 
-          <Section number="9" title="Changes to Terms">
+          <Section number="8" title="Children’s privacy">
             <p>
-              We may update these Terms at any time. The &ldquo;Effective date&rdquo;
-              above shows when the current Terms take effect. Continued use of the Site
-              after changes constitutes acceptance.
+              We do not knowingly collect or solicit personal information from children
+              under 13 (or the age required by local law). If we learn we collected
+              personal data from a child under the applicable threshold we will delete
+              it.
             </p>
           </Section>
 
-          <Section number="10" title="Contact">
+          <Section number="9" title="International transfers">
             <p>
-              Questions about these Terms:{" "}
+              If personal data is transferred outside your country, we will take steps
+              required by law to protect it (e.g., contractual safeguards). Visitors
+              from the EU/EEA should be aware their data may be transferred to the U.S.
+            </p>
+          </Section>
+
+          <Section number="10" title="Links to other sites">
+            <p>
+              Our Site contains links to third-party sites (social media, donation
+              processors). This Privacy Policy does not cover those sites. Please
+              review third-party policies before providing personal data.
+            </p>
+          </Section>
+
+          <Section number="11" title="Updates to this Policy">
+            <p>
+              We may update this Privacy Policy. The &ldquo;Effective date&rdquo; will
+              indicate when the current version takes effect. Where required by law or
+              when changes are material, we will provide notice.
+            </p>
+          </Section>
+
+          <Section number="12" title="Contact">
+            <p>
+              Questions, requests, or privacy concerns:{" "}
               <a
                 href="mailto:info@worwf.org"
                 className="text-sky-600 hover:text-secondary hover:underline"
@@ -250,7 +278,6 @@ function TermsPage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer
         className="relative text-primary-foreground"
         style={{
