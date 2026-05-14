@@ -344,9 +344,6 @@ function Index() {
             </div>
             <div className="text-sm">
               <p>WORWF meets monthly at West Orange Country Club</p>
-              <p className="mt-2 opacity-90">
-                3300 West Orange Country Club Drive, Winter Garden, FL 34787
-              </p>
               <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-secondary">
                 View All Events <ArrowRight className="size-4" />
               </Link>
