@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
+import heroVideo from "@/assets/worwf/hero-bg.mp4";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 import ffrwLogo from "@/assets/worwf/ffrw.png";
@@ -153,15 +154,24 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section
-        className="relative isolate overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(110deg, oklch(0.22 0.14 265 / 0.92) 0%, oklch(0.22 0.14 265 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${heroFlag})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
+      <section className="relative isolate overflow-hidden">
+        <video
+          src={heroVideo}
+          poster={heroFlag}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(110deg, oklch(0.22 0.14 265 / 0.92) 0%, oklch(0.22 0.14 265 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%)`,
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-40">
           <p className="text-sm text-primary-foreground/90">— Women strengthening our community</p>
           <h1 className="mt-5 max-w-3xl text-5xl font-extrabold leading-[1.1] text-primary-foreground md:text-7xl">
             West Orange Republican Women Federated
