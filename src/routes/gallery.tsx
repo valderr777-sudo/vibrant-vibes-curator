@@ -13,6 +13,7 @@ import groupImg from "@/assets/worwf/group.jpg";
 import { campaignImages } from "@/assets/worwf/gallery/campaign";
 import { committeeImages } from "@/assets/worwf/gallery/committee";
 import { educationImages } from "@/assets/worwf/gallery/education";
+import { speakersImages } from "@/assets/worwf/gallery/speakers";
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
