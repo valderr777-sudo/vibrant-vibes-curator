@@ -36,7 +36,7 @@ export const Route = createFileRoute("/about-us")({
   }),
 });
 
-const navLinks = [
+const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us"; active?: boolean; caret?: boolean }[] = [
   { label: "About Us", to: "/about-us" as const, active: true },
   { label: "Membership", to: "/membership" as const },
   { label: "Voter Resources", to: "/voter-resources" as const },
@@ -152,7 +152,7 @@ const historyBlocks = [
 function Marquee() {
   const words = Array.from({ length: 12 }, (_, i) => ["EDUCATE", "MOTIVATE", "ACTIVATE"][i % 3]);
   return (
-    <div className="overflow-hidden bg-secondary py-5">
+    <div className="overflow-hidden bg-primary py-5">
       <div className="flex animate-[marquee_40s_linear_infinite] items-center gap-8 whitespace-nowrap">
         {words.concat(words).map((w, i) => (
           <span key={i} className="flex items-center gap-8">

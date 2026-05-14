@@ -34,7 +34,7 @@ export const Route = createFileRoute("/membership")({
   }),
 });
 
-const navLinks = [
+const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us"; active?: boolean; caret?: boolean }[] = [
   { label: "About Us", to: "/about-us" as const },
   { label: "Membership", to: "/membership" as const, active: true },
   { label: "Voter Resources", to: "/voter-resources" as const },

@@ -24,7 +24,7 @@ export const Route = createFileRoute("/terms-and-conditions")({
   }),
 });
 
-const navLinks = [
+const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us"; active?: boolean; caret?: boolean }[] = [
   { label: "About Us", to: "/about-us" as const },
   { label: "Membership", to: "/membership" as const },
   { label: "Voter Resources", to: "/voter-resources" as const },
