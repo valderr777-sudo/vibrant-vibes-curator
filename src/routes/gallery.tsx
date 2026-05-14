@@ -159,8 +159,8 @@ function GalleryPage() {
               Moments that <span className="text-orange-500">Move Us</span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-primary-foreground/90 md:text-lg">
-              A look at the campaigns, gatherings, and friendships that make WORWF
-              who we are. Filter by category to explore.
+              A look at the campaigns, gatherings, and friendships that make WORWF who we are.
+              Filter by category to explore.
             </p>
           </div>
         </div>
