@@ -1,11 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
 import heroVideo from "@/assets/worwf/hero-bg.mp4";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 import ffrwLogo from "@/assets/worwf/ffrw.png";
 import nfrwLogo from "@/assets/worwf/nfrw.png";
+import sliderCapitol from "@/assets/worwf/slider/capitol.jpg";
+import sliderLegislative from "@/assets/worwf/slider/legislative.jpg";
+import sliderExec from "@/assets/worwf/slider/exec.jpg";
+import sliderBarbara from "@/assets/worwf/slider/barbara.jpg";
+import sliderAwards from "@/assets/worwf/slider/awards.jpg";
+import sliderConvention from "@/assets/worwf/slider/convention.jpg";
 import speakerTorisi from "@/assets/worwf/speaker-torisi.png";
 import voteImg from "@/assets/worwf/vote.png";
 import groupImg from "@/assets/worwf/group.jpg";
@@ -84,6 +90,51 @@ function Marquee() {
               {w}
             </span>
           </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const sliderImages = [
+  { src: sliderCapitol, alt: "2023 Spring FFRW Conference - Steps of Capitol" },
+  { src: sliderLegislative, alt: "2024 Legislative Day Tallahassee" },
+  { src: sliderExec, alt: "2023 Exec Committee with Gordon Chang" },
+  { src: sliderBarbara, alt: "2023 FFRW Conference with Barbara Price" },
+  { src: sliderAwards, alt: "2023 FFRW Convention Presidential Awards" },
+  { src: sliderConvention, alt: "2023 FFRW Convention" },
+];
+
+function ImageSlider() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % sliderImages.length), 4000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="relative h-full min-h-[320px] w-full overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
+      {sliderImages.map((img, i) => (
+        <img
+          key={img.src}
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {sliderImages.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Show slide ${i + 1}`}
+            onClick={() => setIndex(i)}
+            className={`h-2 w-2 rounded-full transition-all ${
+              i === index ? "w-6 bg-white" : "bg-white/60"
+            }`}
+          />
         ))}
       </div>
     </div>
@@ -208,8 +259,12 @@ function Index() {
         </div>
         <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-12 px-6">
           <img src={worwfLogo} alt="WORWF" className="h-24 w-auto object-contain" />
-          <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-20 w-auto object-contain" />
-          <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-24 w-auto object-contain" />
+          <a href="https://www.facebook.com/FFRWomen/" target="_blank" rel="noopener noreferrer">
+            <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-20 w-auto object-contain transition-opacity hover:opacity-80" />
+          </a>
+          <a href="https://www.nfrw.org/" target="_blank" rel="noopener noreferrer">
+            <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-24 w-auto object-contain transition-opacity hover:opacity-80" />
+          </a>
         </div>
       </section>
 
@@ -254,14 +309,8 @@ function Index() {
                 ))}
               </ul>
             </div>
-            <div className="overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
-              <img
-                src={groupImg}
-                alt="WORWF members at FFRW Convention"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            <ImageSlider />
+
           </div>
 
           <div className="mt-12 text-center">
