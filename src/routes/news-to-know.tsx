@@ -389,12 +389,14 @@ function NewsPage() {
                 <h3 className="font-serif text-2xl font-bold text-foreground">{col.heading}</h3>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((l) => (
-                    <li key={l}>
+                    <li key={l.label}>
                       <a
-                        href="#"
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-sm font-medium text-sky-600 transition-colors hover:text-secondary hover:underline"
                       >
-                        {l}
+                        {l.label}
                       </a>
                     </li>
                   ))}
