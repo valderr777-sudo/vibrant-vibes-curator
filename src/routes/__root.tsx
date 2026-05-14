@@ -74,22 +74,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "West Orange Republican Women Federated" },
-      {
-        name: "description",
-        content:
-          "West Orange Republican Women Federated (WORWF) — Educate. Motivate. Activate. Supporting good government and constitutional rights.",
-      },
-      { name: "author", content: "West Orange Republican Women Federated" },
-      { property: "og:title", content: "West Orange Republican Women Federated" },
-      {
-        property: "og:description",
-        content:
-          "WORWF — Empowering Republican women in West Orange County through education, advocacy, and community.",
-      },
+      { title: "Lovable App" },
+      { name: "description", content: "WORWF 2 is a website that showcases an organization's mission, history, and membership opportunities." },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "WORWF 2 is a website that showcases an organization's mission, history, and membership opportunities." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@worwf" },
+      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "twitter:description", content: "WORWF 2 is a website that showcases an organization's mission, history, and membership opportunities." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b2543861-a81b-4618-bbd0-d8e55b4dbbbd/id-preview-b45b52a7--373425c2-8a95-43fd-a95b-d31c681e97c6.lovable.app-1778797774402.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b2543861-a81b-4618-bbd0-d8e55b4dbbbd/id-preview-b45b52a7--373425c2-8a95-43fd-a95b-d31c681e97c6.lovable.app-1778797774402.png" },
     ],
     links: [
       {
