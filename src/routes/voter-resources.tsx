@@ -302,11 +302,11 @@ function NewsPage() {
           <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-primary-foreground/20 pt-8">
             <div className="flex flex-wrap items-center gap-4">
               <span className="text-sm">Sponsors</span>
-              <a href="https://www.rbsroofing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-3 py-2">
-                <img src={sponsorRbs} alt="RBS Construction & Roofing" className="h-12 w-auto object-contain" />
+              <a href="https://www.rbsroofing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
+                <img src={sponsorRbs} alt="RBS Construction & Roofing" className="h-20 w-auto object-contain" />
               </a>
-              <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md bg-primary-foreground px-3 py-2">
-                <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-12 w-auto object-contain" />
+              <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md bg-primary-foreground px-4 py-3">
+                <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-20 w-auto object-contain" />
               </a>
             </div>
             <Link to="/contact-us">
