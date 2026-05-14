@@ -92,7 +92,7 @@ function GalleryPage() {
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/85 via-black/60 to-red-700/80"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-red-700/80"
           aria-hidden="true"
         />
 
