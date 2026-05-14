@@ -275,7 +275,7 @@ function AboutUs() {
                   minHeight: "380px",
                 }}
               >
-                <div className="flex h-full flex-col items-center justify-end p-8 text-center text-white">
+                <div className="flex h-full flex-col items-center p-8 text-center text-white">
                   <span className="mb-6 flex size-28 items-center justify-center rounded-full border-2 border-white/80">
                     <img src={c.icon} alt="" className="size-20 object-contain brightness-0 invert" />
                   </span>
