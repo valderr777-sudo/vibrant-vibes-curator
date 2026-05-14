@@ -414,7 +414,7 @@ function AboutUs() {
       <section className="relative bg-primary py-20 text-primary-foreground">
         <div
           aria-hidden
-          className="absolute inset-x-0 -top-px h-12 bg-background"
+          className="absolute inset-x-0 -top-px h-20 bg-muted"
           style={{ borderBottomLeftRadius: "50% 100%", borderBottomRightRadius: "50% 100%" }}
         />
         <div className="mx-auto max-w-7xl px-6">
