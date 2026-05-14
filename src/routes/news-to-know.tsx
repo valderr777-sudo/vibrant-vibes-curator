@@ -104,45 +104,48 @@ const callsToAction = [
   },
 ];
 
-const voterResources: { heading: string; links: string[] }[] = [
+const voterResources: { heading: string; links: { label: string; href: string }[] }[] = [
   {
     heading: "National/State/Local",
     links: [
-      "RNC",
-      "US House of Representatives",
-      "US Senate",
-      "Sunshine State Government Resource Site",
-      "Republican Party of Florida",
-      "Orange County Government Florida",
-      "Orange County Republican Executive Committee",
-      "Florida Redistricting",
-      "Sayfie Review",
-      "Florida Republican Assembly",
+      { label: "RNC", href: "https://gop.com/" },
+      { label: "US House of Representatives", href: "https://www.house.gov/" },
+      { label: "US Senate", href: "https://www.senate.gov/senators/senators-contact.htm" },
+      { label: "Sunshine State Government Resource Site", href: "http://www.myflorida.com/" },
+      { label: "Republican Party of Florida", href: "https://florida.gop/" },
+      { label: "Orange County Government Florida", href: "https://www.orangecountyfl.net/" },
+      { label: "Orange County Republican Executive Committee", href: "https://www.orangefl.gop/" },
+      { label: "Sayfie Review", href: "https://www.sayfiereview.com/" },
+      { label: "Florida Republican Assembly", href: "http://www.fraoc.org/" },
     ],
   },
   {
     heading: "Florida Representative",
     links: [
-      "Florida Governor – Ron DeSantis",
-      "Find your Legislator",
-      "Find your Representative",
-      "Florida House of Representatives",
-      "Florida Senate",
-      "Florida Legislator",
-      "Florida Division of Elections",
+      { label: "Florida Governor – Ron DeSantis", href: "https://flgov.com/contact-governor/" },
+      { label: "Find your Legislator", href: "https://www.flsenate.gov/senators/find" },
+      { label: "Find your Representative", href: "https://www.myfloridahouse.gov/findyourrepresentative" },
+      { label: "Florida House of Representatives", href: "https://www.myfloridahouse.gov/" },
+      { label: "Florida Senate", href: "https://www.flsenate.gov/Senators" },
+      { label: "Florida Legislator", href: "http://www.leg.state.fl.us/Welcome/index.cfm" },
+      { label: "Florida Division of Elections", href: "https://dos.myflorida.com/elections/" },
+      { label: "Florida Redistricting", href: "https://www.floridaredistricting.gov/" },
     ],
   },
   {
     heading: "Republican Women",
     links: [
-      "RNC Women",
-      "National Federation of Republican Women",
-      "Florida Federation of Republican Women",
+      { label: "RNC Women", href: "https://www.gop.com/communities/rnc-women/" },
+      { label: "National Federation of Republican Women", href: "https://www.nfrw.org/" },
+      { label: "Florida Federation of Republican Women", href: "http://www.ffrw.net/home.php" },
     ],
   },
   {
     heading: "Voter ID/Status",
-    links: ["Check your Voter ID Status", "Voter Precinct Lookup"],
+    links: [
+      { label: "Check your Voter ID Status", href: "https://registration.elections.myflorida.com/CheckVoterStatus" },
+      { label: "Voter Precinct Lookup", href: "https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/" },
+    ],
   },
 ];
 
