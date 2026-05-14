@@ -19,6 +19,9 @@ import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SponsorsMemberBusinessesRouteImport } from './routes/sponsors.member-businesses'
+import { Route as SponsorsCandidatesRouteImport } from './routes/sponsors.candidates'
+import { Route as SponsorsBusinessRouteImport } from './routes/sponsors.business'
 
 const VoterResourcesRoute = VoterResourcesRouteImport.update({
   id: '/voter-resources',
@@ -70,6 +73,22 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SponsorsMemberBusinessesRoute =
+  SponsorsMemberBusinessesRouteImport.update({
+    id: '/sponsors/member-businesses',
+    path: '/sponsors/member-businesses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SponsorsCandidatesRoute = SponsorsCandidatesRouteImport.update({
+  id: '/sponsors/candidates',
+  path: '/sponsors/candidates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorsBusinessRoute = SponsorsBusinessRouteImport.update({
+  id: '/sponsors/business',
+  path: '/sponsors/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +101,9 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/voter-resources': typeof VoterResourcesRoute
+  '/sponsors/business': typeof SponsorsBusinessRoute
+  '/sponsors/candidates': typeof SponsorsCandidatesRoute
+  '/sponsors/member-businesses': typeof SponsorsMemberBusinessesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +116,9 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/voter-resources': typeof VoterResourcesRoute
+  '/sponsors/business': typeof SponsorsBusinessRoute
+  '/sponsors/candidates': typeof SponsorsCandidatesRoute
+  '/sponsors/member-businesses': typeof SponsorsMemberBusinessesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +132,9 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/voter-resources': typeof VoterResourcesRoute
+  '/sponsors/business': typeof SponsorsBusinessRoute
+  '/sponsors/candidates': typeof SponsorsCandidatesRoute
+  '/sponsors/member-businesses': typeof SponsorsMemberBusinessesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +149,9 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/terms-and-conditions'
     | '/voter-resources'
+    | '/sponsors/business'
+    | '/sponsors/candidates'
+    | '/sponsors/member-businesses'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +164,9 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/terms-and-conditions'
     | '/voter-resources'
+    | '/sponsors/business'
+    | '/sponsors/candidates'
+    | '/sponsors/member-businesses'
   id:
     | '__root__'
     | '/'
@@ -145,6 +179,9 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/terms-and-conditions'
     | '/voter-resources'
+    | '/sponsors/business'
+    | '/sponsors/candidates'
+    | '/sponsors/member-businesses'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +195,9 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   VoterResourcesRoute: typeof VoterResourcesRoute
+  SponsorsBusinessRoute: typeof SponsorsBusinessRoute
+  SponsorsCandidatesRoute: typeof SponsorsCandidatesRoute
+  SponsorsMemberBusinessesRoute: typeof SponsorsMemberBusinessesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +272,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sponsors/member-businesses': {
+      id: '/sponsors/member-businesses'
+      path: '/sponsors/member-businesses'
+      fullPath: '/sponsors/member-businesses'
+      preLoaderRoute: typeof SponsorsMemberBusinessesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsors/candidates': {
+      id: '/sponsors/candidates'
+      path: '/sponsors/candidates'
+      fullPath: '/sponsors/candidates'
+      preLoaderRoute: typeof SponsorsCandidatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsors/business': {
+      id: '/sponsors/business'
+      path: '/sponsors/business'
+      fullPath: '/sponsors/business'
+      preLoaderRoute: typeof SponsorsBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +307,9 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
   VoterResourcesRoute: VoterResourcesRoute,
+  SponsorsBusinessRoute: SponsorsBusinessRoute,
+  SponsorsCandidatesRoute: SponsorsCandidatesRoute,
+  SponsorsMemberBusinessesRoute: SponsorsMemberBusinessesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
