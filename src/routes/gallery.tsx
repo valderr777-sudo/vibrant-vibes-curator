@@ -86,9 +86,16 @@ const photos: Photo[] = [
     alt: img.alt,
     category: "History" as Category,
   })),
-  { id: 6, src: specialImg, alt: "Members at a special event", category: "Special Events" },
-  { id: 7, src: groupImg, alt: "Group photo of the chapter", category: "Special Events" },
+  ...specialImages.map((img, i) => ({
+    id: 6000 + i,
+    src: img.src,
+    alt: img.alt,
+    category: "Special Events" as Category,
+  })),
 ];
+
+void specialImg;
+void groupImg;
 
 void committeeImg;
 void educationImg;
