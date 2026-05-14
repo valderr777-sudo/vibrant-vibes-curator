@@ -64,9 +64,9 @@ export function SiteHeader() {
               </button>
               <div className="absolute left-0 top-full z-50 hidden pt-3 group-hover:block">
                 <div className="min-w-[210px] rounded-md border border-border bg-background py-2 shadow-lg">
-                  <a href="#" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Business Sponsors</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Member Businesses</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Candidate Sponsors</a>
+                  <Link to="/sponsors/business" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Business Sponsors</Link>
+                  <Link to="/sponsors/member-businesses" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Member Businesses</Link>
+                  <Link to="/sponsors/candidates" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Candidate Sponsors</Link>
                 </div>
               </div>
             </div>
