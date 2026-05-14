@@ -91,9 +91,6 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-primary-foreground/20 pt-8">
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="text-sm">Sponsors</span>
         <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/20 pt-8 lg:flex-row lg:items-center">
           <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
             <span className="text-sm">Sponsors</span>
