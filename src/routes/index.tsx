@@ -165,7 +165,7 @@ function Index() {
 
 
       {/* Hero */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate flex min-h-[calc(100vh-120px)] overflow-hidden">
         <video
           src={heroVideo}
           poster={heroFlag}
@@ -182,7 +182,7 @@ function Index() {
             backgroundImage: `linear-gradient(110deg, oklch(0.25 0.12 250 / 0.85) 0%, oklch(0.30 0.15 255 / 0.65) 50%, oklch(0.40 0.18 250 / 0.55) 100%)`,
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-40">
+        <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-20">
           <p className="text-sm text-primary-foreground/90">— Women strengthening our community</p>
           <h1 className="mt-5 whitespace-nowrap text-xl font-bold leading-[1.1] text-primary-foreground sm:text-2xl md:text-3xl lg:text-5xl">
             West Orange Republican Women Federated
