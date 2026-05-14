@@ -209,55 +209,32 @@ function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-muted/40 py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center gap-3">
-              <img src={worwfLogo} alt="WORWF" className="size-8 object-contain" />
-              <span className="text-sm font-medium text-foreground">Frequently Asked Questions (FAQ)</span>
-            </div>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">
+      <section className="bg-muted py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <img src={worwfLogo} alt="" className="size-6 object-contain" />
+              Frequently Asked Questions (FAQ)
+            </span>
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
               We here to answer all your questions
             </h2>
           </div>
-
-          <div className="relative mt-12">
-            <HelpCircle className="pointer-events-none absolute -left-10 top-0 size-28 text-muted-foreground/20" strokeWidth={1} />
-            <div className="space-y-4">
-              {faqs.map((f, i) => {
-                const isOpen = open === i;
-                return (
-                  <div
-                    key={f.q}
-                    className={`overflow-hidden rounded-md border bg-card transition-shadow ${
-                      isOpen ? "border-secondary shadow-md" : "border-border"
-                    }`}
-                  >
-                    <button
-                      onClick={() => setOpen(isOpen ? null : i)}
-                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-                    >
-                      <span className="text-base font-bold md:text-lg">{f.q}</span>
-                      <span
-                        className={`flex size-9 shrink-0 items-center justify-center rounded ${
-                          isOpen ? "bg-secondary text-secondary-foreground" : "bg-muted text-foreground"
-                        }`}
-                      >
-                        {isOpen ? <X className="size-4" /> : <Plus className="size-4" />}
-                      </span>
-                    </button>
-                    {isOpen && (
-                      <div className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground">
-                        {f.a}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <p className="mt-12 text-center text-sm text-muted-foreground">
+          <Accordion type="single" collapsible defaultValue="item-0" className="mt-10 space-y-3">
+            {faqs.map((f, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="rounded-md border border-border bg-card px-5 data-[state=open]:border-secondary"
+              >
+                <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline">
+                  {i + 1}. {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <p className="mt-8 text-center text-sm text-muted-foreground">
             Still you have a questions?{" "}
             <Link to="/contact-us" className="font-semibold text-secondary hover:underline">
               Contact with us
