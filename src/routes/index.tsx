@@ -213,12 +213,14 @@ function Index() {
       <Marquee />
 
       {/* What motivates us */}
-      <section
-        className="relative overflow-hidden bg-no-repeat bg-cover bg-center py-20 lg:[background-size:100%_100%]"
-        style={{ backgroundImage: `url(${motivatesBg})` }}
-      >
+      <section className="relative overflow-hidden bg-muted/30 py-20 lg:bg-muted/0">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 hidden bg-no-repeat bg-center lg:block lg:[background-size:100%_100%]"
+          style={{ backgroundImage: `url(${motivatesBg})` }}
+        />
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="flex flex-col items-center text-center md:items-start md:text-left">
+          <div className="flex flex-col items-start text-left">
             <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
               What Motivates Us
@@ -235,7 +237,7 @@ function Index() {
           </div>
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2">
-            <div className="text-center md:text-left">
+            <div className="text-left">
               <h3 className="text-xl font-bold text-foreground">
                 We Empower Women, Strengthen Community, and Uphold Values
               </h3>
