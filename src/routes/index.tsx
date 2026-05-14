@@ -15,6 +15,7 @@ import sliderConvention from "@/assets/worwf/slider/convention.jpg";
 import speakerMessina from "@/assets/worwf/events/messina.jpg";
 import speakerIngoglia from "@/assets/worwf/events/ingoglia.jpg";
 import groupImg from "@/assets/worwf/group.jpg";
+import motivatesBg from "@/assets/worwf/motivates-bg.webp";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -271,8 +272,11 @@ function Index() {
       <Marquee />
 
       {/* What motivates us */}
-      <section className="relative overflow-hidden py-20">
-        <div className="mx-auto max-w-7xl px-6">
+      <section
+        className="relative overflow-hidden bg-no-repeat py-20"
+        style={{ backgroundImage: `url(${motivatesBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="relative mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-center text-center">
             <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
