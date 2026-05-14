@@ -7,8 +7,7 @@ import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 import capitolSteps from "@/assets/worwf/about/capitol-steps.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
-import ffrwLogo from "@/assets/worwf/ffrw.png";
-import nfrwLogo from "@/assets/worwf/nfrw.png";
+import { UnitedQuoteBand } from "@/components/united-quote-band";
 
 import handshake from "@/assets/worwf/about/handshake.png";
 import usa from "@/assets/worwf/about/usa.png";
@@ -289,21 +288,7 @@ function AboutUs() {
         </div>
       </section>
 
-      {/* Quote band + 3 logos */}
-      <section className="relative overflow-hidden bg-background py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold italic leading-snug text-foreground md:text-4xl">
-            "United together to create positive change. Supporting good government and constitutional
-            rights."
-          </h2>
-          <p className="mt-5 text-sm text-muted-foreground">– Women strengthening our community –</p>
-        </div>
-        <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-12 px-6">
-          <img src={worwfLogo} alt="WORWF" className="h-24 w-auto object-contain" />
-          <img src={ffrwLogo} alt="FFRW" className="h-20 w-auto object-contain" />
-          <img src={nfrwLogo} alt="NFRW" className="h-24 w-auto object-contain" />
-        </div>
-      </section>
+      <UnitedQuoteBand background="background" />
 
       <Marquee />
 
