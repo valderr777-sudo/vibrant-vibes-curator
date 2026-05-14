@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Images, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
 
 import heroImg from "@/assets/worwf/gallery/hero.png";
 import campaignImg from "@/assets/worwf/gallery/campaign.jpg";
@@ -112,6 +112,21 @@ function GalleryPage() {
     [filter],
   );
 
+  const lightboxIndex = useMemo(
+    () => (lightbox ? filtered.findIndex((p) => p.id === lightbox.id) : -1),
+    [filtered, lightbox],
+  );
+
+  const showPreviousPhoto = () => {
+    if (filtered.length === 0 || lightboxIndex < 0) return;
+    setLightbox(filtered[(lightboxIndex - 1 + filtered.length) % filtered.length]);
+  };
+
+  const showNextPhoto = () => {
+    if (filtered.length === 0 || lightboxIndex < 0) return;
+    setLightbox(filtered[(lightboxIndex + 1) % filtered.length]);
+  };
+
   const counts = useMemo(() => {
     const map = new Map<Category | "All", number>();
     map.set("All", photos.length);
@@ -208,14 +223,11 @@ function GalleryPage() {
             </div>
           ) : (
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-              {filtered.map((p, i) => (
+              {filtered.map((p) => (
                 <button
                   key={p.id}
                   onClick={() => setLightbox(p)}
-                  className={[
-                    "group relative overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-elegant)] transition-transform duration-300 hover:-translate-y-1",
-                    i % 7 === 0 ? "row-span-2 aspect-[3/4]" : "aspect-square",
-                  ].join(" ")}
+                  className="group relative aspect-square overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-elegant)] transition-transform duration-300 hover:-translate-y-1"
                 >
                   <img
                     src={p.src}
@@ -252,9 +264,33 @@ function GalleryPage() {
           >
             <X className="size-5" />
           </button>
+          {filtered.length > 1 && (
+            <>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  showPreviousPhoto();
+                }}
+                aria-label="Previous photo"
+                className="absolute left-4 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:left-8 md:size-14"
+              >
+                <ChevronLeft className="size-7" />
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  showNextPhoto();
+                }}
+                aria-label="Next photo"
+                className="absolute right-4 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:right-8 md:size-14"
+              >
+                <ChevronRight className="size-7" />
+              </button>
+            </>
+          )}
           <figure
             onClick={(e) => e.stopPropagation()}
-            className="relative max-h-[85vh] max-w-5xl"
+            className="relative max-h-[85vh] max-w-5xl px-12 md:px-0"
           >
             <img
               src={lightbox.src}
