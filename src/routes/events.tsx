@@ -270,7 +270,7 @@ function EventsPage() {
               <img
                 src={ingogliaImg}
                 alt="Blaise Ingoglia"
-                className="size-24 shrink-0 rounded-full border-4 border-muted object-cover"
+                className="size-48 shrink-0 rounded-full border-4 border-muted object-cover"
               />
               <div className="flex-1 text-center sm:text-left">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
@@ -293,7 +293,7 @@ function EventsPage() {
               <img
                 src={america250Img}
                 alt="A Hero Celebration"
-                className="size-24 shrink-0 rounded-full border-4 border-muted object-cover"
+                className="size-48 shrink-0 rounded-full border-4 border-muted object-cover"
               />
               <div className="flex-1 text-center sm:text-left">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
