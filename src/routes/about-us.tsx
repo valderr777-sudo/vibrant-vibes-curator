@@ -548,7 +548,7 @@ function AboutUs() {
                 className="rounded-lg border border-border bg-card p-5 text-center shadow-sm transition-shadow hover:shadow-[var(--shadow-elegant)]"
               >
                 <h3 className="text-base font-bold text-foreground">{m.name}</h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-secondary">
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-accent">
                   {m.role}
                 </p>
               </article>
