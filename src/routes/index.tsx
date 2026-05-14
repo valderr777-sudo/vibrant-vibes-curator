@@ -192,12 +192,19 @@ function Index() {
             rights. Actively working for the good of our country.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
-              BECOME A MEMBER
-            </Button>
-            <button className="inline-flex h-9 items-center justify-center rounded-md border-2 border-primary-foreground bg-transparent px-6 text-sm font-bold tracking-wider text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary">
-              DONATE US
-            </button>
+            <Link to="/membership">
+              <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+                BECOME A MEMBER
+              </Button>
+            </Link>
+            <a
+              href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 items-center justify-center rounded-md border-2 border-primary-foreground bg-transparent px-6 text-sm font-bold tracking-wider text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
+            >
+              DONATE
+            </a>
           </div>
         </div>
       </section>
@@ -277,9 +284,11 @@ function Index() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button variant="cta" size="lg" className="rounded-md px-7 font-semibold">
-              Learn More About Us
-            </Button>
+            <Link to="/about-us">
+              <Button variant="cta" size="lg" className="rounded-md px-7 font-semibold">
+                Learn More About Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -346,9 +355,11 @@ function Index() {
             Find Your Elected Officials, Check Your Voter Status, and Connect with Republican
             Organizations
           </h2>
-          <Button variant="cta" size="lg" className="mt-8 rounded-md px-7 font-semibold">
-            Voter Resources
-          </Button>
+          <Link to="/voter-resources">
+            <Button variant="cta" size="lg" className="mt-8 rounded-md px-7 font-semibold">
+              Voter Resources
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -557,9 +568,9 @@ function Index() {
           </Accordion>
           <p className="mt-8 text-center text-sm text-muted-foreground">
             Still you have a questions?{" "}
-            <a href="#" className="font-semibold text-secondary underline">
+            <Link to="/contact-us" className="font-semibold text-secondary underline">
               Contact with us
-            </a>
+            </Link>
           </p>
         </div>
       </section>
