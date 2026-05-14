@@ -4,6 +4,7 @@ import { Mail, MapPin, Facebook, ChevronUp } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
+import footerBg from "@/assets/worwf/footer-bg.jpg";
 import campaignImg from "@/assets/worwf/gallery/campaign.jpg";
 import committeeImg from "@/assets/worwf/gallery/committee.jpg";
 import educationImg from "@/assets/worwf/gallery/education.jpg";

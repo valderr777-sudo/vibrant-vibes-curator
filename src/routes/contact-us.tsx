@@ -5,6 +5,7 @@ import { Mail, MapPin, Facebook, ChevronUp, Plus, X, HelpCircle } from "lucide-r
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
+import footerBg from "@/assets/worwf/footer-bg.jpg";
 import heroImg from "@/assets/worwf/contact/hero.jpg";
 
 export const Route = createFileRoute("/contact-us")({
