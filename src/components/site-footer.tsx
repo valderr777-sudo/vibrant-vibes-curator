@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import sponsorRbs from "@/assets/worwf/sponsors/rbs.png";
-import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.jpg";
+import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.png";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/" }[] = [
   { label: "Upcoming Events", to: "/events" },
@@ -68,7 +68,7 @@ export function SiteFooter() {
             <a href="https://www.rbsroofing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
               <img src={sponsorRbs} alt="RBS Construction & Roofing" className="h-20 w-auto object-contain" />
             </a>
-            <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md bg-primary-foreground px-4 py-3">
+            <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
               <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-20 w-auto object-contain" />
             </a>
           </div>
