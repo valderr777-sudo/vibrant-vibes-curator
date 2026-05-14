@@ -88,6 +88,18 @@ function GalleryPage() {
                 )}
               </Link>
             ))}
+            <div className="group relative">
+              <button type="button" className="relative inline-flex items-center text-[15px] font-medium text-foreground transition-colors hover:text-secondary">
+                Sponsors<span className="ml-1">▾</span>
+              </button>
+              <div className="absolute left-0 top-full z-50 hidden pt-3 group-hover:block">
+                <div className="min-w-[210px] rounded-md border border-border bg-background py-2 shadow-lg">
+                  <a href="#" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Business Sponsors</a>
+                  <a href="#" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Member Businesses</a>
+                  <a href="#" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Candidate Sponsors</a>
+                </div>
+              </div>
+            </div>
           </nav>
           <div className="flex items-center gap-2">
 
