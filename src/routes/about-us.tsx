@@ -486,7 +486,7 @@ function AboutUs() {
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
               Leadership
             </span>
-            <h2 className="mt-4 text-4xl font-extrabold text-foreground md:text-5xl">
+            <h2 className="mt-4 text-4xl font-extrabold text-secondary md:text-5xl">
               Executive Committee 2025-2026
             </h2>
           </div>
