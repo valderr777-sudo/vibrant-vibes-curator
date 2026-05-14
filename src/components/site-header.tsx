@@ -106,7 +106,7 @@ export function SiteHeader() {
             <Button asChild variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex">
               <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
             </Button>
-            <Button asChild variant="cta" className="rounded-md px-4 text-xs font-bold tracking-wider sm:hidden">
+            <Button asChild variant="cta" className="mr-2 rounded-md px-4 text-xs font-bold tracking-wider sm:hidden">
               <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
             </Button>
             <button
