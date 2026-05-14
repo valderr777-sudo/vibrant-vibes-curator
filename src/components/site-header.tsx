@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { Mail } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
@@ -15,8 +16,30 @@ const navLinks: {
   { label: "Members Only", to: "/members" },
 ];
 
+const sponsorLinks: { label: string; to: "/sponsors/business" | "/sponsors/member-businesses" | "/sponsors/candidates" }[] = [
+  { label: "Business Sponsors", to: "/sponsors/business" },
+  { label: "Member Businesses", to: "/sponsors/member-businesses" },
+  { label: "Candidate Sponsors", to: "/sponsors/candidates" },
+];
+
 export function SiteHeader() {
   const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+
+  // Close on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll when menu open
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <>
       {/* Top utility bar */}
@@ -37,10 +60,11 @@ export function SiteHeader() {
 
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-background">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
           <Link to="/" className="flex items-center">
-            <img src={worwfLogo} alt="WORWF" className="size-16 object-contain" />
+            <img src={worwfLogo} alt="WORWF" className="size-14 object-contain md:size-16" />
           </Link>
+
           <nav className="hidden items-center gap-8 lg:flex">
             {navLinks.map((l) => {
               const active = pathname === l.to;
@@ -65,20 +89,74 @@ export function SiteHeader() {
               </button>
               <div className="absolute left-0 top-full z-50 hidden pt-3 group-hover:block">
                 <div className="min-w-[210px] rounded-md border border-border bg-background py-2 shadow-lg">
-                  <Link to="/sponsors/business" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Business Sponsors</Link>
-                  <Link to="/sponsors/member-businesses" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Member Businesses</Link>
-                  <Link to="/sponsors/candidates" className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">Candidate Sponsors</Link>
+                  {sponsorLinks.map((s) => (
+                    <Link key={s.to} to={s.to} className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">
+                      {s.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
           </nav>
+
           <div className="flex items-center gap-2">
-            <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
+            <Button asChild variant="outline" className="hidden rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:inline-flex">
               <Link to="/events">EVENTS</Link>
             </Button>
-            <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">DONATE</Button>
+            <Button variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex">DONATE</Button>
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="inline-flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-muted lg:hidden"
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile menu panel */}
+        {open && (
+          <div className="lg:hidden">
+            <div className="border-t border-border bg-background">
+              <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+                {navLinks.map((l) => {
+                  const active = pathname === l.to;
+                  return (
+                    <Link
+                      key={l.label}
+                      to={l.to}
+                      className={`rounded-md px-3 py-2.5 text-base font-medium transition-colors ${
+                        active ? "bg-secondary/10 text-secondary" : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {l.label}
+                    </Link>
+                  );
+                })}
+                <div className="mt-2 border-t border-border pt-2">
+                  <p className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Sponsors</p>
+                  {sponsorLinks.map((s) => (
+                    <Link
+                      key={s.to}
+                      to={s.to}
+                      className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary"
+                    >
+                      {s.label}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-3 grid grid-cols-2 gap-2 border-t border-border pt-3">
+                  <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
+                    <Link to="/events">EVENTS</Link>
+                  </Button>
+                  <Button variant="cta" className="rounded-md font-bold tracking-wider">DONATE</Button>
+                </div>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
