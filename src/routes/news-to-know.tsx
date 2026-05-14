@@ -207,7 +207,7 @@ function NewsPage() {
               </Link>
             ))}
           </nav>
-          <Button variant="destructive" className="rounded-md px-6 font-bold tracking-wider">
+          <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
             DONATE
           </Button>
         </div>
