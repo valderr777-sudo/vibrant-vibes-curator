@@ -214,8 +214,12 @@ function Index() {
         </div>
         <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-12 px-6">
           <img src={worwfLogo} alt="WORWF" className="h-24 w-auto object-contain" />
-          <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-20 w-auto object-contain" />
-          <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-24 w-auto object-contain" />
+          <a href="https://www.facebook.com/FFRWomen/" target="_blank" rel="noopener noreferrer">
+            <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-20 w-auto object-contain transition-opacity hover:opacity-80" />
+          </a>
+          <a href="https://www.nfrw.org/" target="_blank" rel="noopener noreferrer">
+            <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-24 w-auto object-contain transition-opacity hover:opacity-80" />
+          </a>
         </div>
       </section>
 
