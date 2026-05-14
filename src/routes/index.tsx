@@ -453,30 +453,16 @@ function Index() {
                   leadership for the future.
                 </p>
 
-                {/* Suggested amounts */}
-                <div className="mt-6 grid grid-cols-4 gap-2">
-                  {["$25", "$50", "$100", "Other"].map((amt, i) => (
-                    <button
-                      key={amt}
-                      type="button"
-                      className={`rounded-md border px-2 py-2.5 text-sm font-semibold transition-colors ${
-                        i === 1
-                          ? "border-primary bg-primary text-primary-foreground"
-                          : "border-border bg-muted text-foreground hover:border-primary hover:text-primary"
-                      }`}
-                    >
-                      {amt}
-                    </button>
-                  ))}
-                </div>
-
-                <button
-                  className="group mt-5 flex w-full items-center justify-center gap-2 rounded-md py-3.5 font-semibold text-primary-foreground shadow-md transition-transform hover:-translate-y-0.5"
+                <a
+                  href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-6 flex w-full items-center justify-center gap-2 rounded-md py-3.5 font-semibold text-primary-foreground shadow-md transition-transform hover:-translate-y-0.5"
                   style={{ background: "var(--gradient-accent)" }}
                 >
                   Donate Now
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                </a>
 
                 <p className="mt-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground">
                   Secure · Tax-deductible · 100% mission-driven
