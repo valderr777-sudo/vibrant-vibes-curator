@@ -12,7 +12,7 @@ import {
   Mail,
 } from "lucide-react";
 
-import venueImg from "@/assets/worwf/events/venue.jpg";
+import venueImg from "@/assets/worwf/gallery/speakers/10.23-Members-with-Guest-Speaker-Ambassador-Nancy-Brinker-1080x493.jpg";
 import messinaImg from "@/assets/worwf/events/messina.jpg";
 import jacksonImg from "@/assets/worwf/events/jackson.jpg";
 import ingogliaImg from "@/assets/worwf/events/ingoglia.jpg";
@@ -64,7 +64,7 @@ function EventsPage() {
           aria-hidden
           className="absolute inset-0 z-[1]"
           style={{
-            backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%)`,
+            backgroundImage: `linear-gradient(110deg, oklch(0.25 0.12 250 / 0.55) 0%, oklch(0.32 0.16 320 / 0.40) 50%, oklch(0.40 0.20 25 / 0.50) 100%)`,
           }}
         />
         <div
