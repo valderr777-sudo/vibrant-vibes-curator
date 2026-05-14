@@ -98,16 +98,19 @@ function Membership() {
 
 
       {/* Hero */}
-      <section
-        className="relative isolate overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.20 0.08 25 / 0.65), oklch(0.20 0.08 25 / 0.85)), url(${memberHero})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-        }}
-      >
+      <section className="relative isolate overflow-hidden">
+        {/* Parallax background */}
+        <div
+          className="absolute inset-0 -z-10 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${memberHero})` }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-[oklch(0.20_0.08_25/0.65)] to-[oklch(0.20_0.08_25/0.85)]"
+          aria-hidden="true"
+        />
         <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-24 md:py-36">
-          <h1 className="text-center text-5xl font-light text-primary-foreground md:text-7xl">
+          <h1 className="animate-fade-in text-center text-5xl font-light text-primary-foreground md:text-7xl">
             Become a Member
           </h1>
         </div>
