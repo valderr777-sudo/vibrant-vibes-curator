@@ -269,7 +269,9 @@ function Membership() {
       {/* Two CTA banners */}
       <section className="grid gap-6 px-6 pb-20 md:grid-cols-2 md:gap-0 md:px-0">
         <a
-          href="#"
+          href="https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="relative flex h-56 items-center justify-center overflow-hidden bg-cover bg-center text-accent-foreground"
           style={{
             backgroundImage: `linear-gradient(135deg, oklch(0.30 0.15 250 / 0.75), oklch(0.20 0.10 250 / 0.85)), url(${usaFlag})`,
@@ -283,7 +285,9 @@ function Membership() {
           </div>
         </a>
         <a
-          href="#"
+          href="https://registration.elections.myflorida.com/checkvoterstatus"
+          target="_blank"
+          rel="noopener noreferrer"
           className="relative flex h-56 items-center justify-center overflow-hidden bg-cover bg-center text-accent-foreground"
           style={{
             backgroundImage: `linear-gradient(135deg, oklch(0.30 0.15 25 / 0.75), oklch(0.20 0.10 25 / 0.85)), url(${voteRegistration})`,
