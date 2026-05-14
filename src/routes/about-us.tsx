@@ -291,7 +291,7 @@ function AboutUs() {
       {/* Quote band + 3 logos */}
       <section className="relative overflow-hidden bg-background py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold italic leading-snug text-primary md:text-4xl">
+          <h2 className="text-3xl font-bold italic leading-snug text-foreground md:text-4xl">
             "United together to create positive change. Supporting good government and constitutional
             rights."
           </h2>
@@ -314,7 +314,7 @@ function AboutUs() {
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
               Our Story
             </span>
-            <h2 className="mt-4 text-4xl font-extrabold text-primary md:text-5xl">Our History</h2>
+            <h2 className="mt-4 text-4xl font-extrabold text-foreground md:text-5xl">Our History</h2>
           </div>
 
           <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
@@ -324,7 +324,7 @@ function AboutUs() {
                   key={b.h}
                   className="rounded-lg border border-border bg-card p-6 shadow-sm"
                 >
-                  <h3 className="text-lg font-bold text-primary">{b.h}</h3>
+                  <h3 className="text-lg font-bold text-foreground">{b.h}</h3>
                   <p className="mt-3 text-sm text-muted-foreground">{b.p}</p>
                 </article>
               ))}
@@ -353,7 +353,7 @@ function AboutUs() {
             <span className="text-sm font-semibold tracking-wide text-secondary">
               CO-FOUNDERS
             </span>
-            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-primary md:text-5xl">
+            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
               Wendy West &amp; Linda O'Keefe
             </h2>
             <p className="mt-6 text-muted-foreground">
@@ -393,7 +393,7 @@ function AboutUs() {
             <span className="text-sm font-semibold tracking-wide text-secondary">
               RECOGNITION
             </span>
-            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-primary md:text-5xl">
+            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
               NFRW Diamond Achievement Award
             </h2>
             <p className="mt-6 text-muted-foreground">
@@ -491,7 +491,7 @@ function AboutUs() {
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
               Leadership
             </span>
-            <h2 className="mt-4 text-4xl font-extrabold text-primary md:text-5xl">
+            <h2 className="mt-4 text-4xl font-extrabold text-foreground md:text-5xl">
               Executive Committee 2025-2026
             </h2>
           </div>
@@ -508,7 +508,7 @@ function AboutUs() {
                   />
                   <div className="absolute inset-x-0 bottom-0 h-2 bg-secondary" />
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-primary">{m.name}</h3>
+                <h3 className="mt-5 text-lg font-bold text-foreground">{m.name}</h3>
                 <p className="text-sm text-muted-foreground">{m.role}</p>
               </article>
             ))}
@@ -520,7 +520,7 @@ function AboutUs() {
       <section className="bg-muted py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold text-primary md:text-5xl">
+            <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">
               Standing Committees 2025-2026
             </h2>
           </div>
@@ -530,7 +530,7 @@ function AboutUs() {
                 key={m.name + m.role}
                 className="rounded-lg border-l-4 border-secondary bg-card p-6 shadow-sm transition-shadow hover:shadow-[var(--shadow-elegant)]"
               >
-                <h3 className="text-lg font-bold text-primary">{m.name}</h3>
+                <h3 className="text-lg font-bold text-foreground">{m.name}</h3>
                 <p className="mt-1 text-sm font-medium text-secondary">{m.role}</p>
               </article>
             ))}
@@ -542,7 +542,7 @@ function AboutUs() {
       <section className="bg-background py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold text-primary md:text-5xl">
+            <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">
               Special Committees 2025-2026
             </h2>
           </div>
@@ -552,7 +552,7 @@ function AboutUs() {
                 key={i}
                 className="rounded-lg border border-border bg-card p-5 text-center shadow-sm transition-shadow hover:shadow-[var(--shadow-elegant)]"
               >
-                <h3 className="text-base font-bold text-primary">{m.name}</h3>
+                <h3 className="text-base font-bold text-foreground">{m.name}</h3>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-secondary">
                   {m.role}
                 </p>
