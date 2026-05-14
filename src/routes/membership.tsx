@@ -240,7 +240,7 @@ function Membership() {
 
       {/* Become a member red band */}
       <section className="bg-primary py-16 text-primary-foreground">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 md:grid-cols-[auto_1fr_auto]">
+        <div className="mx-auto grid max-w-7xl items-center justify-items-center gap-8 px-6 md:grid-cols-[auto_1fr_auto]">
           <img src={worwfLogo} alt="WORWF" className="size-32 object-contain md:size-40" />
           <div className="text-center">
             <h2 className="text-3xl font-extrabold md:text-4xl">TO BECOME A MEMBER:</h2>
