@@ -15,6 +15,7 @@ import { committeeImages } from "@/assets/worwf/gallery/committee";
 import { educationImages } from "@/assets/worwf/gallery/education";
 import { speakersImages } from "@/assets/worwf/gallery/speakers";
 import { historyImages } from "@/assets/worwf/gallery/history";
+import { specialImages } from "@/assets/worwf/gallery/special";
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
