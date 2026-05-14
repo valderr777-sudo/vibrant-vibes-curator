@@ -474,9 +474,11 @@ function Index() {
       </section>
 
       {/* Membership form */}
-      <section id="membership" className="relative overflow-hidden py-20">
-        <div className="absolute -left-20 top-20 size-72 rounded-full bg-secondary/15" />
-        <div className="absolute -right-20 bottom-10 size-80 rounded-full bg-secondary/10" />
+      <section
+        id="membership"
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-20"
+        style={{ backgroundImage: `url(${membershipBg})` }}
+      >
         <div className="mx-auto max-w-3xl px-6">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
