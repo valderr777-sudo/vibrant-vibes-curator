@@ -523,10 +523,10 @@ function AboutUs() {
             {standing.map((m) => (
               <article
                 key={m.name + m.role}
-                className="rounded-lg border-l-4 border-secondary bg-card p-6 shadow-sm transition-shadow hover:shadow-[var(--shadow-elegant)]"
+                className="rounded-lg border-l-4 border-accent bg-card p-6 shadow-sm transition-shadow hover:shadow-[var(--shadow-elegant)]"
               >
                 <h3 className="text-lg font-bold text-foreground">{m.name}</h3>
-                <p className="mt-1 text-sm font-medium text-secondary">{m.role}</p>
+                <p className="mt-1 text-sm font-medium text-accent">{m.role}</p>
               </article>
             ))}
           </div>
