@@ -118,10 +118,6 @@ function ContactPage() {
 
         <div className="mx-auto max-w-7xl px-6 pt-24 pb-32 md:pt-32 md:pb-40">
           <div className="max-w-3xl animate-fade-in">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground backdrop-blur-sm">
-              <span className="size-1.5 rounded-full bg-secondary" />
-              Get in Touch
-            </span>
             <h1 className="mt-6 whitespace-nowrap text-4xl font-extrabold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
               Let&apos;s Start a <span className="text-orange-500">Conversation</span>
             </h1>
