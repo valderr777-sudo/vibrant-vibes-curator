@@ -193,6 +193,7 @@ function AboutUs() {
           backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${capitolSteps})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
         }}
       >
         <div
@@ -203,24 +204,13 @@ function AboutUs() {
           aria-hidden
           className="pointer-events-none absolute -right-24 top-10 size-[480px] rounded-full border border-primary-foreground/10"
         />
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold tracking-wide text-primary-foreground/80">
-              Educate. Motivate. Activate.
-            </p>
-            <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] md:text-7xl">
-              About WORWF
-            </h1>
-            <nav className="mt-6 text-sm text-primary-foreground/80">
-              <Link to="/" className="hover:text-secondary">
-                Home
-              </Link>{" "}
-              / <span className="text-primary-foreground">About Us</span>
-            </nav>
-          </div>
-          <div className="flex justify-center md:justify-end">
-            <img src={worwfLogo} alt="WORWF crest" className="size-56 object-contain md:size-72" />
-          </div>
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <p className="text-sm font-semibold tracking-wide text-primary-foreground/80">
+            Educate. Motivate. Activate.
+          </p>
+          <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] md:text-7xl">
+            About WORWF
+          </h1>
         </div>
       </section>
 
