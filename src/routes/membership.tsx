@@ -234,7 +234,7 @@ function Membership() {
             </p>
             <p className="italic text-muted-foreground">
               (It's a shortened renewal form to make your online renewal process quick &amp; easy.
-              If you have a new email address/mailing address, please provide updated info in the
+              If you have a new email address, please provide updated info in the
               'comments' section upon checkout.)
             </p>
             <p>
