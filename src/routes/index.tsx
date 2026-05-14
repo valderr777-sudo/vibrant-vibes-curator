@@ -213,11 +213,12 @@ function Index() {
       <Marquee />
 
       {/* What motivates us */}
-      <section
-        className="relative overflow-hidden bg-muted/30 py-20 lg:bg-no-repeat lg:bg-[length:100%_100%] lg:bg-center"
-        style={{ backgroundImage: `var(--motivates-bg)` }}
-      >
-        <style>{`.motivates-bg{background-image:url(${motivatesBg})}`}</style>
+      <section className="relative overflow-hidden bg-muted/30 py-20 lg:bg-muted/0">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 hidden bg-no-repeat bg-center lg:block lg:[background-size:100%_100%]"
+          style={{ backgroundImage: `url(${motivatesBg})` }}
+        />
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-start text-left">
             <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
