@@ -13,6 +13,7 @@ import groupImg from "@/assets/worwf/group.jpg";
 import { campaignImages } from "@/assets/worwf/gallery/campaign";
 import { committeeImages } from "@/assets/worwf/gallery/committee";
 import { educationImages } from "@/assets/worwf/gallery/education";
+import { speakersImages } from "@/assets/worwf/gallery/speakers";
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
@@ -71,18 +72,21 @@ const photos: Photo[] = [
     alt: img.alt,
     category: "Education & Literacy" as Category,
   })),
-  { id: 4, src: speakersImg, alt: "Guest speaker addressing members", category: "Guest Speakers" },
+  ...speakersImages.map((img, i) => ({
+    id: 4000 + i,
+    src: img.src,
+    alt: img.alt,
+    category: "Guest Speakers" as Category,
+  })),
   { id: 5, src: historyImg, alt: "Historic moment from WORWF archives", category: "History" },
   { id: 6, src: specialImg, alt: "Members at a special event", category: "Special Events" },
   { id: 7, src: groupImg, alt: "Group photo of the chapter", category: "Special Events" },
-  { id: 9, src: speakersImg, alt: "Monthly luncheon meeting", category: "Guest Speakers" },
   { id: 12, src: historyImg, alt: "Founding members commemorated", category: "History" },
 ];
 
 void committeeImg;
 void educationImg;
-
-// Keep reference to legacy placeholder image so unused-import lint doesn't break
+void speakersImg;
 void campaignImg;
 
 function GalleryPage() {
