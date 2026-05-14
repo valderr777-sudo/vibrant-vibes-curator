@@ -45,7 +45,7 @@ const voterResources: {
     heading: "National / State / Local",
     description: "Official party, government, and policy resources from the national level down to Orange County.",
     icon: Globe2,
-    accent: "from-primary/15 to-primary/0 text-primary",
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "RNC", href: "https://gop.com/" },
       { label: "US House of Representatives", href: "https://www.house.gov/" },
@@ -62,7 +62,7 @@ const voterResources: {
     heading: "Florida Representatives",
     description: "Find and contact your elected officials at the state level — governor, senators, and representatives.",
     icon: Landmark,
-    accent: "from-secondary/15 to-secondary/0 text-secondary",
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "Florida Governor – Ron DeSantis", href: "https://flgov.com/contact-governor/" },
       { label: "Find your Legislator", href: "https://www.flsenate.gov/senators/find" },
@@ -89,7 +89,7 @@ const voterResources: {
     heading: "Voter ID & Status",
     description: "Verify your registration, find your polling place, and make sure your vote is ready to count.",
     icon: BadgeCheck,
-    accent: "from-primary/15 to-primary/0 text-primary",
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "Check your Voter ID Status", href: "https://registration.elections.myflorida.com/CheckVoterStatus" },
       { label: "Voter Precinct Lookup", href: "https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/" },
@@ -221,13 +221,8 @@ function NewsPage() {
                     className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${col.accent} opacity-60 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
                   />
                   <div className="relative">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${col.accent} ring-1 ring-border`}>
-                        <Icon className="size-6" />
-                      </div>
-                      <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
-                        {col.links.length} {col.links.length === 1 ? "link" : "links"}
-                      </span>
+                    <div className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${col.accent} ring-1 ring-border`}>
+                      <Icon className="size-6" />
                     </div>
                     <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground">
                       {col.heading}
