@@ -253,7 +253,7 @@ function Index() {
           }}
         />
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold italic leading-snug text-primary md:text-4xl">
+          <h2 className="text-3xl font-bold italic leading-snug text-foreground md:text-4xl">
             "United together to create positive change. Supporting good government and constitutional
             rights."
           </h2>
@@ -283,7 +283,7 @@ function Index() {
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
               What Motivates Us
             </span>
-            <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-tight text-primary md:text-4xl">
+            <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-tight text-foreground md:text-4xl">
               We love America and our Constitution - and take responsibility for both!
             </h2>
             <p className="mt-6 max-w-3xl text-muted-foreground">
@@ -296,7 +296,7 @@ function Index() {
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-bold text-primary">
+              <h3 className="text-xl font-bold text-foreground">
                 We Empower Women, Strengthen Community, and Uphold Values
               </h3>
               <p className="mt-4 text-sm text-muted-foreground">
@@ -365,7 +365,7 @@ function Index() {
                   <p className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Calendar className="size-3.5" /> {e.date}
                   </p>
-                  <h3 className="mt-2 text-xl font-bold text-primary">{e.title}</h3>
+                  <h3 className="mt-2 text-xl font-bold text-foreground">{e.title}</h3>
                   <a href="#" className="mt-1 text-sm font-semibold italic text-secondary underline">
                     WEST ORANGE CC
                   </a>
@@ -387,7 +387,7 @@ function Index() {
       {/* Voter resources */}
       <section className="bg-muted py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold leading-tight text-primary md:text-4xl">
+          <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
             Find Your Elected Officials, Check Your Voter Status, and Connect with Republican
             Organizations
           </h2>
@@ -412,7 +412,7 @@ function Index() {
               Together, we turn aspirations into reality.
             </h2>
             <div className="mt-12 rounded-lg bg-card p-8 text-card-foreground shadow-[var(--shadow-elegant)]">
-              <h3 className="text-xl font-bold text-primary">
+              <h3 className="text-xl font-bold text-foreground">
                 Support Our Mission, Invest in the Future
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">
@@ -446,7 +446,7 @@ function Index() {
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
               Our movement needs you!
             </span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-primary md:text-4xl">
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
               Would you like to become one of our honourable member?
             </h2>
           </div>
@@ -497,7 +497,7 @@ function Index() {
               <img src={worwfLogo} alt="" className="size-6 object-contain" />
               Frequently Asked Questions (FAQ)
             </span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-primary md:text-4xl">
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
               We here to answer all your questions
             </h2>
           </div>
