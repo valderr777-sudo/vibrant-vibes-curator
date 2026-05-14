@@ -4,7 +4,7 @@ import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lu
 import { useEffect, useRef, useState } from "react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import groupImg from "@/assets/worwf/group.jpg";
+
 import capitolSteps from "@/assets/worwf/about/capitol-steps.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import ffrwLogo from "@/assets/worwf/ffrw.png";
@@ -14,6 +14,9 @@ import handshake from "@/assets/worwf/about/handshake.png";
 import usa from "@/assets/worwf/about/usa.png";
 import networking from "@/assets/worwf/about/networking.png";
 import founders from "@/assets/worwf/about/founders.jpg";
+import who1 from "@/assets/worwf/about/who-1.jpg";
+import who2 from "@/assets/worwf/about/who-2.jpg";
+import who3 from "@/assets/worwf/about/who-3.jpg";
 import nfrwAward from "@/assets/worwf/about/nfrw-award.jpg";
 import carenBell from "@/assets/worwf/about/caren-bell.jpg";
 import theresaMillay from "@/assets/worwf/about/theresa-millay.jpg";
@@ -50,19 +53,19 @@ const whoWeAreCards = [
     title: "Connected Across the Nation",
     icon: handshake,
     text: "We are part of the largest grassroots Republican Women's organization that works together on the National, State, and Local level.",
-    bg: groupImg,
+    bg: who1,
   },
   {
     title: "Proudly American, Proudly Local",
     icon: usa,
     text: "We love America and we love our community.",
-    bg: groupImg,
+    bg: who2,
   },
   {
     title: "Women Leading with Purpose and Principle",
     icon: networking,
     text: "We are an organization of passionate women who work together to advance the cause of good government in our community, state, and nation.",
-    bg: groupImg,
+    bg: who3,
   },
 ];
 
@@ -247,7 +250,7 @@ function AboutUs() {
       <section className="relative bg-muted py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-            <h2 className="text-4xl font-extrabold leading-tight text-primary md:text-5xl">
+            <h2 className="text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
               Who We Are
             </h2>
             <div>
@@ -266,18 +269,18 @@ function AboutUs() {
                 key={c.title}
                 className="group relative overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]"
                 style={{
-                  backgroundImage: `linear-gradient(180deg, oklch(0.20 0.08 25 / 0.55), oklch(0.20 0.08 25 / 0.85)), url(${c.bg})`,
+                  backgroundImage: `linear-gradient(180deg, oklch(0.72 0.18 50 / 0.55), oklch(0.62 0.22 35 / 0.85)), url(${c.bg})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   minHeight: "380px",
                 }}
               >
-                <div className="flex h-full flex-col items-center justify-end p-8 text-center text-primary-foreground">
-                  <span className="mb-6 flex size-24 items-center justify-center rounded-full border-2 border-primary-foreground/80 bg-primary/30 backdrop-blur">
+                <div className="flex h-full flex-col items-center justify-end p-8 text-center text-foreground">
+                  <span className="mb-6 flex size-24 items-center justify-center rounded-full border-2 border-foreground/80 bg-background/30 backdrop-blur">
                     <img src={c.icon} alt="" className="size-12 object-contain" />
                   </span>
-                  <h3 className="text-xl font-bold leading-snug">{c.title}</h3>
-                  <p className="mt-3 text-sm text-primary-foreground/90">{c.text}</p>
+                  <h3 className="text-xl font-bold leading-snug text-foreground">{c.title}</h3>
+                  <p className="mt-3 text-sm text-foreground/90">{c.text}</p>
                 </div>
               </article>
             ))}
@@ -327,16 +330,16 @@ function AboutUs() {
               ))}
             </div>
             <figure className="lg:sticky lg:top-28">
-              <div className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+              <div className="flex items-center justify-center rounded-xl border border-border bg-card p-12 shadow-[var(--shadow-elegant)]">
                 <img
-                  src={founders}
-                  alt="Co-Founders Linda O'Keefe and Wendy West"
-                  className="h-full w-full object-cover"
+                  src={worwfLogo}
+                  alt="WORWF logo"
+                  className="h-auto w-full max-w-xs object-contain"
                   loading="lazy"
                 />
               </div>
               <figcaption className="mt-4 text-center text-sm italic text-muted-foreground">
-                Co-Founders Linda O'Keefe (left) and Wendy West (right)
+                West Orange Republican Women, Federated
               </figcaption>
             </figure>
           </div>
@@ -366,23 +369,43 @@ function AboutUs() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-[1.1fr_1fr] sm:items-start">
-            <figure className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
-              <img src={nfrwAward} alt="NFRW Diamond Achievement Award" className="h-full w-full object-cover" />
-            </figure>
-            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-primary">NFRW Diamond Achievement Award</h3>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Every two years at the biennial convention, the NFRW presents awards to recognize
-                and honor excellence at the state and club levels. WORWF is a{" "}
-                <strong>Diamond Achievement Award Recipient</strong> for demonstrating excellence in
-                membership development, campaign activities, community relations, programs and club
-                functions (2019, 2021, 2023).
-              </p>
-              <p className="mt-4 text-sm font-semibold text-secondary">
-                FFRW Gold Award Recipient — 2022-2023, 2018-2019
-              </p>
-            </div>
+          <figure className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+            <img
+              src={founders}
+              alt="Co-Founders Linda O'Keefe and Wendy West"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <figcaption className="bg-card px-4 py-3 text-center text-sm italic text-muted-foreground">
+              Co-Founders Linda O'Keefe (left) and Wendy West (right)
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* NFRW Diamond Achievement Award */}
+      <section className="relative overflow-hidden bg-muted py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
+          <figure className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+            <img src={nfrwAward} alt="NFRW Diamond Achievement Award" className="h-full w-full object-cover" />
+          </figure>
+          <div>
+            <span className="text-sm font-semibold tracking-wide text-secondary">
+              RECOGNITION
+            </span>
+            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-primary md:text-5xl">
+              NFRW Diamond Achievement Award
+            </h2>
+            <p className="mt-6 text-muted-foreground">
+              Every two years at the biennial convention, the NFRW presents awards to recognize
+              and honor excellence at the state and club levels. WORWF is a{" "}
+              <strong>Diamond Achievement Award Recipient</strong> for demonstrating excellence in
+              membership development, campaign activities, community relations, programs and club
+              functions (2019, 2021, 2023).
+            </p>
+            <p className="mt-6 text-sm font-semibold text-secondary">
+              FFRW Gold Award Recipient — 2022-2023, 2018-2019
+            </p>
           </div>
         </div>
       </section>
