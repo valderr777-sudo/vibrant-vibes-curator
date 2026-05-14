@@ -175,192 +175,92 @@ function NewsPage() {
         }}
       >
         <div className="mx-auto max-w-7xl px-6 py-24 text-primary-foreground md:py-32">
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
-            Voter Resources, Education, and Ways to Activate
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur">
+            Voter Resources
+          </span>
+          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
+            Everything you need to stay informed and ready to vote.
           </h1>
           <p className="mt-6 max-w-2xl text-base md:text-lg">
-            Join the community: stay informed with top news, educational updates, and voter resources.
+            A curated hub of official, trusted links — from national leadership down to your local precinct.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link to="/membership">
-              <Button variant="cta" className="rounded-md px-7 py-6 text-base font-semibold">
-                Become a Member
-              </Button>
-            </Link>
-            <Button className="rounded-md bg-primary px-7 py-6 text-base font-semibold text-primary-foreground hover:bg-primary/90">
-              Donate Us
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Membership Engagement */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight md:text-5xl">
-            Membership Engagement
-          </h2>
-          <div className="mt-12 flex items-center gap-4">
-            <button
-              aria-label="Previous"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronLeft className="size-5" />
-            </button>
-            <div className="grid flex-1 gap-10 md:grid-cols-3">
-              {memberCards.map((c) => (
-                <Card key={c.title} {...c} />
-              ))}
-            </div>
-            <button
-              aria-label="Next"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronRight className="size-5" />
-            </button>
-          </div>
-          <div className="mt-10 flex items-center justify-center gap-2">
-            <span className="size-2 rounded-full bg-primary" />
-            <span className="size-2 rounded-full bg-muted-foreground/30" />
-            <span className="size-2 rounded-full bg-muted-foreground/30" />
-          </div>
-        </div>
-      </section>
-
-      {/* Term limits — members only */}
-      <section
-        className="relative text-primary-foreground"
-        style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.38 0.20 25 / 0.85), oklch(0.38 0.20 25 / 0.7)), url(${termLimitsBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <h2 className="text-center text-3xl font-extrabold md:text-5xl">Term limits</h2>
-          <div className="mt-12">
-            <h3 className="text-xl font-bold md:text-2xl">Members Only Content</h3>
-            <p className="mt-2 text-sm opacity-90">
-              This content is available for logged-in users only.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Education */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight md:text-5xl">
-            Education
-          </h2>
-          <div className="mt-12 flex items-center gap-4">
-            <button
-              aria-label="Previous"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronLeft className="size-5" />
-            </button>
-            <div className="grid flex-1 gap-10 md:grid-cols-3">
-              {educationCards.map((c) => (
-                <article key={c.title} className="flex flex-col">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-primary">
-                    <img src={c.img} alt="" className="h-full w-full object-cover" />
-                  </div>
-                  <span className="mt-5 inline-block w-fit rounded bg-muted px-3 py-1 text-xs font-medium text-foreground/70">
-                    Education
-                  </span>
-                  <h3 className="mt-4 text-xl font-extrabold leading-snug md:text-2xl">
-                    {c.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                </article>
-              ))}
-            </div>
-            <button
-              aria-label="Next"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronRight className="size-5" />
-            </button>
-          </div>
-          <div className="mt-10 flex items-center justify-center gap-2">
-            <span className="size-2 rounded-full bg-primary" />
-            <span className="size-2 rounded-full bg-muted-foreground/30" />
-          </div>
-        </div>
-      </section>
-
-      {/* Activate – Call to Action */}
-      <section
-        className="relative py-20"
-        style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.14 0.02 25 / 0.6), oklch(0.14 0.02 25 / 0.6)), url(${activateBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <div
-            className="rounded-md p-8 md:p-14"
-            style={{
-              background:
-                "linear-gradient(135deg, oklch(0.35 0.20 25 / 0.92), oklch(0.30 0.18 25 / 0.92))",
-            }}
-          >
-            <div className="text-center text-primary-foreground">
-              <h2 className="text-3xl font-extrabold md:text-5xl">Activate – Call to Action</h2>
-              <div className="mx-auto mt-4 h-1 w-16 rounded bg-amber-400" />
-            </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {callsToAction.map((c) => (
-                <div key={c.title} className="rounded-md bg-card p-7 shadow-lg">
-                  <h3 className="text-lg font-extrabold leading-snug md:text-xl">{c.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                  <a
-                    href="#"
-                    className="mt-5 inline-block text-sm font-semibold text-secondary hover:underline"
-                  >
-                    read more
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Voter Resources */}
-      <section className="bg-background py-20">
+      <section className="relative overflow-hidden bg-muted/30 py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-primary/10 to-transparent"
+        />
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-5xl">Voter Resources</h2>
-            <div className="mx-auto mt-4 h-1 w-16 rounded bg-amber-400" />
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-secondary">
+              <span className="h-px w-8 bg-secondary" />
+              Trusted Links
+              <span className="h-px w-8 bg-secondary" />
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">
+              Voter Resources
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground">
+              Browse by category. Every link opens an official site in a new tab.
+            </p>
           </div>
-          <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            {voterResources.map((col) => (
-              <div key={col.heading}>
-                <h3 className="font-serif text-2xl font-bold text-foreground">{col.heading}</h3>
-                <ul className="mt-5 space-y-3">
-                  {col.links.map((l) => (
-                    <li key={l.label}>
-                      <a
-                        href={l.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium text-sky-600 transition-colors hover:text-secondary hover:underline"
-                      >
-                        {l.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {voterResources.map((col) => {
+              const Icon = col.icon;
+              return (
+                <div
+                  key={col.heading}
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-xl"
+                >
+                  <div
+                    aria-hidden
+                    className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${col.accent} opacity-60 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
+                  />
+                  <div className="relative">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${col.accent} ring-1 ring-border`}>
+                        <Icon className="size-6" />
+                      </div>
+                      <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
+                        {col.links.length} {col.links.length === 1 ? "link" : "links"}
+                      </span>
+                    </div>
+                    <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground">
+                      {col.heading}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {col.description}
+                    </p>
+
+                    <ul className="mt-6 divide-y divide-border/70 border-t border-border/70">
+                      {col.links.map((l) => (
+                        <li key={l.label}>
+                          <a
+                            href={l.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link flex items-center justify-between gap-4 py-3 text-sm font-medium text-foreground transition-colors hover:text-secondary"
+                          >
+                            <span className="flex-1 leading-snug">{l.label}</span>
+                            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 group-hover/link:bg-secondary group-hover/link:text-secondary-foreground group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5">
+                              <ArrowUpRight className="size-4" />
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <footer
         className="relative text-primary-foreground"
         style={{
