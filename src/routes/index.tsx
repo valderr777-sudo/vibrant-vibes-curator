@@ -235,7 +235,7 @@ function Index() {
           </div>
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2">
-            <div>
+            <div className="text-center lg:text-left">
               <h3 className="text-xl font-bold text-foreground">
                 We Empower Women, Strengthen Community, and Uphold Values
               </h3>
