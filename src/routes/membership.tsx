@@ -35,11 +35,9 @@ export const Route = createFileRoute("/membership")({
 });
 
 const navLinks = [
-  { label: "Home", to: "/" as const },
   { label: "About Us", to: "/about-us" as const },
   { label: "Membership", to: "/membership" as const, active: true },
-  { label: "Events", to: "/events" as const },
-  { label: "News to Know", to: "/news-to-know" as const, caret: true },
+  { label: "Voter Resources", to: "/voter-resources" as const },
   { label: "Gallery", to: "/gallery" as const },
   { label: "Contact Us", to: "/contact-us" as const },
 ];
@@ -132,8 +130,16 @@ function Membership() {
               </Link>
             ))}
           </nav>
+          <Button asChild variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+
+            <Link to="/events">EVENTS</Link>
+
+          </Button>
+
           <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+
             DONATE
+
           </Button>
         </div>
       </header>
@@ -443,7 +449,7 @@ function Membership() {
                 </span>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                {["Upcoming Events", "Donate", "Join Us", "Gallery", "Voter Resources", "News to Know", "About Us"].map((l) => (
+                {["Upcoming Events", "Donate", "Join Us", "Gallery", "Voter Resources", "About Us"].map((l) => (
                   <a key={l} href="#" className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary">
                     {l}
                   </a>

@@ -42,12 +42,10 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const navLinks: { label: string; to: "/" | "/about-us" | "/membership" | "/events" | "/gallery" | "/contact-us"; active?: boolean; caret?: boolean }[] = [
-  { label: "Home", to: "/", active: true },
+const navLinks: { label: string; to: "/" | "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us"; active?: boolean; caret?: boolean }[] = [
   { label: "About Us", to: "/about-us" },
   { label: "Membership", to: "/membership" },
-  { label: "Events", to: "/events" },
-  { label: "News to Know", to: "/", caret: true },
+  { label: "Voter Resources", to: "/voter-resources" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact Us", to: "/contact-us" },
 ];
@@ -200,8 +198,16 @@ function Index() {
               </Link>
             ))}
           </nav>
+          <Button asChild variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+
+            <Link to="/events">EVENTS</Link>
+
+          </Button>
+
           <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+
             DONATE
+
           </Button>
         </div>
       </header>
@@ -538,7 +544,7 @@ function Index() {
                 <span className="text-lg font-semibold">West Orange Republican Women Federated</span>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                {["Upcoming Events", "Donate", "Join Us", "Gallery", "Voter Resources", "News to Know", "About Us"].map((l) => (
+                {["Upcoming Events", "Donate", "Join Us", "Gallery", "Voter Resources", "About Us"].map((l) => (
                   <a key={l} href="#" className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary">
                     {l}
                   </a>

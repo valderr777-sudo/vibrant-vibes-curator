@@ -14,17 +14,17 @@ import kirbyImg from "@/assets/worwf/news/kirby.jpg";
 import activateBg from "@/assets/worwf/news/activate-bg.jpg";
 import termLimitsBg from "@/assets/worwf/news/term-limits-bg.jpg";
 
-export const Route = createFileRoute("/news-to-know")({
+export const Route = createFileRoute("/voter-resources")({
   component: NewsPage,
   head: () => ({
     meta: [
-      { title: "News to Know — West Orange Republican Women Federated" },
+      { title: "Voter Resources — West Orange Republican Women Federated" },
       {
         name: "description",
         content:
           "Stay informed with WORWF: top news, member engagement, education updates, calls to action, and voter resources.",
       },
-      { property: "og:title", content: "News to Know — WORWF" },
+      { property: "og:title", content: "Voter Resources — WORWF" },
       {
         property: "og:description",
         content:
@@ -35,11 +35,9 @@ export const Route = createFileRoute("/news-to-know")({
 });
 
 const navLinks = [
-  { label: "Home", to: "/" as const },
   { label: "About Us", to: "/about-us" as const },
   { label: "Membership", to: "/membership" as const },
-  { label: "Events", to: "/events" as const },
-  { label: "News to Know", to: "/news-to-know" as const, caret: true, active: true },
+  { label: "Voter Resources", to: "/voter-resources" as const },
   { label: "Gallery", to: "/gallery" as const },
   { label: "Contact Us", to: "/contact-us" as const },
 ];
@@ -207,8 +205,16 @@ function NewsPage() {
               </Link>
             ))}
           </nav>
+          <Button asChild variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+
+            <Link to="/events">EVENTS</Link>
+
+          </Button>
+
           <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+
             DONATE
+
           </Button>
         </div>
       </header>
@@ -224,7 +230,7 @@ function NewsPage() {
       >
         <div className="mx-auto max-w-7xl px-6 py-24 text-primary-foreground md:py-32">
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
-            News to Know, Education, and Ways to Activate
+            Voter Resources, Education, and Ways to Activate
           </h1>
           <p className="mt-6 max-w-2xl text-base md:text-lg">
             Join the community: stay informed with top news, educational updates, and voter resources.
@@ -427,7 +433,7 @@ function NewsPage() {
                 </span>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                {["Upcoming Events", "Donate", "Join Us", "Gallery", "Voter Resources", "News to Know", "About Us"].map((l) => (
+                {["Upcoming Events", "Donate", "Join Us", "Gallery", "Voter Resources", "About Us"].map((l) => (
                   <a key={l} href="#" className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary">
                     {l}
                   </a>
