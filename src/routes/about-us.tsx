@@ -330,16 +330,16 @@ function AboutUs() {
               ))}
             </div>
             <figure className="lg:sticky lg:top-28">
-              <div className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+              <div className="flex items-center justify-center rounded-xl border border-border bg-card p-12 shadow-[var(--shadow-elegant)]">
                 <img
-                  src={founders}
-                  alt="Co-Founders Linda O'Keefe and Wendy West"
-                  className="h-full w-full object-cover"
+                  src={worwfLogo}
+                  alt="WORWF logo"
+                  className="h-auto w-full max-w-xs object-contain"
                   loading="lazy"
                 />
               </div>
               <figcaption className="mt-4 text-center text-sm italic text-muted-foreground">
-                Co-Founders Linda O'Keefe (left) and Wendy West (right)
+                West Orange Republican Women, Federated
               </figcaption>
             </figure>
           </div>
@@ -369,23 +369,43 @@ function AboutUs() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-[1.1fr_1fr] sm:items-start">
-            <figure className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
-              <img src={nfrwAward} alt="NFRW Diamond Achievement Award" className="h-full w-full object-cover" />
-            </figure>
-            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-primary">NFRW Diamond Achievement Award</h3>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Every two years at the biennial convention, the NFRW presents awards to recognize
-                and honor excellence at the state and club levels. WORWF is a{" "}
-                <strong>Diamond Achievement Award Recipient</strong> for demonstrating excellence in
-                membership development, campaign activities, community relations, programs and club
-                functions (2019, 2021, 2023).
-              </p>
-              <p className="mt-4 text-sm font-semibold text-secondary">
-                FFRW Gold Award Recipient — 2022-2023, 2018-2019
-              </p>
-            </div>
+          <figure className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+            <img
+              src={founders}
+              alt="Co-Founders Linda O'Keefe and Wendy West"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <figcaption className="bg-card px-4 py-3 text-center text-sm italic text-muted-foreground">
+              Co-Founders Linda O'Keefe (left) and Wendy West (right)
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* NFRW Diamond Achievement Award */}
+      <section className="relative overflow-hidden bg-muted py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
+          <figure className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+            <img src={nfrwAward} alt="NFRW Diamond Achievement Award" className="h-full w-full object-cover" />
+          </figure>
+          <div>
+            <span className="text-sm font-semibold tracking-wide text-secondary">
+              RECOGNITION
+            </span>
+            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-primary md:text-5xl">
+              NFRW Diamond Achievement Award
+            </h2>
+            <p className="mt-6 text-muted-foreground">
+              Every two years at the biennial convention, the NFRW presents awards to recognize
+              and honor excellence at the state and club levels. WORWF is a{" "}
+              <strong>Diamond Achievement Award Recipient</strong> for demonstrating excellence in
+              membership development, campaign activities, community relations, programs and club
+              functions (2019, 2021, 2023).
+            </p>
+            <p className="mt-6 text-sm font-semibold text-secondary">
+              FFRW Gold Award Recipient — 2022-2023, 2018-2019
+            </p>
           </div>
         </div>
       </section>
