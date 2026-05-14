@@ -194,8 +194,7 @@
   .animate-page-in,
   .animate-fade-up,
   .animate-fade-in-soft,
-  .animate-scale-in-soft,
-  main.animate-page-in > * {
+  .animate-scale-in-soft {
     animation: none !important;
   }
 }
