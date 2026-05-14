@@ -355,8 +355,10 @@ function EventsPage() {
                 Interested in what else is happening in the county? View the full Republican Party
                 of Orange County master calendar.
               </p>
-              <Button variant="cta" className="mt-6 rounded-xl px-6 font-semibold">
-                View GOP Master Calendar
+              <Button asChild variant="cta" className="mt-6 rounded-xl px-6 font-semibold">
+                <a href="https://www.orangefl.gop/calendar" target="_blank" rel="noopener noreferrer">
+                  View GOP Master Calendar
+                </a>
               </Button>
             </div>
           </div>
