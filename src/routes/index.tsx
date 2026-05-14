@@ -226,7 +226,7 @@ function Index() {
         />
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-40">
           <p className="text-sm text-primary-foreground/90">— Women strengthening our community</p>
-          <h1 className="mt-5 whitespace-nowrap text-2xl font-bold leading-[1.1] text-primary-foreground sm:text-3xl md:text-5xl lg:text-6xl">
+          <h1 className="mt-5 whitespace-nowrap text-xl font-bold leading-[1.1] text-primary-foreground sm:text-2xl md:text-3xl lg:text-5xl">
             West Orange Republican Women Federated
           </h1>
           <p className="mt-6 max-w-xl text-primary-foreground/90">
