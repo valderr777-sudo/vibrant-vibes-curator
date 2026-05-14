@@ -4,7 +4,7 @@ import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lu
 import { useEffect, useRef, useState } from "react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import groupImg from "@/assets/worwf/group.jpg";
+
 import capitolSteps from "@/assets/worwf/about/capitol-steps.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import ffrwLogo from "@/assets/worwf/ffrw.png";
