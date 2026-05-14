@@ -1,18 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Facebook, ChevronUp, ArrowUpRight, Globe2, Landmark, Users, BadgeCheck } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import heroImg from "@/assets/worwf/news/hero.jpg";
-import goldAward from "@/assets/worwf/news/gold-award.jpg";
-import foodDrive from "@/assets/worwf/news/food-drive.jpg";
-import roundup from "@/assets/worwf/news/roundup.jpg";
-import schoolImg from "@/assets/worwf/news/school.jpg";
-import kirbyImg from "@/assets/worwf/news/kirby.jpg";
-import activateBg from "@/assets/worwf/news/activate-bg.jpg";
-import termLimitsBg from "@/assets/worwf/news/term-limits-bg.jpg";
 
 export const Route = createFileRoute("/voter-resources")({
   component: NewsPage,
@@ -42,70 +34,18 @@ const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resou
   { label: "Contact Us", to: "/contact-us" as const },
 ];
 
-const memberCards = [
+const voterResources: {
+  heading: string;
+  description: string;
+  icon: typeof Globe2;
+  accent: string;
+  links: { label: string; href: string }[];
+}[] = [
   {
-    img: goldAward,
-    title: "WORWF Members Attend FFRW Spring Conference",
-    body:
-      "WORWF Receives GOLD Award. The Florida Federation of Republican Women's Spring Conference was held in Orlando, FL on April 19–21. During the event, WORWF received the Gold Award for their 2022–2023 volunteer hours. All the hard work on behalf of getting Republicans...",
-  },
-  {
-    img: foodDrive,
-    title: "2025 Edgewood Children's Ranch Food Drive",
-    body:
-      "WORWF Caring for America. WORWF continues their Edgewood Children's Ranch Food Drive in 2025 as the club's Caring for America service project. In 2024, West Orange Republican Women members proudly donated 2,096 lbs. of groceries plus $740 in gift cards and...",
-  },
-  {
-    img: roundup,
-    title:
-      "WORWF Members Attend Edgewood Children's Ranch 40th Annual Round Up Dinner & Auction",
-    body:
-      "40th Country Round-Up Dinner & Auction for Edgewood Children's Ranch. WORWF members saddled up to attend the 40th Annual Country Round-Up Dinner & Auction at Gaylord Palms Convention Center on September 23, 2023. The event benefits the Edgewood Children's...",
-  },
-];
-
-const educationCards = [
-  {
-    img: schoolImg,
-    title: "2024 Orange County School Board Meeting Dates",
-    body:
-      "Our Education Committee encourages members to attend the 2024 School Board Meetings. The school board will take public comments on non-agenda items at 4:00 p.m. concluding no later than 30 minutes after commencing. Procedures and all 2024 meeting dates can be found...",
-  },
-  {
-    img: kirbyImg,
-    title: "WORWF Education Committee on the Campaign Trail",
-    body:
-      "Our Education Team went to bat on Primary Election Day for WORWF Member Rachel Kirby, a conservative Orange County school board candidate. Though she did not win against the incumbent, Angie Gallo, Rachel is committed to speaking up against their liberal and woke...",
-  },
-  {
-    img: schoolImg,
-    title: "OCPS 2022 School Board Meeting Schedule",
-    body:
-      "YOU CAN MAKE A DIFFERENCE!! 2022 OCPS School Board Meeting Schedule. We encourage Members to attend the Orange County Public School Board meetings. The School Board conducts regular Board Meetings on the 2nd & 4th Tuesday of every month with several modifications...",
-  },
-];
-
-const callsToAction = [
-  {
-    title: "OCREC – Become a Member",
-    body:
-      "Orange County Republican Executive Committee (OCREC) NEEDS YOU!! Next Meeting: Thursday, September 22, 2022 at 6:00 PM, Mark's Street Senior Center, Orlando. In Orange County, the Republican Executive Committee (OCREC) is the official organization of the Republican Party....",
-  },
-  {
-    title: "Check Your Voter Status",
-    body:
-      "It's important that all our votes are counted! Here are three (3) ways to help with Election Integrity. While you are at it, share this information with your family, friends and neighbors. 1) Verify your Voter Registration Status. Check to ensure you are on the voter...",
-  },
-  {
-    title: "Track 2022 FFRW Legislative Priorities for Florida",
-    body:
-      "Call-to-Action: Track 2022 FFRW Legislative Priorities for Florida. Get Involved... Pay Attention... Let your voices be heard! The list below is the FFRW Legislative Priorities for Florida. Track these bills at myfloridahouse.gov to see how they are making their way through...",
-  },
-];
-
-const voterResources: { heading: string; links: { label: string; href: string }[] }[] = [
-  {
-    heading: "National/State/Local",
+    heading: "National / State / Local",
+    description: "Official party, government, and policy resources from the national level down to Orange County.",
+    icon: Globe2,
+    accent: "from-primary/15 to-primary/0 text-primary",
     links: [
       { label: "RNC", href: "https://gop.com/" },
       { label: "US House of Representatives", href: "https://www.house.gov/" },
@@ -119,7 +59,10 @@ const voterResources: { heading: string; links: { label: string; href: string }[
     ],
   },
   {
-    heading: "Florida Representative",
+    heading: "Florida Representatives",
+    description: "Find and contact your elected officials at the state level — governor, senators, and representatives.",
+    icon: Landmark,
+    accent: "from-secondary/15 to-secondary/0 text-secondary",
     links: [
       { label: "Florida Governor – Ron DeSantis", href: "https://flgov.com/contact-governor/" },
       { label: "Find your Legislator", href: "https://www.flsenate.gov/senators/find" },
@@ -133,6 +76,9 @@ const voterResources: { heading: string; links: { label: string; href: string }[
   },
   {
     heading: "Republican Women",
+    description: "Connect with the wider network of Republican Women's organizations across the country and Florida.",
+    icon: Users,
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "RNC Women", href: "https://www.gop.com/communities/rnc-women/" },
       { label: "National Federation of Republican Women", href: "https://www.nfrw.org/" },
@@ -140,28 +86,16 @@ const voterResources: { heading: string; links: { label: string; href: string }[
     ],
   },
   {
-    heading: "Voter ID/Status",
+    heading: "Voter ID & Status",
+    description: "Verify your registration, find your polling place, and make sure your vote is ready to count.",
+    icon: BadgeCheck,
+    accent: "from-primary/15 to-primary/0 text-primary",
     links: [
       { label: "Check your Voter ID Status", href: "https://registration.elections.myflorida.com/CheckVoterStatus" },
       { label: "Voter Precinct Lookup", href: "https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/" },
     ],
   },
 ];
-
-function Card({ img, title, body }: { img: string; title: string; body: string }) {
-  return (
-    <article className="flex flex-col">
-      <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-muted">
-        <img src={img} alt="" className="h-full w-full object-cover" />
-      </div>
-      <span className="mt-5 inline-block w-fit rounded bg-muted px-3 py-1 text-xs font-medium text-foreground/70">
-        Membership Engagement
-      </span>
-      <h3 className="mt-4 text-xl font-extrabold leading-snug md:text-2xl">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-    </article>
-  );
-}
 
 function NewsPage() {
   return (
@@ -241,192 +175,92 @@ function NewsPage() {
         }}
       >
         <div className="mx-auto max-w-7xl px-6 py-24 text-primary-foreground md:py-32">
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
-            Voter Resources, Education, and Ways to Activate
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur">
+            Voter Resources
+          </span>
+          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
+            Everything you need to stay informed and ready to vote.
           </h1>
           <p className="mt-6 max-w-2xl text-base md:text-lg">
-            Join the community: stay informed with top news, educational updates, and voter resources.
+            A curated hub of official, trusted links — from national leadership down to your local precinct.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link to="/membership">
-              <Button variant="cta" className="rounded-md px-7 py-6 text-base font-semibold">
-                Become a Member
-              </Button>
-            </Link>
-            <Button className="rounded-md bg-primary px-7 py-6 text-base font-semibold text-primary-foreground hover:bg-primary/90">
-              Donate Us
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Membership Engagement */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight md:text-5xl">
-            Membership Engagement
-          </h2>
-          <div className="mt-12 flex items-center gap-4">
-            <button
-              aria-label="Previous"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronLeft className="size-5" />
-            </button>
-            <div className="grid flex-1 gap-10 md:grid-cols-3">
-              {memberCards.map((c) => (
-                <Card key={c.title} {...c} />
-              ))}
-            </div>
-            <button
-              aria-label="Next"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronRight className="size-5" />
-            </button>
-          </div>
-          <div className="mt-10 flex items-center justify-center gap-2">
-            <span className="size-2 rounded-full bg-primary" />
-            <span className="size-2 rounded-full bg-muted-foreground/30" />
-            <span className="size-2 rounded-full bg-muted-foreground/30" />
-          </div>
-        </div>
-      </section>
-
-      {/* Term limits — members only */}
-      <section
-        className="relative text-primary-foreground"
-        style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.38 0.20 25 / 0.85), oklch(0.38 0.20 25 / 0.7)), url(${termLimitsBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <h2 className="text-center text-3xl font-extrabold md:text-5xl">Term limits</h2>
-          <div className="mt-12">
-            <h3 className="text-xl font-bold md:text-2xl">Members Only Content</h3>
-            <p className="mt-2 text-sm opacity-90">
-              This content is available for logged-in users only.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Education */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight md:text-5xl">
-            Education
-          </h2>
-          <div className="mt-12 flex items-center gap-4">
-            <button
-              aria-label="Previous"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronLeft className="size-5" />
-            </button>
-            <div className="grid flex-1 gap-10 md:grid-cols-3">
-              {educationCards.map((c) => (
-                <article key={c.title} className="flex flex-col">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-primary">
-                    <img src={c.img} alt="" className="h-full w-full object-cover" />
-                  </div>
-                  <span className="mt-5 inline-block w-fit rounded bg-muted px-3 py-1 text-xs font-medium text-foreground/70">
-                    Education
-                  </span>
-                  <h3 className="mt-4 text-xl font-extrabold leading-snug md:text-2xl">
-                    {c.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                </article>
-              ))}
-            </div>
-            <button
-              aria-label="Next"
-              className="hidden size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground hover:border-secondary hover:text-secondary md:flex"
-            >
-              <ChevronRight className="size-5" />
-            </button>
-          </div>
-          <div className="mt-10 flex items-center justify-center gap-2">
-            <span className="size-2 rounded-full bg-primary" />
-            <span className="size-2 rounded-full bg-muted-foreground/30" />
-          </div>
-        </div>
-      </section>
-
-      {/* Activate – Call to Action */}
-      <section
-        className="relative py-20"
-        style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.14 0.02 25 / 0.6), oklch(0.14 0.02 25 / 0.6)), url(${activateBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <div
-            className="rounded-md p-8 md:p-14"
-            style={{
-              background:
-                "linear-gradient(135deg, oklch(0.35 0.20 25 / 0.92), oklch(0.30 0.18 25 / 0.92))",
-            }}
-          >
-            <div className="text-center text-primary-foreground">
-              <h2 className="text-3xl font-extrabold md:text-5xl">Activate – Call to Action</h2>
-              <div className="mx-auto mt-4 h-1 w-16 rounded bg-amber-400" />
-            </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {callsToAction.map((c) => (
-                <div key={c.title} className="rounded-md bg-card p-7 shadow-lg">
-                  <h3 className="text-lg font-extrabold leading-snug md:text-xl">{c.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                  <a
-                    href="#"
-                    className="mt-5 inline-block text-sm font-semibold text-secondary hover:underline"
-                  >
-                    read more
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Voter Resources */}
-      <section className="bg-background py-20">
+      <section className="relative overflow-hidden bg-muted/30 py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-primary/10 to-transparent"
+        />
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-5xl">Voter Resources</h2>
-            <div className="mx-auto mt-4 h-1 w-16 rounded bg-amber-400" />
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-secondary">
+              <span className="h-px w-8 bg-secondary" />
+              Trusted Links
+              <span className="h-px w-8 bg-secondary" />
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">
+              Voter Resources
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground">
+              Browse by category. Every link opens an official site in a new tab.
+            </p>
           </div>
-          <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            {voterResources.map((col) => (
-              <div key={col.heading}>
-                <h3 className="font-serif text-2xl font-bold text-foreground">{col.heading}</h3>
-                <ul className="mt-5 space-y-3">
-                  {col.links.map((l) => (
-                    <li key={l.label}>
-                      <a
-                        href={l.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium text-sky-600 transition-colors hover:text-secondary hover:underline"
-                      >
-                        {l.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {voterResources.map((col) => {
+              const Icon = col.icon;
+              return (
+                <div
+                  key={col.heading}
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-xl"
+                >
+                  <div
+                    aria-hidden
+                    className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${col.accent} opacity-60 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
+                  />
+                  <div className="relative">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${col.accent} ring-1 ring-border`}>
+                        <Icon className="size-6" />
+                      </div>
+                      <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
+                        {col.links.length} {col.links.length === 1 ? "link" : "links"}
+                      </span>
+                    </div>
+                    <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground">
+                      {col.heading}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {col.description}
+                    </p>
+
+                    <ul className="mt-6 divide-y divide-border/70 border-t border-border/70">
+                      {col.links.map((l) => (
+                        <li key={l.label}>
+                          <a
+                            href={l.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link flex items-center justify-between gap-4 py-3 text-sm font-medium text-foreground transition-colors hover:text-secondary"
+                          >
+                            <span className="flex-1 leading-snug">{l.label}</span>
+                            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 group-hover/link:bg-secondary group-hover/link:text-secondary-foreground group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5">
+                              <ArrowUpRight className="size-4" />
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <footer
         className="relative text-primary-foreground"
         style={{
