@@ -77,7 +77,7 @@ function Marquee() {
   const words = ["EDUCATE", "MOTIVATE", "ACTIVATE", "EDUCATE", "MOTIVATE", "ACTIVATE", "EDUCATE", "MOTIVATE", "ACTIVATE", "EDUCATE", "MOTIVATE", "ACTIVATE"];
   return (
     <div className="overflow-hidden bg-primary py-5">
-      <div className="flex animate-[marquee_40s_linear_infinite] items-center gap-8 whitespace-nowrap">
+      <div className="flex animate-[marquee_25s_linear_infinite] items-center gap-8 whitespace-nowrap md:animate-[marquee_40s_linear_infinite]">
         {words.concat(words).map((w, i) => (
           <span key={i} className="flex items-center gap-8">
             <span className="text-2xl text-primary-foreground">★</span>
