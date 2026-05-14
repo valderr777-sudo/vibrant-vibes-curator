@@ -291,7 +291,7 @@ function AboutUs() {
       {/* Quote band + 3 logos */}
       <section className="relative overflow-hidden bg-background py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold italic leading-snug text-primary md:text-4xl">
+          <h2 className="text-3xl font-bold italic leading-snug text-foreground md:text-4xl">
             "United together to create positive change. Supporting good government and constitutional
             rights."
           </h2>
