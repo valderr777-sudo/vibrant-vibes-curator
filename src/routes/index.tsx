@@ -96,6 +96,51 @@ function Marquee() {
   );
 }
 
+const sliderImages = [
+  { src: sliderCapitol, alt: "2023 Spring FFRW Conference - Steps of Capitol" },
+  { src: sliderLegislative, alt: "2024 Legislative Day Tallahassee" },
+  { src: sliderExec, alt: "2023 Exec Committee with Gordon Chang" },
+  { src: sliderBarbara, alt: "2023 FFRW Conference with Barbara Price" },
+  { src: sliderAwards, alt: "2023 FFRW Convention Presidential Awards" },
+  { src: sliderConvention, alt: "2023 FFRW Convention" },
+];
+
+function ImageSlider() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % sliderImages.length), 4000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="relative h-full min-h-[320px] w-full overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
+      {sliderImages.map((img, i) => (
+        <img
+          key={img.src}
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {sliderImages.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Show slide ${i + 1}`}
+            onClick={() => setIndex(i)}
+            className={`h-2 w-2 rounded-full transition-all ${
+              i === index ? "w-6 bg-white" : "bg-white/60"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CheckBadge() {
   return (
     <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-secondary text-primary-foreground">
