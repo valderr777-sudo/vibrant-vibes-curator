@@ -10,6 +10,7 @@ import speakersImg from "@/assets/worwf/gallery/speakers.jpg";
 import historyImg from "@/assets/worwf/gallery/history.jpg";
 import specialImg from "@/assets/worwf/gallery/special.jpg";
 import groupImg from "@/assets/worwf/group.jpg";
+import { campaignImages } from "@/assets/worwf/gallery/campaign";
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
