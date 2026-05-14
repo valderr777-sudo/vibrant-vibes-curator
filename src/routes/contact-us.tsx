@@ -136,7 +136,7 @@ function ContactPage() {
 
       {/* Contact cards — overlap hero */}
       <section className="relative -mt-20 px-6">
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
           {contactCards.map((c) => (
             <a
               key={c.label}
