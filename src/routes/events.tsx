@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
@@ -12,13 +12,11 @@ import {
   Mail,
 } from "lucide-react";
 
-import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import venueImg from "@/assets/worwf/events/venue.jpg";
 import messinaImg from "@/assets/worwf/events/messina.jpg";
 import jacksonImg from "@/assets/worwf/events/jackson.jpg";
 import ingogliaImg from "@/assets/worwf/events/ingoglia.jpg";
 import america250Img from "@/assets/worwf/events/america250.jpg";
-import elephantImg from "@/assets/worwf/elephant.jpg";
 
 export const Route = createFileRoute("/events")({
   component: EventsPage,
