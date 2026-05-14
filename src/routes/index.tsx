@@ -179,7 +179,7 @@ function Index() {
           aria-hidden
           className="absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(110deg, oklch(0.25 0.12 250 / 0.85) 0%, oklch(0.30 0.15 255 / 0.65) 50%, oklch(0.40 0.18 250 / 0.55) 100%)`,
+            backgroundImage: `linear-gradient(110deg, oklch(0.25 0.12 250 / 0.85) 0%, oklch(0.32 0.16 320 / 0.70) 50%, oklch(0.40 0.20 25 / 0.80) 100%)`,
           }}
         />
         <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-20">
