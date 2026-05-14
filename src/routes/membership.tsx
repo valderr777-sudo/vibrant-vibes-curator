@@ -128,14 +128,14 @@ function Membership() {
 
       {/* Active / Associate Members */}
       <section className="relative overflow-hidden bg-muted/40 py-24">
-        {/* Parallax hero strip */}
+        {/* Parallax background covering full section */}
         <div
-          className="absolute inset-x-0 top-0 h-72 bg-cover bg-center bg-fixed opacity-30"
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-30"
           style={{ backgroundImage: `url(${membersParallax})` }}
           aria-hidden="true"
         />
         <div
-          className="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-transparent via-muted/40 to-muted/40"
+          className="absolute inset-0 bg-gradient-to-b from-muted/20 via-muted/10 to-muted/30"
           aria-hidden="true"
         />
 
