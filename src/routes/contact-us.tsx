@@ -122,9 +122,8 @@ function ContactPage() {
               <span className="size-1.5 rounded-full bg-secondary" />
               Get in Touch
             </span>
-            <h1 className="mt-6 text-5xl font-extrabold tracking-tight text-primary-foreground md:text-7xl">
-              Let&apos;s Start a<br />
-              <span className="text-secondary">Conversation</span>
+            <h1 className="mt-6 whitespace-nowrap text-4xl font-extrabold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+              Let&apos;s Start a <span className="text-orange-500">Conversation</span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-primary-foreground/90 md:text-lg">
               Whether you&apos;re curious about membership, have a question about an
