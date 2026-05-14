@@ -6,9 +6,9 @@ import footerBg from "@/assets/worwf/footer-bg.jpg";
 import sponsorRbs from "@/assets/worwf/sponsors/rbs.png";
 import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.png";
 
-const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/" }[] = [
+const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/"; external?: string }[] = [
   { label: "Upcoming Events", to: "/events" },
-  { label: "Donate", to: "/" },
+  { label: "Donate", to: "/", external: "https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" },
   { label: "Join Us", to: "/membership" },
   { label: "Gallery", to: "/gallery" },
   { label: "Voter Resources", to: "/voter-resources" },
@@ -35,23 +35,47 @@ export function SiteFooter() {
               </span>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              {footerLinks.map((l) => (
-                <Link
-                  key={l.label}
-                  to={l.to}
-                  className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary"
-                >
-                  {l.label}
-                </Link>
-              ))}
+              {footerLinks.map((l) =>
+                l.external ? (
+                  <a
+                    key={l.label}
+                    href={l.external}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={l.label}
+                    to={l.to}
+                    className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary"
+                  >
+                    {l.label}
+                  </Link>
+                ),
+              )}
             </div>
           </div>
           <div className="lg:text-right">
             <div className="flex items-center gap-3 lg:justify-end">
-              <a href="#" className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/40 hover:bg-primary-foreground hover:text-primary">
+              <a
+                href="https://www.facebook.com/westorangerepublicanwomenfederated"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/40 hover:bg-primary-foreground hover:text-primary"
+              >
                 <Facebook className="size-4" />
               </a>
-              <a href="#" className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/40 hover:bg-primary-foreground hover:text-primary">
+              <a
+                href="https://x.com/worwf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/40 hover:bg-primary-foreground hover:text-primary"
+              >
                 <span className="text-sm font-bold">𝕏</span>
               </a>
             </div>
