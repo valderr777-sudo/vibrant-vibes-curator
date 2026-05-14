@@ -221,13 +221,8 @@ function NewsPage() {
                     className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${col.accent} opacity-60 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
                   />
                   <div className="relative">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${col.accent} ring-1 ring-border`}>
-                        <Icon className="size-6" />
-                      </div>
-                      <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
-                        {col.links.length} {col.links.length === 1 ? "link" : "links"}
-                      </span>
+                    <div className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${col.accent} ring-1 ring-border`}>
+                      <Icon className="size-6" />
                     </div>
                     <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground">
                       {col.heading}
