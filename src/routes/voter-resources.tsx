@@ -5,6 +5,8 @@ import { Mail, Facebook, ChevronUp, ArrowUpRight, Globe2, Landmark, Users, Badge
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import heroImg from "@/assets/worwf/voter-resources-hero.jpg";
+import sponsorRbs from "@/assets/worwf/sponsors/rbs.png";
+import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.jpg";
 
 export const Route = createFileRoute("/voter-resources")({
   component: NewsPage,
@@ -298,12 +300,14 @@ function NewsPage() {
           </div>
 
           <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-primary-foreground/20 pt-8">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-4">
               <span className="text-sm">Sponsors</span>
-              <div className="rounded-md bg-primary-foreground px-4 py-2 text-sm font-extrabold text-secondary">
-                <span className="text-secondary">RBS</span>
-                <span className="ml-1 text-[10px] text-primary">CONSTRUCTION &amp; ROOFING</span>
-              </div>
+              <a href="#" className="flex items-center justify-center rounded-md bg-primary-foreground px-3 py-2">
+                <img src={sponsorRbs} alt="RBS Construction & Roofing" className="h-12 w-auto object-contain" />
+              </a>
+              <a href="#" className="flex items-center justify-center rounded-md bg-primary-foreground px-3 py-2">
+                <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-12 w-auto object-contain" />
+              </a>
             </div>
             <Link to="/contact-us">
               <Button variant="cta" className="rounded-md px-6 font-semibold">
