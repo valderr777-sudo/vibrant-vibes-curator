@@ -22,7 +22,7 @@ import carenBell from "@/assets/worwf/about/caren-bell.jpg";
 import theresaMillay from "@/assets/worwf/about/theresa-millay.jpg";
 import christineHayden from "@/assets/worwf/about/christine-hayden.jpg";
 import nancyBorkes from "@/assets/worwf/about/nancy-borkes.jpg";
-import judyCollins from "@/assets/worwf/about/judy-collins.jpg";
+// Coming-soon placeholder for unfilled portraits
 import brendaKnowles from "@/assets/worwf/about/brenda-knowles.jpg";
 import teresaSnipes from "@/assets/worwf/about/teresa-snipes.jpg";
 
@@ -95,35 +95,36 @@ const executive = [
   { name: "Theresa Millay", role: "1st Vice President", img: theresaMillay },
   { name: "Christine Hayden", role: "2nd Vice President", img: christineHayden },
   { name: "Nancy Borkes", role: "Corresponding Secretary", img: nancyBorkes },
-  { name: "Judy Collins", role: "Recording Secretary", img: judyCollins },
+  { name: "Susan Roderick", role: "Recording Secretary", img: worwfLogo },
   { name: "Brenda Knowles", role: "Treasurer", img: brendaKnowles },
-  { name: "Teresa Snipes", role: "Past President", img: teresaSnipes },
+  { name: "Coming Soon", role: "Assistant Treasurer", img: worwfLogo },
+  { name: "Teresa Snipes", role: "Immed. Past President", img: teresaSnipes },
 ];
 
 const standing = [
   { name: "Christine Hayden", role: "Membership" },
-  { name: "Carol MacKeen", role: "Fundraising" },
   { name: "Nancy Borkes", role: "Public Relations" },
+  { name: "Teresa Snipes", role: "Legislative" },
+  { name: "Carol MacKeen", role: "Fundraising" },
   { name: "JuDian Guimbellot", role: "Campaign" },
-  { name: "Dayna Gaut", role: "Legislative" },
   { name: "Theresa Millay", role: "Programs" },
 ];
 
 const special = [
-  { name: "Judy Collins", role: "Americanism" },
-  { name: "Rhonda Fontenault", role: "Caring for America" },
-  { name: "Emmie Rein", role: "Hospitality" },
+  { name: "Carolyn McAfee", role: "Americanism" },
   { name: "Erika Benkovich", role: "Armed Services" },
-  { name: "OPEN", role: "Caring for America Co-Chair" },
-  { name: "OPEN", role: "Leadership" },
-  { name: "Jennifer Hubbell", role: "Photographer" },
   { name: "Teresa Snipes", role: "Awards" },
-  { name: "Doris Sheppard", role: "Education" },
-  { name: "Rebecca Mellen", role: "Letter Writing" },
-  { name: "Donna Brown", role: "Sunshine" },
+  { name: "Nancy Borkes & Theresa Millay", role: "Bylaws Co-Chairs" },
+  { name: "Rhonda Fontenault", role: "Caring for America" },
   { name: "Rebecca Mellen", role: "Club Chaplain" },
+  { name: "Doris Sheppard", role: "Education" },
   { name: "Nancy Borkes", role: "Historian" },
-  { name: "Erika Benkovich", role: "Parliamentarian" },
+  { name: "Emmie Rein", role: "Hospitality" },
+  { name: "OPEN", role: "Leadership" },
+  { name: "Rebecca Mellen", role: "Letter Writing" },
+  { name: "Erika Benkovich", role: "Literacy" },
+  { name: "Jennifer Hubbell", role: "Photographer" },
+  { name: "Donna Brown", role: "Sunshine" },
 ];
 
 const historyBlocks = [
