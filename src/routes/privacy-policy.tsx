@@ -85,17 +85,17 @@ function PrivacyPolicyPage() {
               </Link>
             ))}
           </nav>
-          <Button asChild variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+          <div className="flex items-center gap-2">
 
-            <Link to="/events">EVENTS</Link>
+            <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
 
-          </Button>
+              <Link to="/events">EVENTS</Link>
 
-          <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
+            </Button>
 
-            DONATE
+            <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">DONATE</Button>
 
-          </Button>
+          </div>
         </div>
       </header>
 
