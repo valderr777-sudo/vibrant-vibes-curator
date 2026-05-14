@@ -420,8 +420,8 @@ function Index() {
             {/* Right: donate card */}
             <div className="relative lg:pl-6">
               {/* WORWF logo badge floating */}
-              <div className="absolute -top-8 right-4 z-20 hidden size-24 items-center justify-center rounded-full border-4 border-primary-foreground/90 bg-primary shadow-[var(--shadow-elegant)] sm:flex">
-                <img src={worwfLogo} alt="WORWF crest" className="size-16 object-contain" />
+              <div className="absolute -top-8 right-4 z-20 hidden size-24 items-center justify-center overflow-hidden rounded-full border-4 border-primary-foreground/90 bg-primary shadow-[var(--shadow-elegant)] sm:flex">
+                <img src={worwfLogo} alt="WORWF crest" className="h-full w-full object-cover" />
               </div>
 
               <div className="relative overflow-hidden rounded-2xl bg-card p-8 text-card-foreground shadow-[var(--shadow-elegant)] md:p-10">
