@@ -235,7 +235,7 @@ function EventsPage() {
             <p className="mt-3 text-sm font-bold">$35 MEMBERS AND GUESTS</p>
             <p className="mt-1 text-sm font-bold">CANDIDATE SPECIAL: $25</p>
             <p className="mt-5 text-sm">
-              Admission includes buffet lunch at West Orange Country Club, Winter Garden, FL.
+              Admission includes buffet lunch at West Orange Country Club.
             </p>
             <p className="mt-5 text-sm font-bold">
               **RESERVATIONS ARE REQUIRED FOR THURSDAY, MAY 14, 2026
