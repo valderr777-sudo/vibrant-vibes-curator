@@ -318,10 +318,7 @@ function Membership() {
             {[
               { left: { label: "*First Name", key: "firstName" as const, type: "text" }, right: { label: "*Member Referral Name", key: "referral" as const, type: "text" } },
               { left: { label: "*Last Name", key: "lastName" as const, type: "text" }, right: { label: "*Username", key: "username" as const, type: "text" } },
-              { left: { label: "*Street Address", key: "street" as const, type: "textarea" }, right: { label: "*Password", key: "password" as const, type: "password" } },
-              { left: { label: "*City", key: "city" as const, type: "text" }, right: { label: "*Confirm Password", key: "confirmPassword" as const, type: "password" } },
-              { left: { label: "*State", key: "state" as const, type: "text" }, right: null },
-              { left: { label: "*Zip", key: "zip" as const, type: "text" }, right: { label: "*Country", key: "country" as const, type: "text" } },
+              { left: { label: "*Password", key: "password" as const, type: "password" }, right: { label: "*Confirm Password", key: "confirmPassword" as const, type: "password" } },
               { left: { label: "*Email", key: "email" as const, type: "email" }, right: null },
               { left: { label: "*Confirm Email", key: "confirmEmail" as const, type: "email" }, right: null },
               { left: { label: "*Birthday (mo/day)", key: "birthday" as const, type: "text" }, right: null },
