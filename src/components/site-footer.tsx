@@ -83,20 +83,27 @@ export function SiteFooter() {
             <p className="mt-3 flex items-center gap-2 text-sm lg:justify-end">
               <span>info@worwf.org</span> <Mail className="size-4" />
             </p>
+            <Link to="/contact-us" className="mt-6 inline-block lg:hidden">
+              <Button variant="cta" className="rounded-md px-6 font-semibold">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-primary-foreground/20 pt-8">
-          <div className="flex flex-wrap items-center gap-4">
+        <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/20 pt-8 lg:flex-row lg:items-center">
+          <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
             <span className="text-sm">Sponsors</span>
-            <a href="https://www.rbsroofing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
-              <img src={sponsorRbs} alt="RBS Construction & Roofing" className="h-20 w-auto object-contain" />
-            </a>
-            <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
-              <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-20 w-auto object-contain" />
-            </a>
+            <div className="flex flex-wrap items-center gap-4">
+              <a href="https://www.rbsroofing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
+                <img src={sponsorRbs} alt="RBS Construction & Roofing" className="h-20 w-auto object-contain" />
+              </a>
+              <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
+                <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-20 w-auto object-contain" />
+              </a>
+            </div>
           </div>
-          <Link to="/contact-us">
+          <Link to="/contact-us" className="hidden lg:inline-block">
             <Button variant="cta" className="rounded-md px-6 font-semibold">
               Contact Us
             </Button>
