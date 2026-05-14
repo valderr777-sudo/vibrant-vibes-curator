@@ -162,12 +162,6 @@ function CookiePolicyPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </>
-  );
-}
-
-function SiteFooter() {
-  return (
   );
 }
