@@ -5,6 +5,7 @@ import { Mail, MapPin, Facebook, ChevronUp, Plus, X, HelpCircle } from "lucide-r
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
+import footerBg from "@/assets/worwf/footer-bg.jpg";
 import heroImg from "@/assets/worwf/contact/hero.jpg";
 
 export const Route = createFileRoute("/contact-us")({
@@ -283,7 +284,7 @@ function ContactPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${groupImg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -4,6 +4,7 @@ import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lu
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
+import footerBg from "@/assets/worwf/footer-bg.jpg";
 import heroImg from "@/assets/worwf/news/hero.jpg";
 import goldAward from "@/assets/worwf/news/gold-award.jpg";
 import foodDrive from "@/assets/worwf/news/food-drive.jpg";
@@ -411,7 +412,7 @@ function NewsPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${groupImg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -14,6 +14,7 @@ import {
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
+import footerBg from "@/assets/worwf/footer-bg.jpg";
 import venueImg from "@/assets/worwf/events/venue.jpg";
 import messinaImg from "@/assets/worwf/events/messina.jpg";
 import jacksonImg from "@/assets/worwf/events/jackson.jpg";
@@ -386,7 +387,7 @@ function EventsPage() {
       <footer
         className="relative text-primary-foreground"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${groupImg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.22 0.14 265 / 0.92), oklch(0.22 0.14 265 / 0.85)), url(${footerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
