@@ -403,33 +403,9 @@ function AboutUs() {
             <h2 className="text-4xl font-extrabold md:text-5xl">{president.title}</h2>
           </div>
 
-          <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative mx-auto w-full max-w-md">
-              <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-elegant)]">
-                <img
-                  src={president.img}
-                  alt={president.name}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div
-                aria-hidden
-                className="absolute -bottom-4 -right-4 -z-10 size-full rounded-2xl border-2 border-secondary"
-              />
-            </div>
-
-            <div>
-              <p>{president.bio}</p>
-              <p className="mt-4 opacity-90">{president.bio2}</p>
-              <h3 className="mt-8 text-2xl font-bold">{president.name}</h3>
-              <p className="mt-1 text-sm">
-                Email:{" "}
-                <a href={`mailto:${president.email}`} className="font-semibold text-primary-foreground/90 hover:text-primary-foreground">
-                  {president.email}
-                </a>
-              </p>
-
-              <div className="mt-10 flex items-center gap-4">
+          {(() => {
+            const nav = (
+              <div className="flex items-center justify-center gap-4 lg:justify-start">
                 <button
                   onClick={() =>
                     setPresidentIdx((i) => (i - 1 + presidents.length) % presidents.length)
@@ -459,8 +435,42 @@ function AboutUs() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
+            );
+
+            return (
+              <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
+                <div className="lg:hidden">{nav}</div>
+
+                <div className="relative mx-auto w-full max-w-md">
+                  <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-elegant)]">
+                    <img
+                      src={president.img}
+                      alt={president.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    aria-hidden
+                    className="absolute -bottom-4 -right-4 -z-10 size-full rounded-2xl border-2 border-secondary"
+                  />
+                </div>
+
+                <div>
+                  <p>{president.bio}</p>
+                  <p className="mt-4 opacity-90">{president.bio2}</p>
+                  <h3 className="mt-8 text-2xl font-bold">{president.name}</h3>
+                  <p className="mt-1 text-sm">
+                    Email:{" "}
+                    <a href={`mailto:${president.email}`} className="font-semibold text-primary-foreground/90 hover:text-primary-foreground">
+                      {president.email}
+                    </a>
+                  </p>
+
+                  <div className="mt-10 hidden lg:block">{nav}</div>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
