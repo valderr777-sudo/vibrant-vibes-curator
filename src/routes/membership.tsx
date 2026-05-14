@@ -3,7 +3,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Facebook, ChevronUp, Vote, Users, Check, X } from "lucide-react";
+import { Mail, MapPin, Facebook, ChevronUp, Vote, Users, Check, X, User, Home, Lock, Phone, Calendar, FileText, ArrowRight, ArrowLeft, Printer, Sparkles, ShieldCheck, UserPlus, RefreshCw, Eye, EyeOff } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
