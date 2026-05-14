@@ -106,7 +106,7 @@ function EventsPage() {
       {/* Venue logistics */}
       <section className="bg-muted py-16">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 md:grid-cols-3">
-          <div className="md:col-span-2 flex items-start gap-6 rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)]">
+          <div className="md:col-span-2 flex flex-col items-start gap-6 rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)] sm:flex-row">
             <div className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <MapPin className="size-7" />
             </div>
