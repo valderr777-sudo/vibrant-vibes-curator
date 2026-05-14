@@ -4,7 +4,7 @@ import { Mail, Facebook, ChevronUp, ArrowUpRight, Globe2, Landmark, Users, Badge
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
-import heroImg from "@/assets/worwf/news/hero.jpg";
+import heroImg from "@/assets/worwf/voter-resources-hero.jpg";
 
 export const Route = createFileRoute("/voter-resources")({
   component: NewsPage,
