@@ -330,7 +330,7 @@ function AboutUs() {
               ))}
             </div>
             <figure className="lg:sticky lg:top-28">
-              <div className="flex items-center justify-center rounded-xl border border-border bg-card p-12 shadow-[var(--shadow-elegant)]">
+              <div className="flex items-center justify-center border-border bg-card p-12 bg-black/0 border-0 border-black/0 border-none shadow-none rounded-none px-[10px] py-[10px]">
                 <img
                   src={worwfLogo}
                   alt="WORWF logo"
