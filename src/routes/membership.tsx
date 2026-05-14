@@ -386,12 +386,7 @@ function Membership() {
       <section className="grid gap-6 px-6 pb-20 md:grid-cols-2 md:gap-0 md:px-0">
         <a
           href="#"
-          className="relative flex h-56 items-center justify-center overflow-hidden text-primary-foreground"
-          style={{
-            backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.7), oklch(0.45 0.2 27 / 0.6)), url(${precinctFlag})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          className="relative flex h-56 items-center justify-center overflow-hidden bg-accent text-accent-foreground"
         >
           <div className="text-center">
             <h3 className="text-2xl font-bold md:text-3xl">Check precinct information</h3>
@@ -402,12 +397,7 @@ function Membership() {
         </a>
         <a
           href="#"
-          className="relative flex h-56 items-center justify-center overflow-hidden text-primary-foreground"
-          style={{
-            backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.55), oklch(0.45 0.2 27 / 0.7)), url(${voterId})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          className="relative flex h-56 items-center justify-center overflow-hidden bg-accent text-accent-foreground"
         >
           <div className="text-center">
             <h3 className="text-2xl font-bold md:text-3xl">Check voter ID Status</h3>
