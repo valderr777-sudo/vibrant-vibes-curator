@@ -12,8 +12,8 @@ import sliderExec from "@/assets/worwf/slider/exec.jpg";
 import sliderBarbara from "@/assets/worwf/slider/barbara.jpg";
 import sliderAwards from "@/assets/worwf/slider/awards.jpg";
 import sliderConvention from "@/assets/worwf/slider/convention.jpg";
-import speakerTorisi from "@/assets/worwf/speaker-torisi.png";
-import voteImg from "@/assets/worwf/vote.png";
+import speakerMessina from "@/assets/worwf/events/messina.jpg";
+import speakerIngoglia from "@/assets/worwf/events/ingoglia.jpg";
 import groupImg from "@/assets/worwf/group.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -342,17 +342,17 @@ function Index() {
               <p className="mt-2 opacity-90">
                 3300 West Orange Country Club Drive, Winter Garden, FL 34787
               </p>
-              <a href="#" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-secondary">
+              <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-secondary">
                 View All Events <ArrowRight className="size-4" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="mt-10 h-px bg-primary-foreground/20" />
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {[
-              { img: speakerTorisi, date: "THURSDAY, SEPTEMBER 11, 2025", speaker: "MICHAEL TORISI, Retired NYPD", showSpeaker: true },
-              { img: voteImg, date: "THURSDAY, OCTOBER 9th", speaker: "TOPIC: TBA", showSpeaker: false },
+              { img: speakerMessina, date: "THURSDAY, MAY 14, 2026", title: "General Luncheon Meeting", speaker: "CHRIS MESSINA & BONNIE JACKSON", showSpeaker: true },
+              { img: speakerIngoglia, date: "FRIDAY, JUNE 5, 2026", title: "Breakfast with Blaise", speaker: "BLAISE INGOGLIA, Florida CFO", showSpeaker: true },
             ].map((e, i) => (
               <article key={i} className="flex items-stretch gap-4 rounded-lg bg-card p-4 text-card-foreground shadow-[var(--shadow-elegant)]">
                 <img src={e.img} alt="" className="size-32 shrink-0 rounded object-cover" loading="lazy" />
@@ -360,7 +360,7 @@ function Index() {
                   <p className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Calendar className="size-3.5" /> {e.date}
                   </p>
-                  <h3 className="mt-2 text-xl font-bold text-primary">General Luncheon Meeting</h3>
+                  <h3 className="mt-2 text-xl font-bold text-primary">{e.title}</h3>
                   <a href="#" className="mt-1 text-sm font-semibold italic text-secondary underline">
                     WEST ORANGE CC
                   </a>
