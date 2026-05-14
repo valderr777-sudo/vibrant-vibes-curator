@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
+import capitolSteps from "@/assets/worwf/about/capitol-steps.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import ffrwLogo from "@/assets/worwf/ffrw.png";
 import nfrwLogo from "@/assets/worwf/nfrw.png";
@@ -186,7 +187,14 @@ function AboutUs() {
 
 
       {/* Page hero */}
-      <section className="relative overflow-hidden bg-primary py-20 text-primary-foreground md:py-28">
+      <section
+        className="relative overflow-hidden py-20 text-primary-foreground md:py-28"
+        style={{
+          backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${capitolSteps})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div
           aria-hidden
           className="pointer-events-none absolute -right-40 -top-40 size-[640px] rounded-full border border-primary-foreground/10"
