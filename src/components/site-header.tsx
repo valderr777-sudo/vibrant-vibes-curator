@@ -103,7 +103,12 @@ export function SiteHeader() {
             <Button asChild variant="outline" className="hidden rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:inline-flex">
               <Link to="/events">EVENTS</Link>
             </Button>
-            <Button variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex">DONATE</Button>
+            <Button asChild variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex">
+              <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
+            </Button>
+            <Button asChild variant="cta" className="rounded-md px-4 text-xs font-bold tracking-wider sm:hidden">
+              <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
+            </Button>
             <button
               type="button"
               aria-label={open ? "Close menu" : "Open menu"}
