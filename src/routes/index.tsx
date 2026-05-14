@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
 import heroVideo from "@/assets/worwf/hero-bg.mp4";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
+import membershipBg from "@/assets/worwf/membership-bg.png";
 
 import ffrwLogo from "@/assets/worwf/ffrw.png";
 import nfrwLogo from "@/assets/worwf/nfrw.png";
