@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as NewsToKnowRouteImport } from './routes/news-to-know'
 import { Route as MembershipRouteImport } from './routes/membership'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -17,6 +18,11 @@ import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsToKnowRoute = NewsToKnowRouteImport.update({
   id: '/news-to-know',
   path: '/news-to-know',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/membership': typeof MembershipRoute
   '/news-to-know': typeof NewsToKnowRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/membership': typeof MembershipRoute
   '/news-to-know': typeof NewsToKnowRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/membership': typeof MembershipRoute
   '/news-to-know': typeof NewsToKnowRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/membership'
     | '/news-to-know'
+    | '/terms-and-conditions'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/membership'
     | '/news-to-know'
+    | '/terms-and-conditions'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/membership'
     | '/news-to-know'
+    | '/terms-and-conditions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   MembershipRoute: typeof MembershipRoute
   NewsToKnowRoute: typeof NewsToKnowRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news-to-know': {
       id: '/news-to-know'
       path: '/news-to-know'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   MembershipRoute: MembershipRoute,
   NewsToKnowRoute: NewsToKnowRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
