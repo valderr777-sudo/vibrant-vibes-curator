@@ -83,6 +83,11 @@ export function SiteFooter() {
             <p className="mt-3 flex items-center gap-2 text-sm lg:justify-end">
               <span>info@worwf.org</span> <Mail className="size-4" />
             </p>
+            <Link to="/contact-us" className="mt-6 inline-block lg:hidden">
+              <Button variant="cta" className="rounded-md px-6 font-semibold">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
 
