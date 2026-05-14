@@ -209,31 +209,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Quote + 3 logos */}
-      <section className="relative overflow-hidden bg-muted py-20">
-        <div
-          className="pointer-events-none absolute right-10 top-10 size-72 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle, oklch(0.45 0.2 27) 0%, transparent 70%)",
-          }}
-        />
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold italic leading-snug text-foreground md:text-4xl">
-            "United together to create positive change. Supporting good government and constitutional
-            rights."
-          </h2>
-          <p className="mt-5 text-sm text-muted-foreground">– Women strengthening our community –</p>
-        </div>
-        <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-12 px-6">
-          <img src={worwfLogo} alt="WORWF" className="h-24 w-auto object-contain" />
-          <a href="https://www.facebook.com/FFRWomen/" target="_blank" rel="noopener noreferrer">
-            <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-20 w-auto object-contain transition-opacity hover:opacity-80" />
-          </a>
-          <a href="https://www.nfrw.org/" target="_blank" rel="noopener noreferrer">
-            <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-24 w-auto object-contain transition-opacity hover:opacity-80" />
-          </a>
-        </div>
-      </section>
+      <UnitedQuoteBand background="muted" />
 
       <Marquee />
 
