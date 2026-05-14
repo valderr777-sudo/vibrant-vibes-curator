@@ -74,14 +74,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "West Orange Republican Women Federated" },
+      {
+        name: "description",
+        content:
+          "West Orange Republican Women Federated (WORWF) — Educate. Motivate. Activate. Supporting good government and constitutional rights.",
+      },
+      { name: "author", content: "West Orange Republican Women Federated" },
+      { property: "og:title", content: "West Orange Republican Women Federated" },
+      {
+        property: "og:description",
+        content:
+          "WORWF — Empowering Republican women in West Orange County through education, advocacy, and community.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@worwf" },
     ],
     links: [
       {
