@@ -504,7 +504,7 @@ function AboutUs() {
                   <div className="absolute inset-x-0 bottom-0 h-2 bg-accent" />
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-foreground">{m.name}</h3>
-                <p className="text-sm text-muted-foreground">{m.role}</p>
+                <p className="text-sm font-medium text-accent">{m.role}</p>
               </article>
             ))}
           </div>
