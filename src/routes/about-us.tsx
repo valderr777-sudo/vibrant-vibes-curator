@@ -14,6 +14,9 @@ import handshake from "@/assets/worwf/about/handshake.png";
 import usa from "@/assets/worwf/about/usa.png";
 import networking from "@/assets/worwf/about/networking.png";
 import founders from "@/assets/worwf/about/founders.jpg";
+import who1 from "@/assets/worwf/about/who-1.jpg";
+import who2 from "@/assets/worwf/about/who-2.jpg";
+import who3 from "@/assets/worwf/about/who-3.jpg";
 import nfrwAward from "@/assets/worwf/about/nfrw-award.jpg";
 import carenBell from "@/assets/worwf/about/caren-bell.jpg";
 import theresaMillay from "@/assets/worwf/about/theresa-millay.jpg";
@@ -50,19 +53,19 @@ const whoWeAreCards = [
     title: "Connected Across the Nation",
     icon: handshake,
     text: "We are part of the largest grassroots Republican Women's organization that works together on the National, State, and Local level.",
-    bg: groupImg,
+    bg: who1,
   },
   {
     title: "Proudly American, Proudly Local",
     icon: usa,
     text: "We love America and we love our community.",
-    bg: groupImg,
+    bg: who2,
   },
   {
     title: "Women Leading with Purpose and Principle",
     icon: networking,
     text: "We are an organization of passionate women who work together to advance the cause of good government in our community, state, and nation.",
-    bg: groupImg,
+    bg: who3,
   },
 ];
 
