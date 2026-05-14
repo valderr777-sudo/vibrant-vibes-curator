@@ -26,7 +26,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp } from "lucide-react";
+import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp, Heart, Star, Users } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -352,39 +352,137 @@ function Index() {
 
       {/* Donate band */}
       <section
-        className="relative overflow-hidden py-20 text-primary-foreground"
+        className="relative overflow-hidden py-24 text-primary-foreground md:py-32"
         style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.45 0.2 27 / 0.85), oklch(0.35 0.18 27 / 0.85)), url(${groupImg})`,
+          backgroundImage: `linear-gradient(135deg, oklch(0.20 0.08 25 / 0.94) 0%, oklch(0.30 0.15 25 / 0.85) 55%, oklch(0.45 0.20 27 / 0.78) 100%), url(${groupImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2">
-          <div>
-            <h2 className="text-4xl font-extrabold leading-tight md:text-5xl">
-              Together, we turn aspirations into reality.
-            </h2>
-            <div className="mt-12 rounded-lg bg-card p-8 text-card-foreground shadow-[var(--shadow-elegant)]">
-              <h3 className="text-xl font-bold text-foreground">
-                Support Our Mission, Invest in the Future
-              </h3>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Your donation helps us empower women, strengthen our community, and uphold the
-                values that matter. Together, we can create lasting change and ensure strong
-                leadership for the future.
+        {/* Decorative star field */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-20">
+          <Star className="absolute left-[6%] top-[18%] size-6 fill-primary-foreground stroke-none" />
+          <Star className="absolute left-[14%] top-[72%] size-4 fill-primary-foreground stroke-none" />
+          <Star className="absolute right-[12%] top-[14%] size-5 fill-primary-foreground stroke-none" />
+          <Star className="absolute right-[28%] bottom-[18%] size-4 fill-primary-foreground stroke-none" />
+          <Star className="absolute left-[48%] top-[8%] size-3 fill-primary-foreground stroke-none" />
+        </div>
+        {/* Soft glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-40 top-1/2 size-[560px] -translate-y-1/2 rounded-full"
+          style={{ background: "radial-gradient(circle, oklch(0.72 0.18 50 / 0.25), transparent 70%)" }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
+            {/* Left: headline + impact */}
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
+                <Heart className="size-3.5 fill-accent stroke-none" />
+                Support WORWF
+              </span>
+              <h2 className="mt-6 max-w-xl text-4xl font-extrabold leading-[1.05] md:text-6xl">
+                Together, we turn{" "}
+                <span className="relative inline-block">
+                  <span className="relative z-10 italic text-accent">aspirations</span>
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-1 -z-0 h-3 rounded-sm"
+                    style={{ background: "oklch(0.72 0.18 50 / 0.35)" }}
+                  />
+                </span>{" "}
+                into reality.
+              </h2>
+              <p className="mt-6 max-w-md text-base text-primary-foreground/85">
+                Show your support and donate — invest in the future of our country and help us
+                keep electing principled, conservative leadership.
               </p>
-              <button className="mt-6 w-full rounded-md bg-primary py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90">
-                Donate Us
-              </button>
+
+              {/* Impact stats */}
+              <dl className="mt-10 grid max-w-lg grid-cols-3 gap-px overflow-hidden rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 backdrop-blur">
+                {[
+                  { icon: Users, n: "135+", l: "Active Members" },
+                  { icon: Star, n: "16+", l: "Years of Impact" },
+                  { icon: Heart, n: "100%", l: "Community First" },
+                ].map(({ icon: Icon, n, l }) => (
+                  <div key={l} className="bg-primary/40 px-5 py-5 text-center">
+                    <Icon className="mx-auto size-5 text-accent" />
+                    <div className="mt-2 font-serif text-2xl font-bold leading-none">{n}</div>
+                    <div className="mt-1.5 text-[11px] uppercase tracking-wider text-primary-foreground/70">
+                      {l}
+                    </div>
+                  </div>
+                ))}
+              </dl>
             </div>
-          </div>
-          <div className="flex flex-col items-start justify-start">
-            <p className="max-w-sm text-sm">
-              Show your support and donate – To invest in the future of our country and to keep
-              electing our leadership
-            </p>
-            <div className="mt-6 h-px w-64 bg-primary-foreground/40" />
-            <img src={worwfLogo} alt="WORWF" className="mt-12 size-44 object-contain lg:ml-auto" />
+
+            {/* Right: donate card */}
+            <div className="relative lg:pl-6">
+              {/* WORWF logo badge floating */}
+              <div className="absolute -top-8 right-4 z-20 hidden size-24 items-center justify-center rounded-full border-4 border-primary-foreground/90 bg-primary shadow-[var(--shadow-elegant)] sm:flex">
+                <img src={worwfLogo} alt="WORWF crest" className="size-16 object-contain" />
+              </div>
+
+              <div className="relative overflow-hidden rounded-2xl bg-card p-8 text-card-foreground shadow-[var(--shadow-elegant)] md:p-10">
+                {/* Top accent bar */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-1.5"
+                  style={{ background: "var(--gradient-accent)" }}
+                />
+                {/* Stripes corner motif */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -bottom-10 -right-10 size-40 rotate-12 opacity-[0.06]"
+                  style={{
+                    backgroundImage:
+                      "repeating-linear-gradient(135deg, var(--primary) 0 10px, transparent 10px 20px)",
+                  }}
+                />
+
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+                  Make a Difference
+                </span>
+                <h3 className="mt-3 font-serif text-2xl font-bold leading-tight text-foreground md:text-3xl">
+                  Support Our Mission, Invest in the Future
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  Your donation helps us empower women, strengthen our community, and uphold the
+                  values that matter. Together, we can create lasting change and ensure strong
+                  leadership for the future.
+                </p>
+
+                {/* Suggested amounts */}
+                <div className="mt-6 grid grid-cols-4 gap-2">
+                  {["$25", "$50", "$100", "Other"].map((amt, i) => (
+                    <button
+                      key={amt}
+                      type="button"
+                      className={`rounded-md border px-2 py-2.5 text-sm font-semibold transition-colors ${
+                        i === 1
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-border bg-muted text-foreground hover:border-primary hover:text-primary"
+                      }`}
+                    >
+                      {amt}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  className="group mt-5 flex w-full items-center justify-center gap-2 rounded-md py-3.5 font-semibold text-primary-foreground shadow-md transition-transform hover:-translate-y-0.5"
+                  style={{ background: "var(--gradient-accent)" }}
+                >
+                  Donate Now
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </button>
+
+                <p className="mt-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground">
+                  Secure · Tax-deductible · 100% mission-driven
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
