@@ -122,7 +122,7 @@ function EventsPage() {
       </section>
 
       {/* Venue */}
-      <section className="bg-[oklch(0.96_0.02_250)] py-16">
+      <section className="bg-[oklch(0.97_0.02_25)] py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 md:grid-cols-2">
           <div className="overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
             <img src={venueImg} alt="West Orange Country Club entrance" className="h-full w-full object-cover" />
@@ -158,7 +158,7 @@ function EventsPage() {
           </h2>
           <div className="mx-auto mt-4 h-1 w-16 bg-secondary" />
 
-          <div className="mt-12 rounded-lg bg-[oklch(0.96_0.02_265)] p-8 md:p-12">
+          <div className="mt-12 rounded-lg bg-[oklch(0.97_0.02_25)] p-8 md:p-12">
             <div className="flex items-center gap-3 border-b border-border pb-4">
               <Calendar className="size-6 text-secondary" />
               <h3 className="text-xl font-bold text-foreground md:text-2xl">
@@ -233,7 +233,7 @@ function EventsPage() {
           </div>
 
           {/* Pricing band */}
-          <div className="mt-10 rounded-lg bg-[oklch(0.93_0.03_280)] p-10 text-center">
+          <div className="mt-10 rounded-lg bg-[oklch(0.95_0.03_25)] p-10 text-center">
             <p className="text-base font-bold underline">EVENT PRICING – SUMMER SPECIAL:</p>
             <p className="mt-3 text-sm font-bold">$35 MEMBERS AND GUESTS</p>
             <p className="mt-1 text-sm font-bold">CANDIDATE SPECIAL: $25</p>
@@ -277,7 +277,7 @@ function EventsPage() {
           <div className="mx-auto mt-4 h-1 w-16 bg-secondary" />
 
           <div className="mt-12 grid gap-8 md:grid-cols-2">
-            <article className="flex gap-4 rounded-lg bg-[oklch(0.96_0.02_250)] p-4 shadow-[var(--shadow-elegant)]">
+            <article className="flex gap-4 rounded-lg bg-[oklch(0.97_0.02_25)] p-4 shadow-[var(--shadow-elegant)]">
               <img src={ingogliaImg} alt="Blaise Ingoglia" className="size-32 shrink-0 rounded object-cover" />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs font-semibold">
@@ -292,7 +292,7 @@ function EventsPage() {
               </div>
             </article>
 
-            <article className="flex gap-4 rounded-lg bg-[oklch(0.96_0.02_250)] p-4 shadow-[var(--shadow-elegant)]">
+            <article className="flex gap-4 rounded-lg bg-[oklch(0.97_0.02_25)] p-4 shadow-[var(--shadow-elegant)]">
               <img src={america250Img} alt="Happy 250th Birthday America" className="size-32 shrink-0 rounded object-cover" />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs font-semibold">
@@ -335,7 +335,7 @@ function EventsPage() {
       {/* Special Events / Orange GOP Calendar */}
       <section className="pb-16">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-2">
-          <div className="rounded-lg bg-[oklch(0.93_0.03_265)] p-10 text-center">
+          <div className="rounded-lg bg-[oklch(0.95_0.03_25)] p-10 text-center">
             <CalendarPlus className="mx-auto size-9 text-secondary" />
             <h3 className="mt-3 text-2xl font-bold">Special Events</h3>
             <div className="mx-auto mt-4 h-px w-full bg-border" />
@@ -343,7 +343,7 @@ function EventsPage() {
               No special events at the moment. Stay tuned for updates!
             </p>
           </div>
-          <div className="rounded-lg bg-[oklch(0.93_0.03_265)] p-10 text-center">
+          <div className="rounded-lg bg-[oklch(0.95_0.03_25)] p-10 text-center">
             <img src={elephantImg} alt="GOP" className="mx-auto size-12 object-contain" />
             <h3 className="mt-3 text-2xl font-bold">Orange GOP Calendar</h3>
             <div className="mx-auto mt-4 h-px w-full bg-border" />
