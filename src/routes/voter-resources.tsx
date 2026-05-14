@@ -34,70 +34,18 @@ const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resou
   { label: "Contact Us", to: "/contact-us" as const },
 ];
 
-const memberCards = [
+const voterResources: {
+  heading: string;
+  description: string;
+  icon: typeof Globe2;
+  accent: string;
+  links: { label: string; href: string }[];
+}[] = [
   {
-    img: goldAward,
-    title: "WORWF Members Attend FFRW Spring Conference",
-    body:
-      "WORWF Receives GOLD Award. The Florida Federation of Republican Women's Spring Conference was held in Orlando, FL on April 19–21. During the event, WORWF received the Gold Award for their 2022–2023 volunteer hours. All the hard work on behalf of getting Republicans...",
-  },
-  {
-    img: foodDrive,
-    title: "2025 Edgewood Children's Ranch Food Drive",
-    body:
-      "WORWF Caring for America. WORWF continues their Edgewood Children's Ranch Food Drive in 2025 as the club's Caring for America service project. In 2024, West Orange Republican Women members proudly donated 2,096 lbs. of groceries plus $740 in gift cards and...",
-  },
-  {
-    img: roundup,
-    title:
-      "WORWF Members Attend Edgewood Children's Ranch 40th Annual Round Up Dinner & Auction",
-    body:
-      "40th Country Round-Up Dinner & Auction for Edgewood Children's Ranch. WORWF members saddled up to attend the 40th Annual Country Round-Up Dinner & Auction at Gaylord Palms Convention Center on September 23, 2023. The event benefits the Edgewood Children's...",
-  },
-];
-
-const educationCards = [
-  {
-    img: schoolImg,
-    title: "2024 Orange County School Board Meeting Dates",
-    body:
-      "Our Education Committee encourages members to attend the 2024 School Board Meetings. The school board will take public comments on non-agenda items at 4:00 p.m. concluding no later than 30 minutes after commencing. Procedures and all 2024 meeting dates can be found...",
-  },
-  {
-    img: kirbyImg,
-    title: "WORWF Education Committee on the Campaign Trail",
-    body:
-      "Our Education Team went to bat on Primary Election Day for WORWF Member Rachel Kirby, a conservative Orange County school board candidate. Though she did not win against the incumbent, Angie Gallo, Rachel is committed to speaking up against their liberal and woke...",
-  },
-  {
-    img: schoolImg,
-    title: "OCPS 2022 School Board Meeting Schedule",
-    body:
-      "YOU CAN MAKE A DIFFERENCE!! 2022 OCPS School Board Meeting Schedule. We encourage Members to attend the Orange County Public School Board meetings. The School Board conducts regular Board Meetings on the 2nd & 4th Tuesday of every month with several modifications...",
-  },
-];
-
-const callsToAction = [
-  {
-    title: "OCREC – Become a Member",
-    body:
-      "Orange County Republican Executive Committee (OCREC) NEEDS YOU!! Next Meeting: Thursday, September 22, 2022 at 6:00 PM, Mark's Street Senior Center, Orlando. In Orange County, the Republican Executive Committee (OCREC) is the official organization of the Republican Party....",
-  },
-  {
-    title: "Check Your Voter Status",
-    body:
-      "It's important that all our votes are counted! Here are three (3) ways to help with Election Integrity. While you are at it, share this information with your family, friends and neighbors. 1) Verify your Voter Registration Status. Check to ensure you are on the voter...",
-  },
-  {
-    title: "Track 2022 FFRW Legislative Priorities for Florida",
-    body:
-      "Call-to-Action: Track 2022 FFRW Legislative Priorities for Florida. Get Involved... Pay Attention... Let your voices be heard! The list below is the FFRW Legislative Priorities for Florida. Track these bills at myfloridahouse.gov to see how they are making their way through...",
-  },
-];
-
-const voterResources: { heading: string; links: { label: string; href: string }[] }[] = [
-  {
-    heading: "National/State/Local",
+    heading: "National / State / Local",
+    description: "Official party, government, and policy resources from the national level down to Orange County.",
+    icon: Globe2,
+    accent: "from-primary/15 to-primary/0 text-primary",
     links: [
       { label: "RNC", href: "https://gop.com/" },
       { label: "US House of Representatives", href: "https://www.house.gov/" },
@@ -111,7 +59,10 @@ const voterResources: { heading: string; links: { label: string; href: string }[
     ],
   },
   {
-    heading: "Florida Representative",
+    heading: "Florida Representatives",
+    description: "Find and contact your elected officials at the state level — governor, senators, and representatives.",
+    icon: Landmark,
+    accent: "from-secondary/15 to-secondary/0 text-secondary",
     links: [
       { label: "Florida Governor – Ron DeSantis", href: "https://flgov.com/contact-governor/" },
       { label: "Find your Legislator", href: "https://www.flsenate.gov/senators/find" },
@@ -125,6 +76,9 @@ const voterResources: { heading: string; links: { label: string; href: string }[
   },
   {
     heading: "Republican Women",
+    description: "Connect with the wider network of Republican Women's organizations across the country and Florida.",
+    icon: Users,
+    accent: "from-accent/20 to-accent/0 text-accent",
     links: [
       { label: "RNC Women", href: "https://www.gop.com/communities/rnc-women/" },
       { label: "National Federation of Republican Women", href: "https://www.nfrw.org/" },
@@ -132,28 +86,16 @@ const voterResources: { heading: string; links: { label: string; href: string }[
     ],
   },
   {
-    heading: "Voter ID/Status",
+    heading: "Voter ID & Status",
+    description: "Verify your registration, find your polling place, and make sure your vote is ready to count.",
+    icon: BadgeCheck,
+    accent: "from-primary/15 to-primary/0 text-primary",
     links: [
       { label: "Check your Voter ID Status", href: "https://registration.elections.myflorida.com/CheckVoterStatus" },
       { label: "Voter Precinct Lookup", href: "https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/" },
     ],
   },
 ];
-
-function Card({ img, title, body }: { img: string; title: string; body: string }) {
-  return (
-    <article className="flex flex-col">
-      <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-muted">
-        <img src={img} alt="" className="h-full w-full object-cover" />
-      </div>
-      <span className="mt-5 inline-block w-fit rounded bg-muted px-3 py-1 text-xs font-medium text-foreground/70">
-        Membership Engagement
-      </span>
-      <h3 className="mt-4 text-xl font-extrabold leading-snug md:text-2xl">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-    </article>
-  );
-}
 
 function NewsPage() {
   return (
