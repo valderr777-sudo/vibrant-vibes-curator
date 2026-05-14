@@ -250,7 +250,7 @@ function AboutUs() {
       <section className="relative bg-muted py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-            <h2 className="text-4xl font-extrabold leading-tight text-primary md:text-5xl">
+            <h2 className="text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
               Who We Are
             </h2>
             <div>
@@ -269,18 +269,18 @@ function AboutUs() {
                 key={c.title}
                 className="group relative overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]"
                 style={{
-                  backgroundImage: `linear-gradient(180deg, oklch(0.20 0.08 25 / 0.55), oklch(0.20 0.08 25 / 0.85)), url(${c.bg})`,
+                  backgroundImage: `linear-gradient(180deg, oklch(0.72 0.18 50 / 0.55), oklch(0.62 0.22 35 / 0.85)), url(${c.bg})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   minHeight: "380px",
                 }}
               >
-                <div className="flex h-full flex-col items-center justify-end p-8 text-center text-primary-foreground">
-                  <span className="mb-6 flex size-24 items-center justify-center rounded-full border-2 border-primary-foreground/80 bg-primary/30 backdrop-blur">
+                <div className="flex h-full flex-col items-center justify-end p-8 text-center text-foreground">
+                  <span className="mb-6 flex size-24 items-center justify-center rounded-full border-2 border-foreground/80 bg-background/30 backdrop-blur">
                     <img src={c.icon} alt="" className="size-12 object-contain" />
                   </span>
-                  <h3 className="text-xl font-bold leading-snug">{c.title}</h3>
-                  <p className="mt-3 text-sm text-primary-foreground/90">{c.text}</p>
+                  <h3 className="text-xl font-bold leading-snug text-foreground">{c.title}</h3>
+                  <p className="mt-3 text-sm text-foreground/90">{c.text}</p>
                 </div>
               </article>
             ))}
