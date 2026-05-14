@@ -160,6 +160,33 @@ export function SiteHeader() {
                     <Link to="/membership">BECOME A MEMBER</Link>
                   </Button>
                 </div>
+                <div className="mt-4 flex items-center justify-center gap-3 border-t border-border pt-4">
+                  <a
+                    href="https://www.facebook.com/westorangerepublicanwomenfederated"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
+                  >
+                    <Facebook className="size-4" />
+                  </a>
+                  <a
+                    href="https://x.com/worwf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X (Twitter)"
+                    className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
+                  >
+                    <span className="text-sm font-bold">𝕏</span>
+                  </a>
+                  <a
+                    href="mailto:info@worwf.org"
+                    aria-label="Email"
+                    className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
+                  >
+                    <Mail className="size-4" />
+                  </a>
+                </div>
               </nav>
             </div>
           </div>
