@@ -347,7 +347,7 @@ function ContactPage() {
               Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
             </p>
             <div className="flex gap-5 opacity-80">
-              <a href="#">Terms &amp; Conditions</a>
+              <Link to="/terms-and-conditions" className="hover:underline">Terms &amp; Conditions</Link>
               <a href="#">Cookie Policy</a>
               <a href="#">Privacy Policy</a>
             </div>
