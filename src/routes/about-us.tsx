@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import groupImg from "@/assets/worwf/group.jpg";
@@ -177,6 +177,28 @@ function Marquee() {
 function AboutUs() {
   const [presidentIdx, setPresidentIdx] = useState(0);
   const president = presidents[presidentIdx];
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = bgRef.current;
+        if (!el) return;
+        const rect = el.parentElement!.getBoundingClientRect();
+        const offset = rect.top * -0.4;
+        el.style.transform = `translate3d(0, ${offset}px, 0) scale(1.15)`;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   return (
     <>
@@ -184,18 +206,25 @@ function AboutUs() {
         @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
       `}</style>
 
-
-
       {/* Page hero */}
-      <section
-        className="relative overflow-hidden py-20 text-primary-foreground md:py-28"
-        style={{
-          backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${capitolSteps})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
+      <section className="relative overflow-hidden text-primary-foreground min-h-[78vh] flex items-center py-28 md:py-40">
+        <div
+          ref={bgRef}
+          aria-hidden
+          className="absolute inset-0 -z-10 will-change-transform"
+          style={{
+            backgroundImage: `url(${capitolSteps})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%)`,
+          }}
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-40 -top-40 size-[640px] rounded-full border border-primary-foreground/10"
@@ -204,11 +233,11 @@ function AboutUs() {
           aria-hidden
           className="pointer-events-none absolute -right-24 top-10 size-[480px] rounded-full border border-primary-foreground/10"
         />
-        <div className="mx-auto max-w-7xl px-6 text-center">
+        <div className="mx-auto max-w-7xl px-6 text-center w-full">
           <p className="text-sm font-semibold tracking-wide text-primary-foreground/80">
             Educate. Motivate. Activate.
           </p>
-          <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] md:text-7xl">
+          <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] md:text-8xl">
             About WORWF
           </h1>
         </div>
