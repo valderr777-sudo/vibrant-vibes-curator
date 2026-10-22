@@ -31,7 +31,7 @@ export function UnderConstruction({ title, description }: UnderConstructionProps
           <Construction className="size-12 text-primary-foreground" />
         </div>
 
-        <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.3em]">
+        <span className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-primary-foreground">
           Coming Soon
         </span>
 

@@ -219,7 +219,7 @@ function GalleryPage() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 <Images className="size-3.5" />
                 Photo Gallery
               </span>

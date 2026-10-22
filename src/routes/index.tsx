@@ -360,7 +360,7 @@ function Index() {
           <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
             {/* Left: headline + impact */}
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground">
                 <Heart className="size-3.5 fill-accent stroke-none" />
                 Support WORWF
               </span>
