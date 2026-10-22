@@ -159,6 +159,7 @@
 .people-background {
   background-size: contain !important;
   background-repeat: no-repeat;
+  background-attachment: scroll !important;
   background-position: center !important;
   background-color: var(--secondary);
 }
