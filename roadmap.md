@@ -1,11 +1,11 @@
 # WORWF Master Prompt revision
 
 ## Focused final cleanup
-- [ ] Remove expired featured/upcoming event records and make next luncheon details developer-maintained
-- [ ] Correct history and grammar; verify exact FAQ eligibility on all FAQ pages
-- [ ] Repair or suppress unavailable reservation, ticket, candidate, and venue actions
-- [ ] Keep sponsor directories ready for supplied entries without inventing sponsors
-- [ ] Verify public food drive PDF; report interactive map and client dependencies separately
+- [x] Remove expired featured/upcoming event records and make next luncheon details developer-maintained
+- [x] Correct history and grammar; verify exact FAQ eligibility on all FAQ pages
+- [x] Repair or suppress unavailable reservation, ticket, candidate, and venue actions
+- [x] Keep sponsor directory routes and empty states available for supplied entries without inventing sponsors
+- [x] Verify public food drive PDF; report interactive map and client dependencies separately
 
 ## Phase 1: content and layout (no backend)
 - [x] Nav: Events after Membership, header CTA Join, utility link Donate, drop Candidate Sponsors
@@ -27,9 +27,12 @@
 - [x] Caring for America food drive section
 
 ## Waiting on client
-- Monthly Donation List PDF and monthly food themes
+- Confirmed next-luncheon title, speaker(s), RSVP deadline and reservation destination
+- Valid ticket-purchase links and Candidate Vision Statement destination if those actions are reintroduced
+- Future food-drive PDFs/themes beyond the verified public 2026 PDF
 - Dates for special events and committee activities
-- Candidate Vision Statement, Reserve Your Seat, Tickets, Chris Messina links
-- Other sponsor website links
+- Sponsor directory businesses, approved logos, and verified website links
+- Interactive district map: authoritative boundary data and agreed interaction scope; official map links alone are not this feature
+- Confirmed 2027 officers after the November 12 election
 - Confirmation of rights for the orange grove photos
 - [x] Home hero: flat orange grove photo (no hills), same gradient

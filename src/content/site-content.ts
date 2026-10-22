@@ -4,8 +4,6 @@
 
 import messinaImg from "@/assets/worwf/events/messina.jpg";
 import jacksonImg from "@/assets/worwf/events/jackson.jpg";
-import ingogliaImg from "@/assets/worwf/events/ingoglia.jpg";
-import america250Img from "@/assets/worwf/events/america250.jpg";
 
 // Use confirmed YYYY-MM-DD dates. Dates expire after the full Florida event day.
 // Past records are retained here only for reference, never promoted.
