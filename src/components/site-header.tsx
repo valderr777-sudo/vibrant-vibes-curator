@@ -6,20 +6,20 @@ import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 const navLinks: {
   label: string;
-  to: "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us" | "/members";
+  to: "/about-us" | "/membership" | "/events" | "/voter-resources" | "/gallery" | "/contact-us" | "/members";
 }[] = [
   { label: "About Us", to: "/about-us" },
   { label: "Membership", to: "/membership" },
+  { label: "Events", to: "/events" },
   { label: "Voter Resources", to: "/voter-resources" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact Us", to: "/contact-us" },
   { label: "Members Only", to: "/members" },
 ];
 
-const sponsorLinks: { label: string; to: "/sponsors/business" | "/sponsors/member-businesses" | "/sponsors/candidates" }[] = [
+const sponsorLinks: { label: string; to: "/sponsors/business" | "/sponsors/member-businesses" }[] = [
   { label: "Business Sponsors", to: "/sponsors/business" },
   { label: "Member Businesses", to: "/sponsors/member-businesses" },
-  { label: "Candidate Sponsors", to: "/sponsors/candidates" },
 ];
 
 export function SiteHeader() {
@@ -58,9 +58,9 @@ export function SiteHeader() {
           <p className="hidden font-semibold tracking-wide md:block">
             Educate. Motivate. Activate.
           </p>
-          <Link to="/membership" className="hidden text-sm font-medium hover:text-secondary md:block">
-            Become a Member
-          </Link>
+          <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium hover:text-secondary md:block">
+            Donate
+          </a>
         </div>
       </div>
 
@@ -107,13 +107,13 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2">
             <Button asChild variant="outline" className="hidden rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:inline-flex lg:px-3 xl:px-6">
-              <Link to="/events">EVENTS</Link>
+              <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
             </Button>
             <Button asChild variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex lg:px-3 xl:px-6">
-              <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
+              <Link to="/membership">JOIN</Link>
             </Button>
             <Button asChild variant="cta" className="mr-2 rounded-md px-4 text-xs font-bold tracking-wider sm:hidden">
-              <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
+              <Link to="/membership">JOIN</Link>
             </Button>
             <button
               type="button"
@@ -182,10 +182,10 @@ export function SiteHeader() {
               </div>
               <div className="mt-6 grid w-full gap-3">
                 <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
-                  <Link to="/events">EVENTS</Link>
+                  <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
                 </Button>
                 <Button asChild variant="cta" className="rounded-md font-bold tracking-wider">
-                  <Link to="/membership">BECOME A MEMBER</Link>
+                  <Link to="/membership">JOIN</Link>
                 </Button>
               </div>
               <div className="mt-6 flex items-center justify-center gap-3">
