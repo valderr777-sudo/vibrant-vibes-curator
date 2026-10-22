@@ -151,7 +151,7 @@ function Membership() {
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
               Membership Tiers
             </span>
             <h2 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">
@@ -436,7 +436,7 @@ function MembershipForm({
       <div className="mx-auto max-w-5xl px-6">
         {/* Heading */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+          <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
             <Sparkles className="size-3.5" /> Join WORWF
           </span>
           <h2 className="mt-4 text-4xl font-bold text-foreground md:text-5xl">Membership Form</h2>
@@ -456,7 +456,7 @@ function MembershipForm({
                 setMode("new");
                 setStep(0);
               }}
-              className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+              className={`flex items-center gap-2 rounded-md px-5 py-2 text-sm font-semibold transition-colors ${
                 mode === "new" ? "bg-primary text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -468,7 +468,7 @@ function MembershipForm({
                 setMode("renew");
                 setStep(0);
               }}
-              className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+              className={`flex items-center gap-2 rounded-md px-5 py-2 text-sm font-semibold transition-colors ${
                 mode === "renew" ? "bg-primary text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground"
               }`}
             >

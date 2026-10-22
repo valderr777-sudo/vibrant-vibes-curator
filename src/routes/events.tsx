@@ -174,7 +174,7 @@ function EventsPage() {
               </div>
               <a
                 href={rsvpMailto("May 14, 2026 Luncheon")}
-                className="rounded-full bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest transition-colors hover:bg-primary-foreground hover:text-primary md:text-lg"
+                className="rounded-md bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest transition-colors hover:bg-primary-foreground hover:text-primary md:text-lg"
               >
                 RSVP by May 10th
               </a>
@@ -291,7 +291,7 @@ function EventsPage() {
                 className="size-48 shrink-0 rounded-lg bg-muted object-contain"
               />
               <div className="min-w-0 text-center sm:text-left">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
                   <Calendar className="size-3.5" /> Friday, June 5, 2026 · 9–11 AM
                 </div>
                 <h4 className="mt-2 text-xl font-bold text-secondary">Breakfast with Blaise</h4>
@@ -314,7 +314,7 @@ function EventsPage() {
                 className="size-48 shrink-0 rounded-lg bg-muted object-contain"
               />
               <div className="min-w-0 text-center sm:text-left">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
                   <Calendar className="size-3.5" /> Thursday, July 9, 2026 · 11:30 AM
                 </div>
                 <h4 className="mt-2 text-xl font-bold text-secondary">A Hero Celebration!</h4>
