@@ -1,6 +1,6 @@
 # Image and responsive layout audit
 
 - [x] Inspect all 14 pages at phone, tablet, and desktop sizes.
-- [ ] Preserve people, logos, and important image content.
-- [ ] Improve gallery expanded view and narrow-screen layouts.
-- [ ] Verify updated pages, navigation, and image loading.
+- [x] Preserve people, logos, and important image content.
+- [x] Improve gallery expanded view and narrow-screen layouts.
+- [x] Verify updated pages, navigation, and image loading at seven widths from 320px to 1920px.
