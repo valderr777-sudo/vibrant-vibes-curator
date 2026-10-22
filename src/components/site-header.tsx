@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { Facebook, Mail, Menu, X } from "lucide-react";
+import { ChevronDown, Facebook, Mail, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
@@ -26,17 +26,23 @@ export function SiteHeader() {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
 
+  const [sponsorsOpen, setSponsorsOpen] = useState(false);
+
   // Close on route change
   useEffect(() => {
     setOpen(false);
+    setSponsorsOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when menu open
+  // Lock page scroll when menu open
   useEffect(() => {
     if (typeof document === "undefined") return;
-    document.body.style.overflow = open ? "hidden" : "";
+    const v = open ? "hidden" : "";
+    document.body.style.overflow = v;
+    document.documentElement.style.overflow = v;
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [open]);
 
@@ -121,74 +127,79 @@ export function SiteHeader() {
           </div>
         </div>
 
-        {/* Mobile menu panel */}
+        {/* Full screen mobile menu */}
         {open && (
-          <div className="max-h-[calc(100dvh-90px)] overflow-y-auto overscroll-contain xl:hidden">
-            <div className="border-t border-border bg-background">
-              <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
-                {navLinks.map((l) => {
-                  const active = pathname === l.to;
-                  return (
-                    <Link
-                      key={l.label}
-                      to={l.to}
-                      className={`rounded-md px-3 py-2.5 text-base font-medium transition-colors ${
-                        active ? "bg-secondary/10 text-secondary" : "text-foreground hover:bg-muted"
-                      }`}
-                    >
-                      {l.label}
-                    </Link>
-                  );
-                })}
-                <div className="mt-2 border-t border-border pt-2">
-                  <p className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Sponsors</p>
+          <div className="fixed inset-0 z-[60] flex flex-col overflow-y-auto overscroll-contain bg-background lg:hidden" role="dialog" aria-modal="true">
+            <div className="flex items-center justify-between px-4 py-3">
+              <Link to="/" className="flex items-center">
+                <img src={worwfLogo} alt="WORWF" className="size-14 object-contain" />
+              </Link>
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="inline-flex size-11 items-center justify-center rounded-md border border-border text-foreground hover:bg-muted"
+              >
+                <X className="size-5" />
+              </button>
+            </div>
+            <nav className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center gap-1 px-6 py-6 text-center">
+              {navLinks.map((l) => {
+                const active = pathname === l.to;
+                return (
+                  <Link
+                    key={l.label}
+                    to={l.to}
+                    className={`w-full rounded-md px-3 py-3 text-xl font-medium transition-colors ${
+                      active ? "text-secondary" : "text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                );
+              })}
+              <button
+                type="button"
+                aria-expanded={sponsorsOpen}
+                onClick={() => setSponsorsOpen((v) => !v)}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md px-3 py-3 text-xl font-medium text-foreground hover:bg-muted"
+              >
+                Sponsors
+                <ChevronDown className={`size-5 transition-transform ${sponsorsOpen ? "rotate-180" : ""}`} />
+              </button>
+              <div className={`grid w-full transition-all duration-300 ${sponsorsOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                <div className="overflow-hidden">
                   {sponsorLinks.map((s) => (
                     <Link
                       key={s.to}
                       to={s.to}
-                      className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary"
+                      className="block rounded-md px-3 py-2 text-base font-normal text-muted-foreground hover:text-secondary"
                     >
                       {s.label}
                     </Link>
                   ))}
                 </div>
-                <div className="mt-3 grid gap-2 border-t border-border pt-3 sm:grid-cols-2">
-                  <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
-                    <Link to="/events">EVENTS</Link>
-                  </Button>
-                  <Button asChild variant="cta" className="rounded-md font-bold tracking-wider">
-                    <Link to="/membership">BECOME A MEMBER</Link>
-                  </Button>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-3 border-t border-border pt-4">
-                  <a
-                    href="https://www.facebook.com/westorangerepublicanwomenfederated"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                    className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
-                  >
-                    <Facebook className="size-4" />
-                  </a>
-                  <a
-                    href="https://x.com/worwf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="X (Twitter)"
-                    className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
-                  >
-                    <span className="text-sm font-bold">𝕏</span>
-                  </a>
-                  <a
-                    href="mailto:info@worwf.org"
-                    aria-label="Email"
-                    className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
-                  >
-                    <Mail className="size-4" />
-                  </a>
-                </div>
-              </nav>
-            </div>
+              </div>
+              <div className="mt-6 grid w-full gap-3">
+                <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
+                  <Link to="/events">EVENTS</Link>
+                </Button>
+                <Button asChild variant="cta" className="rounded-md font-bold tracking-wider">
+                  <Link to="/membership">BECOME A MEMBER</Link>
+                </Button>
+              </div>
+              <div className="mt-6 flex items-center justify-center gap-3">
+                <a href="https://www.facebook.com/westorangerepublicanwomenfederated" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+                  <Facebook className="size-4" />
+                </a>
+                <a href="https://x.com/worwf" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+                  <span className="text-sm font-bold">𝕏</span>
+                </a>
+                <a href="mailto:info@worwf.org" aria-label="Email" className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+                  <Mail className="size-4" />
+                </a>
+              </div>
+            </nav>
           </div>
         )}
       </header>
