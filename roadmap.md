@@ -12,6 +12,7 @@
 - [x] About: current president only, Club Achievements lower
 
 ## Phase 2: public features (maintained by developers, no editing platform or Lovable Cloud)
+- [ ] Auto-expire dated promotions the next Florida day and show Happening Today on event day; verify midnight boundaries and public displays.
 - [x] Homepage announcement banner (dismissible)
 - [x] Flexible featured speakers (one or many)
 - [x] Special events and campaign activities with RSVP by email
