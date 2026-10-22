@@ -1,5 +1,12 @@
 # WORWF Master Prompt revision
 
+## Focused final cleanup
+- [ ] Remove expired featured/upcoming event records and make next luncheon details developer-maintained
+- [ ] Correct history and grammar; verify exact FAQ eligibility on all FAQ pages
+- [ ] Repair or suppress unavailable reservation, ticket, candidate, and venue actions
+- [ ] Keep sponsor directories ready for supplied entries without inventing sponsors
+- [ ] Verify public food drive PDF; report interactive map and client dependencies separately
+
 ## Phase 1: content and layout (no backend)
 - [x] Nav: Events after Membership, header CTA Join, utility link Donate, drop Candidate Sponsors
 - [x] Home: remove hero CTAs, enlarge name, remove 3 statements, logos + Educate banner under hero (orange-grove artwork waits on licensed or original images)
