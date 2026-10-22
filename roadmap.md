@@ -24,3 +24,4 @@
 - Candidate Vision Statement, Reserve Your Seat, Tickets, Chris Messina links
 - Other sponsor website links
 - Confirmation of rights for the orange grove photos
+- [x] Home hero: flat orange grove photo (no hills), same gradient
