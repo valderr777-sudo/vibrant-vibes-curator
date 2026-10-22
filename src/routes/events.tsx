@@ -58,7 +58,7 @@ export const Route = createFileRoute("/events")({
 
 function EventsPage() {
   const today = useEventDay();
-  const showFeatured = visibleEvents([featuredMeeting], today).length > 0;
+  const showFeatured = Boolean(featuredMeeting.date) && visibleEvents([featuredMeeting], today).length > 0;
   const activeUpcoming = visibleEvents(upcomingEvents, today);
   const activeDates = visibleEvents(futureMeetingDates, today);
   const activeSpecial = visibleEvents(specialEvents, today);
@@ -175,17 +175,17 @@ function EventsPage() {
                 </span>
                 <EventTodayTag date={featuredMeeting.date} today={today} />
               </div>
-              <a
-                href={rsvpMailto("May 14, 2026 Luncheon")}
+              {featuredMeeting.rsvpDeadline && featuredMeeting.reservationHref && <a
+                href={featuredMeeting.reservationHref}
                 className="rounded-md bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest transition-colors hover:bg-primary-foreground hover:text-primary md:text-lg"
               >
-                RSVP by May 10th
-              </a>
+                RSVP by {formatEventDate(featuredMeeting.rsvpDeadline)}
+              </a>}
             </div>
 
             <div className="px-6 py-12 text-center md:px-16">
               <h3 className="mx-auto max-w-2xl text-xl font-bold uppercase tracking-tight text-foreground md:text-2xl">
-                Make Informed Choices for Orange County Representation
+                {featuredMeeting.title}
               </h3>
               <p className="mt-3 text-xs font-bold uppercase tracking-[0.3em] text-primary">
                 {featuredSpeakers.length === 1 ? "Guest Speaker" : "Guest Speakers"}
@@ -237,22 +237,18 @@ function EventsPage() {
                 ))}
               </div>
 
-              <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-border bg-muted p-10">
+              {featuredMeeting.topic && <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-border bg-muted p-10">
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
                   Main Topic
                 </p>
                 <p className="mt-3 text-2xl font-extrabold text-secondary md:text-3xl">
-                  Winning to Represent Orange County
+                  {featuredMeeting.topic}
                 </p>
-              </div>
+              </div>}
 
-              <a
-                href="#"
-                className="mx-auto mt-10 flex w-full max-w-2xl items-center justify-center gap-3 rounded-2xl bg-primary px-6 py-5 text-base font-bold uppercase tracking-wider text-primary-foreground shadow-lg transition-transform hover:scale-[1.02] active:scale-95 md:text-lg"
-              >
-                Reserve Your Seat Today
-                <ArrowRight className="size-5" />
-              </a>
+              {featuredMeeting.reservationHref && <Button asChild variant="cta" className="mx-auto mt-10 flex w-full max-w-2xl gap-3">
+                <a href={featuredMeeting.reservationHref}>Reserve Your Seat Today <ArrowRight className="size-5" /></a>
+              </Button>}
 
               <div className="mt-6 flex flex-col justify-center gap-4 text-sm font-medium text-muted-foreground sm:flex-row sm:gap-8">
                 <span className="flex items-center justify-center gap-2">
@@ -303,12 +299,9 @@ function EventsPage() {
                   {event.description}
                 </p>
               </div>
-              <a
-                href={event.ticketsHref}
-                className="w-full rounded-lg bg-secondary px-6 py-3 text-center text-sm font-bold text-secondary-foreground transition-colors hover:bg-secondary/90 sm:col-start-2 sm:w-auto"
-              >
-                Tickets
-              </a>
+              {event.ticketsHref && event.ticketsHref !== "#" && <Button asChild variant="cta" className="w-full sm:col-start-2 sm:w-auto">
+                <a href={event.ticketsHref} target="_blank" rel="noopener noreferrer">Tickets</a>
+              </Button>}
             </article>)}
           </div>}
 
@@ -444,7 +437,7 @@ function EventsPage() {
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center gap-2 rounded-lg bg-secondary px-5 py-3 text-sm font-bold text-secondary-foreground hover:bg-secondary/90"
               >
-                <FileDown className="size-4" /> Monthly Donation List (PDF)
+                <FileDown className="size-4" /> 2026 Monthly Donation List & Food Themes (PDF)
               </a>
             )}
           </div>
