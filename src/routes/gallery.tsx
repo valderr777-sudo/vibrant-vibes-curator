@@ -137,11 +137,19 @@ void historyImg;
 
 // Small archive copies are shown at a size their pixels can actually support,
 // instead of being stretched to fill the whole screen and turning grainy.
-function enlargedMaxWidth(id: string): string | undefined {
-  const natural = photoSizes[id];
+const sizeByBaseName: Record<string, { w: number; h: number }> = Object.fromEntries(
+  Object.entries(photoSizes).map(([filename, dims]) => [filename.replace(/\.(jpe?g|png)$/i, ""), dims]),
+);
+
+function enlargedMaxWidth(src: string): string | undefined {
+  const base = decodeURIComponent((src.split("/").pop() ?? src).split("?")[0]);
+  // Vite may append a content hash to the file name in production builds.
+  const key = base.replace(/\.(jpe?g|png)$/i, "").replace(/-[0-9a-f]{6,}$/i, "");
+  const natural = sizeByBaseName[key];
   if (!natural) return undefined;
   return `${Math.min(1152, Math.round(natural.w * 2))}px`;
 }
+
 
 function GalleryPage() {
 
@@ -351,7 +359,7 @@ function GalleryPage() {
                   src={lightbox.src}
                   alt={lightbox.alt}
                   className="h-full w-full max-w-6xl object-contain"
-                  style={{ maxWidth: enlargedMaxWidth(lightbox.id) }}
+                  style={{ maxWidth: enlargedMaxWidth(lightbox.src) }}
                 />
 
               </div>
