@@ -99,7 +99,30 @@ const photos: Photo[] = [
     alt: img.alt,
     category: "Special Events" as Category,
   })),
-];
+].sort((a, b) => photoDate(b.src) - photoDate(a.src));
+
+// Newest first, using the event date in each photo's file name. Undated photos go last.
+function photoDate(src: string): number {
+  const name = decodeURIComponent(src.split("/").pop() ?? "");
+  const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+  let year = 0;
+  let month = 0;
+  const m1 = name.match(/(?:^|[^\d])(\d{1,2})\.(20\d{2})/);
+  const m2 = name.match(/(?:^|[^\d])(\d{1,2})\.\d{1,2}\.(\d{2})(?:[^\d]|$)/);
+  const y = name.match(/(20\d{2})/);
+  if (m1) {
+    month = Number(m1[1]);
+    year = Number(m1[2]);
+  } else if (m2) {
+    month = Number(m2[1]);
+    year = 2000 + Number(m2[2]);
+  } else if (y) {
+    year = Number(y[1]);
+    const mi = months.findIndex((mo) => new RegExp(`(^|[^a-z])${mo}`, "i").test(name));
+    month = mi >= 0 ? mi + 1 : 0;
+  }
+  return year * 100 + month;
+}
 
 void specialImg;
 void groupImg;
