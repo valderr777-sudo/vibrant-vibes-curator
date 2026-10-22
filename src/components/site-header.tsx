@@ -71,14 +71,14 @@ export function SiteHeader() {
             <img src={worwfLogo} alt="WORWF" className="size-14 object-contain md:size-16" />
           </Link>
 
-          <nav className="hidden min-w-0 items-center gap-4 xl:flex">
+          <nav className="hidden min-w-0 items-center gap-3 lg:flex xl:gap-5">
             {navLinks.map((l) => {
               const active = pathname === l.to;
               return (
                 <Link
                   key={l.label}
                   to={l.to}
-                  className={`relative text-[15px] font-medium transition-colors hover:text-secondary ${
+                  className={`relative whitespace-nowrap text-sm font-medium transition-colors xl:text-[15px] hover:text-secondary ${
                     active ? "text-secondary" : "text-foreground"
                   }`}
                 >
@@ -90,7 +90,7 @@ export function SiteHeader() {
               );
             })}
             <div className="group relative">
-              <button type="button" className="relative inline-flex items-center text-[15px] font-medium text-foreground transition-colors hover:text-secondary">
+              <button type="button" className="relative inline-flex items-center whitespace-nowrap text-sm xl:text-[15px] font-medium text-foreground transition-colors hover:text-secondary">
                 Sponsors<span className="ml-1">▾</span>
               </button>
               <div className="absolute left-0 top-full z-50 hidden pt-3 group-hover:block">
@@ -106,10 +106,10 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Button asChild variant="outline" className="hidden rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:inline-flex">
+            <Button asChild variant="outline" className="hidden rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:inline-flex lg:px-3 xl:px-6">
               <Link to="/events">EVENTS</Link>
             </Button>
-            <Button asChild variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex">
+            <Button asChild variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex lg:px-3 xl:px-6">
               <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
             </Button>
             <Button asChild variant="cta" className="mr-2 rounded-md px-4 text-xs font-bold tracking-wider sm:hidden">
@@ -120,7 +120,7 @@ export function SiteHeader() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex size-11 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-muted xl:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-muted lg:hidden"
             >
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
