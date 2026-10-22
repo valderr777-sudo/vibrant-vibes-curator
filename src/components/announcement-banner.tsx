@@ -2,13 +2,17 @@ import { Link } from "@tanstack/react-router";
 import { Megaphone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { announcements } from "@/content/site-content";
+import { useEventDay } from "@/hooks/use-event-day";
+import { visibleEvents } from "@/lib/event-dates";
+import { EventTodayTag } from "@/components/event-today-tag";
 
 export function AnnouncementBanner() {
-  const a = announcements[0];
+  const today = useEventDay();
+  const a = visibleEvents(announcements, today)[0];
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    if (a && localStorage.getItem(`worwf-announcement-${a.id}`) === "dismissed") setHidden(true);
+    setHidden(Boolean(a && localStorage.getItem(`worwf-announcement-${a.id}`) === "dismissed"));
   }, [a]);
 
   if (!a || hidden) return null;
@@ -28,6 +32,7 @@ export function AnnouncementBanner() {
             <Megaphone className="size-3.5" /> {a.label}
           </span>
           <span>{a.message}</span>
+          <EventTodayTag date={a.date} today={today} />
           {a.linkText && a.to && (
             <Link to={a.to} className={linkClass}>{a.linkText}</Link>
           )}

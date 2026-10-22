@@ -16,8 +16,10 @@ import sliderExec from "@/assets/worwf/slider/exec.jpg";
 import sliderBarbara from "@/assets/worwf/slider/barbara.jpg";
 import sliderAwards from "@/assets/worwf/slider/awards.jpg";
 import sliderConvention from "@/assets/worwf/slider/convention.jpg";
-import speakerMessina from "@/assets/worwf/events/messina.jpg";
-import speakerIngoglia from "@/assets/worwf/events/ingoglia.jpg";
+import { homePromotedEvents } from "@/content/site-content";
+import { useEventDay } from "@/hooks/use-event-day";
+import { visibleEvents, formatEventDate } from "@/lib/event-dates";
+import { EventTodayTag } from "@/components/event-today-tag";
 import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import motivatesBg from "@/assets/worwf/motivates-bg.webp";
@@ -162,6 +164,8 @@ function CheckBadge() {
 }
 
 function Index() {
+  const today = useEventDay();
+  const activeEvents = visibleEvents(homePromotedEvents, today);
   const [form, setForm] = useState({ first: "", last: "", phone: "", email: "", message: "" });
 
   return (
@@ -285,31 +289,23 @@ function Index() {
               </Link>
             </div>
           </div>
-          <div className="mt-10 h-px bg-primary-foreground/20" />
+          {activeEvents.length > 0 && <div className="mt-10 h-px bg-primary-foreground/20" />}
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {[
-              { img: speakerMessina, date: "THURSDAY, MAY 14, 2026", title: "General Luncheon Meeting", speaker: "CHRIS MESSINA & BONNIE JACKSON", showSpeaker: true },
-              { img: speakerIngoglia, date: "FRIDAY, JUNE 5, 2026", title: "Breakfast with Blaise", speaker: "BLAISE INGOGLIA, Florida CFO", showSpeaker: true },
-            ].map((e, i) => (
+            {activeEvents.map((e, i) => (
               <article key={i} className="grid grid-cols-[minmax(0,1fr)] items-start gap-4 rounded-lg bg-card p-4 text-card-foreground shadow-[var(--shadow-elegant)] sm:grid-cols-[128px_minmax(0,1fr)]">
                 <img src={e.img} alt={e.speaker} className="mx-auto h-auto max-h-48 w-auto max-w-full rounded object-contain sm:h-32 sm:w-32" loading="lazy" />
                 <div className="flex min-w-0 flex-col py-1">
                   <p className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Calendar className="size-3.5" /> {e.date}
+                    <Calendar className="size-3.5" /> {formatEventDate(e.date)}
                   </p>
+                  <EventTodayTag date={e.date} today={today} />
                   <h3 className="mt-2 text-xl font-bold text-foreground">{e.title}</h3>
                   <a href="#" className="mt-1 text-sm font-semibold italic text-secondary underline">
                     WEST ORANGE CC
                   </a>
-                  {e.showSpeaker ? (
-                    <>
-                      <p className="mt-3 text-xs font-bold uppercase text-muted-foreground">Speaker:</p>
-                      <p className="text-sm font-bold text-foreground">{e.speaker}</p>
-                    </>
-                  ) : (
-                    <p className="mt-3 text-sm font-bold text-foreground">{e.speaker}</p>
-                  )}
+                  <p className="mt-3 text-xs font-bold uppercase text-muted-foreground">Speaker:</p>
+                  <p className="text-sm font-bold text-foreground">{e.speaker}</p>
                 </div>
               </article>
             ))}
