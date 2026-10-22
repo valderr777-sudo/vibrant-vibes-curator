@@ -65,7 +65,7 @@ export function SiteHeader() {
             <img src={worwfLogo} alt="WORWF" className="size-14 object-contain md:size-16" />
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden min-w-0 items-center gap-4 xl:flex">
             {navLinks.map((l) => {
               const active = pathname === l.to;
               return (
@@ -114,7 +114,7 @@ export function SiteHeader() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-muted lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-muted xl:hidden"
             >
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
@@ -123,7 +123,7 @@ export function SiteHeader() {
 
         {/* Mobile menu panel */}
         {open && (
-          <div className="lg:hidden">
+          <div className="max-h-[calc(100dvh-90px)] overflow-y-auto overscroll-contain xl:hidden">
             <div className="border-t border-border bg-background">
               <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
                 {navLinks.map((l) => {
@@ -152,7 +152,7 @@ export function SiteHeader() {
                     </Link>
                   ))}
                 </div>
-                <div className="mt-3 grid grid-cols-2 gap-2 border-t border-border pt-3">
+                <div className="mt-3 grid gap-2 border-t border-border pt-3 sm:grid-cols-2">
                   <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
                     <Link to="/events">EVENTS</Link>
                   </Button>

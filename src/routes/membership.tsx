@@ -103,7 +103,7 @@ function Membership() {
       <section className="relative isolate overflow-hidden">
         {/* Parallax background */}
         <div
-          className="absolute inset-0 -z-10 bg-cover bg-center bg-fixed"
+          className="people-background responsive-parallax absolute inset-0 -z-10 bg-fixed"
           style={{ backgroundImage: `url(${memberHero})` }}
           aria-hidden="true"
         />
@@ -136,7 +136,7 @@ function Membership() {
       <section className="relative overflow-hidden bg-muted/40 py-24">
         {/* Parallax background covering full section */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-30"
+          className="responsive-parallax absolute inset-0 bg-cover bg-center lg:bg-fixed opacity-30"
           style={{ backgroundImage: `url(${membersParallax})` }}
           aria-hidden="true"
         />
@@ -444,7 +444,7 @@ function MembershipForm({
 
         {/* Mode toggle + helpers */}
         <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-4">
-          <div className="inline-flex rounded-full border border-border bg-card p-1 shadow-sm">
+          <div className="grid w-full max-w-sm grid-cols-2 rounded-lg border border-border bg-card p-1 shadow-sm">
             <button
               type="button"
               onClick={() => {
@@ -788,7 +788,7 @@ function MembershipForm({
           )}
 
           {/* Nav buttons */}
-          <div className="mt-10 flex items-center justify-between gap-3 border-t border-border pt-6">
+          <div className="mt-10 grid grid-cols-2 items-center gap-3 border-t border-border pt-6 sm:flex sm:justify-between">
             <Button
               type="button"
               variant="outline"
@@ -799,7 +799,7 @@ function MembershipForm({
               <ArrowLeft className="size-4" /> Back
             </Button>
 
-            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <span className="col-span-2 row-start-1 text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Step {step + 1} of {totalSteps}
             </span>
 

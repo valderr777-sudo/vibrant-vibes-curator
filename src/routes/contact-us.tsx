@@ -107,7 +107,7 @@ function ContactPage() {
       {/* Hero with parallax */}
       <section className="relative isolate overflow-hidden">
         <div
-          className="absolute inset-0 -z-10 bg-cover bg-center bg-fixed"
+          className="people-background responsive-parallax absolute inset-0 -z-10 lg:bg-fixed"
           style={{ backgroundImage: `url(${heroImg})` }}
           aria-hidden="true"
         />

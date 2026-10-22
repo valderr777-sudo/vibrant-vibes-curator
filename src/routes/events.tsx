@@ -51,6 +51,7 @@ function EventsPage() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    if (!window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)").matches) return;
     const onScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -62,12 +63,12 @@ function EventsPage() {
       <section className="relative overflow-hidden text-primary-foreground min-h-[60vh] flex items-center py-24 md:py-32">
         <div
           aria-hidden
-          className="absolute inset-0 z-0 will-change-transform"
+          className="people-background responsive-parallax absolute inset-0 z-0 will-change-transform"
           style={{
             backgroundImage: `url(${venueImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            transform: `translate3d(0, ${scrollY * 0.4}px, 0) scale(1.15)`,
+            transform: `translate3d(0, ${Math.min(scrollY * 0.08, 24)}px, 0)`,
           }}
         />
         <div
@@ -175,7 +176,7 @@ function EventsPage() {
                     <img
                       src={messinaImg}
                       alt="Chris Messina"
-                      className="relative size-full rounded-[2rem] border-4 border-card object-cover shadow-xl transition-transform duration-300 group-hover:-translate-x-2 group-hover:-translate-y-2"
+                      className="relative size-full rounded-lg border-4 border-card bg-muted object-contain shadow-xl"
                     />
                   </div>
                   <h4 className="text-2xl font-bold text-secondary">Chris Messina</h4>
@@ -200,7 +201,7 @@ function EventsPage() {
                     <img
                       src={jacksonImg}
                       alt="Bonnie Jackson"
-                      className="relative size-full rounded-[2rem] border-4 border-card object-cover shadow-xl transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-2"
+                      className="relative size-full rounded-lg border-4 border-card bg-muted object-contain shadow-xl"
                     />
                   </div>
                   <h4 className="text-2xl font-bold text-secondary">Bonnie Jackson</h4>
@@ -266,13 +267,13 @@ function EventsPage() {
               Upcoming Events
             </h3>
 
-            <article className="group flex flex-col items-center gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:flex-row">
+            <article className="group grid justify-items-center gap-6 rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:grid-cols-[192px_minmax(0,1fr)] sm:justify-items-start">
               <img
                 src={ingogliaImg}
                 alt="Blaise Ingoglia"
-                className="size-48 shrink-0 rounded-full border-4 border-muted object-cover"
+                className="size-48 shrink-0 rounded-lg bg-muted object-contain"
               />
-              <div className="flex-1 text-center sm:text-left">
+              <div className="min-w-0 text-center sm:text-left">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                   <Calendar className="size-3.5" /> Friday, June 5, 2026 · 9–11 AM
                 </div>
@@ -283,19 +284,19 @@ function EventsPage() {
               </div>
               <a
                 href="#"
-                className="w-full rounded-xl bg-secondary px-6 py-3 text-center text-sm font-bold text-secondary-foreground transition-colors hover:bg-secondary/90 sm:w-auto"
+                className="w-full rounded-lg bg-secondary px-6 py-3 text-center text-sm font-bold text-secondary-foreground transition-colors hover:bg-secondary/90 sm:col-start-2 sm:w-auto"
               >
                 Tickets
               </a>
             </article>
 
-            <article className="group flex flex-col items-center gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:flex-row">
+            <article className="group grid justify-items-center gap-6 rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:grid-cols-[192px_minmax(0,1fr)] sm:justify-items-start">
               <img
                 src={america250Img}
                 alt="A Hero Celebration"
-                className="size-48 shrink-0 rounded-full border-4 border-muted object-cover"
+                className="size-48 shrink-0 rounded-lg bg-muted object-contain"
               />
-              <div className="flex-1 text-center sm:text-left">
+              <div className="min-w-0 text-center sm:text-left">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                   <Calendar className="size-3.5" /> Thursday, July 9, 2026 · 11:30 AM
                 </div>
@@ -306,7 +307,7 @@ function EventsPage() {
               </div>
               <a
                 href="#"
-                className="w-full rounded-xl bg-secondary px-6 py-3 text-center text-sm font-bold text-secondary-foreground transition-colors hover:bg-secondary/90 sm:w-auto"
+                className="w-full rounded-lg bg-secondary px-6 py-3 text-center text-sm font-bold text-secondary-foreground transition-colors hover:bg-secondary/90 sm:col-start-2 sm:w-auto"
               >
                 Tickets
               </a>

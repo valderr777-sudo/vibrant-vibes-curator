@@ -183,6 +183,7 @@ function AboutUs() {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)").matches) return;
     let raf = 0;
     const onScroll = () => {
       if (raf) return;
@@ -190,9 +191,11 @@ function AboutUs() {
         raf = 0;
         const el = bgRef.current;
         if (!el) return;
-        const rect = el.parentElement!.getBoundingClientRect();
+        const parent = el.parentElement;
+        if (!parent) return;
+        const rect = parent.getBoundingClientRect();
         const offset = rect.top * -0.4;
-        el.style.transform = `translate3d(0, ${offset}px, 0) scale(1.15)`;
+        el.style.transform = `translate3d(0, ${Math.max(-24, Math.min(24, offset))}px, 0)`;
       });
     };
     onScroll();
@@ -214,7 +217,7 @@ function AboutUs() {
         <div
           ref={bgRef}
           aria-hidden
-          className="absolute inset-0 z-0 will-change-transform"
+          className="people-background responsive-parallax absolute inset-0 z-0 will-change-transform"
           style={{
             backgroundImage: `url(${capitolSteps})`,
             backgroundSize: "cover",
@@ -267,15 +270,13 @@ function AboutUs() {
             {whoWeAreCards.map((c) => (
               <article
                 key={c.title}
-                className="group relative overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]"
-                style={{
-                  backgroundImage: `linear-gradient(180deg, oklch(0 0 0 / 0.55), oklch(0 0 0 / 0.85)), url(${c.bg})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  minHeight: "380px",
-                }}
+                className="group relative flex flex-col overflow-hidden rounded-lg bg-secondary shadow-[var(--shadow-elegant)]"
               >
-                <div className="flex h-full flex-col items-center p-8 text-center text-white">
+                <div className="relative aspect-[3/2] bg-secondary">
+                  <img src={c.bg} alt={c.title} loading="lazy" className="size-full object-contain" />
+                  <div aria-hidden className="absolute inset-0 bg-secondary/25" />
+                </div>
+                <div className="flex flex-1 flex-col items-center p-6 text-center text-primary-foreground">
                   <span className="mb-6 flex size-28 items-center justify-center rounded-full border-2 border-white/80">
                     <img src={c.icon} alt="" className="size-20 object-contain brightness-0 invert" />
                   </span>
@@ -359,7 +360,7 @@ function AboutUs() {
             <img
               src={founders}
               alt="Co-Founders Linda O'Keefe and Wendy West"
-              className="h-full w-full object-cover"
+              className="h-auto w-full object-contain"
               loading="lazy"
             />
             <figcaption className="bg-card px-4 py-3 text-center text-sm italic text-muted-foreground">
@@ -373,7 +374,7 @@ function AboutUs() {
       <section className="relative overflow-hidden bg-muted py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
           <figure className="mx-auto w-full max-w-xs overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
-            <img src={nfrwAward} alt="NFRW Diamond Achievement Award" className="h-full w-full object-cover" />
+            <img src={nfrwAward} alt="NFRW Diamond Achievement Award" loading="lazy" className="h-auto w-full object-contain" />
           </figure>
           <div>
             <span className="text-sm font-semibold tracking-wide text-secondary">
@@ -446,7 +447,7 @@ function AboutUs() {
                     <img
                       src={president.img}
                       alt={president.name}
-                      className="h-full w-full object-cover"
+                      className="h-auto w-full object-contain"
                     />
                   </div>
                   <div
@@ -490,11 +491,11 @@ function AboutUs() {
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {executive.map((m) => (
               <article key={m.name} className="group text-center">
-                <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+                <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-lg bg-muted shadow-[var(--shadow-elegant)]">
                   <img
                     src={m.img}
                     alt={m.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain pb-2"
                     loading="lazy"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-2 bg-accent" />
