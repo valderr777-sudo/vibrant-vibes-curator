@@ -1,4 +1,4 @@
-import groveSunrise from "@/assets/groves/grove-sunrise.jpg.asset.json";
+import groveHero from "@/assets/orange-grove-hero.jpg.asset.json";
 import grovePath from "@/assets/groves/grove-path.jpg.asset.json";
 import { AnnouncementBanner } from "@/components/announcement-banner";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -177,10 +177,10 @@ function Index() {
       {/* Hero */}
       <section className="relative isolate flex min-h-[calc(100vh-120px)] overflow-hidden bg-secondary">
         <img
-          src={groveSunrise.url}
+          src={groveHero.url}
           alt=""
           aria-hidden
-          className="animate-hero-drift absolute inset-0 h-full w-full object-cover object-left"
+          className="animate-hero-drift absolute inset-0 h-full w-full object-cover object-center"
         />
         <video
           src={heroVideo}
