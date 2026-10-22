@@ -19,6 +19,8 @@ import { educationImages } from "@/assets/worwf/gallery/education";
 import { speakersImages } from "@/assets/worwf/gallery/speakers";
 import { historyImages } from "@/assets/worwf/gallery/history";
 import { specialImages } from "@/assets/worwf/gallery/special";
+import { photoSizes } from "@/assets/worwf/gallery/sizes";
+
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
@@ -133,7 +135,24 @@ void speakersImg;
 void campaignImg;
 void historyImg;
 
+// Small archive copies are shown at a size their pixels can actually support,
+// instead of being stretched to fill the whole screen and turning grainy.
+const sizeByBaseName: Record<string, { w: number; h: number }> = Object.fromEntries(
+  Object.entries(photoSizes).map(([filename, dims]) => [filename.replace(/\.(jpe?g|png)$/i, ""), dims]),
+);
+
+function enlargedMaxWidth(src: string): string | undefined {
+  const base = decodeURIComponent((src.split("/").pop() ?? src).split("?")[0]);
+  // Vite may append a content hash to the file name in production builds.
+  const key = base.replace(/\.(jpe?g|png)$/i, "").replace(/-[0-9a-f]{6,}$/i, "");
+  const natural = sizeByBaseName[key];
+  if (!natural) return undefined;
+  return `${Math.min(1152, Math.round(natural.w * 2))}px`;
+}
+
+
 function GalleryPage() {
+
   const [filter, setFilter] = useState<Category | "All">("All");
   const [lightbox, setLightbox] = useState<Photo | null>(null);
 
@@ -336,7 +355,13 @@ function GalleryPage() {
                 </Button>
               </div>
               <div className="flex min-h-0 min-w-0 items-center justify-center">
-                <img src={lightbox.src} alt={lightbox.alt} className="h-full w-full max-w-6xl object-contain" />
+                <img
+                  src={lightbox.src}
+                  alt={lightbox.alt}
+                  className="h-full w-full max-w-6xl object-contain"
+                  style={{ maxWidth: enlargedMaxWidth(lightbox.src) }}
+                />
+
               </div>
               <div className="mx-auto grid w-full max-w-3xl grid-cols-[44px_minmax(0,1fr)_44px] items-center gap-3">
                 <Button variant="ghost" size="icon" disabled={filtered.length < 2} onClick={showPreviousPhoto} className="size-11" aria-label="Previous photo"><ChevronLeft /></Button>
