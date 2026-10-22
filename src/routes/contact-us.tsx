@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: "Who can join West Orange Republican Women Federated?",
-    a: "Membership is open to women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community.",
+    a: "Membership is open to registered Republican women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community.",
   },
   {
     q: "How can I become a member?",

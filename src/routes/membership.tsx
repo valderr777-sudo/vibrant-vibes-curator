@@ -28,7 +28,7 @@ export const Route = createFileRoute("/membership")({
       {
         name: "description",
         content:
-          "Join WORWF as an Active or Associate Member. Registered Republicans can apply with a current Member Referral.",
+          "Join WORWF as a Primary or Associate Member. Registered Republicans can apply with a current Member Referral.",
       },
       { property: "og:title", content: "Become a Member — WORWF" },
       {
@@ -52,17 +52,17 @@ const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resou
 ];
 
 const membershipOptions = [
-  "Active Member - Voting Member",
-  "Associate Member - Member of another NFR Club",
-  "Mens Associate Member",
-  "Young Republicans Member",
+  "Primary Member - Voting Member",
+  "Associate Members - Women (Member of another NFRW club)",
+  "Associates (Men)",
+  "Young Republican Member (18+ years, Post Secondary Student)",
 ];
 
 const renewalOptions = [
-  "Active Member - Voting Member",
-  "Associate Member - Member of NFR Club",
-  "Mens Associate Member",
-  "Young Republicans Member",
+  "Primary Member - Voting Member",
+  "Associate Members - Women (Member of another NFRW club)",
+  "Associates (Men)",
+  "Young Republican Member (18+ years, Post Secondary Student)",
 ];
 
 function ElephantIcon({ className = "" }: { className?: string }) {
@@ -172,12 +172,12 @@ function Membership() {
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     Tier 01
                   </p>
-                  <h3 className="text-2xl font-bold text-foreground">Active Members</h3>
+                  <h3 className="text-2xl font-bold text-foreground">Primary Members</h3>
                 </div>
               </div>
 
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                To be an Active Member, you must be in good standing. Active membership includes
+                To be a Primary Member, you must be in good standing. Primary membership includes
                 membership in the National Federation of Republican Women and in the Florida
                 Federation of Republican Women.
               </p>
@@ -209,6 +209,7 @@ function Membership() {
                     Tier 02
                   </p>
                   <h3 className="text-2xl font-bold text-foreground">Associate Members</h3>
+                  <p className="text-xs text-muted-foreground">Women (Member of another NFRW club) and Associates (Men)</p>
                 </div>
               </div>
 

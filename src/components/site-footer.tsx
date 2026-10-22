@@ -2,8 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Facebook, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import footerBg from "@/assets/worwf/footer-bg.jpg";
-import sponsorRbs from "@/assets/worwf/sponsors/rbs.png";
 import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.png";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/"; external?: string }[] = [
@@ -18,12 +16,7 @@ const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" |
 export function SiteFooter() {
   return (
     <footer
-      className="relative text-primary-foreground"
-      style={{
-        backgroundImage: `linear-gradient(135deg, oklch(0 0 0 / 0.85), oklch(0 0 0 / 0.78)), url(${footerBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative bg-secondary text-secondary-foreground"
     >
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-10 lg:grid-cols-2">
@@ -34,7 +27,7 @@ export function SiteFooter() {
                 West Orange Republican Women Federated
               </span>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3 xl:flex-nowrap">
               {footerLinks.map((l) =>
                 l.external ? (
                   <a
@@ -42,7 +35,7 @@ export function SiteFooter() {
                     href={l.external}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary"
+                    className="whitespace-nowrap rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary"
                   >
                     {l.label}
                   </a>
@@ -50,7 +43,7 @@ export function SiteFooter() {
                   <Link
                     key={l.label}
                     to={l.to}
-                    className="rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary"
+                    className="whitespace-nowrap rounded-md border border-primary-foreground/30 px-4 py-2 text-sm transition-colors hover:bg-primary-foreground hover:text-primary"
                   >
                     {l.label}
                   </Link>
@@ -95,9 +88,6 @@ export function SiteFooter() {
           <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
             <span className="text-sm">Sponsors</span>
             <div className="flex flex-wrap items-center gap-4">
-              <a href="https://www.rbsroofing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
-                <img src={sponsorRbs} alt="RBS Construction & Roofing" className="h-20 w-auto object-contain" />
-              </a>
               <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
                 <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-20 w-auto object-contain" />
               </a>
