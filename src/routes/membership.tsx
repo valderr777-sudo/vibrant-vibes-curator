@@ -778,7 +778,7 @@ function MembershipForm({
                 />
                 <span className="text-sm text-foreground">
                   I accept the{" "}
-                  <a href="#" className="font-semibold text-secondary underline">
+                  <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="font-semibold text-secondary underline">
                     Terms &amp; Conditions
                   </a>{" "}
                   and confirm that I am a registered Republican as required by NFRW Bylaws.

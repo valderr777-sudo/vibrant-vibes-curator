@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
 
 import heroImg from "@/assets/worwf/gallery/hero.png";
@@ -126,6 +126,24 @@ function GalleryPage() {
     if (filtered.length === 0 || lightboxIndex < 0) return;
     setLightbox(filtered[(lightboxIndex + 1) % filtered.length]);
   };
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const html = document.documentElement;
+    const prevBody = document.body.style.overflow;
+    const prevHtml = html.style.overflow;
+    document.body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prevBody;
+      html.style.overflow = prevHtml;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [lightbox]);
 
   const counts = useMemo(() => {
     const map = new Map<Category | "All", number>();

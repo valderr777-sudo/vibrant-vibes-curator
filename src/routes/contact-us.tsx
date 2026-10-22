@@ -197,14 +197,18 @@ function ContactPage() {
               </span>
               <div className="h-px flex-1 bg-border" />
               <a
-                href="#"
+                href="https://www.facebook.com/westorangerepublicanwomenfederated"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <Facebook className="size-4" />
               </a>
               <a
-                href="#"
+                href="https://x.com/worwf"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="X"
                 className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
