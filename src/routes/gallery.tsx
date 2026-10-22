@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogPortal, DialogOverlay, DialogTitle } from "@/components/ui/dialog";
 
 import heroImg from "@/assets/worwf/gallery/hero.png";
 import campaignImg from "@/assets/worwf/gallery/campaign.jpg";
@@ -32,6 +35,10 @@ export const Route = createFileRoute("/gallery")({
         property: "og:description",
         content: "Photo gallery from WORWF events and activities.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });
@@ -159,7 +166,7 @@ function GalleryPage() {
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
         <div
-          className="absolute inset-0 -z-10 bg-cover bg-center"
+          className="people-background absolute inset-0 -z-10"
           style={{ backgroundImage: `url(${heroImg})` }}
           aria-hidden="true"
         />
@@ -230,8 +237,10 @@ function GalleryPage() {
             {(["All", ...categories] as const).map((c) => {
               const active = filter === c;
               return (
-                <button
+                <Button
                   key={c}
+                  variant="outline"
+                  aria-pressed={active}
                   onClick={() => setFilter(c)}
                   className={[
                     "group inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all",
@@ -251,7 +260,7 @@ function GalleryPage() {
                   >
                     {counts.get(c) ?? 0}
                   </span>
-                </button>
+                </Button>
               );
             })}
           </div>
@@ -264,25 +273,20 @@ function GalleryPage() {
           ) : (
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
               {filtered.map((p) => (
-                <button
+                <Button
                   key={p.id}
+                  variant="ghost"
+                  aria-label={`Open photo: ${p.alt}`}
                   onClick={() => setLightbox(p)}
-                  className="group relative aspect-square overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-elegant)] transition-transform duration-300 hover:-translate-y-1"
+                  className="group relative aspect-square h-auto w-full overflow-hidden rounded-lg bg-muted p-0 shadow-[var(--shadow-elegant)] transition-colors hover:bg-muted"
                 >
                   <img
                     src={p.src}
                     alt={p.alt}
                     loading="lazy"
-                    className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 size-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-left opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-orange-300">
-                      {p.category}
-                    </p>
-                    <p className="mt-1 line-clamp-2 text-sm font-semibold text-white">{p.alt}</p>
-                  </div>
-                </button>
+                </Button>
               ))}
             </div>
           )}
@@ -290,62 +294,39 @@ function GalleryPage() {
       </section>
 
       {/* Lightbox */}
-      {lightbox && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setLightbox(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm animate-fade-in"
-        >
-          <button
-            onClick={() => setLightbox(null)}
-            aria-label="Close"
-            className="absolute right-6 top-6 flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-          >
-            <X className="size-5" />
-          </button>
-          {filtered.length > 1 && (
-            <>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  showPreviousPhoto();
-                }}
-                aria-label="Previous photo"
-                className="absolute left-4 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:left-8 md:size-14"
-              >
-                <ChevronLeft className="size-7" />
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  showNextPhoto();
-                }}
-                aria-label="Next photo"
-                className="absolute right-4 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:right-8 md:size-14"
-              >
-                <ChevronRight className="size-7" />
-              </button>
-            </>
-          )}
-          <figure
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-h-[85vh] max-w-5xl px-12 md:px-0"
-          >
-            <img
-              src={lightbox.src}
-              alt={lightbox.alt}
-              className="max-h-[85vh] w-auto rounded-xl object-contain shadow-2xl"
-            />
-            <figcaption className="mt-4 text-center">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-orange-400">
-                {lightbox.category}
-              </p>
-              <p className="mt-1 text-sm text-white/90">{lightbox.alt}</p>
-            </figcaption>
-          </figure>
-        </div>
-      )}
+      <Dialog open={Boolean(lightbox)} onOpenChange={(open) => { if (!open) setLightbox(null); }}>
+        {lightbox && (
+          <DialogPortal>
+            <DialogOverlay className="z-[60] bg-secondary/95" />
+            <DialogPrimitive.Content
+              aria-describedby={undefined}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowLeft") { e.preventDefault(); showPreviousPhoto(); }
+                if (e.key === "ArrowRight") { e.preventDefault(); showNextPhoto(); }
+              }}
+              className="fixed inset-0 z-[61] grid h-dvh grid-rows-[auto_minmax(0,1fr)_auto] gap-4 p-4 text-secondary-foreground outline-none md:p-8"
+            >
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+                <DialogTitle className="text-base text-secondary-foreground">{lightbox.category}</DialogTitle>
+                <Button variant="ghost" size="icon" className="size-11" onClick={() => setLightbox(null)} aria-label="Close">
+                  <X />
+                </Button>
+              </div>
+              <div className="flex min-h-0 min-w-0 items-center justify-center">
+                <img src={lightbox.src} alt={lightbox.alt} className="h-full w-full max-w-6xl object-contain" />
+              </div>
+              <div className="mx-auto grid w-full max-w-3xl grid-cols-[44px_minmax(0,1fr)_44px] items-center gap-3">
+                <Button variant="ghost" size="icon" disabled={filtered.length < 2} onClick={showPreviousPhoto} className="size-11" aria-label="Previous photo"><ChevronLeft /></Button>
+                <div className="min-w-0 text-center" aria-live="polite">
+                  <p className="line-clamp-2 break-words text-sm">{lightbox.alt}</p>
+                  <p className="mt-1 text-xs text-secondary-foreground/70">{lightboxIndex + 1} / {filtered.length}</p>
+                </div>
+                <Button variant="ghost" size="icon" disabled={filtered.length < 2} onClick={showNextPhoto} className="size-11" aria-label="Next photo"><ChevronRight /></Button>
+              </div>
+            </DialogPrimitive.Content>
+          </DialogPortal>
+        )}
+      </Dialog>
     </>
   );
 }

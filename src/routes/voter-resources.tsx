@@ -24,6 +24,10 @@ export const Route = createFileRoute("/voter-resources")({
         content:
           "Membership engagement, education updates, calls to action and voter resources from West Orange Republican Women Federated.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });

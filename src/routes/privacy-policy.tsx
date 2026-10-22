@@ -17,6 +17,10 @@ export const Route = createFileRoute("/privacy-policy")({
       },
       { property: "og:title", content: "Privacy Policy — WORWF" },
       { property: "og:description", content: "Privacy practices for worwf.org." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });

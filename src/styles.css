@@ -149,6 +149,32 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: "Times New Roman", Times, "Source Serif Pro", Georgia, serif;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    letter-spacing: 0;
+  }
+}
+
+/* Preserve editorial subjects rather than enlarging photos past their frame. */
+.people-background {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-attachment: scroll !important;
+  background-position: center !important;
+  background-color: var(--secondary);
+}
+
+@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+  .responsive-parallax {
+    background-attachment: scroll !important;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px !important;
   }
 }
 

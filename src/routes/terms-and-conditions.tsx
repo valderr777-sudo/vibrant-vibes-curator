@@ -20,6 +20,10 @@ export const Route = createFileRoute("/terms-and-conditions")({
         property: "og:description",
         content: "The terms governing your use of worwf.org.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });

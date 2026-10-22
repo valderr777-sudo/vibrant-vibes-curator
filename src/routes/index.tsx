@@ -39,6 +39,12 @@ export const Route = createFileRoute("/")({
         content:
           "WORWF unites women to create positive change, support good government, and uphold constitutional rights in West Orange County, FL.",
       },
+      { property: "og:title", content: "West Orange Republican Women Federated | Educate. Motivate. Activate." },
+      { property: "og:description", content: "WORWF unites women to create positive change, support good government, and uphold constitutional rights in West Orange County, FL." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });
@@ -113,14 +119,14 @@ function ImageSlider() {
     return () => clearInterval(id);
   }, []);
   return (
-    <div className="relative h-full min-h-[320px] w-full overflow-hidden rounded-lg shadow-[var(--shadow-elegant)]">
+    <div className="relative aspect-[4/3] w-full self-center overflow-hidden rounded-lg bg-muted shadow-[var(--shadow-elegant)]">
       {sliderImages.map((img, i) => (
         <img
           key={img.src}
           src={img.src}
           alt={img.alt}
           loading="lazy"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+          className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-1000 ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -133,7 +139,7 @@ function ImageSlider() {
             aria-label={`Show slide ${i + 1}`}
             onClick={() => setIndex(i)}
             className={`h-2 w-2 rounded-full transition-all ${
-              i === index ? "w-6 bg-white" : "bg-white/60"
+              i === index ? "w-6 bg-accent" : "bg-secondary/60"
             }`}
           />
         ))}
@@ -300,9 +306,9 @@ function Index() {
               { img: speakerMessina, date: "THURSDAY, MAY 14, 2026", title: "General Luncheon Meeting", speaker: "CHRIS MESSINA & BONNIE JACKSON", showSpeaker: true },
               { img: speakerIngoglia, date: "FRIDAY, JUNE 5, 2026", title: "Breakfast with Blaise", speaker: "BLAISE INGOGLIA, Florida CFO", showSpeaker: true },
             ].map((e, i) => (
-              <article key={i} className="flex items-stretch gap-4 rounded-lg bg-card p-4 text-card-foreground shadow-[var(--shadow-elegant)]">
-                <img src={e.img} alt="" className="size-32 shrink-0 rounded object-cover" loading="lazy" />
-                <div className="flex flex-col py-1">
+              <article key={i} className="grid grid-cols-[minmax(0,1fr)] items-start gap-4 rounded-lg bg-card p-4 text-card-foreground shadow-[var(--shadow-elegant)] sm:grid-cols-[128px_minmax(0,1fr)]">
+                <img src={e.img} alt={e.speaker} className="mx-auto h-auto max-h-48 w-auto max-w-full rounded object-contain sm:h-32 sm:w-32" loading="lazy" />
+                <div className="flex min-w-0 flex-col py-1">
                   <p className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Calendar className="size-3.5" /> {e.date}
                   </p>
@@ -411,7 +417,7 @@ function Index() {
             <div className="relative lg:pl-6">
               {/* WORWF logo badge floating */}
               <div className="absolute -top-8 right-4 z-20 hidden size-24 items-center justify-center overflow-hidden rounded-full border-4 border-primary-foreground/90 bg-primary shadow-[var(--shadow-elegant)] sm:flex">
-                <img src={worwfLogo} alt="WORWF crest" className="h-full w-full object-cover" />
+                <img src={worwfLogo} alt="WORWF crest" className="h-full w-full object-contain" />
               </div>
 
               <div className="relative overflow-hidden rounded-2xl bg-card p-8 text-card-foreground shadow-[var(--shadow-elegant)] md:p-10">

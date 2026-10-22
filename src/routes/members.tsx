@@ -14,6 +14,12 @@ export const Route = createFileRoute("/members")({
       { title: "Members Only — WORWF" },
       { name: "description", content: "Password-protected resources for WORWF members." },
       { name: "robots", content: "noindex,nofollow" },
+      { property: "og:title", content: "Members Only | WORWF" },
+      { property: "og:description", content: "Password-protected resources for WORWF members." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });
