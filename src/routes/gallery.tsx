@@ -219,7 +219,7 @@ function GalleryPage() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 <Images className="size-3.5" />
                 Photo Gallery
               </span>
@@ -243,7 +243,7 @@ function GalleryPage() {
                 id="gallery-filter"
                 value={filter}
                 onChange={(e) => setFilter(e.target.value as Category | "All")}
-                className="w-full appearance-none rounded-full border border-border bg-card px-4 py-2.5 pr-10 text-sm font-semibold text-foreground shadow-sm focus:border-primary focus:outline-none"
+                className="w-full appearance-none rounded-md border border-border bg-card px-4 py-2.5 pr-10 text-sm font-semibold text-foreground shadow-sm focus:border-primary focus:outline-none"
               >
                 {(["All", ...categories] as const).map((c) => (
                   <option key={c} value={c}>
@@ -266,7 +266,7 @@ function GalleryPage() {
                   aria-pressed={active}
                   onClick={() => setFilter(c)}
                   className={[
-                    "group inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all",
+                    "group inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-semibold transition-all",
                     active
                       ? "border-primary bg-primary text-primary-foreground shadow-[var(--shadow-elegant)]"
                       : "border-border bg-card text-foreground hover:border-primary hover:text-primary",
@@ -275,7 +275,7 @@ function GalleryPage() {
                   {c}
                   <span
                     className={[
-                      "rounded-full px-2 py-0.5 text-[10px] font-bold tabular-nums",
+                      "rounded-md px-2 py-0.5 text-[10px] font-bold tabular-nums",
                       active
                         ? "bg-primary-foreground/20 text-primary-foreground"
                         : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary",

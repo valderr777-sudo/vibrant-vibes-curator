@@ -160,7 +160,7 @@ function ContactPage() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.4fr]">
           {/* Aside */}
           <aside className="lg:sticky lg:top-28 lg:self-start">
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
               Send a Message
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
@@ -307,7 +307,7 @@ function ContactPage() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="mx-auto max-w-3xl px-6">
           <div className="text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
               <HelpCircle className="size-3.5" />
               Frequently Asked Questions
             </span>

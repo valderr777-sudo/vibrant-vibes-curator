@@ -24,7 +24,7 @@ export function AnnouncementBanner() {
     <div role="region" aria-label="Announcement" className="bg-secondary text-secondary-foreground">
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-6 py-3">
         <p className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-accent-foreground">
+          <span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent">
             <Megaphone className="size-3.5" /> {a.label}
           </span>
           <span>{a.message}</span>
