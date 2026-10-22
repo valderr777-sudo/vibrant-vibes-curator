@@ -70,7 +70,7 @@ const motivations = [
 
 const faqs = [
   { q: "What is WORWF?", a: "WORWF stands for West Orange Republican Women Federated. We are a group of passionate women dedicated to advancing the cause of good government in our community, state, and nation." },
-  { q: "Who can join West Orange Republican Women Federated?", a: "Membership is open to women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community." },
+  { q: "Who can join West Orange Republican Women Federated?", a: "Membership is open to registered Republican women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community." },
   { q: "How can I become a member?", a: "To join, please visit our Contact Us page and send us an email expressing your interest. We'll provide you with all the necessary information to get started." },
   { q: "What activities does WORWF engage in?", a: "Our organization participates in various activities, including hosting monthly luncheons, organizing community events, supporting local candidates, and promoting civic engagement through education and advocacy." },
   { q: "How can I stay informed about upcoming events?", a: "We regularly update our members and the public about upcoming events through our website and social media channels. Be sure to check our homepage for the latest news and event announcements." },
@@ -188,33 +188,16 @@ function Index() {
           }}
         />
         <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-20">
-          <p className="text-sm text-primary-foreground/90">— Women strengthening our community</p>
-          <h1 className="mt-5 text-4xl font-bold leading-[1.1] text-primary-foreground sm:text-5xl md:text-5xl lg:whitespace-nowrap lg:text-5xl">
+          <p className="animate-fade-up text-sm font-semibold uppercase tracking-[0.25em] text-accent">
+            ★ Women strengthening West Orange County ★
+          </p>
+          <h1 className="animate-fade-up mt-5 max-w-5xl text-5xl font-bold leading-[1.05] text-primary-foreground [text-shadow:0_4px_24px_oklch(0_0_0/0.45)] sm:text-6xl lg:text-7xl">
             West Orange Republican Women Federated
           </h1>
-          <p className="mt-6 max-w-xl text-primary-foreground/90">
-            United together to create positive change. Supporting good government and constitutional
-            rights. Actively working for the good of our country.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <Link to="/membership">
-              <Button variant="cta" className="rounded-md px-6 font-bold tracking-wider">
-                BECOME A MEMBER
-              </Button>
-            </Link>
-            <a
-              href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-9 items-center justify-center rounded-md border-2 border-primary-foreground bg-transparent px-6 text-sm font-bold tracking-wider text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
-            >
-              DONATE
-            </a>
-          </div>
         </div>
       </section>
 
-      <UnitedQuoteBand background="muted" />
+      <UnitedQuoteBand background="muted" showQuote={false} />
 
       <Marquee />
 
@@ -226,23 +209,12 @@ function Index() {
           style={{ backgroundImage: `url(${motivatesBg})` }}
         />
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="flex flex-col items-start text-left">
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <img src={worwfLogo} alt="" className="size-6 object-contain" />
-              What Motivates Us
-            </span>
-            <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              We love America and our Constitution - and take responsibility for both!
-            </h2>
-            <p className="mt-6 max-w-3xl text-muted-foreground">
-              We advance the voice of 'We The People' so Americans are represented at the local
-              level through our communications, connections, and activities as we strategically
-              engage the important issues that support our Constitution, our Schools, and our
-              Community.
-            </p>
-          </div>
+          <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <img src={worwfLogo} alt="" className="size-6 object-contain" />
+            What Motivates Us
+          </span>
 
-          <div className="mt-14 grid gap-12 lg:grid-cols-2">
+          <div className="mt-8 grid gap-12 lg:grid-cols-2">
             <div className="text-left">
               <h3 className="text-xl font-bold text-foreground">
                 We Empower Women, Strengthen Community, and Uphold Values
@@ -458,9 +430,15 @@ function Index() {
                   Donate Now
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </a>
+                <Link
+                  to="/sponsors/business"
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border-2 border-accent py-3 font-semibold text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  Become a Sponsor
+                </Link>
 
                 <p className="mt-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground">
-                  Secure · Tax-deductible · 100% mission-driven
+                  Secure · 100% mission-driven
                 </p>
               </div>
             </div>
