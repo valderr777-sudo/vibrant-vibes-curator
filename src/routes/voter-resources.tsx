@@ -48,6 +48,30 @@ const voterResources: {
   links: { label: string; href: string }[];
 }[] = [
   {
+    heading: "Voter ID & Status",
+    description: "Verify your registration, find your polling place, and make sure your vote is ready to count.",
+    icon: BadgeCheck,
+    accent: "from-accent/20 to-accent/0 text-accent",
+    links: [
+      { label: "Check your Voter ID Status", href: "https://registration.elections.myflorida.com/CheckVoterStatus" },
+      { label: "Voter Precinct Lookup", href: "https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/" },
+      { label: "Register to Vote", href: "https://voteorangefl.gov/register-to-vote/" },
+      { label: "Request to Vote by Mail", href: "https://voteorangefl.gov/request-a-mail-ballot/" },
+      { label: "Change Party or Address", href: "https://voteorangefl.gov/update-your-registration/" },
+    ],
+  },
+  {
+    heading: "Republican Women",
+    description: "Connect with the wider network of Republican Women's organizations across the country and Florida.",
+    icon: Users,
+    accent: "from-accent/20 to-accent/0 text-accent",
+    links: [
+      { label: "RNC Women", href: "https://www.gop.com/communities/rnc-women/" },
+      { label: "National Federation of Republican Women", href: "https://www.nfrw.org/" },
+      { label: "Florida Federation of Republican Women", href: "http://www.ffrw.net/home.php" },
+    ],
+  },
+  {
     heading: "National / State / Local",
     description: "Official party, government, and policy resources from the national level down to Orange County.",
     icon: Globe2,
@@ -80,27 +104,14 @@ const voterResources: {
       { label: "Florida Redistricting", href: "https://www.floridaredistricting.gov/" },
     ],
   },
-  {
-    heading: "Republican Women",
-    description: "Connect with the wider network of Republican Women's organizations across the country and Florida.",
-    icon: Users,
-    accent: "from-accent/20 to-accent/0 text-accent",
-    links: [
-      { label: "RNC Women", href: "https://www.gop.com/communities/rnc-women/" },
-      { label: "National Federation of Republican Women", href: "https://www.nfrw.org/" },
-      { label: "Florida Federation of Republican Women", href: "http://www.ffrw.net/home.php" },
-    ],
-  },
-  {
-    heading: "Voter ID & Status",
-    description: "Verify your registration, find your polling place, and make sure your vote is ready to count.",
-    icon: BadgeCheck,
-    accent: "from-accent/20 to-accent/0 text-accent",
-    links: [
-      { label: "Check your Voter ID Status", href: "https://registration.elections.myflorida.com/CheckVoterStatus" },
-      { label: "Voter Precinct Lookup", href: "https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/" },
-    ],
-  },
+];
+
+const districtMaps: { label: string; detail: string; href: string }[] = [
+  { label: "Orange County Commission Districts", detail: "Orange County Supervisor of Elections district maps", href: "https://voteorangefl.gov/maps/" },
+  { label: "School Board Districts", detail: "Orange County Supervisor of Elections district maps", href: "https://voteorangefl.gov/maps/" },
+  { label: "Florida House Districts", detail: "Official enacted maps, Florida Legislature", href: "https://www.floridaredistricting.gov/pages/agreed-maps" },
+  { label: "Florida Senate Districts", detail: "Official enacted maps, Florida Legislature", href: "https://www.floridaredistricting.gov/pages/agreed-maps" },
+  { label: "U.S. Congressional Districts", detail: "Official enacted maps, Florida Legislature", href: "https://www.floridaredistricting.gov/pages/agreed-maps" },
 ];
 
 function NewsPage() {
@@ -195,6 +206,32 @@ function NewsPage() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="mt-16 rounded-2xl border border-border bg-card p-8 shadow-sm">
+            <h3 className="text-2xl font-bold tracking-tight text-foreground">Orange County District Maps</h3>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              Find which districts you live in. These links open the current official boundary maps
+              published by the Orange County Supervisor of Elections and the Florida Legislature.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {districtMaps.map((m) => (
+                <li key={m.label}>
+                  <a
+                    href={m.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link flex h-full items-start justify-between gap-3 rounded-xl border border-border p-4 transition-colors hover:border-accent"
+                  >
+                    <span className="min-w-0">
+                      <span className="block text-sm font-semibold text-foreground">{m.label}</span>
+                      <span className="mt-1 block text-xs text-muted-foreground">Source: {m.detail}</span>
+                    </span>
+                    <ArrowUpRight className="size-4 shrink-0 text-accent" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

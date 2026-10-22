@@ -120,6 +120,9 @@ function EventsPage() {
               <p className="mt-2 text-muted-foreground">
                 WORWF meets monthly at <span className="font-semibold text-foreground">West Orange Country Club</span>
               </p>
+              <a href="https://www.google.com/maps/search/?api=1&query=West+Orange+Country+Club+3300+West+Orange+Country+Club+Drive+Winter+Garden+FL+34787" target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-sm text-foreground underline-offset-4 hover:text-primary hover:underline">
+                3300 West Orange Country Club Drive, Winter Garden, FL 34787
+              </a>
               <div className="mt-5 grid gap-3 rounded-lg border border-border bg-muted/60 p-4 text-sm text-muted-foreground sm:grid-cols-2">
                 <p className="flex items-center gap-2">
                   <Clock className="size-4 text-primary" /> Doors open <strong className="text-foreground">11:00 AM</strong>
@@ -133,9 +136,10 @@ function EventsPage() {
           <div className="flex flex-col items-center justify-center rounded-2xl bg-primary p-8 text-center text-primary-foreground shadow-[var(--shadow-elegant)]">
             <span className="text-xs font-bold uppercase tracking-widest opacity-80">Event Pricing</span>
             <div className="mt-2 text-5xl font-extrabold">$35</div>
-            <div className="text-sm font-medium opacity-90">Members &amp; Guests</div>
-            <div className="mt-4 w-full border-t border-primary-foreground/20 pt-4 text-xs">
-              Candidate Special: <strong>$25</strong>
+            <div className="text-sm font-medium opacity-90">Members</div>
+            <div className="mt-4 grid w-full gap-1 border-t border-primary-foreground/20 pt-4 text-sm">
+              <span>Non-Members / Guests: <strong>$45</strong></span>
+              <span>Candidates: <strong>$25</strong></span>
             </div>
           </div>
         </div>
@@ -159,7 +163,7 @@ function EventsPage() {
                   THURSDAY, MAY 14, 2026
                 </span>
               </div>
-              <span className="rounded-full bg-primary-foreground/20 px-4 py-1 text-xs font-bold uppercase tracking-widest">
+              <span className="rounded-full bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest md:text-lg">
                 RSVP by May 10th
               </span>
             </div>
@@ -243,10 +247,13 @@ function EventsPage() {
 
               <div className="mt-6 flex flex-col justify-center gap-4 text-sm font-medium text-muted-foreground sm:flex-row sm:gap-8">
                 <span className="flex items-center justify-center gap-2">
-                  <CheckCircle2 className="size-4 text-primary" /> $35 Members &amp; Guests
+                  <CheckCircle2 className="size-4 text-primary" /> $35 Members
                 </span>
                 <span className="flex items-center justify-center gap-2">
-                  <CheckCircle2 className="size-4 text-primary" /> $25 Candidate Special
+                  <CheckCircle2 className="size-4 text-primary" /> $45 Non-Members / Guests
+                </span>
+                <span className="flex items-center justify-center gap-2">
+                  <CheckCircle2 className="size-4 text-primary" /> $25 Candidates
                 </span>
                 <span className="flex items-center justify-center gap-2">
                   <CheckCircle2 className="size-4 text-primary" /> Buffet Lunch Included
