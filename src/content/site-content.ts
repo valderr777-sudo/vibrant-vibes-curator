@@ -17,7 +17,7 @@ export type Announcement = {
   label: string; // short tag, e.g. "Next Luncheon", "Voting Reminder"
   message: string;
   linkText?: string;
-  to?: string; // internal page, e.g. "/events"
+  to?: "/events" | "/membership" | "/voter-resources" | "/about-us"; // internal page
   href?: string; // external link
 };
 

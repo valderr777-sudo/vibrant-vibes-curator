@@ -1,5 +1,6 @@
 import groveSunrise from "@/assets/groves/grove-sunrise.jpg.asset.json";
 import grovePath from "@/assets/groves/grove-path.jpg.asset.json";
+import { AnnouncementBanner } from "@/components/announcement-banner";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
@@ -170,6 +171,8 @@ function Index() {
       `}</style>
 
 
+
+      <AnnouncementBanner />
 
       {/* Hero */}
       <section className="relative isolate flex min-h-[calc(100vh-120px)] overflow-hidden bg-secondary">
