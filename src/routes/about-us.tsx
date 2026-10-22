@@ -1,3 +1,4 @@
+import groveTrees from "@/assets/groves/grove-trees.jpg.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
@@ -304,7 +305,10 @@ function AboutUs() {
       <Marquee />
 
       {/* Our History */}
-      <section className="relative bg-muted py-20">
+      <section
+        className="relative bg-muted bg-cover bg-center py-20"
+        style={{ backgroundImage: `linear-gradient(oklch(0.97 0.01 25 / 0.92), oklch(0.97 0.01 25 / 0.92)), url(${groveTrees.url})` }}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">

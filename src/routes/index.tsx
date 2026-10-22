@@ -1,3 +1,5 @@
+import groveSunrise from "@/assets/groves/grove-sunrise.jpg.asset.json";
+import grovePath from "@/assets/groves/grove-path.jpg.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
@@ -170,7 +172,13 @@ function Index() {
 
 
       {/* Hero */}
-      <section className="relative isolate flex min-h-[calc(100vh-120px)] overflow-hidden">
+      <section className="relative isolate flex min-h-[calc(100vh-120px)] overflow-hidden bg-secondary">
+        <img
+          src={groveSunrise.url}
+          alt=""
+          aria-hidden
+          className="animate-hero-drift absolute inset-0 h-full w-full object-cover object-left"
+        />
         <video
           src={heroVideo}
           poster={heroFlag}
@@ -178,13 +186,13 @@ function Index() {
           muted
           loop
           playsInline
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-soft-light"
         />
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(ellipse at 85% 15%, oklch(0.78 0.17 60 / 0.45), transparent 55%), linear-gradient(110deg, oklch(0.25 0.12 250 / 0.60) 0%, oklch(0.40 0.14 40 / 0.35) 55%, oklch(0.45 0.20 25 / 0.50) 100%)`,
+            backgroundImage: `radial-gradient(ellipse at 85% 15%, oklch(0.78 0.17 60 / 0.45), transparent 55%), linear-gradient(110deg, oklch(0.22 0.10 250 / 0.70) 0%, oklch(0.30 0.10 40 / 0.35) 55%, oklch(0.40 0.18 25 / 0.35) 100%)`,
           }}
         />
         <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-20">
@@ -249,7 +257,10 @@ function Index() {
       </section>
 
       {/* Events - curved navy section */}
-      <section className="relative bg-primary py-20 text-primary-foreground">
+      <section
+        className="relative bg-primary bg-cover bg-center py-20 text-primary-foreground"
+        style={{ backgroundImage: `linear-gradient(oklch(0.40 0.18 25 / 0.88), oklch(0.30 0.14 25 / 0.92)), url(${grovePath.url})` }}
+      >
         <div
           aria-hidden
           className="absolute inset-x-0 -top-px h-12 bg-background"

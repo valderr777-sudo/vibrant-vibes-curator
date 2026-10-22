@@ -1,3 +1,4 @@
+import orangeFruit from "@/assets/groves/orange-fruit.jpg.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Mail, Facebook, ChevronUp, ArrowUpRight, Globe2, Landmark, Users, BadgeCheck } from "lucide-react";
@@ -123,7 +124,7 @@ function NewsPage() {
       <section
         className="relative isolate overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${heroImg})`,
+          backgroundImage: `linear-gradient(110deg, oklch(0.20 0.08 25 / 0.92) 0%, oklch(0.20 0.08 25 / 0.6) 45%, oklch(0.45 0.2 27 / 0.4) 100%), url(${orangeFruit.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

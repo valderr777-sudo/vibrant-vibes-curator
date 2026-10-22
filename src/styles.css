@@ -224,3 +224,10 @@
     animation: none !important;
   }
 }
+
+@keyframes hero-drift {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(-2%, -1%, 0); }
+}
+.animate-hero-drift { animation: hero-drift 24s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .animate-hero-drift { animation: none; } }
