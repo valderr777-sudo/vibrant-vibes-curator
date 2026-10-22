@@ -87,13 +87,13 @@ const contactCards = [
     icon: MapPin,
     label: "Location",
     value: "West Orange County, FL",
-    href: "#",
+    href: "/events",
   },
   {
     icon: Clock,
     label: "Meetings",
     value: "Monthly Luncheons",
-    href: "#",
+    href: "/events",
   },
 ];
 

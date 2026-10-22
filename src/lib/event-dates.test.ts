@@ -35,4 +35,10 @@ describe("Florida event-day rules", () => {
   it("does not silently expire invalid or unconfirmed dates", () => {
     expect(eventStatus("2026-02-30", "2026-05-14")).toBe("undated");
   });
+  it("excludes all past promoted event dates in the October 22 final review", () => {
+    const dates = ["2026-05-14", "2026-06-05", "2026-07-09", "2026-08-13", "2026-09-10", "2026-10-08", "2026-11-12", "2026-12-10"];
+    expect(visibleEvents(dates.map((date) => ({ date })), "2026-10-22")).toEqual([
+      { date: "2026-11-12" }, { date: "2026-12-10" },
+    ]);
+  });
 });

@@ -152,11 +152,11 @@ const historyBlocks = [
   },
   {
     h: "Growth & Expansion",
-    p: "From those early days, WORWF blossomed from 20 to over 135 active members, changing meeting venues to keep up with its expanding membership — including locations like Stonewood Grill and Windermere Country Club. In 2017, the club moved to West Orange Country Club, and in 2021, to its current home: Arnold Palmer's Bay Hill Club and Lodge, Orlando, FL.",
+    p: "From those early days, WORWF blossomed from 20 to over 135 active members, changing meeting venues to keep up with its expanding membership, including Stonewood Grill, Windermere Country Club, and Arnold Palmer's Bay Hill Club and Lodge. The club currently meets at West Orange Country Club, 3300 West Orange Country Club Drive, Winter Garden, FL 34787.",
   },
   {
     h: "Our Mission in Action",
-    p: "Our members are the heart of WORWF — dynamic, involved, and passionate. We proudly volunteer for local/state campaigns; register voters, canvas neighborhoods, and phone bank; support legislation at every level; and donate to and support Edgewood Children's Ranch and adopt soldiers through Caring for America.",
+    p: "Our members are the heart of WORWF: dynamic, involved, and passionate. We proudly volunteer for local/state campaigns; register voters, canvass neighborhoods, and phone bank; support legislation at every level; and donate to and support Edgewood Children's Ranch and adopt soldiers through Caring for America.",
   },
   {
     h: "Looking Ahead",

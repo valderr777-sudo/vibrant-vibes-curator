@@ -301,9 +301,9 @@ function Index() {
                   </p>
                   <EventTodayTag date={e.date} today={today} />
                   <h3 className="mt-2 text-xl font-bold text-foreground">{e.title}</h3>
-                  <a href="#" className="mt-1 text-sm font-semibold italic text-secondary underline">
+                  <Link to="/events" className="mt-1 text-sm font-semibold italic text-secondary underline">
                     WEST ORANGE CC
-                  </a>
+                  </Link>
                   <p className="mt-3 text-xs font-bold uppercase text-muted-foreground">Speaker:</p>
                   <p className="text-sm font-bold text-foreground">{e.speaker}</p>
                 </div>
@@ -520,7 +520,7 @@ function Index() {
               Frequently Asked Questions (FAQ)
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              We here to answer all your questions
+              We're here to answer all your questions
             </h2>
           </div>
           <Accordion type="single" collapsible defaultValue="item-0" className="mt-10 space-y-3">
@@ -538,9 +538,9 @@ function Index() {
             ))}
           </Accordion>
           <p className="mt-8 text-center text-sm text-muted-foreground">
-            Still you have a questions?{" "}
+            Still have questions?{" "}
             <Link to="/contact-us" className="font-semibold text-secondary underline">
-              Contact with us
+              Contact us
             </Link>
           </p>
         </div>
