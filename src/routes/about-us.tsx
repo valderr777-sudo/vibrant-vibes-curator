@@ -74,6 +74,14 @@ const whoWeAreCards = [
   },
 ];
 
+const legacyLeaders = [
+  { name: "Wendy West", term: "2008 to 2012" },
+  { name: "Carolyn Sparks", term: "2013 to 2016" },
+  { name: "Rebecca Mellen", term: "2017 to 2020", note: "Led the move to Bay Hill" },
+  { name: "Teresa Snipes", term: "2021 to 2024", note: "Guided the club through President Trump's re-election" },
+  { name: "Caren Bell", term: "Elected 2024", note: "Continues to lead with vision and energy" },
+];
+
 const presidents = [
   {
     name: "Caren Bell",
@@ -144,10 +152,6 @@ const historyBlocks = [
   {
     h: "Growth & Expansion",
     p: "From those early days, WORWF blossomed from 20 to over 135 active members, changing meeting venues to keep up with its expanding membership — including locations like Stonewood Grill and Windermere Country Club. In 2017, the club moved to West Orange Country Club, and in 2021, to its current home: Arnold Palmer's Bay Hill Club and Lodge, Orlando, FL.",
-  },
-  {
-    h: "Leadership Legacy",
-    p: "Wendy West – President (2008–2012) • Carolyn Sparks – President (2013–2016) • Rebecca Mellen – President (2017–2020), led the move to Bay Hill • Teresa Snipes – President (2021–2024), guided the club through President Trump's re-election • Caren Bell – Elected 2024, continues to lead with vision and energy.",
   },
   {
     h: "Our Mission in Action",
@@ -376,30 +380,20 @@ function AboutUs() {
         </div>
       </section>
 
-      {/* NFRW Diamond Achievement Award */}
-      <section className="relative overflow-hidden bg-muted py-20">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
-          <figure className="mx-auto w-full max-w-xs overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
-            <img src={nfrwAward} alt="NFRW Diamond Achievement Award" loading="lazy" className="h-auto w-full object-contain" />
-          </figure>
-          <div>
-            <span className="text-sm font-semibold tracking-wide text-secondary">
-              RECOGNITION
-            </span>
-            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
-              NFRW Diamond Achievement Award
-            </h2>
-            <p className="mt-6 text-muted-foreground">
-              Every two years at the biennial convention, the NFRW presents awards to recognize
-              and honor excellence at the state and club levels. WORWF is a{" "}
-              <strong>Diamond Achievement Award Recipient</strong> for demonstrating excellence in
-              membership development, campaign activities, community relations, programs and club
-              functions (2019, 2021, 2023).
-            </p>
-            <p className="mt-6 text-sm font-semibold text-secondary">
-              FFRW Gold Award Recipient — 2022-2023, 2018-2019
-            </p>
-          </div>
+      {/* Legacy Leadership */}
+      <section className="bg-muted py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <span className="text-sm font-semibold tracking-wide text-accent">OUR PRESIDENTS</span>
+          <h2 className="mt-3 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">Legacy Leadership</h2>
+          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {legacyLeaders.map((l) => (
+              <li key={l.name} className="border-l-4 border-accent pl-4">
+                <p className="text-xl font-bold text-foreground">{l.name}</p>
+                <p className="text-sm font-semibold text-accent">{l.term}</p>
+                {l.note && <p className="mt-1 text-sm text-muted-foreground">{l.note}</p>}
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -411,42 +405,8 @@ function AboutUs() {
           </div>
 
           {(() => {
-            const nav = (
-              <div className="flex items-center justify-center gap-4 lg:justify-start">
-                <button
-                  onClick={() =>
-                    setPresidentIdx((i) => (i - 1 + presidents.length) % presidents.length)
-                  }
-                  aria-label="Previous"
-                  className="flex size-10 items-center justify-center rounded-full border border-primary-foreground/40 transition-colors hover:bg-primary-foreground hover:text-primary"
-                >
-                  <ChevronLeft className="size-5" />
-                </button>
-                <button
-                  onClick={() => setPresidentIdx((i) => (i + 1) % presidents.length)}
-                  aria-label="Next"
-                  className="flex size-10 items-center justify-center rounded-full border border-primary-foreground/40 transition-colors hover:bg-primary-foreground hover:text-primary"
-                >
-                  <ChevronRight className="size-5" />
-                </button>
-                <div className="ml-4 flex items-center gap-2">
-                  {presidents.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setPresidentIdx(i)}
-                      aria-label={`Slide ${i + 1}`}
-                      className={`size-2.5 rounded-full transition-colors ${
-                        i === presidentIdx ? "bg-accent" : "bg-primary-foreground/30"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            );
-
             return (
               <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
-                <div className="lg:hidden">{nav}</div>
 
                 <div className="relative mx-auto w-full max-w-md">
                   <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-elegant)]">
@@ -473,7 +433,6 @@ function AboutUs() {
                     </a>
                   </p>
 
-                  <div className="mt-10 hidden lg:block">{nav}</div>
                 </div>
               </div>
             );
@@ -559,6 +518,34 @@ function AboutUs() {
           </div>
         </div>
       </section>
+
+      {/* NFRW Diamond Achievement Award */}
+      <section className="relative overflow-hidden bg-muted py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
+          <figure className="mx-auto w-full max-w-xs overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
+            <img src={nfrwAward} alt="NFRW Diamond Achievement Award" loading="lazy" className="h-auto w-full object-contain" />
+          </figure>
+          <div>
+            <span className="text-sm font-semibold tracking-wide text-secondary">
+              CLUB ACHIEVEMENTS
+            </span>
+            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
+              NFRW Diamond Achievement Award
+            </h2>
+            <p className="mt-6 text-muted-foreground">
+              Every two years at the biennial convention, the NFRW presents awards to recognize
+              and honor excellence at the state and club levels. WORWF is a{" "}
+              <strong>Diamond Achievement Award Recipient</strong> for demonstrating excellence in
+              membership development, campaign activities, community relations, programs and club
+              functions (2019, 2021, 2023).
+            </p>
+            <p className="mt-6 text-sm font-semibold text-secondary">
+              FFRW Gold Award Recipient: 2022-2023, 2018-2019
+            </p>
+          </div>
+        </div>
+      </section>
+
 
       <Marquee />
 
