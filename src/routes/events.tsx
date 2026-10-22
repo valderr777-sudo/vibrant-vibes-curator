@@ -11,12 +11,21 @@ import {
   Sparkles,
   CheckCircle2,
   Mail,
+  HeartHandshake,
+  Users,
+  FileDown,
 } from "lucide-react";
 
 import venueImg from "@/assets/worwf/gallery/speakers/10.23-Members-with-Guest-Speaker-Ambassador-Nancy-Brinker-1080x493.jpg";
-import messinaImg from "@/assets/worwf/events/messina.jpg";
-import jacksonImg from "@/assets/worwf/events/jackson.jpg";
 import ingogliaImg from "@/assets/worwf/events/ingoglia.jpg";
+import {
+  featuredSpeakers,
+  specialEvents,
+  committeeActivities,
+  foodThemes,
+  monthlyDonationListPdf,
+  rsvpMailto,
+} from "@/content/site-content";
 import america250Img from "@/assets/worwf/events/america250.jpg";
 
 export const Route = createFileRoute("/events")({
@@ -163,9 +172,12 @@ function EventsPage() {
                   THURSDAY, MAY 14, 2026
                 </span>
               </div>
-              <span className="rounded-full bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest md:text-lg">
+              <a
+                href={rsvpMailto("May 14, 2026 Luncheon")}
+                className="rounded-full bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest transition-colors hover:bg-primary-foreground hover:text-primary md:text-lg"
+              >
                 RSVP by May 10th
-              </span>
+              </a>
             </div>
 
             <div className="px-6 py-12 text-center md:px-16">
@@ -173,59 +185,53 @@ function EventsPage() {
                 Make Informed Choices for Orange County Representation
               </h3>
               <p className="mt-3 text-xs font-bold uppercase tracking-[0.3em] text-primary">
-                Guest Speakers
+                {featuredSpeakers.length === 1 ? "Guest Speaker" : "Guest Speakers"}
               </p>
 
-              <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-16">
-                {/* Messina */}
-                <div className="group">
-                  <div className="relative mx-auto mb-8 size-56">
-                    <div className="absolute inset-0 rotate-3 rounded-[2.5rem] bg-primary transition-transform duration-300 group-hover:rotate-6" />
-                    <img
-                      src={messinaImg}
-                      alt="Chris Messina"
-                      className="relative size-full rounded-lg border-4 border-card bg-muted object-contain shadow-xl"
-                    />
+              <div
+                className={`mx-auto mt-12 grid gap-12 md:gap-16 ${
+                  featuredSpeakers.length === 1
+                    ? "max-w-md"
+                    : featuredSpeakers.length === 2
+                      ? "md:grid-cols-2"
+                      : "sm:grid-cols-2 lg:grid-cols-3"
+                }`}
+              >
+                {featuredSpeakers.map((sp, i) => (
+                  <div key={sp.name} className="group">
+                    {sp.img && (
+                      <div className="relative mx-auto mb-8 size-56">
+                        <div
+                          className={`absolute inset-0 rounded-[2.5rem] transition-transform duration-300 ${
+                            i % 2 === 0
+                              ? "rotate-3 bg-primary group-hover:rotate-6"
+                              : "-rotate-3 bg-secondary group-hover:-rotate-6"
+                          }`}
+                        />
+                        <img
+                          src={sp.img}
+                          alt={sp.name}
+                          className="relative size-full rounded-lg border-4 border-card bg-muted object-contain shadow-xl"
+                        />
+                      </div>
+                    )}
+                    <h4 className="text-2xl font-bold text-secondary">{sp.name}</h4>
+                    <p className="mt-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                      {sp.title}
+                    </p>
+                    {sp.href && sp.linkText && (
+                      <a
+                        href={sp.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center border-b-2 border-transparent pb-1 text-sm font-bold text-primary transition-all hover:border-primary"
+                      >
+                        {sp.linkText}
+                        <ArrowRight className="ml-2 size-4" />
+                      </a>
+                    )}
                   </div>
-                  <h4 className="text-2xl font-bold text-secondary">Chris Messina</h4>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                    Candidate for Orange County Mayor
-                  </p>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center border-b-2 border-transparent pb-1 text-sm font-bold text-primary transition-all hover:border-primary"
-                  >
-                    Candidate Vision Statement
-                    <ArrowRight className="ml-2 size-4" />
-                  </a>
-                </div>
-
-                {/* Jackson */}
-                <div className="group">
-                  <div className="relative mx-auto mb-8 size-56">
-                    <div className="absolute inset-0 -rotate-3 rounded-[2.5rem] bg-secondary transition-transform duration-300 group-hover:-rotate-6" />
-                    <img
-                      src={jacksonImg}
-                      alt="Bonnie Jackson"
-                      className="relative size-full rounded-lg border-4 border-card bg-muted object-contain shadow-xl"
-                    />
-                  </div>
-                  <h4 className="text-2xl font-bold text-secondary">Bonnie Jackson</h4>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                    State Committeewoman • Candidate for FL House District 42
-                  </p>
-                  <a
-                    href="https://jacksonforflorida.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center border-b-2 border-transparent pb-1 text-sm font-bold text-primary transition-all hover:border-primary"
-                  >
-                    District 42 Campaign Plan
-                    <ArrowRight className="ml-2 size-4" />
-                  </a>
-                </div>
+                ))}
               </div>
 
               <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-border bg-muted p-10">
@@ -361,12 +367,29 @@ function EventsPage() {
               </div>
               <h4 className="text-3xl font-extrabold text-secondary">Special Events</h4>
               <p className="mt-3 leading-relaxed text-muted-foreground">
-                Beyond our monthly luncheons, we host rallies, community workshops, and candidate
-                forums throughout the year.
+                Beyond our monthly luncheons, we host rallies, community workshops, candidate
+                forums and campaign activities throughout the year.
               </p>
-              <div className="mt-6 inline-flex rounded-full bg-muted px-5 py-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                Stay tuned for updates
-              </div>
+              <ul className="mt-6 space-y-4">
+                {specialEvents.map((ev) => (
+                  <li key={ev.title} className="rounded-2xl border border-border p-5">
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-accent">{ev.kind}</p>
+                    <p className="mt-1 text-lg font-bold text-foreground">{ev.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{ev.description}</p>
+                    <p className="mt-2 text-xs font-semibold text-muted-foreground">
+                      {ev.date || "Dates to be announced"}{ev.location ? ` • ${ev.location}` : ""}
+                    </p>
+                    {ev.rsvp && (
+                      <a
+                        href={rsvpMailto(ev.title)}
+                        className="mt-3 inline-flex rounded-lg bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground hover:bg-accent hover:text-accent-foreground"
+                      >
+                        RSVP
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
@@ -387,6 +410,75 @@ function EventsPage() {
                 </a>
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Committee activities */}
+      <section className="bg-muted py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex items-center gap-4">
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
+              <Users className="size-6" />
+            </div>
+            <h2 className="text-3xl font-extrabold text-secondary md:text-4xl">Committee Activities</h2>
+          </div>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Our committees put our mission into action all year long. Contact us to get involved.
+          </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {committeeActivities.map((c) => (
+              <article key={c.committee + c.title} className="rounded-2xl border-t-4 border-accent bg-card p-6 shadow-sm">
+                <p className="text-[11px] font-bold uppercase tracking-widest text-accent">{c.committee}</p>
+                <h3 className="mt-2 text-xl font-bold text-foreground">{c.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{c.description}</p>
+                <p className="mt-3 text-xs font-semibold text-muted-foreground">{c.date || "Dates to be announced"}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Caring for America */}
+      <section id="caring-for-america" className="py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
+          <div>
+            <div className="flex items-center gap-4">
+              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                <HeartHandshake className="size-6" />
+              </div>
+              <h2 className="text-3xl font-extrabold text-secondary md:text-4xl">Caring for America</h2>
+            </div>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              Each month our members collect food donations for Edgewood Children's Ranch. Bring
+              items matching the month's theme to our luncheon and help care for children in our
+              community.
+            </p>
+            {monthlyDonationListPdf && (
+              <a
+                href={monthlyDonationListPdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-lg bg-secondary px-5 py-3 text-sm font-bold text-secondary-foreground hover:bg-secondary/90"
+              >
+                <FileDown className="size-4" /> Monthly Donation List (PDF)
+              </a>
+            )}
+          </div>
+          <div className="rounded-3xl bg-secondary p-8 text-secondary-foreground shadow-xl">
+            <h3 className="text-xl font-extrabold">Monthly Food Themes</h3>
+            {foodThemes.length > 0 ? (
+              <ul className="mt-5 space-y-3">
+                {foodThemes.map((t) => (
+                  <li key={t.month} className="flex items-center justify-between gap-4 rounded-xl bg-secondary-foreground/5 p-4">
+                    <span className="text-sm font-semibold">{t.month}</span>
+                    <span className="text-right text-sm text-accent">{t.theme}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-4 text-sm opacity-80">This month's theme will be announced at our next luncheon.</p>
+            )}
           </div>
         </div>
       </section>

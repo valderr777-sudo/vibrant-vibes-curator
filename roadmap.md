@@ -11,9 +11,16 @@
 - [x] Footer: remove photo bg, remove RBS logo
 - [x] About: current president only, Club Achievements lower
 
-## Phase 2: needs Lovable Cloud (editor logins + editable content)
-- [ ] Editor accounts, announcement banner, events, committee activities, food drive themes, leadership, documents
-- [ ] Members area shared password checked on the server, changeable by admins
+## Phase 2: public features (maintained by developers, no editing platform or Lovable Cloud)
+- [x] Homepage announcement banner (dismissible)
+- [x] Flexible featured speakers (one or many)
+- [x] Special events and campaign activities with RSVP by email
+- [x] Committee activities
+- [x] Caring for America food drive section
 
-## Blocked on client
-- Monthly Donation List PDF, Square credentials, missing sponsor URLs, licensed orange-grove imagery
+## Waiting on client
+- Monthly Donation List PDF and monthly food themes
+- Dates for special events and committee activities
+- Candidate Vision Statement, Reserve Your Seat, Tickets, Chris Messina links
+- Other sponsor website links
+- Confirmation of rights for the orange grove photos
