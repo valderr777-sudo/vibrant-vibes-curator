@@ -35,6 +35,10 @@ export const Route = createFileRoute("/events")({
         content:
           "Join us Thursday, May 14, 2026 — Make Informed Choices for Orange County Representation.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });

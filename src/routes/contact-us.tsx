@@ -37,6 +37,10 @@ export const Route = createFileRoute("/contact-us")({
         property: "og:description",
         content: "Send a message to West Orange Republican Women Federated.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });

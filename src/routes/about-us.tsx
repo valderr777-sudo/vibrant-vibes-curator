@@ -35,6 +35,12 @@ export const Route = createFileRoute("/about-us")({
         content:
           "Learn about WORWF's mission, history, co-founders, leadership, and the executive committee guiding our grassroots Republican women's organization.",
       },
+      { property: "og:title", content: "About WORWF | West Orange Republican Women Federated" },
+      { property: "og:description", content: "Learn about WORWF's mission, history, co-founders, leadership, and the executive committee guiding our grassroots Republican women's organization." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });

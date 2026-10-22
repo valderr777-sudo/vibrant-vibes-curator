@@ -35,6 +35,10 @@ export const Route = createFileRoute("/membership")({
         property: "og:description",
         content: "Apply to join West Orange Republican Women Federated today.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });
