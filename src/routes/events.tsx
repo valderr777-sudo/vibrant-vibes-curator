@@ -17,7 +17,9 @@ import {
 } from "lucide-react";
 
 import venueImg from "@/assets/worwf/gallery/speakers/10.23-Members-with-Guest-Speaker-Ambassador-Nancy-Brinker-1080x493.jpg";
-import ingogliaImg from "@/assets/worwf/events/ingoglia.jpg";
+import { useEventDay } from "@/hooks/use-event-day";
+import { eventStatus, visibleEvents, formatEventDate } from "@/lib/event-dates";
+import { EventTodayTag } from "@/components/event-today-tag";
 import {
   featuredSpeakers,
   specialEvents,
@@ -25,8 +27,10 @@ import {
   foodThemes,
   monthlyDonationListPdf,
   rsvpMailto,
+  featuredMeeting,
+  upcomingEvents,
+  futureMeetingDates,
 } from "@/content/site-content";
-import america250Img from "@/assets/worwf/events/america250.jpg";
 
 export const Route = createFileRoute("/events")({
   component: EventsPage,
@@ -36,13 +40,13 @@ export const Route = createFileRoute("/events")({
       {
         name: "description",
         content:
-          "WORWF meets monthly at West Orange Country Club. Reserve your seat for the May 14, 2026 luncheon featuring Chris Messina and Bonnie Jackson.",
+          "Explore WORWF's upcoming luncheons, speakers and community events at West Orange Country Club.",
       },
       { property: "og:title", content: "Event & Luncheon Reservations — WORWF" },
       {
         property: "og:description",
         content:
-          "Join us Thursday, May 14, 2026 — Make Informed Choices for Orange County Representation.",
+          "Join WORWF for upcoming meetings, guest speakers and community activities in West Orange County.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -52,15 +56,13 @@ export const Route = createFileRoute("/events")({
   }),
 });
 
-const futureDates = [
-  { date: "August 13, 2026", day: "Thursday" },
-  { date: "September 10, 2026", day: "Thursday" },
-  { date: "October 8, 2026", day: "Thursday" },
-  { date: "November 12, 2026", day: "Thursday" },
-  { date: "December 10, 2026", day: "Thursday" },
-];
-
 function EventsPage() {
+  const today = useEventDay();
+  const showFeatured = visibleEvents([featuredMeeting], today).length > 0;
+  const activeUpcoming = visibleEvents(upcomingEvents, today);
+  const activeDates = visibleEvents(futureMeetingDates, today);
+  const activeSpecial = visibleEvents(specialEvents, today);
+  const activeCommittees = visibleEvents(committeeActivities, today);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -155,7 +157,7 @@ function EventsPage() {
       </section>
 
       {/* Featured Meeting Event */}
-      <section className="py-20">
+      {showFeatured && <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center">
             <h2 className="inline-block text-4xl font-extrabold text-secondary md:text-5xl">
@@ -169,8 +171,9 @@ function EventsPage() {
               <div className="flex items-center gap-3">
                 <Calendar className="size-6 opacity-80" />
                 <span className="text-base font-bold tracking-widest md:text-lg">
-                  THURSDAY, MAY 14, 2026
+                  {formatEventDate(featuredMeeting.date).toUpperCase()}
                 </span>
+                <EventTodayTag date={featuredMeeting.date} today={today} />
               </div>
               <a
                 href={rsvpMailto("May 14, 2026 Luncheon")}
@@ -274,64 +277,42 @@ function EventsPage() {
             election.
           </p>
         </div>
-      </section>
+      </section>}
 
       {/* Upcoming + Future dates */}
-      <section className="bg-muted py-20">
+      {(activeUpcoming.length > 0 || activeDates.length > 0) && <section className="bg-muted py-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-3 lg:items-start">
-          <div className="space-y-6 lg:col-span-2">
+          {activeUpcoming.length > 0 && <div className="space-y-6 lg:col-span-2">
             <h3 className="border-l-4 border-primary pl-5 text-3xl font-extrabold text-secondary md:text-4xl">
               Upcoming Events
             </h3>
 
-            <article className="group grid justify-items-center gap-6 rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:grid-cols-[192px_minmax(0,1fr)] sm:justify-items-start">
+            {activeUpcoming.map((event) => <article key={event.date + event.title} className="group grid justify-items-center gap-6 rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:grid-cols-[192px_minmax(0,1fr)] sm:justify-items-start">
               <img
-                src={ingogliaImg}
-                alt="Blaise Ingoglia"
+                src={event.img}
+                alt={event.title}
                 className="size-48 shrink-0 rounded-lg bg-muted object-contain"
               />
               <div className="min-w-0 text-center sm:text-left">
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-                  <Calendar className="size-3.5" /> Friday, June 5, 2026 · 9–11 AM
+                  <Calendar className="size-3.5" /> {formatEventDate(event.date)} · {event.time}
                 </div>
-                <h4 className="mt-2 text-xl font-bold text-secondary">Breakfast with Blaise</h4>
+                <EventTodayTag date={event.date} today={today} />
+                <h4 className="mt-2 text-xl font-bold text-secondary">{event.title}</h4>
                 <p className="text-sm text-muted-foreground">
-                  Guest: Blaise Ingoglia, Florida CFO • West Orange CC
+                  {event.description}
                 </p>
               </div>
               <a
-                href="#"
+                href={event.ticketsHref}
                 className="w-full rounded-lg bg-secondary px-6 py-3 text-center text-sm font-bold text-secondary-foreground transition-colors hover:bg-secondary/90 sm:col-start-2 sm:w-auto"
               >
                 Tickets
               </a>
-            </article>
+            </article>)}
+          </div>}
 
-            <article className="group grid justify-items-center gap-6 rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:grid-cols-[192px_minmax(0,1fr)] sm:justify-items-start">
-              <img
-                src={america250Img}
-                alt="A Hero Celebration"
-                className="size-48 shrink-0 rounded-lg bg-muted object-contain"
-              />
-              <div className="min-w-0 text-center sm:text-left">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-                  <Calendar className="size-3.5" /> Thursday, July 9, 2026 · 11:30 AM
-                </div>
-                <h4 className="mt-2 text-xl font-bold text-secondary">A Hero Celebration!</h4>
-                <p className="text-sm text-muted-foreground">
-                  General Luncheon Meeting • West Orange CC
-                </p>
-              </div>
-              <a
-                href="#"
-                className="w-full rounded-lg bg-secondary px-6 py-3 text-center text-sm font-bold text-secondary-foreground transition-colors hover:bg-secondary/90 sm:col-start-2 sm:w-auto"
-              >
-                Tickets
-              </a>
-            </article>
-          </div>
-
-          <div className="rounded-3xl bg-secondary p-8 text-secondary-foreground shadow-xl">
+          {activeDates.length > 0 && <div className={`rounded-3xl bg-secondary p-8 text-secondary-foreground shadow-xl ${activeUpcoming.length === 0 ? "lg:col-span-3" : ""}`}>
             <div className="mb-6 flex items-center justify-center gap-3">
               <Calendar className="size-6 text-primary" />
               <h3 className="text-xl font-extrabold tracking-tight">Future Dates</h3>
@@ -340,21 +321,21 @@ function EventsPage() {
               2026 Monthly Meetings
             </p>
             <div className="space-y-3">
-              {futureDates.map((d) => (
+              {activeDates.map((d) => (
                 <div
                   key={d.date}
                   className="group flex items-center justify-between rounded-xl border border-secondary-foreground/10 bg-secondary-foreground/5 p-4 transition-colors hover:bg-secondary-foreground/10"
                 >
-                  <span className="text-sm font-medium">{d.date}</span>
+                  <span className="text-sm font-medium">{formatEventDate(d.date).replace(/^\w+, /, "")}</span>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-primary opacity-70">
-                    {d.day}
+                    {eventStatus(d.date, today) === "today" ? <EventTodayTag date={d.date} today={today} /> : "Thursday"}
                   </span>
                 </div>
               ))}
             </div>
-          </div>
+          </div>}
         </div>
-      </section>
+      </section>}
 
       {/* Special events + GOP calendar */}
       <section className="py-20">
@@ -371,13 +352,14 @@ function EventsPage() {
                 forums and campaign activities throughout the year.
               </p>
               <ul className="mt-6 space-y-4">
-                {specialEvents.map((ev) => (
+                {activeSpecial.map((ev) => (
                   <li key={ev.title} className="rounded-2xl border border-border p-5">
                     <p className="text-[11px] font-bold uppercase tracking-widest text-accent">{ev.kind}</p>
                     <p className="mt-1 text-lg font-bold text-foreground">{ev.title}</p>
+                    <EventTodayTag date={ev.date} today={today} />
                     <p className="mt-1 text-sm text-muted-foreground">{ev.description}</p>
                     <p className="mt-2 text-xs font-semibold text-muted-foreground">
-                      {ev.date || "Dates to be announced"}{ev.location ? ` • ${ev.location}` : ""}
+                      {ev.date ? formatEventDate(ev.date) : "Dates to be announced"}{ev.location ? ` • ${ev.location}` : ""}
                     </p>
                     {ev.rsvp && (
                       <a
@@ -415,7 +397,7 @@ function EventsPage() {
       </section>
 
       {/* Committee activities */}
-      <section className="bg-muted py-20">
+      {activeCommittees.length > 0 && <section className="bg-muted py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex items-center gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
@@ -427,17 +409,18 @@ function EventsPage() {
             Our committees put our mission into action all year long. Contact us to get involved.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {committeeActivities.map((c) => (
+            {activeCommittees.map((c) => (
               <article key={c.committee + c.title} className="rounded-2xl border-t-4 border-accent bg-card p-6 shadow-sm">
                 <p className="text-[11px] font-bold uppercase tracking-widest text-accent">{c.committee}</p>
                 <h3 className="mt-2 text-xl font-bold text-foreground">{c.title}</h3>
+                <EventTodayTag date={c.date} today={today} />
                 <p className="mt-2 text-sm text-muted-foreground">{c.description}</p>
-                <p className="mt-3 text-xs font-semibold text-muted-foreground">{c.date || "Dates to be announced"}</p>
+                <p className="mt-3 text-xs font-semibold text-muted-foreground">{c.date ? formatEventDate(c.date) : "Dates to be announced"}</p>
               </article>
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Caring for America */}
       <section id="caring-for-america" className="py-20">

@@ -4,6 +4,23 @@
 
 import messinaImg from "@/assets/worwf/events/messina.jpg";
 import jacksonImg from "@/assets/worwf/events/jackson.jpg";
+import ingogliaImg from "@/assets/worwf/events/ingoglia.jpg";
+import america250Img from "@/assets/worwf/events/america250.jpg";
+
+// Use confirmed YYYY-MM-DD dates. Dates expire after the full Florida event day.
+export const featuredMeeting = { date: "2026-05-14" };
+export const upcomingEvents = [
+  { date: "2026-06-05", time: "9–11 AM", title: "Breakfast with Blaise", img: ingogliaImg, speaker: "BLAISE INGOGLIA, Florida CFO", description: "Guest: Blaise Ingoglia, Florida CFO • West Orange CC", ticketsHref: "#" },
+  { date: "2026-07-09", time: "11:30 AM", title: "A Hero Celebration!", img: america250Img, speaker: "General Luncheon Meeting", description: "General Luncheon Meeting • West Orange CC", ticketsHref: "#" },
+];
+export const homePromotedEvents = [
+  { ...featuredMeeting, img: messinaImg, title: "General Luncheon Meeting", speaker: "CHRIS MESSINA & BONNIE JACKSON" },
+  upcomingEvents[0],
+];
+export const futureMeetingDates = [
+  { date: "2026-08-13" }, { date: "2026-09-10" }, { date: "2026-10-08" },
+  { date: "2026-11-12" }, { date: "2026-12-10" },
+];
 
 export const RSVP_EMAIL = "Reservations@WORWF.org";
 
@@ -16,6 +33,7 @@ export type Announcement = {
   id: string; // change the id to show a dismissed banner again
   label: string; // short tag, e.g. "Next Luncheon", "Voting Reminder"
   message: string;
+  date?: string; // event date YYYY-MM-DD; omit for evergreen announcements
   linkText?: string;
   to?: "/events" | "/membership" | "/voter-resources" | "/about-us"; // internal page
   href?: string; // external link
@@ -25,6 +43,7 @@ export type Announcement = {
 export const announcements: Announcement[] = [
   {
     id: "luncheon-2026-05-14",
+    date: featuredMeeting.date,
     label: "Next Luncheon",
     message: "Thursday, May 14, 2026 at West Orange Country Club. RSVP by May 10.",
     linkText: "Event details",
@@ -51,7 +70,7 @@ export type SpecialEvent = {
   title: string;
   kind: string; // e.g. "Campaign Activity", "Rally", "Phone Party"
   description: string;
-  date?: string; // leave empty until confirmed
+  date?: string; // YYYY-MM-DD; leave empty until confirmed
   location?: string;
   rsvp?: boolean; // shows an RSVP button that emails Reservations
 };
@@ -76,7 +95,7 @@ export type CommitteeActivity = {
   committee: string;
   title: string;
   description: string;
-  date?: string;
+  date?: string; // YYYY-MM-DD; leave empty until confirmed
 };
 
 export const committeeActivities: CommitteeActivity[] = [
