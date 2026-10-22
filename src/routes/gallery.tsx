@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
 
 import heroImg from "@/assets/worwf/gallery/hero.png";
