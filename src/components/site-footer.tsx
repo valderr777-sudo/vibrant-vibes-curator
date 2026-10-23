@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Facebook, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.png";
+import ssmsLogo from "@/assets/ssms-white-logo.png.asset.json";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/"; external?: string }[] = [
   { label: "Upcoming Events", to: "/events" },
@@ -76,7 +76,7 @@ export function SiteFooter() {
             <p className="mt-3 flex items-center gap-2 text-sm lg:justify-end">
               <span>info@worwf.org</span> <Mail className="size-4" />
             </p>
-            <Link to="/contact-us" className="mt-6 inline-block lg:hidden">
+            <Link to="/contact-us" className="mt-6 inline-block">
               <Button variant="cta" className="rounded-md px-6 font-semibold">
                 Contact Us
               </Button>
@@ -84,25 +84,30 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/20 pt-8 lg:flex-row lg:items-center">
-          <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
-            <span className="text-sm">Sponsors</span>
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
-                <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-20 w-auto object-contain" />
-              </a>
-            </div>
-          </div>
-          <Link to="/contact-us" className="hidden lg:inline-block">
-            <Button variant="cta" className="rounded-md px-6 font-semibold">
-              Contact Us
-            </Button>
-          </Link>
+        <div className="mt-12 border-t border-primary-foreground/20 py-8">
+          <a
+            href="https://www.starsandstripesmarketing.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center"
+          >
+            <img
+              src={ssmsLogo.url}
+              alt="Stars and Stripes Marketing Services"
+              className="h-5 w-auto object-contain"
+            />
+            <span className="text-sm text-balance text-secondary-foreground/75 transition-colors group-hover:text-secondary-foreground">
+              Created and powered by{" "}
+              <span className="font-semibold underline decoration-dotted underline-offset-4 group-hover:text-accent">
+                Stars and Stripes Marketing
+              </span>
+            </span>
+          </a>
         </div>
       </div>
 
       <div className="border-t border-primary-foreground/20">
-        <div className="mx-auto flex max-w-7xl flex-col-reverse flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs lg:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col-reverse flex-wrap items-center justify-between gap-3 px-6 pt-5 pb-16 text-xs lg:flex-row">
           <p className="text-center opacity-80 lg:text-left">
             Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
           </p>
