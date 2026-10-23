@@ -87,9 +87,19 @@ export function SiteFooter() {
 
       <div className="border-t border-primary-foreground/20">
         <div className="mx-auto flex max-w-7xl flex-col-reverse flex-wrap items-center justify-between gap-3 px-6 pt-5 pb-16 text-xs lg:flex-row">
-          <p className="text-center opacity-80 lg:text-left">
-            Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center gap-2 lg:items-start">
+            <p className="text-center opacity-80 lg:text-left">
+              Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
+            </p>
+            <a
+              href="https://www.starsandstripesmarketing.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center opacity-80 transition-opacity hover:opacity-100 hover:underline lg:text-left"
+            >
+              Created and powered by <span className="font-semibold">Stars and Stripes Marketing</span>
+            </a>
+          </div>
           <div className="flex flex-wrap justify-center gap-5 opacity-80">
             <Link to="/terms-and-conditions" className="hover:underline">Terms &amp; Conditions</Link>
             <Link to="/cookie-policy" className="hover:underline">Cookie Policy</Link>
