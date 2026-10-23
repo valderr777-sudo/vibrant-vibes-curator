@@ -29,6 +29,12 @@ export function visibleEvents<T extends { date?: string }>(events: readonly T[],
   });
 }
 
+export function nextUpcomingEvent<T extends { date?: string }>(events: readonly T[], today: string | null): T | undefined {
+  return visibleEvents(events, today)
+    .filter((event) => validDate(event.date))
+    .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""))[0];
+}
+
 export function formatEventDate(date: string): string {
   if (!validDate(date)) return "Dates to be announced";
   return new Intl.DateTimeFormat("en-US", {

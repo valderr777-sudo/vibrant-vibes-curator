@@ -15,10 +15,10 @@ import sliderExec from "@/assets/worwf/slider/exec.jpg";
 import sliderBarbara from "@/assets/worwf/slider/barbara.jpg";
 import sliderAwards from "@/assets/worwf/slider/awards.jpg";
 import sliderConvention from "@/assets/worwf/slider/convention.jpg";
-import { announcements, homePromotedEvents } from "@/content/site-content";
+import { featuredSpeakers, upcomingMeetings } from "@/content/site-content";
+import { LuncheonCard } from "@/components/luncheon-card";
 import { useEventDay } from "@/hooks/use-event-day";
-import { visibleEvents, formatEventDate, formatEventDay, formatEventWeekday } from "@/lib/event-dates";
-import { EventTodayTag } from "@/components/event-today-tag";
+import { nextUpcomingEvent } from "@/lib/event-dates";
 import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import motivatesBg from "@/assets/worwf/motivates-bg.webp";
@@ -177,12 +177,7 @@ function CheckBadge() {
 
 function Index() {
   const today = useEventDay();
-  // The featured luncheon is promoted once, as the teaser in the red section;
-  // the list below shows the remaining confirmed dates only.
-  const nextLuncheon = visibleEvents(announcements, today)[0];
-  const activeEvents = visibleEvents(homePromotedEvents, today).filter(
-    (e) => e.date !== nextLuncheon?.date,
-  );
+  const nextLuncheon = nextUpcomingEvent(upcomingMeetings, today);
   const [form, setForm] = useState({ first: "", last: "", phone: "", email: "", message: "" });
 
   return (
@@ -290,70 +285,24 @@ function Index() {
           style={{ borderBottomLeftRadius: "50% 100%", borderBottomRightRadius: "50% 100%" }}
         />
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-end gap-8 md:grid-cols-2">
-            <div>
-              <h2 className="text-4xl font-extrabold leading-tight md:text-5xl">
-                Event &amp; Luncheon
-                <br />
-                Reservations
-              </h2>
-            </div>
-            <div className="text-sm">
-              <p>WORWF meets monthly at West Orange Country Club</p>
-              <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-accent-light">
-                View All Events <ArrowRight className="size-4" />
-              </Link>
-            </div>
+          <div className="mb-10 text-center">
+            <h2 className="text-4xl font-extrabold leading-tight md:text-5xl [text-wrap:balance]">
+              Event &amp; Luncheon Reservations
+            </h2>
           </div>
 
-          {nextLuncheon?.date && nextLuncheon.to && (
-            <div className="relative mt-10 overflow-hidden rounded-xl border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-sm">
-              <div aria-hidden className="absolute inset-y-0 left-0 w-1.5 bg-accent" />
-              <div className="flex flex-col gap-6 py-7 pl-8 pr-7 sm:flex-row sm:items-center sm:justify-between md:py-8 md:pl-10 md:pr-9">
-                <div className="min-w-0">
-                  <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold uppercase tracking-[0.2em] text-accent">
-                    <Megaphone className="size-3.5" />
-                    {nextLuncheon.label}
-                    <span className="font-semibold normal-case tracking-normal text-primary-foreground/70">
-                      · {formatEventWeekday(nextLuncheon.date)}
-                    </span>
-                  </p>
-                  <p className="mt-3 text-2xl font-extrabold leading-tight md:text-3xl">
-                    {formatEventDay(nextLuncheon.date)}
-                  </p>
-                  <p className="mt-2 text-sm text-primary-foreground/80">{nextLuncheon.message}</p>
-                  <EventTodayTag date={nextLuncheon.date} today={today} />
-                </div>
-                <Link
-                  to={nextLuncheon.to}
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border-2 border-transparent bg-primary-foreground px-6 py-3 font-semibold text-primary transition-all hover:border-accent hover:bg-transparent hover:text-primary-foreground"
-                >
-                  {nextLuncheon.linkText ?? "Event details"} <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
+          {nextLuncheon && (
+            <LuncheonCard
+              meeting={nextLuncheon}
+              today={today}
+              speakers={nextLuncheon.date === upcomingMeetings[0]?.date ? featuredSpeakers : []}
+            />
           )}
 
-          {activeEvents.length > 0 && <div className="mt-10 h-px bg-primary-foreground/20" />}
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {activeEvents.map((e, i) => (
-              <article key={i} className="grid grid-cols-[minmax(0,1fr)] items-start gap-4 rounded-lg bg-card p-4 text-card-foreground shadow-[var(--shadow-elegant)] sm:grid-cols-[128px_minmax(0,1fr)]">
-                <img src={e.img} alt={e.speaker} className="mx-auto h-auto max-h-48 w-auto max-w-full rounded object-contain sm:h-32 sm:w-32" loading="lazy" />
-                <div className="flex min-w-0 flex-col py-1">
-                  <p className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Calendar className="size-3.5" /> {formatEventDate(e.date)}
-                  </p>
-                  <EventTodayTag date={e.date} today={today} />
-                  <h3 className="mt-2 text-xl font-bold text-foreground">{e.title}</h3>
-                  <Link to="/events" className="mt-1 text-sm font-semibold italic text-secondary underline">
-                    WEST ORANGE CC
-                  </Link>
-                  <p className="mt-3 text-xs font-bold uppercase text-muted-foreground">Speaker:</p>
-                  <p className="text-sm font-bold text-foreground">{e.speaker}</p>
-                </div>
-              </article>
-            ))}
+          <div className="mt-8 text-center">
+            <Button asChild variant="outline" size="lg" className="border-primary-foreground/60 bg-transparent text-primary-foreground hover:border-accent hover:bg-transparent hover:text-accent-light">
+              <Link to="/events">View all <ArrowRight className="size-4" /></Link>
+            </Button>
           </div>
         </div>
       </section>
