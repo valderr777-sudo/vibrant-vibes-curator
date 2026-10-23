@@ -1,58 +1,40 @@
 import groveTrees from "@/assets/groves/grove-trees.jpg.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Facebook, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { ArrowRight } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 import capitolSteps from "@/assets/worwf/about/capitol-steps.jpg";
-import footerBg from "@/assets/worwf/footer-bg.jpg";
 import { UnitedQuoteBand } from "@/components/united-quote-band";
 
 import handshake from "@/assets/worwf/about/handshake.png";
 import usa from "@/assets/worwf/about/usa.png";
 import networking from "@/assets/worwf/about/networking.png";
-import founders from "@/assets/worwf/about/founders.jpg";
 import who1 from "@/assets/worwf/about/who-1.jpg";
 import who2 from "@/assets/worwf/about/who-2.jpg";
 import who3 from "@/assets/worwf/about/who-3.jpg";
 import nfrwAward from "@/assets/worwf/about/nfrw-award.jpg";
-import carenBell from "@/assets/worwf/about/caren-bell.jpg";
-import theresaMillay from "@/assets/worwf/about/theresa-millay.jpg";
-import christineHayden from "@/assets/worwf/about/christine-hayden.jpg";
-import nancyBorkes from "@/assets/worwf/about/nancy-borkes.jpg";
 // Coming-soon placeholder for unfilled portraits
-import brendaKnowles from "@/assets/worwf/about/brenda-knowles.jpg";
-import teresaSnipes from "@/assets/worwf/about/teresa-snipes.jpg";
 
 export const Route = createFileRoute("/about-us")({
   component: AboutUs,
   head: () => ({
     meta: [
-      { title: "About WORWF — West Orange Republican Women Federated" },
+      { title: "About WORWF | West Orange Republican Women Federated" },
       {
         name: "description",
         content:
-          "Learn about WORWF's mission, history, co-founders, leadership, and the executive committee guiding our grassroots Republican women's organization.",
+          "Discover WORWF's mission, history, community service, and award-winning club achievements in West Orange County.",
       },
       { property: "og:title", content: "About WORWF | West Orange Republican Women Federated" },
-      { property: "og:description", content: "Learn about WORWF's mission, history, co-founders, leadership, and the executive committee guiding our grassroots Republican women's organization." },
+      { property: "og:description", content: "Discover WORWF's mission, history, community service, and award-winning club achievements in West Orange County." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
-      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
     ],
   }),
 });
-
-const navLinks: { label: string; to: "/about-us" | "/membership" | "/voter-resources" | "/gallery" | "/contact-us"; active?: boolean; caret?: boolean }[] = [
-  { label: "About Us", to: "/about-us" as const, active: true },
-  { label: "Membership", to: "/membership" as const },
-  { label: "Voter Resources", to: "/voter-resources" as const },
-  { label: "Gallery", to: "/gallery" as const },
-  { label: "Contact Us", to: "/contact-us" as const },
-];
 
 const whoWeAreCards = [
   {
@@ -73,72 +55,6 @@ const whoWeAreCards = [
     text: "We are an organization of passionate women who work together to advance the cause of good government in our community, state, and nation.",
     bg: who3,
   },
-];
-
-const legacyLeaders = [
-  { name: "Wendy West", term: "2008 to 2012" },
-  { name: "Carolyn Sparks", term: "2013 to 2016" },
-  { name: "Rebecca Mellen", term: "2017 to 2020", note: "Led the move to Bay Hill" },
-  { name: "Teresa Snipes", term: "2021 to 2024", note: "Guided the club through President Trump's re-election" },
-  { name: "Caren Bell", term: "Elected 2024", note: "Continues to lead with vision and energy" },
-];
-
-const presidents = [
-  {
-    name: "Caren Bell",
-    img: carenBell,
-    title: "PRESIDENT 2025-2026",
-    bio: "Caren Bell, our current President, was elected at the end of 2024 and has been a member of WORWF for over 8 years.",
-    bio2:
-      "Caren looks forward to helping WORWF continue to grow and impact our West Orange community. Join us as we turn Orange County RED!",
-    email: "President@WORWF.org",
-  },
-  {
-    name: "Teresa Snipes",
-    img: teresaSnipes,
-    title: "PAST PRESIDENT 2021-2024",
-    bio: "Teresa Snipes guided the club through President Trump's re-election and continues to serve as a respected voice within WORWF.",
-    bio2:
-      "Her steady leadership and dedication helped WORWF flourish at Arnold Palmer's Bay Hill Club and Lodge.",
-    email: "info@WORWF.org",
-  },
-];
-
-const executive = [
-  { name: "Caren Bell", role: "President", img: carenBell },
-  { name: "Theresa Millay", role: "1st Vice President", img: theresaMillay },
-  { name: "Christine Hayden", role: "2nd Vice President", img: christineHayden },
-  { name: "Nancy Borkes", role: "Corresponding Secretary", img: nancyBorkes },
-  { name: "Susan Roderick", role: "Recording Secretary", img: worwfLogo },
-  { name: "Brenda Knowles", role: "Treasurer", img: brendaKnowles },
-  { name: "Coming Soon", role: "Assistant Treasurer", img: worwfLogo },
-  { name: "Teresa Snipes", role: "Immed. Past President", img: teresaSnipes },
-];
-
-const standing = [
-  { name: "Christine Hayden", role: "Membership" },
-  { name: "Nancy Borkes", role: "Public Relations" },
-  { name: "Teresa Snipes", role: "Legislative" },
-  { name: "Carol MacKeen", role: "Fundraising" },
-  { name: "JuDian Guimbellot", role: "Campaign" },
-  { name: "Theresa Millay", role: "Programs" },
-];
-
-const special = [
-  { name: "Carolyn McAfee", role: "Americanism" },
-  { name: "Erika Benkovich", role: "Armed Services" },
-  { name: "Teresa Snipes", role: "Awards" },
-  { name: "Nancy Borkes & Theresa Millay", role: "Bylaws Co-Chairs" },
-  { name: "Rhonda Fontenault", role: "Caring for America" },
-  { name: "Rebecca Mellen", role: "Club Chaplain" },
-  { name: "Doris Sheppard", role: "Education" },
-  { name: "Nancy Borkes", role: "Historian" },
-  { name: "Emmie Rein", role: "Hospitality" },
-  { name: "OPEN", role: "Leadership" },
-  { name: "Rebecca Mellen", role: "Letter Writing" },
-  { name: "Erika Benkovich", role: "Literacy" },
-  { name: "Jennifer Hubbell", role: "Photographer" },
-  { name: "Donna Brown", role: "Sunshine" },
 ];
 
 const historyBlocks = [
@@ -189,8 +105,6 @@ function Marquee() {
 }
 
 function AboutUs() {
-  const [presidentIdx, setPresidentIdx] = useState(0);
-  const president = presidents[presidentIdx];
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -347,182 +261,6 @@ function AboutUs() {
         </div>
       </section>
 
-      {/* Co-Founders */}
-      <section className="relative overflow-hidden bg-background py-20">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
-          <div>
-            <span className="text-sm font-semibold tracking-wide text-secondary">
-              CO-FOUNDERS
-            </span>
-            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
-              Wendy West &amp; Linda O'Keefe
-            </h2>
-            <p className="mt-6 text-muted-foreground">
-              <strong>Wendy West</strong> and <strong>Linda O'Keefe</strong> are the visionary women
-              behind the founding of the West Orange Republican Women, Federated. In 2008, they
-              recognized the need for a local network of strong, like-minded Republican women in
-              Southwest Orange County — and took action.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              Their leadership, courage, and commitment to conservative values laid the foundation
-              for what WORWF has become today: a growing, dynamic, and influential club dedicated
-              to civic engagement, community service, and Republican principles.
-            </p>
-          </div>
-
-          <figure className="overflow-hidden rounded-xl shadow-[var(--shadow-elegant)]">
-            <img
-              src={founders}
-              alt="Co-Founders Linda O'Keefe and Wendy West"
-              className="h-auto w-full object-contain"
-              loading="lazy"
-            />
-            <figcaption className="bg-card px-4 py-3 text-center text-sm italic text-muted-foreground">
-              Co-Founders Linda O'Keefe (left) and Wendy West (right)
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* Legacy Leadership */}
-      <section className="bg-muted py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <span className="text-sm font-semibold tracking-wide text-accent">OUR PRESIDENTS</span>
-          <h2 className="mt-3 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">Legacy Leadership</h2>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {legacyLeaders.map((l) => (
-              <li key={l.name} className="border-l-4 border-accent pl-4">
-                <p className="text-xl font-bold text-foreground">{l.name}</p>
-                <p className="text-sm font-semibold text-accent">{l.term}</p>
-                {l.note && <p className="mt-1 text-sm text-muted-foreground">{l.note}</p>}
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* President carousel */}
-      <section className="relative bg-primary py-20 text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <h2 className="text-4xl font-extrabold md:text-5xl">{president.title}</h2>
-          </div>
-
-          {(() => {
-            return (
-              <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
-
-                <div className="relative mx-auto w-full max-w-md">
-                  <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-elegant)]">
-                    <img
-                      src={president.img}
-                      alt={president.name}
-                      className="h-auto w-full object-contain"
-                    />
-                  </div>
-                  <div
-                    aria-hidden
-                    className="absolute -bottom-4 -right-4 -z-10 size-full rounded-2xl border-2 border-secondary"
-                  />
-                </div>
-
-                <div>
-                  <p>{president.bio}</p>
-                  <p className="mt-4 opacity-90">{president.bio2}</p>
-                  <h3 className="mt-8 text-2xl font-bold">{president.name}</h3>
-                  <p className="mt-1 text-sm">
-                    Email:{" "}
-                    <a href={`mailto:${president.email}`} className="font-semibold text-primary-foreground/90 hover:text-primary-foreground">
-                      {president.email}
-                    </a>
-                  </p>
-
-                </div>
-              </div>
-            );
-          })()}
-        </div>
-      </section>
-
-      {/* Executive Committee */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <img src={worwfLogo} alt="" className="size-6 object-contain" />
-              Leadership
-            </span>
-            <h2 className="mt-4 text-4xl font-extrabold text-secondary md:text-5xl">
-              Executive Committee 2025-2026
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {executive.map((m) => (
-              <article key={m.name} className="group text-center">
-                <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-lg bg-muted shadow-[var(--shadow-elegant)]">
-                  <img
-                    src={m.img}
-                    alt={m.name}
-                    className="h-full w-full object-contain pb-2"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-2 bg-accent" />
-                </div>
-                <h3 className="mt-5 text-lg font-bold text-foreground">{m.name}</h3>
-                <p className="text-sm font-medium text-accent">{m.role}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Standing Committees */}
-      <section className="bg-muted py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">
-              Standing Committees 2025-2026
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-            {standing.map((m) => (
-              <article
-                key={m.name + m.role}
-                className="rounded-lg border-l-4 border-accent bg-card p-6 shadow-sm transition-shadow hover:shadow-[var(--shadow-elegant)]"
-              >
-                <h3 className="text-lg font-bold text-foreground">{m.name}</h3>
-                <p className="mt-1 text-sm font-medium text-accent">{m.role}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Special Committees */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">
-              Special Committees 2025-2026
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {special.map((m, i) => (
-              <article
-                key={i}
-                className="rounded-lg border border-border bg-card p-5 text-center shadow-sm transition-shadow hover:shadow-[var(--shadow-elegant)]"
-              >
-                <h3 className="text-base font-bold text-foreground">{m.name}</h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-accent">
-                  {m.role}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* NFRW Diamond Achievement Award */}
       <section className="relative overflow-hidden bg-muted py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
@@ -553,7 +291,11 @@ function AboutUs() {
 
       <Marquee />
 
-      {/* Footer (matches home) */}
+      <section className="bg-background px-6 py-16 text-center">
+        <Button asChild variant="cta" className="gap-2">
+          <Link to="/leadership">View Leadership <ArrowRight className="size-4" /></Link>
+        </Button>
+      </section>
     </>
   );
 }

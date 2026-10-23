@@ -7,9 +7,10 @@ import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
 const primaryLinks: {
   label: string;
-  to: "/about-us" | "/membership" | "/events" | "/voter-resources" | "/gallery";
+  to: "/about-us" | "/leadership" | "/membership" | "/events" | "/voter-resources" | "/gallery";
 }[] = [
   { label: "About Us", to: "/about-us" },
+  { label: "Leadership", to: "/leadership" },
   { label: "Events", to: "/events" },
   { label: "Voter Resources", to: "/voter-resources" },
   { label: "Gallery", to: "/gallery" },
@@ -83,7 +84,7 @@ export function SiteHeader() {
             <img src={worwfLogo} alt="WORWF" className="size-14 object-contain md:size-16" />
           </Link>
 
-          <nav className="hidden min-w-0 items-center gap-3 lg:flex xl:gap-5">
+          <nav className="hidden min-w-0 items-center gap-2 lg:flex xl:gap-4">
             {primaryLinks.map((l) => {
               const active = pathname === l.to;
               return (
