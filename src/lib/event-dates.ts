@@ -29,7 +29,6 @@ export function visibleEvents<T extends { date?: string }>(events: readonly T[],
   });
 }
 
-export function formatEventDate(date: string): string {
 export function nextUpcomingEvent<T extends { date?: string }>(events: readonly T[], today: string | null): T | undefined {
   return visibleEvents(events, today)
     .filter((event) => validDate(event.date))

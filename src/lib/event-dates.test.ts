@@ -1,7 +1,22 @@
 import { describe, expect, it } from "vitest";
-import { eventStatus, floridaDate, formatEventDay, formatEventWeekday, visibleEvents } from "./event-dates";
+import { eventStatus, floridaDate, formatEventDay, formatEventWeekday, nextUpcomingEvent, visibleEvents } from "./event-dates";
 
 describe("Florida event-day rules", () => {
+  const luncheons = [{ date: "2026-12-10" }, { date: "2026-11-12" }];
+  it("selects only the closest confirmed luncheon even when records are out of order", () => {
+    expect(nextUpcomingEvent(luncheons, "2026-10-23")).toEqual({ date: "2026-11-12" });
+  });
+  it("keeps November 12 highlighted on its event day", () => {
+    expect(nextUpcomingEvent(luncheons, "2026-11-12")).toEqual({ date: "2026-11-12" });
+  });
+  it("advances the homepage to December 10 after November 12", () => {
+    expect(nextUpcomingEvent(luncheons, "2026-11-13")).toEqual({ date: "2026-12-10" });
+  });
+  it("shows no highlight without a confirmed future date or live Florida day", () => {
+    expect(nextUpcomingEvent(luncheons, "2026-12-11")).toBeUndefined();
+    expect(nextUpcomingEvent(luncheons, null)).toBeUndefined();
+    expect(nextUpcomingEvent([{ date: "" }], "2026-10-23")).toBeUndefined();
+  });
   it("keeps a May 14 event visible through the full May 14 day", () => {
     const today = floridaDate(new Date("2026-05-15T03:59:59.999Z"));
     expect(today).toBe("2026-05-14");

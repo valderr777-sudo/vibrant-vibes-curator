@@ -1,5 +1,9 @@
 # WORWF Master Prompt revision
 
+## Homepage luncheon highlight
+- [ ] Reuse the Events luncheon layout for the nearest confirmed date only, with View all beneath
+- [ ] Verify automatic date rollover, homepage navigation, and phone layout
+
 ## Leadership page separation
 - [x] Move co-founders through special committees to Leadership, keeping Club Achievements on About Us
 - [x] Add Leadership after About Us in the menu and an About Us closing button
