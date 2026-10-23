@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Facebook, Mail, Menu, Star, X } from "lucide-react";
+import { ChevronDown, Facebook, Mail, Menu, X } from "lucide-react";
+import tangerineIcon from "@/assets/tangerine-icon.png";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
@@ -92,9 +93,11 @@ export function SiteHeader() {
                 >
                   {l.label}
                   {active && (
-                    <Star
-                      className="absolute -bottom-2 left-1/2 size-3 -translate-x-1/2 fill-accent text-accent"
+                    <img
+                      src={tangerineIcon}
+                      alt=""
                       aria-hidden="true"
+                      className="pointer-events-none absolute -top-5 left-1/2 size-4 -translate-x-1/2 object-contain"
                     />
                   )}
                 </Link>

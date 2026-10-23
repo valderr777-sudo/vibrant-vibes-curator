@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Engaging conservative women in West Orange County, Florida through advocacy, education, and community action." },
     ],
     links: [
-      { rel: "icon", type: "image/png", href: "/worwf-logo.png" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/worwf-logo.png" },
       {
         rel: "stylesheet",
