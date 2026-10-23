@@ -94,6 +94,13 @@ function Membership() {
     phone: "",
     accepted: false,
   });
+  const [mode, setMode] = useState<ApplyMode>("new");
+
+  const signUp = (tier: string) => {
+    setMode("new");
+    setForm((prev) => ({ ...prev, newMember: tier }));
+    document.getElementById("form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -268,7 +275,7 @@ function Membership() {
       </section>
 
       {/* Membership Form */}
-      <MembershipForm form={form} setForm={setForm} />
+      <MembershipForm form={form} setForm={setForm} mode={mode} setMode={setMode} />
 
 
       {/* Two CTA banners */}
@@ -382,11 +389,14 @@ type ApplyMode = "new" | "renew";
 function MembershipForm({
   form,
   setForm,
+  mode,
+  setMode,
 }: {
   form: FormState;
   setForm: React.Dispatch<React.SetStateAction<FormState>>;
+  mode: ApplyMode;
+  setMode: React.Dispatch<React.SetStateAction<ApplyMode>>;
 }) {
-  const [mode, setMode] = useState<ApplyMode>("new");
   const [step, setStep] = useState(0);
   const [showPwd, setShowPwd] = useState(false);
   const [showConfirmPwd, setShowConfirmPwd] = useState(false);
