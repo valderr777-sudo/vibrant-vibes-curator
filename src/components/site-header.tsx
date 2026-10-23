@@ -171,7 +171,7 @@ export function SiteHeader() {
               </button>
             </div>
             <nav className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center gap-1 px-6 py-6 text-center">
-              {navLinks.map((l) => {
+              {primaryLinks.map((l) => {
                 const active = pathname === l.to;
                 return (
                   <Link
@@ -191,18 +191,20 @@ export function SiteHeader() {
                 onClick={() => setSponsorsOpen((v) => !v)}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-md px-3 py-3 text-xl font-medium text-foreground hover:bg-muted"
               >
-                Sponsors
+                More
                 <ChevronDown className={`size-5 transition-transform ${sponsorsOpen ? "rotate-180" : ""}`} />
               </button>
               <div className={`grid w-full transition-all duration-300 ${sponsorsOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
-                  {sponsorLinks.map((s) => (
+                  {moreLinks.map((m) => (
                     <Link
-                      key={s.to}
-                      to={s.to}
-                      className="block rounded-md px-3 py-2 text-base font-normal text-muted-foreground hover:text-secondary"
+                      key={m.to}
+                      to={m.to}
+                      className={`block rounded-md px-3 py-2 text-base font-normal ${
+                        pathname === m.to ? "text-secondary" : "text-muted-foreground hover:text-secondary"
+                      }`}
                     >
-                      {s.label}
+                      {m.label}
                     </Link>
                   ))}
                 </div>
