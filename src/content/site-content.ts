@@ -19,17 +19,29 @@ export const archivedEvents = [
 // NEXT LUNCHEON: fill these fields only after confirmation, then add speakers below.
 // An empty date hides the featured meeting. reservationHref may be a verified mailto or https URL.
 export const featuredMeeting = {
-  date: "2026-11-12", title: "General Luncheon Meeting", topic: "", rsvpDeadline: "", reservationHref: "",
-  img: voteImg, speaker: "Guest speaker and topic to be announced",
+  date: "2026-11-12",
+  title: "General Luncheon Meeting",
+  topic: "",
+  rsvpDeadline: "",
+  reservationHref: "",
+  img: voteImg,
+  speaker: "Guest speaker and topic to be announced",
 };
-type UpcomingEvent = { date: string; time: string; title: string; img: string; speaker: string; description: string; ticketsHref?: string };
+type UpcomingEvent = {
+  date: string;
+  time: string;
+  title: string;
+  img: string;
+  speaker: string;
+  description: string;
+  ticketsHref?: string;
+};
 export const upcomingEvents: UpcomingEvent[] = [];
 export const homePromotedEvents = [
-  ...(featuredMeeting.date ? [featuredMeeting] : []), ...upcomingEvents,
+  ...(featuredMeeting.date ? [featuredMeeting] : []),
+  ...upcomingEvents,
 ];
-export const futureMeetingDates = [
-  { date: "2026-11-12" }, { date: "2026-12-10" },
-];
+export const futureMeetingDates = [{ date: "2026-11-12" }, { date: "2026-12-10" }];
 
 export const RSVP_EMAIL = "Reservations@WORWF.org";
 
@@ -51,11 +63,18 @@ export type Announcement = {
 // Shown in order; only the first is displayed. Empty list hides the banner.
 // The next luncheon banner automatically uses the confirmed featured meeting above.
 // Add other confirmed announcements here; do not reuse past luncheon copy.
-export const announcements: Announcement[] = featuredMeeting.date ? [{
-  id: `luncheon-${featuredMeeting.date}`, date: featuredMeeting.date, label: "Next Luncheon",
-  message: `${featuredMeeting.title} at West Orange Country Club.`,
-  linkText: "Event details", to: "/events",
-}] : [];
+export const announcements: Announcement[] = featuredMeeting.date
+  ? [
+      {
+        id: `luncheon-${featuredMeeting.date}`,
+        date: featuredMeeting.date,
+        label: "Next Luncheon",
+        message: `${featuredMeeting.title} at West Orange Country Club.`,
+        linkText: "Event details",
+        to: "/events",
+      },
+    ]
+  : [];
 
 /* ---------- Featured meeting speakers (one or many) ---------- */
 export type Speaker = {
@@ -68,7 +87,13 @@ export type Speaker = {
 
 export const archivedSpeakers: Speaker[] = [
   { name: "Chris Messina", title: "Candidate for Orange County Mayor", img: messinaImg },
-  { name: "Bonnie Jackson", title: "State Committeewoman • Candidate for FL House District 42", img: jacksonImg, linkText: "District 42 Campaign Plan", href: "https://jacksonforflorida.com/" },
+  {
+    name: "Bonnie Jackson",
+    title: "State Committeewoman • Candidate for FL House District 42",
+    img: jacksonImg,
+    linkText: "District 42 Campaign Plan",
+    href: "https://jacksonforflorida.com/",
+  },
 ];
 export const featuredSpeakers: Speaker[] = [];
 
@@ -144,4 +169,5 @@ export const luncheonInformation = {
 };
 
 // Actual existing 2026 PDF, verified publicly accessible, includes monthly donation items.
-export const monthlyDonationListPdf = "https://worwf.org/wp-content/uploads/2026/02/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf";
+export const monthlyDonationListPdf =
+  "https://worwf.org/wp-content/uploads/2026/02/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf";
