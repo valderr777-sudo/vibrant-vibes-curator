@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Facebook, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import sponsorStars from "@/assets/worwf/sponsors/stars-and-stripes.png";
+import ssmsLogo from "@/assets/ssms-white-logo.png.asset.json";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/"; external?: string }[] = [
   { label: "Upcoming Events", to: "/events" },
@@ -84,15 +84,25 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/20 pt-8 lg:flex-row lg:items-center">
-          <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
-            <span className="text-sm">Sponsors</span>
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="https://www.starsandstripesmarketing.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center rounded-md px-4 py-3">
-                <img src={sponsorStars} alt="Stars and Stripes Marketing Studios" className="h-20 w-auto object-contain" />
-              </a>
-            </div>
-          </div>
+        <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-primary-foreground/20 pt-8 lg:flex-row lg:items-center">
+          <a
+            href="https://www.starsandstripesmarketing.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center lg:justify-start"
+          >
+            <img
+              src={ssmsLogo.url}
+              alt="Stars and Stripes Marketing Services"
+              className="h-5 w-auto object-contain"
+            />
+            <span className="text-sm text-balance text-secondary-foreground/75 transition-colors group-hover:text-secondary-foreground">
+              Created and powered by{" "}
+              <span className="font-semibold underline decoration-dotted underline-offset-4 group-hover:text-accent">
+                Stars and Stripes Marketing
+              </span>
+            </span>
+          </a>
           <Link to="/contact-us" className="hidden lg:inline-block">
             <Button variant="cta" className="rounded-md px-6 font-semibold">
               Contact Us
