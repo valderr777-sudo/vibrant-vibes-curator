@@ -35,3 +35,17 @@ export function formatEventDate(date: string): string {
     timeZone: "UTC", weekday: "long", month: "long", day: "numeric", year: "numeric",
   }).format(new Date(`${date}T12:00:00Z`));
 }
+
+export function formatEventWeekday(date: string): string {
+  if (!validDate(date)) return "";
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "UTC", weekday: "long",
+  }).format(new Date(`${date}T12:00:00Z`));
+}
+
+export function formatEventDay(date: string): string {
+  if (!validDate(date)) return "Dates to be announced";
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "UTC", month: "long", day: "numeric", year: "numeric",
+  }).format(new Date(`${date}T12:00:00Z`));
+}

@@ -1,6 +1,5 @@
 import groveHero from "@/assets/orange-grove-hero.jpg.asset.json";
 import grovePath from "@/assets/groves/grove-path.jpg.asset.json";
-import { AnnouncementBanner } from "@/components/announcement-banner";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
@@ -16,9 +15,9 @@ import sliderExec from "@/assets/worwf/slider/exec.jpg";
 import sliderBarbara from "@/assets/worwf/slider/barbara.jpg";
 import sliderAwards from "@/assets/worwf/slider/awards.jpg";
 import sliderConvention from "@/assets/worwf/slider/convention.jpg";
-import { homePromotedEvents } from "@/content/site-content";
+import { announcements, homePromotedEvents } from "@/content/site-content";
 import { useEventDay } from "@/hooks/use-event-day";
-import { visibleEvents, formatEventDate } from "@/lib/event-dates";
+import { visibleEvents, formatEventDate, formatEventDay, formatEventWeekday } from "@/lib/event-dates";
 import { EventTodayTag } from "@/components/event-today-tag";
 import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
@@ -32,7 +31,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp, Heart, Star, Users } from "lucide-react";
+import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp, Heart, Star, Users, Megaphone } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -165,7 +164,12 @@ function CheckBadge() {
 
 function Index() {
   const today = useEventDay();
-  const activeEvents = visibleEvents(homePromotedEvents, today);
+  // The featured luncheon is promoted once, as the teaser in the red section;
+  // the list below shows the remaining confirmed dates only.
+  const nextLuncheon = visibleEvents(announcements, today)[0];
+  const activeEvents = visibleEvents(homePromotedEvents, today).filter(
+    (e) => e.date !== nextLuncheon?.date,
+  );
   const [form, setForm] = useState({ first: "", last: "", phone: "", email: "", message: "" });
 
   return (
@@ -176,7 +180,6 @@ function Index() {
 
 
 
-      <AnnouncementBanner />
 
       {/* Hero */}
       <section className="relative isolate flex min-h-[calc(100vh-120px)] overflow-hidden bg-secondary">
@@ -284,11 +287,40 @@ function Index() {
             </div>
             <div className="text-sm">
               <p>WORWF meets monthly at West Orange Country Club</p>
-              <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-secondary">
+              <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-accent-light">
                 View All Events <ArrowRight className="size-4" />
               </Link>
             </div>
           </div>
+
+          {nextLuncheon?.date && nextLuncheon.to && (
+            <div className="relative mt-10 overflow-hidden rounded-xl border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-sm">
+              <div aria-hidden className="absolute inset-y-0 left-0 w-1.5 bg-accent" />
+              <div className="flex flex-col gap-6 py-7 pl-8 pr-7 sm:flex-row sm:items-center sm:justify-between md:py-8 md:pl-10 md:pr-9">
+                <div className="min-w-0">
+                  <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                    <Megaphone className="size-3.5" />
+                    {nextLuncheon.label}
+                    <span className="font-semibold normal-case tracking-normal text-primary-foreground/70">
+                      · {formatEventWeekday(nextLuncheon.date)}
+                    </span>
+                  </p>
+                  <p className="mt-3 text-2xl font-extrabold leading-tight md:text-3xl">
+                    {formatEventDay(nextLuncheon.date)}
+                  </p>
+                  <p className="mt-2 text-sm text-primary-foreground/80">{nextLuncheon.message}</p>
+                  <EventTodayTag date={nextLuncheon.date} today={today} />
+                </div>
+                <Link
+                  to={nextLuncheon.to}
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border-2 border-transparent bg-primary-foreground px-6 py-3 font-semibold text-primary transition-all hover:border-accent hover:bg-transparent hover:text-primary-foreground"
+                >
+                  {nextLuncheon.linkText ?? "Event details"} <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </div>
+          )}
+
           {activeEvents.length > 0 && <div className="mt-10 h-px bg-primary-foreground/20" />}
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">

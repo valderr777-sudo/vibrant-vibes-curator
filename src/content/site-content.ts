@@ -17,7 +17,7 @@ export const archivedEvents = [
   { date: "2026-10-08", title: "Monthly Meeting" },
 ];
 // UPCOMING LUNCHEONS: confirmed monthly meetings in date order (YYYY-MM-DD).
-// The first record powers the homepage announcement banner and the speaker display.
+// The first record powers the homepage next-luncheon teaser and the speaker display.
 // Move past records to archivedEvents; never list a date before it is confirmed.
 // reservationHref may be a verified mailto or https URL; leave empty until verified.
 export type LuncheonMeeting = {
@@ -80,7 +80,7 @@ export function rsvpMailto(eventTitle: string) {
   return `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent(`RSVP: ${eventTitle}`)}`;
 }
 
-/* ---------- Homepage announcement banner ---------- */
+/* ---------- Homepage next-luncheon teaser (red Event & Luncheon Reservations section) ---------- */
 export type Announcement = {
   id: string; // change the id to show a dismissed banner again
   label: string; // short tag, e.g. "Next Luncheon", "Voting Reminder"
@@ -91,8 +91,8 @@ export type Announcement = {
   href?: string; // external link
 };
 
-// Shown in order; only the first is displayed. Empty list hides the banner.
-// The next luncheon banner automatically uses the confirmed featured meeting above.
+// Only the first record is shown, as the teaser inside the red reservations section.
+// It follows the confirmed featured meeting above; an empty date hides the teaser.
 // Add other confirmed announcements here; do not reuse past luncheon copy.
 export const announcements: Announcement[] = featuredMeeting.date
   ? [
