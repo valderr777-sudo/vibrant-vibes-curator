@@ -17,7 +17,7 @@ import sliderAwards from "@/assets/worwf/slider/awards.jpg";
 import sliderConvention from "@/assets/worwf/slider/convention.jpg";
 import { announcements, homePromotedEvents } from "@/content/site-content";
 import { useEventDay } from "@/hooks/use-event-day";
-import { visibleEvents, formatEventDate } from "@/lib/event-dates";
+import { visibleEvents, formatEventDate, formatEventDay, formatEventWeekday } from "@/lib/event-dates";
 import { EventTodayTag } from "@/components/event-today-tag";
 import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
