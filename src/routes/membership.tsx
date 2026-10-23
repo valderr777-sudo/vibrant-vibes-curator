@@ -157,7 +157,7 @@ function Membership() {
               aria-hidden
               className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-primary via-accent to-primary"
             />
-            <div className="grid gap-10 p-8 sm:p-12 md:p-14 lg:grid-cols-[220px_1fr] lg:gap-14">
+            <div className="grid gap-12 p-8 sm:p-12 md:p-14 lg:grid-cols-[220px_1fr] lg:gap-14">
               {/* Portrait & signature */}
               <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
                 <div className="relative">
@@ -190,7 +190,7 @@ function Membership() {
               <div className="relative">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -top-4 right-0 select-none font-display text-[110px] leading-[0.7] text-accent/15"
+                  className="pointer-events-none absolute -top-4 right-0 hidden select-none font-display text-[110px] leading-[0.7] text-accent/15 md:block"
                 >
                   “
                 </span>
