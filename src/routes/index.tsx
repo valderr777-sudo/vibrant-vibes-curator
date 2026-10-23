@@ -292,6 +292,32 @@ function Index() {
               </Link>
             </div>
           </div>
+
+          {nextLuncheon?.date && nextLuncheon.to && (
+            <div className="relative mt-10 overflow-hidden rounded-xl border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-sm">
+              <div aria-hidden className="absolute inset-y-0 left-0 w-1.5 bg-accent" />
+              <div className="flex flex-col gap-6 py-7 pl-8 pr-7 sm:flex-row sm:items-center sm:justify-between md:py-8 md:pl-10 md:pr-9">
+                <div className="min-w-0">
+                  <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                    <Megaphone className="size-3.5" />
+                    {nextLuncheon.label}
+                  </p>
+                  <p className="mt-3 text-2xl font-extrabold leading-tight md:text-3xl">
+                    {formatEventDate(nextLuncheon.date)}
+                  </p>
+                  <p className="mt-2 text-sm text-primary-foreground/80">{nextLuncheon.message}</p>
+                  <EventTodayTag date={nextLuncheon.date} today={today} />
+                </div>
+                <Link
+                  to={nextLuncheon.to}
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border-2 border-transparent bg-primary-foreground px-6 py-3 font-semibold text-primary transition-all hover:border-accent hover:bg-transparent hover:text-primary-foreground"
+                >
+                  {nextLuncheon.linkText ?? "Event details"} <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </div>
+          )}
+
           {activeEvents.length > 0 && <div className="mt-10 h-px bg-primary-foreground/20" />}
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
