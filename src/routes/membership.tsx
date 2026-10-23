@@ -143,39 +143,84 @@ function Membership() {
       </section>
 
       {/* Note from Membership Chair */}
-      <section className="bg-muted/40 py-20">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="relative rounded-md border border-border bg-card p-8 shadow-[var(--shadow-elegant)] md:p-12">
-            <div className="absolute inset-x-0 top-0 h-1.5 rounded-t-md bg-secondary" />
-            <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
-              A Note from our Membership Chair
-            </p>
-            <div className="mt-8 flex flex-col items-center gap-8 md:flex-row md:items-start">
-              <div className="shrink-0 text-center">
-                <img
-                  src={christineHayden}
-                  alt="Christine Hayden, 2nd Vice President and Membership Chair"
-                  className="mx-auto size-36 rounded-md object-cover object-top shadow-md"
-                />
-                <p className="mt-3 text-lg font-bold italic text-foreground">Chrissy Hayden</p>
-                <p className="text-xs font-semibold uppercase tracking-wide text-secondary">
+      <section className="relative isolate overflow-hidden bg-background py-20 md:py-28">
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-cover bg-center opacity-[0.07]"
+          style={{ backgroundImage: `url(${groveSunrise.url})` }}
+        />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-border" />
+
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="relative overflow-hidden rounded-3xl bg-card shadow-[var(--shadow-elegant)]">
+            <span
+              aria-hidden
+              className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-primary via-accent to-primary"
+            />
+            <div className="grid gap-10 p-8 sm:p-12 md:p-14 lg:grid-cols-[220px_1fr] lg:gap-14">
+              {/* Portrait & signature */}
+              <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                <div className="relative">
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-3 -left-3 size-full rounded-2xl border-2 border-accent/50"
+                  />
+                  <img
+                    src={christineHayden}
+                    alt="Christine Hayden, 2nd Vice President and Membership Chair"
+                    loading="lazy"
+                    className="relative w-44 rounded-2xl object-cover object-top shadow-[var(--shadow-elegant)] lg:w-48"
+                  />
+                </div>
+                <p className="mt-8 font-display text-3xl italic leading-none text-secondary">
+                  Chrissy Hayden
+                </p>
+                <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
                   2nd VP, Membership Chair
                 </p>
+                <img
+                  src={worwfLogo}
+                  alt=""
+                  loading="lazy"
+                  className="mt-7 size-14 object-contain opacity-80"
+                />
               </div>
-              <div>
-                <h2 className="text-2xl font-bold text-foreground">Thank you for joining WORWF!</h2>
-                <p className="mt-4 leading-relaxed text-muted-foreground">
+
+              {/* The letter */}
+              <div className="relative">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -top-4 right-0 select-none font-display text-[110px] leading-[0.7] text-accent/15"
+                >
+                  “
+                </span>
+                <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary">
+                  A Note from Our Membership Chair
+                </p>
+                <h2 className="mt-3 text-3xl font-extrabold text-secondary md:text-4xl">
+                  Thank you for joining WORWF!
+                </h2>
+                <span aria-hidden className="mt-5 block h-1 w-14 bg-accent" />
+                <p className="mt-6 text-base leading-[1.85] text-muted-foreground md:text-[17px] [text-wrap:pretty]">
                   You will discover a very active and outgoing club. As a member, you will receive by
                   email: newsletter communications, club announcements, special events, and
                   participation opportunities.
                 </p>
-                <p className="mt-4 font-semibold text-secondary">We are glad you are one of us!!</p>
-                <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                  If you would like more information about Membership, please contact Chrissy at{" "}
-                  <a href="mailto:Membership@WORWF.org" className="font-semibold text-secondary underline">
-                    Membership@WORWF.org
-                  </a>
+                <p className="mt-7 border-l-2 border-accent pl-5 font-display text-2xl italic text-primary [text-wrap:balance]">
+                  We are glad you are one of us!!
                 </p>
+                <div className="mt-8 border-t border-border pt-6">
+                  <p className="text-sm leading-relaxed text-muted-foreground [text-wrap:pretty]">
+                    If you would like more information about Membership, please contact Chrissy at{" "}
+                    <a
+                      href="mailto:Membership@WORWF.org"
+                      className="inline-flex items-center gap-2 font-bold text-primary underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-secondary"
+                    >
+                      <Mail className="size-4 shrink-0" />
+                      Membership@WORWF.org
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
