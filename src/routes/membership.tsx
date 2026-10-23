@@ -17,6 +17,7 @@ import voterId from "@/assets/worwf/voter-id.jpg";
 import precinctFlag from "@/assets/worwf/precinct-flag.jpg";
 import elephantImg from "@/assets/worwf/elephant.jpg";
 import christineHayden from "@/assets/worwf/about/christine-hayden.jpg";
+import groveSunrise from "@/assets/groves/grove-sunrise.jpg.asset.json";
 
 export const Route = createFileRoute("/membership")({
   component: Membership,
