@@ -5,20 +5,23 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
-const navLinks: {
+const primaryLinks: {
   label: string;
-  to: "/about-us" | "/membership" | "/events" | "/voter-resources" | "/gallery" | "/contact-us" | "/members";
+  to: "/about-us" | "/membership" | "/events" | "/voter-resources" | "/gallery";
 }[] = [
   { label: "About Us", to: "/about-us" },
-  { label: "Membership", to: "/membership" },
   { label: "Events", to: "/events" },
   { label: "Voter Resources", to: "/voter-resources" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Contact Us", to: "/contact-us" },
-  { label: "Members Only", to: "/members" },
+  { label: "Membership", to: "/membership" },
 ];
 
-const sponsorLinks: { label: string; to: "/sponsors/business" | "/sponsors/member-businesses" }[] = [
+const moreLinks: {
+  label: string;
+  to: "/contact-us" | "/members" | "/sponsors/business" | "/sponsors/member-businesses";
+}[] = [
+  { label: "Contact Us", to: "/contact-us" },
+  { label: "Members Only", to: "/members" },
   { label: "Business Sponsors", to: "/sponsors/business" },
   { label: "Member Businesses", to: "/sponsors/member-businesses" },
 ];
