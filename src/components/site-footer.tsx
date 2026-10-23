@@ -109,7 +109,7 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {getInvolvedLinks.map((l) => (
                 <li key={l.label}>
-                  <FooterLink to={l.to} href={"href" in l ? l.href : undefined}>
+                  <FooterLink to={l.to} href={l.href}>
                     {l.label}
                   </FooterLink>
                 </li>
