@@ -5,20 +5,23 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
 
-const navLinks: {
+const primaryLinks: {
   label: string;
-  to: "/about-us" | "/membership" | "/events" | "/voter-resources" | "/gallery" | "/contact-us" | "/members";
+  to: "/about-us" | "/membership" | "/events" | "/voter-resources" | "/gallery";
 }[] = [
   { label: "About Us", to: "/about-us" },
-  { label: "Membership", to: "/membership" },
   { label: "Events", to: "/events" },
   { label: "Voter Resources", to: "/voter-resources" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Contact Us", to: "/contact-us" },
-  { label: "Members Only", to: "/members" },
+  { label: "Membership", to: "/membership" },
 ];
 
-const sponsorLinks: { label: string; to: "/sponsors/business" | "/sponsors/member-businesses" }[] = [
+const moreLinks: {
+  label: string;
+  to: "/contact-us" | "/members" | "/sponsors/business" | "/sponsors/member-businesses";
+}[] = [
+  { label: "Contact Us", to: "/contact-us" },
+  { label: "Members Only", to: "/members" },
   { label: "Business Sponsors", to: "/sponsors/business" },
   { label: "Member Businesses", to: "/sponsors/member-businesses" },
 ];
@@ -81,7 +84,7 @@ export function SiteHeader() {
           </Link>
 
           <nav className="hidden min-w-0 items-center gap-3 lg:flex xl:gap-5">
-            {navLinks.map((l) => {
+            {primaryLinks.map((l) => {
               const active = pathname === l.to;
               return (
                 <Link
@@ -104,14 +107,27 @@ export function SiteHeader() {
               );
             })}
             <div className="group relative">
-              <button type="button" className="relative inline-flex items-center whitespace-nowrap text-sm xl:text-[15px] font-medium text-foreground transition-colors hover:text-secondary">
-                Sponsors<span className="ml-1">▾</span>
+              <button
+                type="button"
+                className={`relative inline-flex items-center whitespace-nowrap text-sm xl:text-[15px] font-medium transition-colors hover:text-secondary ${
+                  moreLinks.some((m) => m.to === pathname) ? "text-secondary" : "text-foreground"
+                }`}
+              >
+                More<span className="ml-1">▾</span>
+                {moreLinks.some((m) => m.to === pathname) && (
+                  <img
+                    src={tangerineIcon}
+                    alt=""
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-5 left-1/2 size-4 -translate-x-1/2 object-contain"
+                  />
+                )}
               </button>
               <div className="absolute left-0 top-full z-50 hidden pt-3 group-hover:block">
                 <div className="min-w-[210px] rounded-md border border-border bg-background py-2 shadow-lg">
-                  {sponsorLinks.map((s) => (
-                    <Link key={s.to} to={s.to} className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">
-                      {s.label}
+                  {moreLinks.map((m) => (
+                    <Link key={m.to} to={m.to} className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">
+                      {m.label}
                     </Link>
                   ))}
                 </div>
@@ -155,7 +171,7 @@ export function SiteHeader() {
               </button>
             </div>
             <nav className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center gap-1 px-6 py-6 text-center">
-              {navLinks.map((l) => {
+              {primaryLinks.map((l) => {
                 const active = pathname === l.to;
                 return (
                   <Link
@@ -175,18 +191,20 @@ export function SiteHeader() {
                 onClick={() => setSponsorsOpen((v) => !v)}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-md px-3 py-3 text-xl font-medium text-foreground hover:bg-muted"
               >
-                Sponsors
+                More
                 <ChevronDown className={`size-5 transition-transform ${sponsorsOpen ? "rotate-180" : ""}`} />
               </button>
               <div className={`grid w-full transition-all duration-300 ${sponsorsOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
-                  {sponsorLinks.map((s) => (
+                  {moreLinks.map((m) => (
                     <Link
-                      key={s.to}
-                      to={s.to}
-                      className="block rounded-md px-3 py-2 text-base font-normal text-muted-foreground hover:text-secondary"
+                      key={m.to}
+                      to={m.to}
+                      className={`block rounded-md px-3 py-2 text-base font-normal ${
+                        pathname === m.to ? "text-secondary" : "text-muted-foreground hover:text-secondary"
+                      }`}
                     >
-                      {s.label}
+                      {m.label}
                     </Link>
                   ))}
                 </div>
