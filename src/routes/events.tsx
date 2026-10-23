@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight, MapPin, CheckCircle2 } from "lucide-react";
+import { Calendar, Clock, ArrowRight, MapPin } from "lucide-react";
 
 import { EventsCommunity } from "@/components/events-community";
 
