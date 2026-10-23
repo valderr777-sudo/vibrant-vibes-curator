@@ -891,6 +891,7 @@ function MembershipForm({
             )}
           </div>
         </form>
+        )}
       </div>
     </section>
   );
