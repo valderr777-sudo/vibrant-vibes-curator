@@ -21,10 +21,10 @@ const moreLinks: {
   label: string;
   to: "/contact-us" | "/members" | "/sponsors/business" | "/sponsors/member-businesses";
 }[] = [
-  { label: "Contact Us", to: "/contact-us" },
   { label: "Members Only", to: "/members" },
   { label: "Business Sponsors", to: "/sponsors/business" },
   { label: "Member Businesses", to: "/sponsors/member-businesses" },
+  { label: "Contact Us", to: "/contact-us" },
 ];
 
 export function SiteHeader() {
