@@ -1,11 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { eventStatus, floridaDate, visibleEvents } from "./event-dates";
+import { eventStatus, floridaDate, formatEventDay, formatEventWeekday, visibleEvents } from "./event-dates";
 
 describe("Florida event-day rules", () => {
   it("keeps a May 14 event visible through the full May 14 day", () => {
     const today = floridaDate(new Date("2026-05-15T03:59:59.999Z"));
     expect(today).toBe("2026-05-14");
     expect(visibleEvents([{ date: "2026-05-14" }], today)).toHaveLength(1);
+  });
+  it("splits a confirmed date into weekday and month-day-year for the teaser", () => {
+    expect(formatEventWeekday("2026-11-12")).toBe("Thursday");
+    expect(formatEventDay("2026-11-12")).toBe("November 12, 2026");
+    expect(formatEventDay("")).toBe("Dates to be announced");
   });
   it("removes the May 14 event at midnight on May 15 in Florida", () => {
     const today = floridaDate(new Date("2026-05-15T04:00:00Z"));
