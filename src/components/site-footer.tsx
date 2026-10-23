@@ -124,7 +124,7 @@ export function SiteFooter() {
                 <span>
                   West Orange Country Club
                   <br />
-                  12300 W Colonial Dr, Winter Garden, FL
+                  3300 West Orange Country Club Drive, Winter Garden, FL 34787
                 </span>
               </li>
               <li className="flex items-start gap-3">
