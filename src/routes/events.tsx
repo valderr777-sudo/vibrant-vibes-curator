@@ -11,9 +11,8 @@ import { eventStatus, visibleEvents, formatEventDate } from "@/lib/event-dates";
 import { EventTodayTag } from "@/components/event-today-tag";
 import {
   featuredSpeakers,
-  featuredMeeting,
+  upcomingMeetings,
   upcomingEvents,
-  futureMeetingDates,
 } from "@/content/site-content";
 
 export const Route = createFileRoute("/events")({
@@ -42,12 +41,8 @@ export const Route = createFileRoute("/events")({
 
 function EventsPage() {
   const today = useEventDay();
-  const showFeatured =
-    Boolean(featuredMeeting.date) && visibleEvents([featuredMeeting], today).length > 0;
+  const activeMeetings = visibleEvents(upcomingMeetings, today);
   const activeUpcoming = visibleEvents(upcomingEvents, today);
-  const activeDates = visibleEvents(futureMeetingDates, today).filter(
-    (meeting) => !showFeatured || meeting.date !== featuredMeeting.date,
-  );
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
