@@ -83,7 +83,6 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12" />
       </div>
 
       <div className="border-t border-primary-foreground/20">
