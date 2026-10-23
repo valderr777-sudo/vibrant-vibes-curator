@@ -1,6 +1,5 @@
 import groveHero from "@/assets/orange-grove-hero.jpg.asset.json";
 import grovePath from "@/assets/groves/grove-path.jpg.asset.json";
-import { AnnouncementBanner } from "@/components/announcement-banner";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroFlag from "@/assets/hero-flag.jpg";
@@ -16,7 +15,7 @@ import sliderExec from "@/assets/worwf/slider/exec.jpg";
 import sliderBarbara from "@/assets/worwf/slider/barbara.jpg";
 import sliderAwards from "@/assets/worwf/slider/awards.jpg";
 import sliderConvention from "@/assets/worwf/slider/convention.jpg";
-import { homePromotedEvents } from "@/content/site-content";
+import { announcements, homePromotedEvents } from "@/content/site-content";
 import { useEventDay } from "@/hooks/use-event-day";
 import { visibleEvents, formatEventDate } from "@/lib/event-dates";
 import { EventTodayTag } from "@/components/event-today-tag";
@@ -32,7 +31,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp, Heart, Star, Users } from "lucide-react";
+import { Mail, MapPin, Calendar, ArrowRight, Facebook, ChevronUp, Heart, Star, Users, Megaphone } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -165,7 +164,12 @@ function CheckBadge() {
 
 function Index() {
   const today = useEventDay();
-  const activeEvents = visibleEvents(homePromotedEvents, today);
+  // The featured luncheon is promoted once, as the teaser in the red section;
+  // the list below shows the remaining confirmed dates only.
+  const nextLuncheon = visibleEvents(announcements, today)[0];
+  const activeEvents = visibleEvents(homePromotedEvents, today).filter(
+    (e) => e.date !== nextLuncheon?.date,
+  );
   const [form, setForm] = useState({ first: "", last: "", phone: "", email: "", message: "" });
 
   return (
@@ -176,7 +180,6 @@ function Index() {
 
 
 
-      <AnnouncementBanner />
 
       {/* Hero */}
       <section className="relative isolate flex min-h-[calc(100vh-120px)] overflow-hidden bg-secondary">
@@ -284,7 +287,7 @@ function Index() {
             </div>
             <div className="text-sm">
               <p>WORWF meets monthly at West Orange Country Club</p>
-              <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-secondary">
+              <Link to="/events" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary-foreground hover:text-accent-light">
                 View All Events <ArrowRight className="size-4" />
               </Link>
             </div>
