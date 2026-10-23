@@ -16,17 +16,49 @@ export const archivedEvents = [
   { date: "2026-09-10", title: "Monthly Meeting" },
   { date: "2026-10-08", title: "Monthly Meeting" },
 ];
-// NEXT LUNCHEON: fill these fields only after confirmation, then add speakers below.
-// An empty date hides the featured meeting. reservationHref may be a verified mailto or https URL.
-export const featuredMeeting = {
-  date: "2026-11-12",
-  title: "General Luncheon Meeting",
+// UPCOMING LUNCHEONS: confirmed monthly meetings in date order (YYYY-MM-DD).
+// The first record powers the homepage announcement banner and the speaker display.
+// Move past records to archivedEvents; never list a date before it is confirmed.
+// reservationHref may be a verified mailto or https URL; leave empty until verified.
+export type LuncheonMeeting = {
+  date: string;
+  title: string;
+  topic: string;
+  rsvpDeadline: string;
+  reservationHref: string;
+  img: string;
+  speaker: string;
+};
+export const upcomingMeetings: LuncheonMeeting[] = [
+  {
+    date: "2026-11-12",
+    title: "General Luncheon Meeting",
+    topic: "",
+    rsvpDeadline: "",
+    reservationHref: "",
+    img: voteImg,
+    speaker: "Guest speaker and topic to be announced",
+  },
+  {
+    date: "2026-12-10",
+    title: "General Luncheon Meeting",
+    topic: "",
+    rsvpDeadline: "",
+    reservationHref: "",
+    img: voteImg,
+    speaker: "Guest speaker and topic to be announced",
+  },
+];
+const emptyMeeting: LuncheonMeeting = {
+  date: "",
+  title: "",
   topic: "",
   rsvpDeadline: "",
   reservationHref: "",
   img: voteImg,
-  speaker: "Guest speaker and topic to be announced",
+  speaker: "",
 };
+export const featuredMeeting = upcomingMeetings[0] ?? emptyMeeting;
 type UpcomingEvent = {
   date: string;
   time: string;
@@ -38,10 +70,9 @@ type UpcomingEvent = {
 };
 export const upcomingEvents: UpcomingEvent[] = [];
 export const homePromotedEvents = [
-  ...(featuredMeeting.date ? [featuredMeeting] : []),
+  ...upcomingMeetings.filter((meeting) => meeting.date),
   ...upcomingEvents,
 ];
-export const futureMeetingDates = [{ date: "2026-11-12" }, { date: "2026-12-10" }];
 
 export const RSVP_EMAIL = "Reservations@WORWF.org";
 

@@ -9,12 +9,7 @@ import venueImg from "@/assets/worwf/gallery/speakers/10.23-Members-with-Guest-S
 import { useEventDay } from "@/hooks/use-event-day";
 import { eventStatus, visibleEvents, formatEventDate } from "@/lib/event-dates";
 import { EventTodayTag } from "@/components/event-today-tag";
-import {
-  featuredSpeakers,
-  featuredMeeting,
-  upcomingEvents,
-  futureMeetingDates,
-} from "@/content/site-content";
+import { featuredSpeakers, upcomingMeetings, upcomingEvents } from "@/content/site-content";
 
 export const Route = createFileRoute("/events")({
   component: EventsPage,
@@ -42,12 +37,8 @@ export const Route = createFileRoute("/events")({
 
 function EventsPage() {
   const today = useEventDay();
-  const showFeatured =
-    Boolean(featuredMeeting.date) && visibleEvents([featuredMeeting], today).length > 0;
+  const activeMeetings = visibleEvents(upcomingMeetings, today);
   const activeUpcoming = visibleEvents(upcomingEvents, today);
-  const activeDates = visibleEvents(futureMeetingDates, today).filter(
-    (meeting) => !showFeatured || meeting.date !== featuredMeeting.date,
-  );
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -155,149 +146,158 @@ function EventsPage() {
         </div>
       </section>
 
-      {/* Featured Meeting Event */}
-      {showFeatured && (
+      {/* Upcoming luncheons */}
+      {activeMeetings.length > 0 && (
         <section className="py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="text-center">
               <h2 className="inline-block text-4xl font-extrabold text-secondary md:text-5xl">
-                Featured Meeting Event
+                Upcoming Luncheons
               </h2>
               <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-primary" />
             </div>
 
-            <div className="mt-12 overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-elegant)]">
-              <div className="flex flex-col items-center justify-between gap-3 bg-primary px-6 py-5 text-primary-foreground sm:flex-row sm:px-8">
-                <div className="flex items-center gap-3">
-                  <Calendar className="size-6 opacity-80" />
-                  <span className="text-base font-bold tracking-widest md:text-lg">
-                    {formatEventDate(featuredMeeting.date).toUpperCase()}
-                  </span>
-                  <EventTodayTag date={featuredMeeting.date} today={today} />
-                </div>
-                {featuredMeeting.rsvpDeadline && featuredMeeting.reservationHref && (
-                  <a
-                    href={featuredMeeting.reservationHref}
-                    className="rounded-md bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest transition-colors hover:bg-primary-foreground hover:text-primary md:text-lg"
-                  >
-                    RSVP by {formatEventDate(featuredMeeting.rsvpDeadline)}
-                  </a>
-                )}
-              </div>
+            <div className="mt-12 space-y-12">
+              {activeMeetings.map((meeting, meetingIndex) => (
+                <div
+                  key={meeting.date}
+                  className="overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-elegant)]"
+                >
+                  <div className="flex flex-col items-center justify-between gap-3 bg-primary px-6 py-5 text-primary-foreground sm:flex-row sm:px-8">
+                    <div className="flex items-center gap-3">
+                      <Calendar className="size-6 opacity-80" />
+                      <span className="text-base font-bold tracking-widest md:text-lg">
+                        {formatEventDate(meeting.date).toUpperCase()}
+                      </span>
+                      <EventTodayTag date={meeting.date} today={today} />
+                    </div>
+                    {meeting.rsvpDeadline && meeting.reservationHref && (
+                      <a
+                        href={meeting.reservationHref}
+                        className="rounded-md bg-primary-foreground/20 px-5 py-2 text-base font-extrabold uppercase tracking-widest transition-colors hover:bg-primary-foreground hover:text-primary md:text-lg"
+                      >
+                        RSVP by {formatEventDate(meeting.rsvpDeadline)}
+                      </a>
+                    )}
+                  </div>
 
-              <div className="px-6 py-12 text-center md:px-16">
-                <h3 className="mx-auto max-w-2xl text-xl font-bold uppercase tracking-tight text-foreground md:text-2xl">
-                  {featuredMeeting.title}
-                </h3>
-                {featuredSpeakers.length > 0 ? (
-                  <>
-                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.3em] text-primary">
-                      {featuredSpeakers.length === 1 ? "Guest Speaker" : "Guest Speakers"}
-                    </p>
+                  <div className="px-6 py-12 text-center md:px-16">
+                    <h3 className="mx-auto max-w-2xl text-xl font-bold uppercase tracking-tight text-foreground md:text-2xl">
+                      {meeting.title}
+                    </h3>
+                    {meetingIndex === 0 && featuredSpeakers.length > 0 ? (
+                      <>
+                        <p className="mt-3 text-xs font-bold uppercase tracking-[0.3em] text-primary">
+                          {featuredSpeakers.length === 1 ? "Guest Speaker" : "Guest Speakers"}
+                        </p>
 
-                    <div
-                      className={`mx-auto mt-12 grid gap-12 md:gap-16 ${
-                        featuredSpeakers.length === 1
-                          ? "max-w-md"
-                          : featuredSpeakers.length === 2
-                            ? "md:grid-cols-2"
-                            : "sm:grid-cols-2 lg:grid-cols-3"
-                      }`}
-                    >
-                      {featuredSpeakers.map((sp, i) => (
-                        <div key={sp.name} className="group">
-                          {sp.img && (
-                            <div className="relative mx-auto mb-8 size-56">
-                              <div
-                                className={`absolute inset-0 rounded-[2.5rem] transition-transform duration-300 ${
-                                  i % 2 === 0
-                                    ? "rotate-3 bg-primary group-hover:rotate-6"
-                                    : "-rotate-3 bg-secondary group-hover:-rotate-6"
-                                }`}
-                              />
-                              <img
-                                src={sp.img}
-                                alt={sp.name}
-                                className="relative size-full rounded-lg border-4 border-card bg-muted object-contain shadow-xl"
-                              />
+                        <div
+                          className={`mx-auto mt-12 grid gap-12 md:gap-16 ${
+                            featuredSpeakers.length === 1
+                              ? "max-w-md"
+                              : featuredSpeakers.length === 2
+                                ? "md:grid-cols-2"
+                                : "sm:grid-cols-2 lg:grid-cols-3"
+                          }`}
+                        >
+                          {featuredSpeakers.map((sp, i) => (
+                            <div key={sp.name} className="group">
+                              {sp.img && (
+                                <div className="relative mx-auto mb-8 size-56">
+                                  <div
+                                    className={`absolute inset-0 rounded-[2.5rem] transition-transform duration-300 ${
+                                      i % 2 === 0
+                                        ? "rotate-3 bg-primary group-hover:rotate-6"
+                                        : "-rotate-3 bg-secondary group-hover:-rotate-6"
+                                    }`}
+                                  />
+                                  <img
+                                    src={sp.img}
+                                    alt={sp.name}
+                                    className="relative size-full rounded-lg border-4 border-card bg-muted object-contain shadow-xl"
+                                  />
+                                </div>
+                              )}
+                              <h4 className="text-2xl font-bold text-secondary">{sp.name}</h4>
+                              <p className="mt-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                                {sp.title}
+                              </p>
+                              {sp.href && sp.linkText && (
+                                <a
+                                  href={sp.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="mt-4 inline-flex items-center border-b-2 border-transparent pb-1 text-sm font-bold text-primary transition-all hover:border-primary"
+                                >
+                                  {sp.linkText}
+                                  <ArrowRight className="ml-2 size-4" />
+                                </a>
+                              )}
                             </div>
-                          )}
-                          <h4 className="text-2xl font-bold text-secondary">{sp.name}</h4>
-                          <p className="mt-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                            {sp.title}
-                          </p>
-                          {sp.href && sp.linkText && (
-                            <a
-                              href={sp.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="mt-4 inline-flex items-center border-b-2 border-transparent pb-1 text-sm font-bold text-primary transition-all hover:border-primary"
-                            >
-                              {sp.linkText}
-                              <ArrowRight className="ml-2 size-4" />
-                            </a>
-                          )}
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-6 sm:flex-row sm:text-left">
-                    <img
-                      src={featuredMeeting.img}
-                      alt="Patriotic voting illustration"
-                      className="size-40 shrink-0 rounded-lg bg-muted object-contain"
-                    />
-                    <div>
-                      <p className="text-lg font-semibold text-foreground">
-                        Guest speaker to be announced
-                      </p>
-                      <p className="mt-2 text-base text-muted-foreground">Topic to be announced</p>
-                      <p className="mt-3 text-sm text-muted-foreground">
-                        West Orange Country Club · 11:30 AM to 1:30 PM
-                      </p>
+                      </>
+                    ) : (
+                      <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-6 sm:flex-row sm:text-left">
+                        <img
+                          src={meeting.img}
+                          alt="Patriotic voting illustration"
+                          className="size-40 shrink-0 rounded-lg bg-muted object-contain"
+                        />
+                        <div>
+                          <p className="text-lg font-semibold text-foreground">
+                            Guest speaker to be announced
+                          </p>
+                          <p className="mt-2 text-base text-muted-foreground">
+                            Topic to be announced
+                          </p>
+                          <p className="mt-3 text-sm text-muted-foreground">
+                            West Orange Country Club · 11:30 AM to 1:30 PM
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {meeting.topic && (
+                      <div className="mx-auto mt-14 max-w-3xl rounded-lg border border-border bg-muted p-10">
+                        <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
+                          Main Topic
+                        </p>
+                        <p className="mt-3 text-2xl font-extrabold text-secondary md:text-3xl">
+                          {meeting.topic}
+                        </p>
+                      </div>
+                    )}
+
+                    {meeting.reservationHref && (
+                      <Button
+                        asChild
+                        variant="cta"
+                        className="mx-auto mt-10 flex w-full max-w-2xl gap-3"
+                      >
+                        <a href={meeting.reservationHref}>
+                          Reserve Your Seat Today <ArrowRight className="size-5" />
+                        </a>
+                      </Button>
+                    )}
+
+                    <div className="mt-6 flex flex-col justify-center gap-4 text-sm font-medium text-muted-foreground sm:flex-row sm:gap-8">
+                      <span className="flex items-center justify-center gap-2">
+                        <CheckCircle2 className="size-4 text-primary" /> $35 Members
+                      </span>
+                      <span className="flex items-center justify-center gap-2">
+                        <CheckCircle2 className="size-4 text-primary" /> $45 Non-Members / Guests
+                      </span>
+                      <span className="flex items-center justify-center gap-2">
+                        <CheckCircle2 className="size-4 text-primary" /> $25 Candidates
+                      </span>
+                      <span className="flex items-center justify-center gap-2">
+                        <CheckCircle2 className="size-4 text-primary" /> Buffet Lunch Included
+                      </span>
                     </div>
                   </div>
-                )}
-
-                {featuredMeeting.topic && (
-                  <div className="mx-auto mt-14 max-w-3xl rounded-lg border border-border bg-muted p-10">
-                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                      Main Topic
-                    </p>
-                    <p className="mt-3 text-2xl font-extrabold text-secondary md:text-3xl">
-                      {featuredMeeting.topic}
-                    </p>
-                  </div>
-                )}
-
-                {featuredMeeting.reservationHref && (
-                  <Button
-                    asChild
-                    variant="cta"
-                    className="mx-auto mt-10 flex w-full max-w-2xl gap-3"
-                  >
-                    <a href={featuredMeeting.reservationHref}>
-                      Reserve Your Seat Today <ArrowRight className="size-5" />
-                    </a>
-                  </Button>
-                )}
-
-                <div className="mt-6 flex flex-col justify-center gap-4 text-sm font-medium text-muted-foreground sm:flex-row sm:gap-8">
-                  <span className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="size-4 text-primary" /> $35 Members
-                  </span>
-                  <span className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="size-4 text-primary" /> $45 Non-Members / Guests
-                  </span>
-                  <span className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="size-4 text-primary" /> $25 Candidates
-                  </span>
-                  <span className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="size-4 text-primary" /> Buffet Lunch Included
-                  </span>
                 </div>
-              </div>
+              ))}
             </div>
 
             <p className="mt-8 text-center text-xs uppercase leading-relaxed text-muted-foreground">
@@ -309,79 +309,42 @@ function EventsPage() {
         </section>
       )}
 
-      {/* Upcoming + Future dates */}
-      {(activeUpcoming.length > 0 || activeDates.length > 0) && (
+      {/* Other upcoming events */}
+      {activeUpcoming.length > 0 && (
         <section className="bg-muted py-20">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-3 lg:items-start">
-            {activeUpcoming.length > 0 && (
-              <div className="space-y-6 lg:col-span-2">
-                <h3 className="border-l-4 border-primary pl-5 text-3xl font-extrabold text-secondary md:text-4xl">
-                  Upcoming Events
-                </h3>
-
-                {activeUpcoming.map((event) => (
-                  <article
-                    key={event.date + event.title}
-                    className="group grid justify-items-center gap-6 rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:grid-cols-[192px_minmax(0,1fr)] sm:justify-items-start"
-                  >
-                    <img
-                      src={event.img}
-                      alt={event.title}
-                      className="size-48 shrink-0 rounded-lg bg-muted object-contain"
-                    />
-                    <div className="min-w-0 text-center sm:text-left">
-                      <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-                        <Calendar className="size-3.5" /> {formatEventDate(event.date)} ·{" "}
-                        {event.time}
-                      </div>
-                      <EventTodayTag date={event.date} today={today} />
-                      <h4 className="mt-2 text-xl font-bold text-secondary">{event.title}</h4>
-                      <p className="text-sm text-muted-foreground">{event.description}</p>
+          <div className="mx-auto max-w-6xl px-6">
+            <h3 className="border-l-4 border-primary pl-5 text-3xl font-extrabold text-secondary md:text-4xl">
+              Upcoming Events
+            </h3>
+            <div className="mt-10 space-y-6">
+              {activeUpcoming.map((event) => (
+                <article
+                  key={event.date + event.title}
+                  className="group grid justify-items-center gap-6 rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg sm:grid-cols-[192px_minmax(0,1fr)] sm:justify-items-start"
+                >
+                  <img
+                    src={event.img}
+                    alt={event.title}
+                    className="size-48 shrink-0 rounded-lg bg-muted object-contain"
+                  />
+                  <div className="min-w-0 text-center sm:text-left">
+                    <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+                      <Calendar className="size-3.5" /> {formatEventDate(event.date)} · {event.time}
                     </div>
-                    {event.ticketsHref && event.ticketsHref !== "#" && (
-                      <Button asChild variant="cta" className="w-full sm:col-start-2 sm:w-auto">
-                        <a href={event.ticketsHref} target="_blank" rel="noopener noreferrer">
-                          Tickets
-                        </a>
-                      </Button>
-                    )}
-                  </article>
-                ))}
-              </div>
-            )}
-
-            {activeDates.length > 0 && (
-              <div
-                className={`rounded-lg bg-secondary p-8 text-secondary-foreground shadow-xl ${activeUpcoming.length === 0 ? "lg:col-span-3" : ""}`}
-              >
-                <div className="mb-6 flex items-center justify-center gap-3">
-                  <Calendar className="size-6 text-primary" />
-                  <h3 className="text-xl font-extrabold tracking-tight">Future Dates</h3>
-                </div>
-                <p className="mb-4 text-center text-xs uppercase tracking-widest opacity-70">
-                  2026 Monthly Meetings
-                </p>
-                <div className="space-y-3">
-                  {activeDates.map((d) => (
-                    <div
-                      key={d.date}
-                      className="group flex items-center justify-between rounded-xl border border-secondary-foreground/10 bg-secondary-foreground/5 p-4 transition-colors hover:bg-secondary-foreground/10"
-                    >
-                      <span className="text-sm font-medium">
-                        {formatEventDate(d.date).replace(/^\w+, /, "")}
-                      </span>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary opacity-70">
-                        {eventStatus(d.date, today) === "today" ? (
-                          <EventTodayTag date={d.date} today={today} />
-                        ) : (
-                          "Thursday"
-                        )}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+                    <EventTodayTag date={event.date} today={today} />
+                    <h4 className="mt-2 text-xl font-bold text-secondary">{event.title}</h4>
+                    <p className="text-sm text-muted-foreground">{event.description}</p>
+                  </div>
+                  {event.ticketsHref && event.ticketsHref !== "#" && (
+                    <Button asChild variant="cta" className="w-full sm:col-start-2 sm:w-auto">
+                      <a href={event.ticketsHref} target="_blank" rel="noopener noreferrer">
+                        Tickets
+                      </a>
+                    </Button>
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       )}

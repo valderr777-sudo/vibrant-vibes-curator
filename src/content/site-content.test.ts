@@ -8,11 +8,18 @@ import {
 import { visibleEvents } from "@/lib/event-dates";
 
 describe("confirmed event reference", () => {
-  it("promotes November 12 without October's expired event on October 22", () => {
+  it("promotes both confirmed luncheons without October's expired event on October 22", () => {
     expect(visibleEvents(homePromotedEvents, "2026-10-22").map((event) => event.date)).toEqual([
       "2026-11-12",
+      "2026-12-10",
     ]);
+    expect(featuredMeeting.date).toBe("2026-11-12");
     expect(featuredMeeting.title).toBe("General Luncheon Meeting");
+  });
+  it("drops the November luncheon once its Florida event day passes", () => {
+    expect(visibleEvents(homePromotedEvents, "2026-11-13").map((event) => event.date)).toEqual([
+      "2026-12-10",
+    ]);
   });
   it("does not invent November speaker, topic, RSVP deadline or ticket link", () => {
     expect(featuredSpeakers).toEqual([]);
