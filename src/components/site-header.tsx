@@ -50,17 +50,25 @@ export function SiteHeader() {
     <>
       {/* Top utility bar */}
       <div className="bg-primary text-primary-foreground">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 text-xs">
-          <a href="mailto:info@worwf.org" className="flex items-center gap-2 hover:text-secondary">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 text-xs md:px-6 py-2">
+          <a href="mailto:info@worwf.org" className="flex shrink-0 items-center gap-2 hover:text-secondary">
             <Mail className="size-4" />
             <span>info@worwf.org</span>
           </a>
-          <p className="hidden font-semibold tracking-wide md:block">
-            Educate. Motivate. Activate.
-          </p>
-          <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium hover:text-secondary md:block">
-            Donate
-          </a>
+          <div className="flex min-w-0 items-center gap-4">
+            <p className="hidden font-semibold tracking-wide md:block">
+              Educate. Motivate. Activate.
+            </p>
+            <a href="https://www.facebook.com/westorangerepublicanwomenfederated" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/90 transition-colors hover:text-secondary">
+              <Facebook className="size-4" />
+            </a>
+            <a href="https://x.com/worwf" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-primary-foreground/90 transition-colors hover:text-secondary">
+              <span className="text-sm font-bold leading-none">𝕏</span>
+            </a>
+            <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium hover:text-secondary md:block">
+              Donate
+            </a>
+          </div>
         </div>
       </div>
 
@@ -106,13 +114,10 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Button asChild variant="outline" className="hidden rounded-md border-2 border-accent bg-transparent px-6 font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:inline-flex lg:px-3 xl:px-6">
+            <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent px-3 text-xs font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:px-6 sm:text-sm lg:px-3 xl:px-6">
               <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
             </Button>
-            <Button asChild variant="cta" className="hidden rounded-md px-6 font-bold tracking-wider sm:inline-flex lg:px-3 xl:px-6">
-              <Link to="/membership">JOIN</Link>
-            </Button>
-            <Button asChild variant="cta" className="mr-2 rounded-md px-4 text-xs font-bold tracking-wider sm:hidden">
+            <Button asChild variant="cta" className="rounded-md px-3 text-xs font-bold tracking-wider sm:px-6 sm:text-sm lg:px-3 xl:px-6">
               <Link to="/membership">JOIN</Link>
             </Button>
             <button
