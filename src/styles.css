@@ -158,6 +158,11 @@
   }
 }
 
+/* Editorial serif for display text that is not a heading. */
+.font-display {
+  font-family: "Times New Roman", Times, "Source Serif Pro", Georgia, serif;
+}
+
 /* Preserve editorial subjects rather than enlarging photos past their frame. */
 .people-background {
   background-size: cover !important;
