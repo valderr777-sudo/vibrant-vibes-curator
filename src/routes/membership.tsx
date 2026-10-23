@@ -182,7 +182,7 @@ function Membership() {
                   src={worwfLogo}
                   alt=""
                   loading="lazy"
-                  className="mt-7 size-14 object-contain opacity-80"
+                  className="mt-5 size-12 object-contain opacity-80"
                 />
               </div>
 
