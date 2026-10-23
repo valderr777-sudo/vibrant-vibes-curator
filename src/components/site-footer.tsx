@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Facebook, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import ssmLogo from "@/assets/worwf/sponsors/stars-and-stripes.png";
+import ssmLogo from "@/assets/worwf/sponsors/stars-and-stripes-white.png.asset.json";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/"; external?: string }[] = [
   { label: "Upcoming Events", to: "/events" },
@@ -90,7 +90,7 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-col-reverse flex-wrap items-center justify-between gap-3 px-6 pt-5 pb-16 text-xs lg:flex-row">
           <div className="flex flex-col items-center gap-2 lg:items-start">
             <p className="text-center opacity-80 lg:text-left">
-              Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
+              Copyright © 2026. West Orange Republican Women Federated. All rights reserved.
             </p>
             <a
               href="https://www.starsandstripesmarketing.com/"
@@ -99,10 +99,10 @@ export function SiteFooter() {
               className="flex items-center justify-center gap-2 text-center opacity-80 transition-opacity hover:opacity-100 lg:justify-start lg:text-left"
             >
               <img
-                src={ssmLogo}
+                src={ssmLogo.url}
                 alt=""
                 aria-hidden="true"
-                className="h-5 w-auto shrink-0 mix-blend-screen"
+                className="h-5 w-auto shrink-0"
               />
               <span className="[text-wrap:balance]">
                 Created and powered by{" "}
