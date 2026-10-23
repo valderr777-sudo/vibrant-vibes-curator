@@ -4,6 +4,7 @@
 
 import messinaImg from "@/assets/worwf/events/messina.jpg";
 import jacksonImg from "@/assets/worwf/events/jackson.jpg";
+import voteImg from "@/assets/worwf/events/vote.jpg";
 
 // Use confirmed YYYY-MM-DD dates. Dates expire after the full Florida event day.
 // Past records are retained here only for reference, never promoted.
@@ -18,17 +19,29 @@ export const archivedEvents = [
 // NEXT LUNCHEON: fill these fields only after confirmation, then add speakers below.
 // An empty date hides the featured meeting. reservationHref may be a verified mailto or https URL.
 export const featuredMeeting = {
-  date: "", title: "", topic: "", rsvpDeadline: "", reservationHref: "",
-  img: messinaImg, speaker: "",
+  date: "2026-11-12",
+  title: "General Luncheon Meeting",
+  topic: "",
+  rsvpDeadline: "",
+  reservationHref: "",
+  img: voteImg,
+  speaker: "Guest speaker and topic to be announced",
 };
-type UpcomingEvent = { date: string; time: string; title: string; img: string; speaker: string; description: string; ticketsHref?: string };
+type UpcomingEvent = {
+  date: string;
+  time: string;
+  title: string;
+  img: string;
+  speaker: string;
+  description: string;
+  ticketsHref?: string;
+};
 export const upcomingEvents: UpcomingEvent[] = [];
 export const homePromotedEvents = [
-  ...(featuredMeeting.date ? [featuredMeeting] : []), ...upcomingEvents,
+  ...(featuredMeeting.date ? [featuredMeeting] : []),
+  ...upcomingEvents,
 ];
-export const futureMeetingDates = [
-  { date: "2026-11-12" }, { date: "2026-12-10" },
-];
+export const futureMeetingDates = [{ date: "2026-11-12" }, { date: "2026-12-10" }];
 
 export const RSVP_EMAIL = "Reservations@WORWF.org";
 
@@ -50,11 +63,18 @@ export type Announcement = {
 // Shown in order; only the first is displayed. Empty list hides the banner.
 // The next luncheon banner automatically uses the confirmed featured meeting above.
 // Add other confirmed announcements here; do not reuse past luncheon copy.
-export const announcements: Announcement[] = featuredMeeting.date ? [{
-  id: `luncheon-${featuredMeeting.date}`, date: featuredMeeting.date, label: "Next Luncheon",
-  message: `${featuredMeeting.title} at West Orange Country Club.`,
-  linkText: "Event details", to: "/events",
-}] : [];
+export const announcements: Announcement[] = featuredMeeting.date
+  ? [
+      {
+        id: `luncheon-${featuredMeeting.date}`,
+        date: featuredMeeting.date,
+        label: "Next Luncheon",
+        message: `${featuredMeeting.title} at West Orange Country Club.`,
+        linkText: "Event details",
+        to: "/events",
+      },
+    ]
+  : [];
 
 /* ---------- Featured meeting speakers (one or many) ---------- */
 export type Speaker = {
@@ -67,7 +87,13 @@ export type Speaker = {
 
 export const archivedSpeakers: Speaker[] = [
   { name: "Chris Messina", title: "Candidate for Orange County Mayor", img: messinaImg },
-  { name: "Bonnie Jackson", title: "State Committeewoman • Candidate for FL House District 42", img: jacksonImg, linkText: "District 42 Campaign Plan", href: "https://jacksonforflorida.com/" },
+  {
+    name: "Bonnie Jackson",
+    title: "State Committeewoman • Candidate for FL House District 42",
+    img: jacksonImg,
+    linkText: "District 42 Campaign Plan",
+    href: "https://jacksonforflorida.com/",
+  },
 ];
 export const featuredSpeakers: Speaker[] = [];
 
@@ -128,5 +154,20 @@ export type FoodTheme = { month: string; theme: string };
 // Add months as themes are confirmed, e.g. { month: "June 2026", theme: "Breakfast items" }
 export const foodThemes: FoodTheme[] = [];
 
+export const luncheonInformation = {
+  admission: [
+    "All Republicans are welcome. Payment in advance is required; walk-in seating is not available.",
+    "Admission includes buffet lunch at West Orange Country Club.",
+    "Reservations are required by the stated RSVP date. Late entries may not be accommodated.",
+    "Select Member or Non-Member admission when purchasing online. Guests should select Non-Member admission.",
+    "If purchasing multiple tickets, list all attendee names in the Notes field at checkout.",
+    "Your email receipt is your ticket. All purchases are final and non-refundable.",
+  ],
+  memberCheckEmail: "Reservations@WORWF.org",
+  candidateAgendaEmail: "President@WORWF.org",
+  candidateMinutes: 2,
+};
+
 // Actual existing 2026 PDF, verified publicly accessible, includes monthly donation items.
-export const monthlyDonationListPdf = "https://worwf.org/wp-content/uploads/2026/02/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf";
+export const monthlyDonationListPdf =
+  "https://worwf.org/wp-content/uploads/2026/02/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf";

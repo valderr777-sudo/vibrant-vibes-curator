@@ -1,5 +1,10 @@
 # WORWF Master Prompt revision
 
+## Current event information and lower-page cleanup
+- [x] Add verified November luncheon details without promoting October's past event
+- [x] Streamline lower Events sections into accessible expandable rows and add missing admission notes
+- [x] Test event filtering and expandable rows on desktop and phone
+
 ## Focused final cleanup
 - [x] Remove expired featured/upcoming event records and make next luncheon details developer-maintained
 - [x] Correct history and grammar; verify exact FAQ eligibility on all FAQ pages
@@ -27,7 +32,7 @@
 - [x] Caring for America food drive section
 
 ## Waiting on client
-- Confirmed next-luncheon title, speaker(s), RSVP deadline and reservation destination
+- November 12 luncheon speaker(s), topic, RSVP deadline and reservation destination; date and General Luncheon Meeting title confirmed from client screenshot
 - Valid ticket-purchase links and Candidate Vision Statement destination if those actions are reintroduced
 - Future food-drive PDFs/themes beyond the verified public 2026 PDF
 - Dates for special events and committee activities
