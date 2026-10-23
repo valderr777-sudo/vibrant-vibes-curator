@@ -60,22 +60,27 @@ const whoWeAreCards = [
 const historyBlocks = [
   {
     h: "A Vision Born from Purpose",
-    p: "After the election of President Barack Obama in 2008, two visionary women — Wendy West and Linda O'Keefe — recognized the urgent need for a Republican Women's Club in Southwest Orange County. With determination, they attended the nearest available club and were inspired to launch their own. Thus began the journey of West Orange Republican Women, Federated (WORWF).",
+    tag: "2008",
+    p: "After the election of President Barack Obama in 2008, two visionary women, Wendy West and Linda O'Keefe, recognized the urgent need for a Republican Women's Club in Southwest Orange County. With determination, they attended the nearest available club and were inspired to launch their own. Thus began the journey of West Orange Republican Women, Federated (WORWF).",
   },
   {
     h: "The Beginning",
-    p: "In February 2009, the very first WORWF meeting took place at Seaside Bank on Conroy Road in Orlando, with 20 passionate women filling the room. The club grew quickly, and by the end of 2009, Marco Rubio—then running for U.S. Senate—spoke at a packed meeting. This was the first Republican Women's Club Rubio addressed, and it earned a feature in the Orlando Sentinel.",
+    tag: "February 2009",
+    p: "In February 2009, the very first WORWF meeting took place at Seaside Bank on Conroy Road in Orlando, with 20 passionate women filling the room. The club grew quickly, and by the end of 2009, Marco Rubio, then running for U.S. Senate, spoke at a packed meeting. This was the first Republican Women's Club Rubio addressed, and it earned a feature in the Orlando Sentinel.",
   },
   {
     h: "Growth & Expansion",
+    tag: "2010 to Today",
     p: "From those early days, WORWF blossomed from 20 to over 135 active members, changing meeting venues to keep up with its expanding membership, including Stonewood Grill, Windermere Country Club, and Arnold Palmer's Bay Hill Club and Lodge. The club currently meets at West Orange Country Club, 3300 West Orange Country Club Drive, Winter Garden, FL 34787.",
   },
   {
     h: "Our Mission in Action",
+    tag: "What We Do",
     p: "Our members are the heart of WORWF: dynamic, involved, and passionate. We proudly volunteer for local/state campaigns; register voters, canvass neighborhoods, and phone bank; support legislation at every level; and donate to and support Edgewood Children's Ranch and adopt soldiers through Caring for America.",
   },
   {
     h: "Looking Ahead",
+    tag: "The Future",
     p: "As we continue to grow, we remain committed to our values, our community, and our nation. Together, we will inspire, influence, and lead in West Orange and beyond.",
   },
 ];
