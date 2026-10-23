@@ -444,10 +444,27 @@ function MembershipForm({
   const next = () => setStep((s) => Math.min(s + 1, totalSteps - 1));
   const prev = () => setStep((s) => Math.max(s - 1, 0));
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!canContinue) return;
-    alert("Thank you for registering! We'll be in touch shortly.");
+    const subject = `WORWF Membership ${mode === "new" ? "Application" : "Renewal"}: ${form.firstName} ${form.lastName}`;
+    const body = [
+      `Membership type: ${tierValue}`,
+      `Name: ${form.firstName} ${form.lastName}`,
+      form.spouse ? `Spouse: ${form.spouse}` : "",
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Birthday: ${form.birthday}`,
+      `Address: ${form.street}, ${form.city}, ${form.state} ${form.zip}, ${form.country}`,
+      `Referral: ${form.referral}`,
+      `Voter Registration #: ${form.voterReg}`,
+      `Precinct #: ${form.precinct}`,
+      form.learn ? `Heard about WORWF: ${form.learn}` : "",
+    ].filter(Boolean).join("\n");
+    window.location.href = `mailto:Membership@WORWF.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitted(true);
   };
 
   return (
