@@ -440,12 +440,6 @@ function Index() {
                   Donate Now
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </a>
-                <Link
-                  to="/sponsors/business"
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border-2 border-accent py-3 font-semibold text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  Become a Sponsor
-                </Link>
 
                 <p className="mt-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground">
                   Secure · 100% mission-driven
