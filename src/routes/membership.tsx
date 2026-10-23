@@ -94,6 +94,13 @@ function Membership() {
     phone: "",
     accepted: false,
   });
+  const [mode, setMode] = useState<ApplyMode>("new");
+
+  const signUp = (tier: string) => {
+    setMode("new");
+    setForm((prev) => ({ ...prev, newMember: tier }));
+    document.getElementById("form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -195,6 +202,11 @@ function Membership() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-auto pt-8">
+                <Button variant="cta" className="w-full gap-2" onClick={() => signUp("Primary Member - Voting Member")}>
+                  Sign Up <ArrowRight className="size-4" />
+                </Button>
+              </div>
             </article>
 
             {/* ASSOCIATE */}
@@ -238,6 +250,11 @@ function Membership() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-auto pt-8">
+                <Button variant="cta" className="w-full gap-2" onClick={() => signUp("Associate Members - Women (Member of another NFRW club)")}>
+                  Sign Up <ArrowRight className="size-4" />
+                </Button>
+              </div>
             </article>
           </div>
         </div>
@@ -268,7 +285,7 @@ function Membership() {
       </section>
 
       {/* Membership Form */}
-      <MembershipForm form={form} setForm={setForm} />
+      <MembershipForm form={form} setForm={setForm} mode={mode} setMode={setMode} />
 
 
       {/* Two CTA banners */}
@@ -382,11 +399,14 @@ type ApplyMode = "new" | "renew";
 function MembershipForm({
   form,
   setForm,
+  mode,
+  setMode,
 }: {
   form: FormState;
   setForm: React.Dispatch<React.SetStateAction<FormState>>;
+  mode: ApplyMode;
+  setMode: React.Dispatch<React.SetStateAction<ApplyMode>>;
 }) {
-  const [mode, setMode] = useState<ApplyMode>("new");
   const [step, setStep] = useState(0);
   const [showPwd, setShowPwd] = useState(false);
   const [showConfirmPwd, setShowConfirmPwd] = useState(false);
@@ -424,10 +444,27 @@ function MembershipForm({
   const next = () => setStep((s) => Math.min(s + 1, totalSteps - 1));
   const prev = () => setStep((s) => Math.max(s - 1, 0));
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!canContinue) return;
-    alert("Thank you for registering! We'll be in touch shortly.");
+    const subject = `WORWF Membership ${mode === "new" ? "Application" : "Renewal"}: ${form.firstName} ${form.lastName}`;
+    const body = [
+      `Membership type: ${tierValue}`,
+      `Name: ${form.firstName} ${form.lastName}`,
+      form.spouse ? `Spouse: ${form.spouse}` : "",
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Birthday: ${form.birthday}`,
+      `Address: ${form.street}, ${form.city}, ${form.state} ${form.zip}, ${form.country}`,
+      `Referral: ${form.referral}`,
+      `Voter Registration #: ${form.voterReg}`,
+      `Precinct #: ${form.precinct}`,
+      form.learn ? `Heard about WORWF: ${form.learn}` : "",
+    ].filter(Boolean).join("\n");
+    window.location.href = `mailto:Membership@WORWF.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitted(true);
   };
 
   return (
@@ -544,6 +581,41 @@ function MembershipForm({
         </div>
 
         {/* Form Card */}
+        {submitted ? (
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-border bg-card p-6 text-center shadow-[var(--shadow-elegant)] md:p-10">
+            <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Check className="size-7" />
+            </div>
+            <h3 className="mt-5 text-2xl font-bold text-foreground">Almost done!</h3>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+              Your email app should have opened with your completed application addressed to{" "}
+              <a href="mailto:Membership@WORWF.org" className="font-semibold text-secondary underline">
+                Membership@WORWF.org
+              </a>
+              . Just press send, and our Membership Chair will confirm your application.
+            </p>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+              To finish, pay your dues securely through Square:
+            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Button asChild variant="cta" className="gap-2">
+                <a href="http://worwf.square.site/product/membership/worwf/2" target="_blank" rel="noopener noreferrer">
+                  Pay Dues on Square <ArrowRight className="size-4" />
+                </a>
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => {
+                  setSubmitted(false);
+                  setStep(0);
+                }}
+              >
+                Start Over
+              </Button>
+            </div>
+          </div>
+        ) : (
         <form
           onSubmit={handleSubmit}
           className="mx-auto mt-10 max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] md:p-10"
@@ -819,6 +891,7 @@ function MembershipForm({
             )}
           </div>
         </form>
+        )}
       </div>
     </section>
   );
