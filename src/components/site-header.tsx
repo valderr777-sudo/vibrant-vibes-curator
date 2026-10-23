@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Facebook, Mail, Menu, X } from "lucide-react";
+import { ChevronDown, Facebook, Mail, Menu, Star, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
@@ -92,7 +92,10 @@ export function SiteHeader() {
                 >
                   {l.label}
                   {active && (
-                    <span className="absolute -bottom-2 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-secondary" />
+                    <Star
+                      className="absolute -bottom-2 left-1/2 size-3 -translate-x-1/2 fill-accent text-accent"
+                      aria-hidden="true"
+                    />
                   )}
                 </Link>
               );
