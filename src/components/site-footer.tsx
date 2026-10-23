@@ -84,7 +84,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-primary-foreground/20 pt-8">
+        <div className="mt-12 border-t border-primary-foreground/20 py-8">
           <a
             href="https://www.starsandstripesmarketing.com/"
             target="_blank"
