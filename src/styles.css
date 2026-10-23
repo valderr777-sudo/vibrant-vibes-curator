@@ -160,7 +160,7 @@
 
 /* Preserve editorial subjects rather than enlarging photos past their frame. */
 .people-background {
-  background-size: contain !important;
+  background-size: cover !important;
   background-repeat: no-repeat;
   background-attachment: scroll !important;
   background-position: center !important;
