@@ -14,7 +14,7 @@
 - [x] Remove expired featured/upcoming event records and make next luncheon details developer-maintained
 - [x] Correct history and grammar; verify exact FAQ eligibility on all FAQ pages
 - [x] Repair or suppress unavailable reservation, ticket, candidate, and venue actions
-- [x] Keep sponsor directory routes and empty states available for supplied entries without inventing sponsors
+- [x] Sponsor directory pages removed at client request (Oct 23): Business Sponsors and Member Businesses routes deleted, header More items and home Become a Sponsor button removed
 - [x] Verify public food drive PDF; report interactive map and client dependencies separately
 
 ## Phase 1: content and layout (no backend)
@@ -41,7 +41,7 @@
 - Valid ticket-purchase links and Candidate Vision Statement destination if those actions are reintroduced
 - Future food-drive PDFs/themes beyond the verified public 2026 PDF
 - Dates for special events and committee activities
-- Sponsor directory businesses, approved logos, and verified website links
+- Sponsor directory businesses, approved logos, and verified website links (pages were removed; rebuild only once this content exists)
 - Interactive district map: authoritative boundary data and agreed interaction scope; official map links alone are not this feature
 - Confirmed 2027 officers after the November 12 election
 - Confirmation of rights for the orange grove photos
