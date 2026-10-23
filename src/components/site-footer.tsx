@@ -104,7 +104,7 @@ export function SiteFooter() {
                 aria-hidden="true"
                 className="h-5 w-auto shrink-0 mix-blend-screen"
               />
-              <span>
+              <span className="[text-wrap:balance]">
                 Created and powered by{" "}
                 <span className="font-semibold">Stars and Stripes Marketing Services</span>
               </span>
