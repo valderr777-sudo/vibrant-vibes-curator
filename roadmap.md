@@ -1,5 +1,10 @@
 # WORWF Master Prompt revision
 
+## Current event information and lower-page cleanup
+- [ ] Add verified November luncheon details without promoting October's past event
+- [ ] Streamline lower Events sections into accessible expandable rows and add missing admission notes
+- [ ] Test event filtering and expandable rows on desktop and phone
+
 ## Focused final cleanup
 - [x] Remove expired featured/upcoming event records and make next luncheon details developer-maintained
 - [x] Correct history and grammar; verify exact FAQ eligibility on all FAQ pages
