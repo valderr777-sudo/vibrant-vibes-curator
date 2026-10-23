@@ -184,8 +184,9 @@ export function SiteFooter() {
                 src={ssmLogo.url}
                 alt=""
                 aria-hidden="true"
-                className="h-4 w-auto shrink-0"
+                className="h-6 w-auto shrink-0"
               />
+
               <span className="[text-wrap:balance]">
                 Created and powered by{" "}
                 <span className="font-semibold">Stars and Stripes Marketing Services</span>
