@@ -155,8 +155,20 @@ function ImageSlider() {
 
 function CheckBadge() {
   return (
-    <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="size-3">
+    <span className="relative mt-0.5 flex size-6 shrink-0 items-center justify-center">
+      <img
+        src={tangerineIcon}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 size-full object-contain"
+      />
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        className="relative size-3 text-white"
+      >
         <polyline points="20 6 9 17 4 12" />
       </svg>
     </span>
