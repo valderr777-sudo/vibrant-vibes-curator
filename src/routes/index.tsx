@@ -301,9 +301,12 @@ function Index() {
                   <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold uppercase tracking-[0.2em] text-accent">
                     <Megaphone className="size-3.5" />
                     {nextLuncheon.label}
+                    <span className="font-semibold normal-case tracking-normal text-primary-foreground/70">
+                      · {formatEventWeekday(nextLuncheon.date)}
+                    </span>
                   </p>
                   <p className="mt-3 text-2xl font-extrabold leading-tight md:text-3xl">
-                    {formatEventDate(nextLuncheon.date)}
+                    {formatEventDay(nextLuncheon.date)}
                   </p>
                   <p className="mt-2 text-sm text-primary-foreground/80">{nextLuncheon.message}</p>
                   <EventTodayTag date={nextLuncheon.date} today={today} />
