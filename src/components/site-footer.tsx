@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Facebook, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
-import ssmsLogo from "@/assets/ssms-white-logo.png.asset.json";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/"; external?: string }[] = [
   { label: "Upcoming Events", to: "/events" },
@@ -84,26 +83,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-primary-foreground/20 py-8">
-          <a
-            href="https://www.starsandstripesmarketing.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center"
-          >
-            <img
-              src={ssmsLogo.url}
-              alt="Stars and Stripes Marketing Services"
-              className="h-5 w-auto object-contain"
-            />
-            <span className="text-sm text-balance text-secondary-foreground/75 transition-colors group-hover:text-secondary-foreground">
-              Created and powered by{" "}
-              <span className="font-semibold underline decoration-dotted underline-offset-4 group-hover:text-accent">
-                Stars and Stripes Marketing
-              </span>
-            </span>
-          </a>
-        </div>
+        <div className="mt-12" />
       </div>
 
       <div className="border-t border-primary-foreground/20">
