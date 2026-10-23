@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Facebook, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
+import ssmLogo from "@/assets/worwf/sponsors/stars-and-stripes.png";
 
 const footerLinks: { label: string; to: "/events" | "/membership" | "/gallery" | "/voter-resources" | "/about-us" | "/"; external?: string }[] = [
   { label: "Upcoming Events", to: "/events" },
@@ -95,9 +96,18 @@ export function SiteFooter() {
               href="https://www.starsandstripesmarketing.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center opacity-80 transition-opacity hover:opacity-100 hover:underline lg:text-left"
+              className="flex items-center justify-center gap-2 text-center opacity-80 transition-opacity hover:opacity-100 lg:justify-start lg:text-left"
             >
-              Created and powered by <span className="font-semibold">Stars and Stripes Marketing</span>
+              <img
+                src={ssmLogo}
+                alt=""
+                aria-hidden="true"
+                className="h-5 w-auto shrink-0 mix-blend-screen"
+              />
+              <span>
+                Created and powered by{" "}
+                <span className="font-semibold">Stars and Stripes Marketing Services</span>
+              </span>
             </a>
           </div>
           <div className="flex flex-wrap justify-center gap-5 opacity-80">
