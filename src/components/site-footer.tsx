@@ -107,7 +107,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-primary-foreground/20">
-        <div className="mx-auto flex max-w-7xl flex-col-reverse flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs lg:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col-reverse flex-wrap items-center justify-between gap-3 px-6 pt-5 pb-16 text-xs lg:flex-row">
           <p className="text-center opacity-80 lg:text-left">
             Copyright © 2025. West Orange Republican Women Federated. All rights reserved.
           </p>
