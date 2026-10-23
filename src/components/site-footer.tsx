@@ -11,12 +11,14 @@ const exploreLinks: { label: string; to: "/events" | "/membership" | "/gallery" 
   { label: "Gallery", to: "/gallery" },
 ];
 
-const getInvolvedLinks = [
+type GetInvolvedLink = { label: string; to?: string; href?: string };
+
+const getInvolvedLinks: GetInvolvedLink[] = [
   { label: "Become a Member", to: "/membership" },
   { label: "Donate", href: "https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" },
   { label: "Members Only", to: "/members" },
   { label: "Contact Us", to: "/contact-us" },
-] as const;
+];
 
 function FooterLink({ children, href, to }: { children: React.ReactNode; href?: string; to?: string }) {
   const className =
