@@ -60,22 +60,27 @@ const whoWeAreCards = [
 const historyBlocks = [
   {
     h: "A Vision Born from Purpose",
-    p: "After the election of President Barack Obama in 2008, two visionary women — Wendy West and Linda O'Keefe — recognized the urgent need for a Republican Women's Club in Southwest Orange County. With determination, they attended the nearest available club and were inspired to launch their own. Thus began the journey of West Orange Republican Women, Federated (WORWF).",
+    tag: "2008",
+    p: "After the election of President Barack Obama in 2008, two visionary women, Wendy West and Linda O'Keefe, recognized the urgent need for a Republican Women's Club in Southwest Orange County. With determination, they attended the nearest available club and were inspired to launch their own. Thus began the journey of West Orange Republican Women, Federated (WORWF).",
   },
   {
     h: "The Beginning",
-    p: "In February 2009, the very first WORWF meeting took place at Seaside Bank on Conroy Road in Orlando, with 20 passionate women filling the room. The club grew quickly, and by the end of 2009, Marco Rubio—then running for U.S. Senate—spoke at a packed meeting. This was the first Republican Women's Club Rubio addressed, and it earned a feature in the Orlando Sentinel.",
+    tag: "February 2009",
+    p: "In February 2009, the very first WORWF meeting took place at Seaside Bank on Conroy Road in Orlando, with 20 passionate women filling the room. The club grew quickly, and by the end of 2009, Marco Rubio, then running for U.S. Senate, spoke at a packed meeting. This was the first Republican Women's Club Rubio addressed, and it earned a feature in the Orlando Sentinel.",
   },
   {
     h: "Growth & Expansion",
+    tag: "2010 to Today",
     p: "From those early days, WORWF blossomed from 20 to over 135 active members, changing meeting venues to keep up with its expanding membership, including Stonewood Grill, Windermere Country Club, and Arnold Palmer's Bay Hill Club and Lodge. The club currently meets at West Orange Country Club, 3300 West Orange Country Club Drive, Winter Garden, FL 34787.",
   },
   {
     h: "Our Mission in Action",
+    tag: "What We Do",
     p: "Our members are the heart of WORWF: dynamic, involved, and passionate. We proudly volunteer for local/state campaigns; register voters, canvass neighborhoods, and phone bank; support legislation at every level; and donate to and support Edgewood Children's Ranch and adopt soldiers through Caring for America.",
   },
   {
     h: "Looking Ahead",
+    tag: "The Future",
     p: "As we continue to grow, we remain committed to our values, our community, and our nation. Together, we will inspire, influence, and lead in West Orange and beyond.",
   },
 ];
@@ -197,16 +202,15 @@ function AboutUs() {
                 key={c.title}
                 className="group relative flex flex-col overflow-hidden rounded-lg bg-secondary shadow-[var(--shadow-elegant)]"
               >
-                <div className="relative aspect-[3/2] bg-secondary">
-                  <img src={c.bg} alt={c.title} loading="lazy" className="size-full object-contain" />
-                  <div aria-hidden className="absolute inset-0 bg-secondary/25" />
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img src={c.bg} alt={c.title} loading="lazy" className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
                 </div>
-                <div className="flex flex-1 flex-col items-center p-6 text-center text-primary-foreground">
-                  <span className="mb-6 flex size-28 items-center justify-center rounded-full border-2 border-white/80">
-                    <img src={c.icon} alt="" className="size-20 object-contain brightness-0 invert" />
+                <div className="relative flex flex-1 flex-col items-center px-6 pb-8 pt-14 text-center">
+                  <span className="absolute -top-10 left-1/2 flex size-20 -translate-x-1/2 items-center justify-center rounded-full bg-accent ring-4 ring-secondary">
+                    <img src={c.icon} alt="" className="size-12 object-contain brightness-0 invert" />
                   </span>
-                  <h3 className="text-xl font-bold leading-snug text-white">{c.title}</h3>
-                  <p className="mt-3 text-sm text-white/90">{c.text}</p>
+                  <h3 className="text-xl font-bold leading-snug text-secondary-foreground [text-wrap:balance]">{c.title}</h3>
+                  <p className="mt-3 text-sm text-secondary-foreground/85 [text-wrap:pretty]">{c.text}</p>
                 </div>
               </article>
             ))}
@@ -232,31 +236,32 @@ function AboutUs() {
             <h2 className="mt-4 text-4xl font-extrabold text-foreground md:text-5xl">Our History</h2>
           </div>
 
-          <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
-            <div className="grid gap-6 sm:grid-cols-2">
-              {historyBlocks.map((b) => (
-                <article
-                  key={b.h}
-                  className="rounded-lg border border-border bg-card p-6 shadow-sm"
-                >
-                  <h3 className="text-lg font-bold text-foreground">{b.h}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{b.p}</p>
-                </article>
-              ))}
-            </div>
-            <figure className="lg:sticky lg:top-28">
-              <div className="flex items-center justify-center border-0 border-none bg-transparent p-0 shadow-none">
-                <img
-                  src={worwfLogo}
-                  alt="WORWF logo"
-                  className="h-auto w-full max-w-xs object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <figcaption className="mt-4 text-center text-sm italic text-muted-foreground">
-                West Orange Republican Women, Federated
-              </figcaption>
-            </figure>
+          <p className="mx-auto mt-5 max-w-2xl text-center text-lg text-muted-foreground [text-wrap:balance]">
+            From twenty women in a bank meeting room to one of West Orange's most active civic voices.
+          </p>
+
+          <ol className="relative mx-auto mt-16 max-w-5xl">
+            <span aria-hidden className="absolute bottom-0 left-5 top-0 w-px bg-accent/40 md:left-1/2 md:-translate-x-1/2" />
+            {historyBlocks.map((b, i) => {
+              const left = i % 2 === 0;
+              return (
+                <li key={b.h} className="relative mb-14 last:mb-0 md:grid md:grid-cols-2 md:gap-16">
+                  <span aria-hidden className="absolute left-5 top-1 flex size-10 -translate-x-1/2 items-center justify-center rounded-full bg-accent text-sm font-extrabold text-accent-foreground shadow-[var(--shadow-elegant)] ring-8 ring-muted md:left-1/2">
+                    {i + 1}
+                  </span>
+                  <div className={`pl-16 md:pl-0 ${left ? "md:col-start-1 md:text-right" : "md:col-start-2"}`}>
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary">{b.tag}</p>
+                    <h3 className="mt-2 text-2xl font-extrabold text-foreground md:text-3xl [text-wrap:balance]">{b.h}</h3>
+                    <p className="mt-4 text-base leading-relaxed text-muted-foreground [text-wrap:pretty]">{b.p}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="mt-16 flex flex-col items-center">
+            <img src={worwfLogo} alt="WORWF logo" className="h-28 w-auto object-contain" loading="lazy" />
+            <p className="mt-3 text-sm italic text-muted-foreground">West Orange Republican Women, Federated</p>
           </div>
         </div>
       </section>
