@@ -9,3 +9,5 @@
 - Store confirmed public promotion dates as YYYY-MM-DD in the shared content module and use the shared event-day helper/hook for filtering and today tags; a live Florida clock prevents stale static builds and visitor timezones from changing expiration.
 - Gallery photo pixel dimensions live in src/assets/worwf/gallery/sizes.ts and drive the enlarged-view upscale cap, so regenerate that file after adding, replacing, or removing gallery photos or the cap will be wrong.
 
+
+- Leadership biographies and committee rosters belong to the standalone /leadership route; About Us links there and retains club achievements so the two pages have distinct purposes.

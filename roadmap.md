@@ -1,5 +1,10 @@
 # WORWF Master Prompt revision
 
+## Leadership page separation
+- [x] Move co-founders through special committees to Leadership, keeping Club Achievements on About Us
+- [x] Add Leadership after About Us in the menu and an About Us closing button
+- [x] Verify centered boxes and navigation on desktop and phone
+
 ## Current event information and lower-page cleanup
 - [x] Add verified November luncheon details without promoting October's past event
 - [x] Streamline lower Events sections into accessible expandable rows and add missing admission notes
