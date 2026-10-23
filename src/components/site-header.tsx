@@ -51,7 +51,7 @@ export function SiteHeader() {
       {/* Top utility bar */}
       <div className="bg-primary text-primary-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 text-xs md:px-6 py-2">
-          <a href="mailto:info@worwf.org" className="flex shrink-0 items-center gap-2 hover:text-accent">
+          <a href="mailto:info@worwf.org" className="flex shrink-0 items-center gap-2 hover:text-accent-light">
             <Mail className="size-4" />
             <span>info@worwf.org</span>
           </a>
@@ -59,13 +59,13 @@ export function SiteHeader() {
             <p className="hidden font-semibold tracking-wide md:block">
               Educate. Motivate. Activate.
             </p>
-            <a href="https://www.facebook.com/westorangerepublicanwomenfederated" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/90 transition-colors hover:text-accent">
+            <a href="https://www.facebook.com/westorangerepublicanwomenfederated" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/90 transition-colors hover:text-accent-light">
               <Facebook className="size-4" />
             </a>
-            <a href="https://x.com/worwf" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-primary-foreground/90 transition-colors hover:text-accent">
+            <a href="https://x.com/worwf" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-primary-foreground/90 transition-colors hover:text-accent-light">
               <span className="text-sm font-bold leading-none">𝕏</span>
             </a>
-            <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium hover:text-accent md:block">
+            <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium hover:text-accent-light md:block">
               Donate
             </a>
           </div>
