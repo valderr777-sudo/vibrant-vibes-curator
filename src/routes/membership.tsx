@@ -15,10 +15,8 @@ import memberGroup from "@/assets/worwf/member-group.jpg";
 import membersParallax from "@/assets/worwf/members-parallax.jpg";
 import voterId from "@/assets/worwf/voter-id.jpg";
 import precinctFlag from "@/assets/worwf/precinct-flag.jpg";
-import fireworksBg from "@/assets/worwf/fireworks-bg.jpg";
 import elephantImg from "@/assets/worwf/elephant.jpg";
-import usaFlag from "@/assets/worwf/usa-flag.jpg";
-import voteRegistration from "@/assets/worwf/vote-registration.jpg";
+import christineHayden from "@/assets/worwf/about/christine-hayden.jpg";
 
 export const Route = createFileRoute("/membership")({
   component: Membership,
@@ -139,6 +137,46 @@ function Membership() {
               </p>
             </div>
             <ElephantIcon className="hidden size-16 shrink-0 md:block" />
+          </div>
+        </div>
+      </section>
+
+      {/* Note from Membership Chair */}
+      <section className="bg-muted/40 py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="relative rounded-md border border-border bg-card p-8 shadow-[var(--shadow-elegant)] md:p-12">
+            <div className="absolute inset-x-0 top-0 h-1.5 rounded-t-md bg-secondary" />
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
+              A Note from our Membership Chair
+            </p>
+            <div className="mt-8 flex flex-col items-center gap-8 md:flex-row md:items-start">
+              <div className="shrink-0 text-center">
+                <img
+                  src={christineHayden}
+                  alt="Christine Hayden, 2nd Vice President and Membership Chair"
+                  className="mx-auto size-36 rounded-md object-cover object-top shadow-md"
+                />
+                <p className="mt-3 text-lg font-bold italic text-foreground">Chrissy Hayden</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-secondary">
+                  2nd VP, Membership Chair
+                </p>
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-foreground">Thank you for joining WORWF!</h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">
+                  You will discover a very active and outgoing club. As a member, you will receive by
+                  email: newsletter communications, club announcements, special events, and
+                  participation opportunities.
+                </p>
+                <p className="mt-4 font-semibold text-secondary">We are glad you are one of us!!</p>
+                <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+                  If you would like more information about Membership, please contact Chrissy at{" "}
+                  <a href="mailto:Membership@WORWF.org" className="font-semibold text-secondary underline">
+                    Membership@WORWF.org
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -287,82 +325,6 @@ function Membership() {
       {/* Membership Form */}
       <MembershipForm form={form} setForm={setForm} mode={mode} setMode={setMode} />
 
-
-      {/* Two CTA banners */}
-      <section className="grid gap-6 px-6 pb-20 md:grid-cols-2 md:gap-0 md:px-0">
-        <a
-          href="https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/voter-precinct-lookup/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative flex h-56 items-center justify-center overflow-hidden bg-cover bg-center text-accent-foreground"
-          style={{
-            backgroundImage: `linear-gradient(135deg, oklch(0.30 0.15 250 / 0.75), oklch(0.20 0.10 250 / 0.85)), url(${usaFlag})`,
-          }}
-        >
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-primary-foreground md:text-3xl">Check precinct information</h3>
-            <span className="mt-4 inline-block rounded-md bg-card px-6 py-2 text-sm font-semibold text-foreground">
-              Click Here
-            </span>
-          </div>
-        </a>
-        <a
-          href="https://registration.elections.myflorida.com/checkvoterstatus"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative flex h-56 items-center justify-center overflow-hidden bg-cover bg-center text-accent-foreground"
-          style={{
-            backgroundImage: `linear-gradient(135deg, oklch(0.30 0.15 25 / 0.75), oklch(0.20 0.10 25 / 0.85)), url(${voteRegistration})`,
-          }}
-        >
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-primary-foreground md:text-3xl">Check voter ID Status</h3>
-            <span className="mt-4 inline-block rounded-md bg-card px-6 py-2 text-sm font-semibold text-foreground">
-              Click Here
-            </span>
-          </div>
-        </a>
-      </section>
-
-      {/* Note from Membership Chair */}
-      <section
-        className="relative py-24 text-foreground"
-        style={{
-          backgroundImage: `linear-gradient(135deg, oklch(0.45 0.2 27 / 0.75), oklch(0.20 0.08 25 / 0.75)), url(${fireworksBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="rounded-lg bg-card p-10 shadow-[var(--shadow-elegant)]">
-            <h3 className="text-center text-2xl font-semibold text-foreground">
-              A Note from our Membership Chair
-            </h3>
-            <div className="mx-auto mt-3 h-1 w-12 bg-secondary" />
-            <p className="mt-6 text-center text-sm italic text-muted-foreground">
-              From our 2nd VP/Membership Chair, Chrissy Hayden
-            </p>
-            <h4 className="mt-6 text-lg font-bold text-foreground">Thank you for joining WORWF!</h4>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              You will discover a very active and outgoing club. As a member, you will receive by
-              email: newsletter communications, club announcements, special events, and
-              participation opportunities.
-            </p>
-            <p className="mt-4 text-sm font-semibold text-secondary">
-              We are glad you are one of us!!
-            </p>
-            <div className="mt-6 flex items-start gap-3 rounded-md bg-muted p-4">
-              <Mail className="mt-0.5 size-5 shrink-0 text-secondary" />
-              <p className="text-sm text-muted-foreground">
-                If you would like more information about Membership, please contact Chrissy at{" "}
-                <a href="mailto:Membership@WORWF.org" className="font-semibold text-secondary underline">
-                  Membership@WORWF.org
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
     </>
