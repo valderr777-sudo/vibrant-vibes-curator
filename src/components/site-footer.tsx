@@ -89,7 +89,7 @@ export function SiteFooter() {
             href="https://www.starsandstripesmarketing.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center lg:justify-start"
+            className="group flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center"
           >
             <img
               src={ssmsLogo.url}
