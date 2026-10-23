@@ -22,6 +22,7 @@ import { EventTodayTag } from "@/components/event-today-tag";
 import groupImg from "@/assets/worwf/group.jpg";
 import footerBg from "@/assets/worwf/footer-bg.jpg";
 import motivatesBg from "@/assets/worwf/motivates-bg.webp";
+import tangerineIcon from "@/assets/tangerine-icon.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
