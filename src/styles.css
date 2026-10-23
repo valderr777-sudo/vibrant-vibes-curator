@@ -160,11 +160,18 @@
 
 /* Preserve editorial subjects rather than enlarging photos past their frame. */
 .people-background {
-  background-size: contain !important;
+  background-size: cover !important;
   background-repeat: no-repeat;
   background-attachment: scroll !important;
   background-position: center !important;
   background-color: var(--secondary);
+}
+
+/* Phone framing for hero photos whose subjects stand near the top edge. */
+@media (max-width: 1023px) {
+  .hero-phone-top {
+    background-position: center top !important;
+  }
 }
 
 @media (max-width: 1023px), (prefers-reduced-motion: reduce) {

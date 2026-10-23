@@ -107,7 +107,7 @@ function Membership() {
       <section className="relative isolate overflow-hidden">
         {/* Parallax background */}
         <div
-          className="people-background responsive-parallax absolute inset-0 -z-10 bg-fixed"
+          className="people-background hero-phone-top responsive-parallax absolute inset-0 -z-10 bg-fixed"
           style={{ backgroundImage: `url(${memberHero})` }}
           aria-hidden="true"
         />
