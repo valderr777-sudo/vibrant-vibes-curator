@@ -84,7 +84,7 @@ export function SiteHeader() {
           </Link>
 
           <nav className="hidden min-w-0 items-center gap-3 lg:flex xl:gap-5">
-            {navLinks.map((l) => {
+            {primaryLinks.map((l) => {
               const active = pathname === l.to;
               return (
                 <Link
@@ -107,14 +107,27 @@ export function SiteHeader() {
               );
             })}
             <div className="group relative">
-              <button type="button" className="relative inline-flex items-center whitespace-nowrap text-sm xl:text-[15px] font-medium text-foreground transition-colors hover:text-secondary">
-                Sponsors<span className="ml-1">▾</span>
+              <button
+                type="button"
+                className={`relative inline-flex items-center whitespace-nowrap text-sm xl:text-[15px] font-medium transition-colors hover:text-secondary ${
+                  moreLinks.some((m) => m.to === pathname) ? "text-secondary" : "text-foreground"
+                }`}
+              >
+                More<span className="ml-1">▾</span>
+                {moreLinks.some((m) => m.to === pathname) && (
+                  <img
+                    src={tangerineIcon}
+                    alt=""
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-5 left-1/2 size-4 -translate-x-1/2 object-contain"
+                  />
+                )}
               </button>
               <div className="absolute left-0 top-full z-50 hidden pt-3 group-hover:block">
                 <div className="min-w-[210px] rounded-md border border-border bg-background py-2 shadow-lg">
-                  {sponsorLinks.map((s) => (
-                    <Link key={s.to} to={s.to} className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">
-                      {s.label}
+                  {moreLinks.map((m) => (
+                    <Link key={m.to} to={m.to} className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-secondary">
+                      {m.label}
                     </Link>
                   ))}
                 </div>
