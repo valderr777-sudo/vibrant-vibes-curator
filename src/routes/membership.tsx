@@ -202,6 +202,11 @@ function Membership() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-auto pt-8">
+                <Button variant="cta" className="w-full gap-2" onClick={() => signUp("Primary Member - Voting Member")}>
+                  Sign Up <ArrowRight className="size-4" />
+                </Button>
+              </div>
             </article>
 
             {/* ASSOCIATE */}
@@ -245,6 +250,11 @@ function Membership() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-auto pt-8">
+                <Button variant="cta" className="w-full gap-2" onClick={() => signUp("Associate Members - Women (Member of another NFRW club)")}>
+                  Sign Up <ArrowRight className="size-4" />
+                </Button>
+              </div>
             </article>
           </div>
         </div>
