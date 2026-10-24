@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
+import { HistoryTimeline } from "@/components/history-timeline";
 
 import capitolSteps from "@/assets/worwf/about/capitol-steps.jpg";
 import { UnitedQuoteBand } from "@/components/united-quote-band";
@@ -240,29 +241,11 @@ function AboutUs() {
             From twenty women in a bank meeting room to one of West Orange's most active civic voices.
           </p>
 
-          <ol className="relative mx-auto mt-16 max-w-5xl">
-            <span aria-hidden className="absolute bottom-0 left-5 top-0 w-px bg-accent/40 md:left-1/2 md:-translate-x-1/2" />
-            {historyBlocks.map((b, i) => {
-              const left = i % 2 === 0;
-              return (
-                <li key={b.h} className="relative mb-14 last:mb-0 md:grid md:grid-cols-2 md:gap-16">
-                  <span aria-hidden className="absolute left-5 top-1 flex size-10 -translate-x-1/2 items-center justify-center rounded-full bg-accent text-sm font-extrabold text-accent-foreground shadow-[var(--shadow-elegant)] ring-8 ring-muted md:left-1/2">
-                    {i + 1}
-                  </span>
-                  <div className={`pl-16 md:pl-0 ${left ? "md:col-start-1 md:text-right" : "md:col-start-2"}`}>
-                    <p className="text-sm font-bold uppercase tracking-widest text-primary">{b.tag}</p>
-                    <h3 className="mt-2 text-2xl font-extrabold text-foreground md:text-3xl [text-wrap:balance]">{b.h}</h3>
-                    <p className="mt-4 text-base leading-relaxed text-muted-foreground [text-wrap:pretty]">{b.p}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-
-          <div className="mt-16 flex flex-col items-center">
-            <img src={worwfLogo} alt="WORWF logo" className="h-28 w-auto object-contain" loading="lazy" />
-            <p className="mt-3 text-sm italic text-muted-foreground">West Orange Republican Women, Federated</p>
-          </div>
+          <HistoryTimeline
+            blocks={historyBlocks}
+            logo={worwfLogo}
+            logoCaption="West Orange Republican Women, Federated"
+          />
         </div>
       </section>
 
