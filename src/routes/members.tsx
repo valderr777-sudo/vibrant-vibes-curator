@@ -48,8 +48,6 @@ const committeeReports: LinkItem[] = [
   { label: "Edgewood Children's Ranch Food Drive 2026 Themes", href: "https://worwf.org/wp-content/uploads/2026/02/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf" },
   { label: "Education — February 2026", href: "https://worwf.org/wp-content/uploads/2026/02/2026-Education-Committee-Report-February-2026.pdf" },
   { label: "Fundraising — August 2025", href: "https://worwf.org/wp-content/uploads/2025/09/WORWF-FUNDRAISING-COMMITTEE-REPORT-August-2025.docx" },
-  { label: "Legislative — February 2026", href: "https://worwf.org/members/Legislative%20Committee%20Report%20-%20February%202026" },
-  { label: "Membership — January 2026", href: "https://worwf.org/members/WORWF%20MEMBERSHIP%20COMMITTEE%20REPORT%20-%20December%202025" },
 ];
 
 const newsletters: LinkItem[] = [
@@ -73,7 +71,6 @@ const clubForms: LinkItem[] = [
 const orgDocs: LinkItem[] = [
   { label: "WORWF ByLaws & Standing Rules — 2024", href: "https://worwf.org/wp-content/uploads/2025/01/WEST-ORANGE-REPUBLICAN-WOMEN-FEDERATED-BYLAWS-2024.pdf" },
   { label: "FFRW Website", href: "https://www.ffrw.net/" },
-  { label: "Contact a Committee Chair", href: "https://app.box.com/s/3r0a6lrsx2cje7ukhbyaq54lsvb20xiv" },
 ];
 
 function MembersPage() {
