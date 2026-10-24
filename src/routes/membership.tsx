@@ -445,11 +445,11 @@ function MembershipForm({
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canContinue) return;
     const subject = `WORWF Membership ${mode === "new" ? "Application" : "Renewal"}: ${form.firstName} ${form.lastName}`;
-    const body = [
+    const lines = [
       `Membership type: ${tierValue}`,
       `Name: ${form.firstName} ${form.lastName}`,
       form.spouse ? `Spouse: ${form.spouse}` : "",
@@ -461,8 +461,14 @@ function MembershipForm({
       `Voter Registration #: ${form.voterReg}`,
       `Precinct #: ${form.precinct}`,
       form.learn ? `Heard about WORWF: ${form.learn}` : "",
-    ].filter(Boolean).join("\n");
-    window.location.href = `mailto:Membership@WORWF.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    ].filter(Boolean);
+    try {
+      await submitMembership({
+        data: { renewal: mode !== "new", firstName: form.firstName, lastName: form.lastName, email: form.email, lines },
+      });
+    } catch {
+      window.location.href = `mailto:Membership@WORWF.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    }
     setSubmitted(true);
   };
 
