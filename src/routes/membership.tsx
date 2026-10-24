@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { submitMembership } from "@/lib/forms.functions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -445,11 +446,11 @@ function MembershipForm({
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canContinue) return;
     const subject = `WORWF Membership ${mode === "new" ? "Application" : "Renewal"}: ${form.firstName} ${form.lastName}`;
-    const body = [
+    const lines = [
       `Membership type: ${tierValue}`,
       `Name: ${form.firstName} ${form.lastName}`,
       form.spouse ? `Spouse: ${form.spouse}` : "",
@@ -461,8 +462,14 @@ function MembershipForm({
       `Voter Registration #: ${form.voterReg}`,
       `Precinct #: ${form.precinct}`,
       form.learn ? `Heard about WORWF: ${form.learn}` : "",
-    ].filter(Boolean).join("\n");
-    window.location.href = `mailto:Membership@WORWF.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    ].filter(Boolean);
+    try {
+      await submitMembership({
+        data: { renewal: mode !== "new", firstName: form.firstName, lastName: form.lastName, email: form.email, lines },
+      });
+    } catch {
+      window.location.href = `mailto:Membership@WORWF.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    }
     setSubmitted(true);
   };
 
@@ -587,11 +594,11 @@ function MembershipForm({
             </div>
             <h3 className="mt-5 text-2xl font-bold text-foreground">Almost done!</h3>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Your email app should have opened with your completed application addressed to{" "}
+              Your application was sent to our Membership Chair, and a confirmation is on its way to your inbox. Questions? Write to{" "}
               <a href="mailto:Membership@WORWF.org" className="font-semibold text-secondary underline">
                 Membership@WORWF.org
               </a>
-              . Just press send, and our Membership Chair will confirm your application.
+              .
             </p>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
               To finish, pay your dues securely through Square:

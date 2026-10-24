@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { submitContact } from "@/lib/forms.functions";
 
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Facebook, Send } from "lucide-react";
@@ -127,13 +128,19 @@ function ContactPage() {
 
           {/* Form */}
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
               if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
                 alert("Please fill in your name, email, and message.");
                 return;
               }
-              alert("Thanks! We'll be in touch shortly.");
+              try {
+                await submitContact({ data: form });
+                alert("Thanks! Your message was sent. Check your inbox for a confirmation.");
+                setForm({ name: "", phone: "", email: "", referral: "", message: "" });
+              } catch {
+                alert("Sorry, your message could not be sent. Please email info@worwf.org.");
+              }
             }}
             className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)] md:p-10"
           >
