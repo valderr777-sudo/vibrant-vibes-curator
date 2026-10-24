@@ -19,6 +19,9 @@
  */
 
 @theme inline {
+  --font-sans: "Lato", "Segoe UI", Arial, sans-serif;
+  --font-serif: "Montserrat", sans-serif;
+  --font-display: "Montserrat", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
