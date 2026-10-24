@@ -11,3 +11,4 @@
 
 
 - Leadership biographies and committee rosters belong to the standalone /leadership route; About Us links there and retains club achievements so the two pages have distinct purposes.
+- Club documents (minutes, reports, forms, PDFs) are stored as Lovable Assets with pointers in src/assets/worwf/documents; link to those, never to the old worwf.org file hosting, so documents survive the old site's shutdown.

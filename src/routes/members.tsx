@@ -27,27 +27,27 @@ export const Route = createFileRoute("/members")({
 type LinkItem = { label: string; href: string };
 
 const meetingMinutes: LinkItem[] = [
-  { label: "May 2025", href: "https://worwf.org/wp-content/uploads/2025/07/WORWF-General-Meeting-Minutes-May-2025.pdf" },
-  { label: "June 2025", href: "https://worwf.org/wp-content/uploads/2025/07/WORWF-General-Meeting-Minutes-June-2025.pdf" },
-  { label: "July 2025", href: "https://worwf.org/wp-content/uploads/2025/08/WORWF-GENERAL-MEETING-JULY-10-2025-1.pdf" },
-  { label: "August 2025", href: "https://worwf.org/wp-content/uploads/2025/08/WORWF-GENERAL-MEETING-AUIGUST-14-2025.pdf" },
-  { label: "September 2025", href: "https://worwf.org/wp-content/uploads/2025/09/WORWF-GENERAL-MEETING-MINUTES-SEPTEMBER-11-2025-2.pdf" },
-  { label: "October 2025", href: "https://worwf.org/wp-content/uploads/2025/11/WORWF-General-Meeting-October-9-2025-v2.pdf" },
-  { label: "November 2025", href: "https://worwf.org/wp-content/uploads/2025/11/general-meeting-minutes-november-13-2025.pdf" },
-  { label: "December 2025", href: "https://worwf.org/wp-content/uploads/2025/12/WORWF-General-Meeting-December-11-2025.pdf" },
-  { label: "January 2026", href: "https://worwf.org/wp-content/uploads/2026/02/WORWF-General-Meeting-January-8-2026.pdf" },
-  { label: "February 2026", href: "https://worwf.org/wp-content/uploads/2026/04/General-Meeting-Minutes-2026-Feb-12-Final.pdf" },
-  { label: "March 2026", href: "https://worwf.org/wp-content/uploads/2026/03/General-Meeting-Minutes-2026-March-12.pdf" },
+  { label: "May 2025", href: "/__l5e/assets-v1/df2d5a38-546a-42ad-98a1-d42dd97f594e/WORWF-General-Meeting-Minutes-May-2025.pdf" },
+  { label: "June 2025", href: "/__l5e/assets-v1/90b9e2fc-ce69-492c-9f9f-e9de4ef11007/WORWF-General-Meeting-Minutes-June-2025.pdf" },
+  { label: "July 2025", href: "/__l5e/assets-v1/0c225fbe-6b74-47eb-af69-efb6a3d9bd77/WORWF-GENERAL-MEETING-JULY-10-2025-1.pdf" },
+  { label: "August 2025", href: "/__l5e/assets-v1/3bb0fb52-e193-42ef-a6c2-ed9a7860ef16/WORWF-GENERAL-MEETING-AUIGUST-14-2025.pdf" },
+  { label: "September 2025", href: "/__l5e/assets-v1/4f991db7-bf34-4719-b373-e56187a091e3/WORWF-GENERAL-MEETING-MINUTES-SEPTEMBER-11-2025-2.pdf" },
+  { label: "October 2025", href: "/__l5e/assets-v1/f80863ce-2d5e-4eba-99ac-b76184529012/WORWF-General-Meeting-October-9-2025-v2.pdf" },
+  { label: "November 2025", href: "/__l5e/assets-v1/ee22e68a-cfbc-421a-995a-16bb33622058/general-meeting-minutes-november-13-2025.pdf" },
+  { label: "December 2025", href: "/__l5e/assets-v1/1bdbdea0-f9ed-4c85-878b-af8123de9f10/WORWF-General-Meeting-December-11-2025.pdf" },
+  { label: "January 2026", href: "/__l5e/assets-v1/02210336-770b-43c3-9f53-b276e4b9c0c2/WORWF-General-Meeting-January-8-2026.pdf" },
+  { label: "February 2026", href: "/__l5e/assets-v1/e38eba79-8da1-4adc-8b05-1a50da7dc862/General-Meeting-Minutes-2026-Feb-12-Final.pdf" },
+  { label: "March 2026", href: "/__l5e/assets-v1/f15d00c0-196a-47a7-a29c-354ba5f21ca4/General-Meeting-Minutes-2026-March-12.pdf" },
 ];
 
 const committeeReports: LinkItem[] = [
-  { label: "Armed Services — January 2026", href: "https://worwf.org/wp-content/uploads/2026/02/Armed-Services-Committee-Report-January-2026.pdf" },
-  { label: "Campaign Committee — February 2026", href: "https://worwf.org/wp-content/uploads/2026/02/Campaign-Committee-Report-February-2026.pdf" },
-  { label: "Spring 2026 Call Party Challenge", href: "https://worwf.org/wp-content/uploads/2026/03/WHAT-IS-A-CALL-PARTY-2026.pdf" },
-  { label: "Caring for America — January 2026", href: "https://worwf.org/wp-content/uploads/2026/02/2026-Commitee-Report-January-Caring-for-America.pdf" },
-  { label: "Edgewood Children's Ranch Food Drive 2026 Themes", href: "https://worwf.org/wp-content/uploads/2026/02/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf" },
-  { label: "Education — February 2026", href: "https://worwf.org/wp-content/uploads/2026/02/2026-Education-Committee-Report-February-2026.pdf" },
-  { label: "Fundraising — August 2025", href: "https://worwf.org/wp-content/uploads/2025/09/WORWF-FUNDRAISING-COMMITTEE-REPORT-August-2025.docx" },
+  { label: "Armed Services — January 2026", href: "/__l5e/assets-v1/7568d7d1-5202-45f6-a25e-d14a00e3a8a9/Armed-Services-Committee-Report-January-2026.pdf" },
+  { label: "Campaign Committee — February 2026", href: "/__l5e/assets-v1/3cf17b27-e9aa-4f9f-9e19-13c4aec83583/Campaign-Committee-Report-February-2026.pdf" },
+  { label: "Spring 2026 Call Party Challenge", href: "/__l5e/assets-v1/fa292445-06fa-47bd-81d1-eeeb3db76b56/WHAT-IS-A-CALL-PARTY-2026.pdf" },
+  { label: "Caring for America — January 2026", href: "/__l5e/assets-v1/27bf3195-ebff-49bc-9d2a-833ae738d98a/2026-Commitee-Report-January-Caring-for-America.pdf" },
+  { label: "Edgewood Children's Ranch Food Drive 2026 Themes", href: "/__l5e/assets-v1/d1bc6086-dea9-4e84-bbf0-937cc889dde0/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf" },
+  { label: "Education — February 2026", href: "/__l5e/assets-v1/63c140aa-3e6a-4034-8f04-780591e9ebbb/2026-Education-Committee-Report-February-2026.pdf" },
+  { label: "Fundraising — August 2025", href: "/__l5e/assets-v1/c445e1b5-8102-40d6-8f29-c5acedaf7111/WORWF-FUNDRAISING-COMMITTEE-REPORT-August-2025.docx" },
 ];
 
 const newsletters: LinkItem[] = [
@@ -64,12 +64,12 @@ const newsletters: LinkItem[] = [
 ];
 
 const clubForms: LinkItem[] = [
-  { label: "Adopt a Soldier Referral / Application", href: "https://worwf.org/wp-content/uploads/2022/11/Adopt-a-Soldier-Application-rev-8.30.22.pdf" },
+  { label: "Adopt a Soldier Referral / Application", href: "/__l5e/assets-v1/62c3263d-f6d5-43b3-a7d8-fde046e00395/Adopt-a-Soldier-Application-rev-8.30.22.pdf" },
   { label: "Volunteer Hours Digital Tracker", href: "https://docs.google.com/forms/d/e/1FAIpQLSdrDHHVBCcEph6kX-m-Flt2YOtN4YKzvIeiHpLrv9HriFK6Eg/viewform?pli=1" },
 ];
 
 const orgDocs: LinkItem[] = [
-  { label: "WORWF ByLaws & Standing Rules — 2024", href: "https://worwf.org/wp-content/uploads/2025/01/WEST-ORANGE-REPUBLICAN-WOMEN-FEDERATED-BYLAWS-2024.pdf" },
+  { label: "WORWF ByLaws & Standing Rules — 2024", href: "/__l5e/assets-v1/292d311e-ea2c-45e3-8ebd-7a6feb1b8599/WEST-ORANGE-REPUBLICAN-WOMEN-FEDERATED-BYLAWS-2024.pdf" },
   { label: "FFRW Website", href: "https://www.ffrw.net/" },
 ];
 
