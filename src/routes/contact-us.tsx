@@ -133,79 +133,51 @@ function ContactPage() {
         </div>
       </section>
 
-      {/* Contact cards — overlap hero */}
-      <section className="relative -mt-20 px-6">
-        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
-          {contactCards.map((c) => (
-            <a
-              key={c.label}
-              href={c.href}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] transition-all duration-300 hover:-translate-y-1 hover:border-primary"
-            >
-              <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <c.icon className="size-5" />
-              </div>
-              <p className="mt-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                {c.label}
-              </p>
-              <p className="mt-1 text-lg font-semibold text-foreground">{c.value}</p>
-              <ArrowRight className="absolute right-6 top-6 size-4 text-muted-foreground opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
-            </a>
-          ))}
-        </div>
-      </section>
-
       {/* Form + Aside */}
       <section className="px-6 py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.4fr]">
-          {/* Aside */}
-          <aside className="lg:sticky lg:top-28 lg:self-start">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Send a Message
-            </span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              We protect your privacy &amp; reply quickly.
+          {/* Contact information */}
+          <aside className="lg:self-start">
+            <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
+              Get in Touch
             </h2>
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              Complete the form and a member of our team will be in contact with you
-              shortly. Your information stays private and is never shared with third
-              parties.
+            <div className="mt-4 h-1 w-14 bg-accent" />
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground [text-wrap:pretty]">
+              Complete the form and a member of our team will be in contact with you shortly.
+              Your information stays private and is never shared with third parties.
             </p>
 
-            <div className="mt-8 space-y-4">
-              {[
-                "Personal response within 48 hours",
-                "Information about upcoming events",
-                "Membership guidance & referrals",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <svg viewBox="0 0 12 12" className="size-3" fill="none">
-                      <path
-                        d="M2.5 6.5L5 9L9.5 3.5"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-sm text-foreground/80">{item}</span>
+            <dl className="mt-10 divide-y divide-border border-y border-border">
+              <div className="flex items-start gap-4 py-5">
+                <Mail className="mt-0.5 size-5 shrink-0 text-primary" />
+                <div>
+                  <dt className="text-sm font-bold text-foreground">Email</dt>
+                  <dd className="mt-1 text-base text-muted-foreground">
+                    <a href="mailto:info@worwf.org" className="hover:text-primary hover:underline">
+                      info@worwf.org
+                    </a>
+                  </dd>
                 </div>
-              ))}
-            </div>
+              </div>
+              <div className="flex items-start gap-4 py-5">
+                <MapPin className="mt-0.5 size-5 shrink-0 text-primary" />
+                <div>
+                  <dt className="text-sm font-bold text-foreground">Location</dt>
+                  <dd className="mt-1 text-base text-muted-foreground">
+                    West Orange County, Florida
+                  </dd>
+                </div>
+              </div>
+            </dl>
 
             <div className="mt-8 flex items-center gap-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Follow us
-              </span>
-              <div className="h-px flex-1 bg-border" />
+              <span className="text-sm font-bold text-foreground">Follow us</span>
               <a
                 href="https://www.facebook.com/westorangerepublicanwomenfederated"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                className="flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <Facebook className="size-4" />
               </a>
@@ -214,7 +186,7 @@ function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X"
-                className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                className="flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <span className="text-sm font-bold">𝕏</span>
               </a>
