@@ -48,10 +48,10 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
 export function SiteFooter() {
   return (
     <footer className="relative bg-secondary text-secondary-foreground">
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-12">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-6 pt-12 pb-10 md:pt-16 md:pb-12">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-12 lg:grid-cols-12">
           {/* Brand */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 md:col-span-1 lg:col-span-4">
             <div className="flex items-center gap-3">
               <img src={worwfLogo} alt="WORWF" className="size-14 object-contain" />
               <span className="text-base leading-snug font-semibold">
@@ -118,7 +118,7 @@ export function SiteFooter() {
           </div>
 
           {/* Meetings */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 md:col-span-1 lg:col-span-4">
             <FooterHeading>Monthly Luncheon</FooterHeading>
             <ul className="mt-5 space-y-4 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-3">
@@ -168,15 +168,15 @@ export function SiteFooter() {
       {/* Bottom bar */}
       <div className="border-t border-primary-foreground/15">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-col items-center gap-2 lg:items-start">
-            <p className="text-center text-xs text-secondary-foreground/70 lg:text-left">
+          <div className="flex flex-col items-start gap-2">
+            <p className="text-left text-xs text-secondary-foreground/70">
               Copyright © 2026. West Orange Republican Women Federated. All rights reserved.
             </p>
             <a
               href="https://www.starsandstripesmarketing.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-xs text-secondary-foreground/70 transition-colors hover:text-secondary-foreground lg:justify-start"
+              className="flex items-center justify-start gap-2 text-xs text-secondary-foreground/70 transition-colors hover:text-secondary-foreground"
             >
               <img
                 src={ssmLogo.url}
@@ -192,7 +192,7 @@ export function SiteFooter() {
               </span>
             </a>
           </div>
-          <div className="flex flex-wrap justify-center gap-5 text-xs text-secondary-foreground/70 lg:justify-end">
+          <div className="flex flex-wrap justify-start gap-5 text-xs text-secondary-foreground/70 lg:justify-end">
             <Link to="/terms-and-conditions" className="transition-colors hover:text-secondary-foreground">Terms & Conditions</Link>
             <Link to="/cookie-policy" className="transition-colors hover:text-secondary-foreground">Cookie Policy</Link>
             <Link to="/privacy-policy" className="transition-colors hover:text-secondary-foreground">Privacy Policy</Link>
