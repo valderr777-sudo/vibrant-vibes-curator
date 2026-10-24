@@ -19,9 +19,10 @@ const primaryLinks: {
 
 const moreLinks: {
   label: string;
-  to: "/contact-us" | "/members";
+  to: "/contact-us" | "/members" | "/faq";
 }[] = [
   { label: "Members Only", to: "/members" },
+  { label: "FAQ", to: "/faq" },
   { label: "Contact Us", to: "/contact-us" },
 ];
 

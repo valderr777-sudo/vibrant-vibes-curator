@@ -1,38 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import {
-  Mail,
-  MapPin,
-  Facebook,
-  Phone,
-  Clock,
-  Send,
-  HelpCircle,
-  ArrowRight,
-} from "lucide-react";
+import { Mail, MapPin, Facebook, Send } from "lucide-react";
 
-import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import heroImg from "@/assets/worwf/contact/hero.jpg";
 
 export const Route = createFileRoute("/contact-us")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact Us — West Orange Republican Women Federated" },
+      { title: "Contact Us | West Orange Republican Women Federated" },
       {
         name: "description",
         content:
-          "Get in touch with WORWF. Send a message, find answers in our FAQ, or reach us by email at info@worwf.org.",
+          "Get in touch with WORWF. Send a message or reach us by email at info@worwf.org.",
       },
-      { property: "og:title", content: "Contact Us — WORWF" },
+      { property: "og:title", content: "Contact Us | WORWF" },
       {
         property: "og:description",
         content: "Send a message to West Orange Republican Women Federated.",
@@ -44,58 +28,6 @@ export const Route = createFileRoute("/contact-us")({
     ],
   }),
 });
-
-const faqs = [
-  {
-    q: "What is WORWF?",
-    a: "WORWF stands for West Orange Republican Women Federated. We are a group of passionate women dedicated to advancing the cause of good government in our community, state, and nation.",
-  },
-  {
-    q: "Who can join West Orange Republican Women Federated?",
-    a: "Membership is open to registered Republican women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community.",
-  },
-  {
-    q: "How can I become a member?",
-    a: "To join, please visit our Contact Us page and send us an email expressing your interest. We'll provide you with all the necessary information to get started.",
-  },
-  {
-    q: "What activities does WORWF engage in?",
-    a: "Our organization participates in various activities, including hosting monthly luncheons, organizing community events, supporting local candidates, and promoting civic engagement through education and advocacy.",
-  },
-  {
-    q: "How can I stay informed about upcoming events?",
-    a: "We regularly update our members and the public about upcoming events through our website and social media channels. Be sure to check our homepage for the latest news and event announcements.",
-  },
-  {
-    q: "Can I attend a meeting before deciding to join?",
-    a: "Absolutely! We encourage prospective members to attend one of our meetings or events to learn more about our organization and meet our members.",
-  },
-  {
-    q: "How can I contact WORWF for more information?",
-    a: "For any inquiries or additional information, please reach out to us via our Contact Us page. We're happy to answer any questions you may have.",
-  },
-];
-
-const contactCards = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@WORWF.org",
-    href: "mailto:info@worwf.org",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "West Orange County, FL",
-    href: "/events",
-  },
-  {
-    icon: Clock,
-    label: "Meetings",
-    value: "Monthly Luncheons",
-    href: "/events",
-  },
-];
 
 function ContactPage() {
   const [form, setForm] = useState({
@@ -127,7 +59,7 @@ function ContactPage() {
             </h1>
             <p className="mt-6 max-w-xl text-base text-primary-foreground/90 md:text-lg">
               Whether you&apos;re curious about membership, have a question about an
-              event, or just want to say hello — we&apos;d love to hear from you.
+              event, or just want to say hello, we&apos;d love to hear from you.
             </p>
           </div>
         </div>
@@ -274,58 +206,6 @@ function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="relative overflow-hidden bg-muted/40 py-24">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="text-center">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              <HelpCircle className="size-3.5" />
-              Frequently Asked Questions
-            </span>
-            <h2 className="mt-5 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              Answers to the questions we hear most
-            </h2>
-            <div className="mx-auto mt-4 h-1 w-16 bg-secondary" />
-          </div>
-
-          <Accordion type="single" collapsible defaultValue="item-0" className="mt-12 space-y-3">
-            {faqs.map((f, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="overflow-hidden rounded-xl border border-border bg-card px-5 transition-colors data-[state=open]:border-primary data-[state=open]:shadow-[var(--shadow-elegant)]"
-              >
-                <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline">
-                  <span className="flex items-center gap-4">
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {f.q}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="pl-12 text-sm leading-relaxed text-muted-foreground">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-
-          <div className="mt-12 rounded-2xl border border-border bg-card p-8 text-center shadow-[var(--shadow-elegant)]">
-            <img src={worwfLogo} alt="WORWF" className="mx-auto size-16 object-contain" />
-            <h3 className="mt-4 text-xl font-bold text-foreground">Still have questions?</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Reach out directly and we&apos;ll get back to you personally.
-            </p>
-            <Button asChild variant="cta" className="mt-5">
-              <a href="mailto:info@worwf.org">
-                <Mail className="size-4" />
-                info@WORWF.org
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
