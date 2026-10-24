@@ -1,38 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import {
-  Mail,
-  MapPin,
-  Facebook,
-  Phone,
-  Clock,
-  Send,
-  HelpCircle,
-  ArrowRight,
-} from "lucide-react";
+import { Mail, MapPin, Facebook, Send } from "lucide-react";
 
-import worwfLogo from "@/assets/worwf/worwf-logo.png";
 import heroImg from "@/assets/worwf/contact/hero.jpg";
 
 export const Route = createFileRoute("/contact-us")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact Us — West Orange Republican Women Federated" },
+      { title: "Contact Us | West Orange Republican Women Federated" },
       {
         name: "description",
         content:
-          "Get in touch with WORWF. Send a message, find answers in our FAQ, or reach us by email at info@worwf.org.",
+          "Get in touch with WORWF. Send a message or reach us by email at info@worwf.org.",
       },
-      { property: "og:title", content: "Contact Us — WORWF" },
+      { property: "og:title", content: "Contact Us | WORWF" },
       {
         property: "og:description",
         content: "Send a message to West Orange Republican Women Federated.",
@@ -44,58 +28,6 @@ export const Route = createFileRoute("/contact-us")({
     ],
   }),
 });
-
-const faqs = [
-  {
-    q: "What is WORWF?",
-    a: "WORWF stands for West Orange Republican Women Federated. We are a group of passionate women dedicated to advancing the cause of good government in our community, state, and nation.",
-  },
-  {
-    q: "Who can join West Orange Republican Women Federated?",
-    a: "Membership is open to registered Republican women who support the principles and objectives of the Republican Party. We welcome new members who are eager to make a positive impact in our community.",
-  },
-  {
-    q: "How can I become a member?",
-    a: "To join, please visit our Contact Us page and send us an email expressing your interest. We'll provide you with all the necessary information to get started.",
-  },
-  {
-    q: "What activities does WORWF engage in?",
-    a: "Our organization participates in various activities, including hosting monthly luncheons, organizing community events, supporting local candidates, and promoting civic engagement through education and advocacy.",
-  },
-  {
-    q: "How can I stay informed about upcoming events?",
-    a: "We regularly update our members and the public about upcoming events through our website and social media channels. Be sure to check our homepage for the latest news and event announcements.",
-  },
-  {
-    q: "Can I attend a meeting before deciding to join?",
-    a: "Absolutely! We encourage prospective members to attend one of our meetings or events to learn more about our organization and meet our members.",
-  },
-  {
-    q: "How can I contact WORWF for more information?",
-    a: "For any inquiries or additional information, please reach out to us via our Contact Us page. We're happy to answer any questions you may have.",
-  },
-];
-
-const contactCards = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@WORWF.org",
-    href: "mailto:info@worwf.org",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "West Orange County, FL",
-    href: "/events",
-  },
-  {
-    icon: Clock,
-    label: "Meetings",
-    value: "Monthly Luncheons",
-    href: "/events",
-  },
-];
 
 function ContactPage() {
   const [form, setForm] = useState({
@@ -127,85 +59,57 @@ function ContactPage() {
             </h1>
             <p className="mt-6 max-w-xl text-base text-primary-foreground/90 md:text-lg">
               Whether you&apos;re curious about membership, have a question about an
-              event, or just want to say hello — we&apos;d love to hear from you.
+              event, or just want to say hello, we&apos;d love to hear from you.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Contact cards — overlap hero */}
-      <section className="relative -mt-20 px-6">
-        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
-          {contactCards.map((c) => (
-            <a
-              key={c.label}
-              href={c.href}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] transition-all duration-300 hover:-translate-y-1 hover:border-primary"
-            >
-              <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <c.icon className="size-5" />
-              </div>
-              <p className="mt-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                {c.label}
-              </p>
-              <p className="mt-1 text-lg font-semibold text-foreground">{c.value}</p>
-              <ArrowRight className="absolute right-6 top-6 size-4 text-muted-foreground opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
-            </a>
-          ))}
         </div>
       </section>
 
       {/* Form + Aside */}
       <section className="px-6 py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.4fr]">
-          {/* Aside */}
-          <aside className="lg:sticky lg:top-28 lg:self-start">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Send a Message
-            </span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              We protect your privacy &amp; reply quickly.
+          {/* Contact information */}
+          <aside className="lg:self-start">
+            <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
+              Get in Touch
             </h2>
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              Complete the form and a member of our team will be in contact with you
-              shortly. Your information stays private and is never shared with third
-              parties.
+            <div className="mt-4 h-1 w-14 bg-accent" />
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground [text-wrap:pretty]">
+              Complete the form and a member of our team will be in contact with you shortly.
+              Your information stays private and is never shared with third parties.
             </p>
 
-            <div className="mt-8 space-y-4">
-              {[
-                "Personal response within 48 hours",
-                "Information about upcoming events",
-                "Membership guidance & referrals",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <svg viewBox="0 0 12 12" className="size-3" fill="none">
-                      <path
-                        d="M2.5 6.5L5 9L9.5 3.5"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-sm text-foreground/80">{item}</span>
+            <dl className="mt-10 divide-y divide-border border-y border-border">
+              <div className="flex items-start gap-4 py-5">
+                <Mail className="mt-0.5 size-5 shrink-0 text-primary" />
+                <div>
+                  <dt className="text-sm font-bold text-foreground">Email</dt>
+                  <dd className="mt-1 text-base text-muted-foreground">
+                    <a href="mailto:info@worwf.org" className="hover:text-primary hover:underline">
+                      info@worwf.org
+                    </a>
+                  </dd>
                 </div>
-              ))}
-            </div>
+              </div>
+              <div className="flex items-start gap-4 py-5">
+                <MapPin className="mt-0.5 size-5 shrink-0 text-primary" />
+                <div>
+                  <dt className="text-sm font-bold text-foreground">Location</dt>
+                  <dd className="mt-1 text-base text-muted-foreground">
+                    West Orange County, Florida
+                  </dd>
+                </div>
+              </div>
+            </dl>
 
             <div className="mt-8 flex items-center gap-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Follow us
-              </span>
-              <div className="h-px flex-1 bg-border" />
+              <span className="text-sm font-bold text-foreground">Follow us</span>
               <a
                 href="https://www.facebook.com/westorangerepublicanwomenfederated"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                className="flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <Facebook className="size-4" />
               </a>
@@ -214,7 +118,7 @@ function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X"
-                className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                className="flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <span className="text-sm font-bold">𝕏</span>
               </a>
@@ -302,58 +206,6 @@ function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="relative overflow-hidden bg-muted/40 py-24">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="text-center">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              <HelpCircle className="size-3.5" />
-              Frequently Asked Questions
-            </span>
-            <h2 className="mt-5 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              Answers to the questions we hear most
-            </h2>
-            <div className="mx-auto mt-4 h-1 w-16 bg-secondary" />
-          </div>
-
-          <Accordion type="single" collapsible defaultValue="item-0" className="mt-12 space-y-3">
-            {faqs.map((f, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="overflow-hidden rounded-xl border border-border bg-card px-5 transition-colors data-[state=open]:border-primary data-[state=open]:shadow-[var(--shadow-elegant)]"
-              >
-                <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline">
-                  <span className="flex items-center gap-4">
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {f.q}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="pl-12 text-sm leading-relaxed text-muted-foreground">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-
-          <div className="mt-12 rounded-2xl border border-border bg-card p-8 text-center shadow-[var(--shadow-elegant)]">
-            <img src={worwfLogo} alt="WORWF" className="mx-auto size-16 object-contain" />
-            <h3 className="mt-4 text-xl font-bold text-foreground">Still have questions?</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Reach out directly and we&apos;ll get back to you personally.
-            </p>
-            <Button asChild variant="cta" className="mt-5">
-              <a href="mailto:info@worwf.org">
-                <Mail className="size-4" />
-                info@WORWF.org
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

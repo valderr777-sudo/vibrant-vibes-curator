@@ -14,6 +14,7 @@ import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as LeadershipRouteImport } from './routes/leadership'
 import { Route as MembersRouteImport } from './routes/members'
@@ -45,6 +46,11 @@ const CookiePolicyRoute = CookiePolicyRouteImport.update({
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/contact-us': typeof ContactUsRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/leadership': typeof LeadershipRoute
   '/members': typeof MembersRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByTo {
   '/contact-us': typeof ContactUsRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/leadership': typeof LeadershipRoute
   '/members': typeof MembersRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/contact-us': typeof ContactUsRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/leadership': typeof LeadershipRoute
   '/members': typeof MembersRoute
@@ -134,6 +143,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/cookie-policy'
     | '/events'
+    | '/faq'
     | '/gallery'
     | '/leadership'
     | '/members'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/cookie-policy'
     | '/events'
+    | '/faq'
     | '/gallery'
     | '/leadership'
     | '/members'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/cookie-policy'
     | '/events'
+    | '/faq'
     | '/gallery'
     | '/leadership'
     | '/members'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   ContactUsRoute: typeof ContactUsRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
   EventsRoute: typeof EventsRoute
+  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   LeadershipRoute: typeof LeadershipRoute
   MembersRoute: typeof MembersRoute
@@ -221,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactUsRoute: ContactUsRoute,
   CookiePolicyRoute: CookiePolicyRoute,
   EventsRoute: EventsRoute,
+  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   LeadershipRoute: LeadershipRoute,
   MembersRoute: MembersRoute,
