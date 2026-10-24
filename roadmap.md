@@ -46,7 +46,7 @@
 - Future food-drive PDFs/themes beyond the verified public 2026 PDF
 - Dates for special events and committee activities
 - Sponsor directory businesses, approved logos, and verified website links (pages were removed; rebuild only once this content exists)
-- Interactive district map: authoritative boundary data and agreed interaction scope; official map links alone are not this feature
+- [x] Interactive district map: resolved Oct 23, official government map links are sufficient (client confirmed)
 - Confirmed 2027 officers after the November 12 election
 - [x] Orange grove photos licensed (client confirmed Oct 24)
 - [x] Home hero: flat orange grove photo (no hills), same gradient
