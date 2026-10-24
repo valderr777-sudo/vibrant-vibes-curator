@@ -15,7 +15,6 @@ import memberGroup from "@/assets/worwf/member-group.jpg";
 import membersParallax from "@/assets/worwf/members-parallax.jpg";
 import voterId from "@/assets/worwf/voter-id.jpg";
 import precinctFlag from "@/assets/worwf/precinct-flag.jpg";
-import elephantImg from "@/assets/worwf/elephant.jpg";
 import christineHayden from "@/assets/worwf/about/christine-hayden.jpg";
 import groveSunrise from "@/assets/groves/grove-sunrise.jpg.asset.json";
 
@@ -64,9 +63,6 @@ const renewalOptions = [
   "Young Republican Member (18+ years, Post Secondary Student)",
 ];
 
-function ElephantIcon({ className = "" }: { className?: string }) {
-  return <img src={elephantImg} alt="GOP elephant" className={className} />;
-}
 
 function Membership() {
   const [form, setForm] = useState({
