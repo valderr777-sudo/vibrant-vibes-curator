@@ -201,4 +201,4 @@ export const luncheonInformation = {
 
 // Actual existing 2026 PDF, verified publicly accessible, includes monthly donation items.
 export const monthlyDonationListPdf =
-  "https://worwf.org/wp-content/uploads/2026/02/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf";
+  "/__l5e/assets-v1/d1bc6086-dea9-4e84-bbf0-937cc889dde0/EDGEWOOD-Ranch-Food-Drive-Themes-2026-v3.pdf";
