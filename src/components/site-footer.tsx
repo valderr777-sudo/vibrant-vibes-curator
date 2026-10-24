@@ -15,7 +15,7 @@ type GetInvolvedLink = { label: string; to?: string; href?: string };
 
 const getInvolvedLinks: GetInvolvedLink[] = [
   { label: "Become a Member", to: "/membership" },
-  { label: "Donate", href: "https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" },
+  { label: "Donate", to: "/donate" },
   { label: "Members Only", to: "/members" },
   { label: "Contact Us", to: "/contact-us" },
 ];
@@ -155,9 +155,7 @@ export function SiteFooter() {
                 View Upcoming Events
               </Link>
               <a
-                href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/donate"
                 className="border border-primary-foreground/40 px-5 py-2.5 text-sm font-semibold transition-colors hover:border-accent-light hover:text-accent-light"
               >
                 Donate
