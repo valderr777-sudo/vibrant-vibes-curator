@@ -20,6 +20,7 @@ interface HistoryTimelineProps {
  * Honors prefers-reduced-motion via CSS.
  */
 export function HistoryTimeline({ blocks, logo, logoCaption }: HistoryTimelineProps) {
+  const rootRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLOListElement>(null);
   const lineRef = useRef<HTMLSpanElement>(null);
 
@@ -57,9 +58,9 @@ export function HistoryTimeline({ blocks, logo, logoCaption }: HistoryTimelinePr
 
   // Reveal rows and the logo when they enter the viewport.
   useEffect(() => {
-    const list = listRef.current;
-    if (!list) return;
-    const targets = Array.from(list.querySelectorAll<HTMLElement>("[data-tl-reveal]"));
+    const root = rootRef.current;
+    if (!root) return;
+    const targets = Array.from(root.querySelectorAll<HTMLElement>("[data-tl-reveal]"));
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       targets.forEach((t) => t.classList.add("tl-in"));
       return;
