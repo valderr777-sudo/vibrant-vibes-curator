@@ -126,18 +126,21 @@ function Membership() {
             Become a Member
           </h1>
         </div>
-        <div className="bg-primary py-10">
-          <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6">
-            <ElephantIcon className="hidden size-16 shrink-0 md:block" />
-            <div className="text-center text-primary-foreground">
-              <p className="text-base font-bold tracking-wide md:text-lg">
-                ACCORDING TO ARTICLE II OF THE NFRW BYLAWS,
-              </p>
-              <p className="mt-2 text-base font-bold tracking-wide md:text-lg">
-                YOU MUST BE A REGISTERED REPUBLICAN TO BE ELIGIBLE FOR MEMBERSHIP.
-              </p>
-            </div>
-            <ElephantIcon className="hidden size-16 shrink-0 md:block" />
+        <div className="relative isolate overflow-hidden bg-primary py-5">
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 opacity-20"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath fill='white' d='M14 4l2.4 7.2H24l-6.1 4.5 2.3 7.3L14 18.5 7.8 23l2.3-7.3L4 11.2h7.6zM42 32l2.4 7.2H52l-6.1 4.5 2.3 7.3-6.2-4.5-6.2 4.5 2.3-7.3-6.1-4.5h7.6z'/%3E%3C/svg%3E\")",
+              backgroundSize: "56px 56px",
+            }}
+          />
+          <div className="mx-auto max-w-5xl px-6 text-center text-primary-foreground">
+            <p className="text-sm font-bold tracking-wide [text-wrap:balance] md:text-base">
+              According to Article II of the NFRW Bylaws, you must be a registered Republican to be
+              eligible for membership.
+            </p>
           </div>
         </div>
       </section>
@@ -149,83 +152,75 @@ function Membership() {
           className="absolute inset-0 -z-10 bg-cover bg-center opacity-[0.07]"
           style={{ backgroundImage: `url(${groveSunrise.url})` }}
         />
-        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-border" />
 
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="relative overflow-hidden rounded-3xl bg-card shadow-[var(--shadow-elegant)]">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary">
+              A Personal Welcome
+            </p>
+            <h2 className="mt-3 text-4xl font-extrabold text-secondary [text-wrap:balance] md:text-5xl">
+              A Note from Our Membership Chair
+            </h2>
+            <span aria-hidden className="mx-auto mt-5 block h-1 w-16 bg-accent" />
+          </div>
+
+          <article className="relative rounded-sm border border-border bg-card px-8 py-12 shadow-[var(--shadow-elegant)] sm:px-14 md:px-20 md:py-16">
             <span
               aria-hidden
-              className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-primary via-accent to-primary"
+              className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-accent to-secondary"
             />
-            <div className="grid gap-12 p-8 sm:p-12 md:p-14 lg:grid-cols-[220px_1fr] lg:gap-14">
-              {/* Portrait & signature */}
-              <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-                <div className="relative">
-                  <span
-                    aria-hidden
-                    className="absolute -bottom-3 -left-3 size-full rounded-2xl border-2 border-accent/50"
-                  />
-                  <img
-                    src={christineHayden}
-                    alt="Christine Hayden, 2nd Vice President and Membership Chair"
-                    loading="lazy"
-                    className="relative w-44 rounded-2xl object-cover object-top shadow-[var(--shadow-elegant)] lg:w-48"
-                  />
-                </div>
-                <p className="mt-8 font-display text-3xl italic leading-none text-secondary">
+            <div className="flex items-start justify-between gap-6 border-b border-border pb-6">
+              <img src={worwfLogo} alt="" loading="lazy" className="size-14 object-contain" />
+              <p className="text-right text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                West Orange Republican
+                <br />
+                Women, Federated
+              </p>
+            </div>
+
+            <p className="mt-10 font-display text-2xl font-bold text-secondary">Dear New Member,</p>
+            <p className="mt-6 text-lg leading-[1.9] text-muted-foreground [text-wrap:pretty]">
+              Thank you for joining WORWF! You will discover a very active and outgoing club. As a
+              member, you will receive by email: newsletter communications, club announcements,
+              special events, and participation opportunities.
+            </p>
+            <p className="mt-6 text-lg font-bold text-primary">We are glad you are one of us!!</p>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground [text-wrap:pretty]">
+              If you would like more information about Membership, please contact me at{" "}
+              <a
+                href="mailto:Membership@WORWF.org"
+                className="inline-flex items-center gap-2 font-bold text-primary underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-secondary"
+              >
+                <Mail className="size-4 shrink-0" />
+                Membership@WORWF.org
+              </a>
+            </p>
+
+            <div className="mt-12 flex items-center gap-5">
+              <img
+                src={christineHayden}
+                alt="Christine Hayden, 2nd Vice President and Membership Chair"
+                loading="lazy"
+                className="size-24 shrink-0 rounded-full border-4 border-accent object-cover object-top shadow-[var(--shadow-elegant)]"
+              />
+              <div>
+                <p className="text-base text-muted-foreground">Warmly,</p>
+                <p
+                  className="text-5xl leading-tight text-secondary md:text-6xl"
+                  style={{ fontFamily: "var(--font-script)" }}
+                >
                   Chrissy Hayden
                 </p>
-                <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
                   2nd VP, Membership Chair
                 </p>
-                <img
-                  src={worwfLogo}
-                  alt=""
-                  loading="lazy"
-                  className="mt-5 size-12 object-contain opacity-80"
-                />
-              </div>
-
-              {/* The letter */}
-              <div className="relative">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -top-4 right-0 hidden select-none font-display text-[110px] leading-[0.7] text-accent/15 md:block"
-                >
-                  “
-                </span>
-                <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary">
-                  A Note from Our Membership Chair
-                </p>
-                <h2 className="mt-3 text-3xl font-extrabold text-secondary md:text-4xl">
-                  Thank you for joining WORWF!
-                </h2>
-                <span aria-hidden className="mt-5 block h-1 w-14 bg-accent" />
-                <p className="mt-6 text-base leading-[1.85] text-muted-foreground md:text-[17px] [text-wrap:pretty]">
-                  You will discover a very active and outgoing club. As a member, you will receive by
-                  email: newsletter communications, club announcements, special events, and
-                  participation opportunities.
-                </p>
-                <p className="mt-7 border-l-2 border-accent pl-5 font-display text-2xl italic text-primary [text-wrap:balance]">
-                  We are glad you are one of us!!
-                </p>
-                <div className="mt-8 border-t border-border pt-6">
-                  <p className="text-sm leading-relaxed text-muted-foreground [text-wrap:pretty]">
-                    If you would like more information about Membership, please contact Chrissy at{" "}
-                    <a
-                      href="mailto:Membership@WORWF.org"
-                      className="inline-flex items-center gap-2 font-bold text-primary underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-secondary"
-                    >
-                      <Mail className="size-4 shrink-0" />
-                      Membership@WORWF.org
-                    </a>
-                  </p>
-                </div>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </section>
+
+
 
       {/* Active / Associate Members */}
       <section className="relative overflow-hidden bg-muted/40 py-24">
