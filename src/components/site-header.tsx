@@ -178,7 +178,7 @@ export function SiteHeader() {
                 <X className="size-5" />
               </button>
             </div>
-            <nav className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center gap-1 px-6 py-6 text-center">
+            <nav className="relative mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center gap-1 px-6 py-6 text-center">
               {primaryLinks.map((l) => {
                 const active = pathname === l.to;
                 return (
@@ -197,10 +197,12 @@ export function SiteHeader() {
                 type="button"
                 aria-expanded={sponsorsOpen}
                 onClick={() => setSponsorsOpen((v) => !v)}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md px-3 py-3 text-xl font-medium text-foreground hover:bg-muted"
+                className="inline-flex w-full items-center justify-center rounded-md px-3 py-3 text-xl font-medium text-foreground hover:bg-muted"
               >
-                More
-                <ChevronDown className={`size-5 transition-transform ${sponsorsOpen ? "rotate-180" : ""}`} />
+                <span className="relative">
+                  More
+                  <ChevronDown className={`absolute left-full top-1/2 ml-1.5 size-5 -translate-y-1/2 transition-transform ${sponsorsOpen ? "rotate-180" : ""}`} />
+                </span>
               </button>
               <div className={`grid w-full transition-all duration-300 ${sponsorsOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
