@@ -81,7 +81,7 @@ export function HistoryTimeline({ blocks, logo, logoCaption }: HistoryTimelinePr
   }, []);
 
   return (
-    <>
+    <div ref={rootRef}>
       <ol ref={listRef} className="relative mx-auto mt-16 max-w-5xl">
         <span
           ref={lineRef}
@@ -122,6 +122,6 @@ export function HistoryTimeline({ blocks, logo, logoCaption }: HistoryTimelinePr
         <img src={logo} alt="WORWF logo" className="tl-logo h-28 w-auto object-contain" loading="lazy" />
         <p className="tl-caption mt-3 text-sm italic text-muted-foreground">{logoCaption}</p>
       </div>
-    </>
+    </div>
   );
 }
