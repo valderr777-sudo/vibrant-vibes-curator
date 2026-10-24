@@ -69,7 +69,7 @@ export function SiteHeader() {
             <a href="https://x.com/worwf" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-primary-foreground/90 transition-colors hover:text-accent-light">
               <span className="text-sm font-bold leading-none">𝕏</span>
             </a>
-            <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium hover:text-accent-light md:block">
+            <a href="/donate" className="hidden text-sm font-medium hover:text-accent-light md:block">
               Donate
             </a>
           </div>
@@ -137,7 +137,7 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2">
             <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent px-3 text-xs font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground sm:px-6 sm:text-sm lg:px-3 xl:px-6">
-              <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
+              <a href="/donate">DONATE</a>
             </Button>
             <Button asChild variant="cta" className="rounded-md px-3 text-xs font-bold tracking-wider sm:px-6 sm:text-sm lg:px-3 xl:px-6">
               <Link to="/membership">JOIN</Link>
@@ -211,7 +211,7 @@ export function SiteHeader() {
               </div>
               <div className="mt-6 grid w-full gap-3">
                 <Button asChild variant="outline" className="rounded-md border-2 border-accent bg-transparent font-bold tracking-wider text-foreground hover:bg-accent hover:text-accent-foreground">
-                  <a href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33" target="_blank" rel="noopener noreferrer">DONATE</a>
+                  <a href="/donate">DONATE</a>
                 </Button>
                 <Button asChild variant="cta" className="rounded-md font-bold tracking-wider">
                   <Link to="/membership">JOIN</Link>

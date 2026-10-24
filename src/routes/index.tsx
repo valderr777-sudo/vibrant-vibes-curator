@@ -432,9 +432,7 @@ function Index() {
                 </p>
 
                 <a
-                  href="https://worwf.square.site/product/donate-to-suport-the-worwf-mission/33"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/donate"
                   className="group mt-6 flex w-full items-center justify-center gap-2 rounded-md bg-primary py-3.5 font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground"
                 >
                   Donate Now
