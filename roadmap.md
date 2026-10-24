@@ -53,5 +53,5 @@
 
 ## Self-hosted documents and backend approval (Oct 23)
 - [x] Copy all old-site member and public documents onto the new site's file hosting and repoint links
-- [ ] Branded automatic emails (backend approved Oct 23); blocked on sender domain setup for starsandstripesmarketing.com
+- [x] Branded automatic emails: contact and membership live on notify.starsandstripesmarketing.com; RSVP emails not built yet
 - [ ] On-site Square payments for Donate and membership (backend approved Oct 23); blocked on club Square account access
