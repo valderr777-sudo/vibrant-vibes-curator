@@ -48,8 +48,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "WORWF unites women to create positive change, support good government, and uphold constitutional rights in West Orange County, FL." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
-      { name: "twitter:image", content: "https://worwf.mwsssms2.workers.dev/social-share.png" },
+      { property: "og:image", content: "https://worwf.lovable.app/__l5e/assets-v1/79ed99b0-953b-4fd4-81a0-4ea016868c57/social-share.jpg" },
+      { name: "twitter:image", content: "https://worwf.lovable.app/__l5e/assets-v1/79ed99b0-953b-4fd4-81a0-4ea016868c57/social-share.jpg" },
     ],
   }),
 });
