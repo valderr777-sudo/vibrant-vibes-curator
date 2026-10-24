@@ -3,6 +3,8 @@ import { template as contactConfirmation } from './contact-confirmation'
 import { template as contactNotification } from './contact-notification'
 import { template as membershipWelcome } from './membership-welcome'
 import { template as membershipNotification } from './membership-notification'
+import { template as rsvpConfirmation } from './rsvp-confirmation'
+import { template as rsvpNotification } from './rsvp-notification'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -26,4 +28,6 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'contact-notification': contactNotification,
   'membership-welcome': membershipWelcome,
   'membership-notification': membershipNotification,
+  'rsvp-confirmation': rsvpConfirmation,
+  'rsvp-notification': rsvpNotification,
 }

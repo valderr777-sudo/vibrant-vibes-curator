@@ -21,10 +21,10 @@ import {
   committeeActivities,
   foodThemes,
   monthlyDonationListPdf,
-  rsvpMailto,
   luncheonInformation,
 } from "@/content/site-content";
 import { visibleEvents, formatEventDate } from "@/lib/event-dates";
+import { RsvpDialog } from "@/components/rsvp-dialog";
 
 export function EventsCommunity({ today }: { today: string | null }) {
   const activities = visibleEvents(specialEvents, today);
@@ -106,13 +106,7 @@ export function EventsCommunity({ today }: { today: string | null }) {
                           {event.location ? ` • ${event.location}` : ""}
                         </p>
                         <EventTodayTag date={event.date} today={today} />
-                        {event.rsvp && (
-                          <Button asChild variant="outline" className="mt-4">
-                            <a href={rsvpMailto(event.title)}>
-                              <Mail /> RSVP
-                            </a>
-                          </Button>
-                        )}
+                        {event.rsvp && <RsvpDialog eventTitle={event.title} />}
                       </article>
                     ))}
                   </div>

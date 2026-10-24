@@ -48,10 +48,11 @@
 - Sponsor directory businesses, approved logos, and verified website links (pages were removed; rebuild only once this content exists)
 - Interactive district map: authoritative boundary data and agreed interaction scope; official map links alone are not this feature
 - Confirmed 2027 officers after the November 12 election
-- Confirmation of rights for the orange grove photos
+- [x] Orange grove photos licensed (client confirmed Oct 24)
 - [x] Home hero: flat orange grove photo (no hills), same gradient
 
 ## Self-hosted documents and backend approval (Oct 23)
 - [x] Copy all old-site member and public documents onto the new site's file hosting and repoint links
-- [x] Branded automatic emails: contact and membership live on notify.starsandstripesmarketing.com; RSVP emails not built yet
-- [ ] On-site Square payments for Donate and membership (backend approved Oct 23); blocked on club Square account access
+- [x] Branded automatic emails: contact and membership live on notify.starsandstripesmarketing.com; RSVP branded emails added for special events
+- On-site Square payments for Donate and membership: waiting on client Square access (no action needed)
+- [x] Assistant-written copy (membership note, Donate page, FAQ answer, timeline labels) approved by client Oct 24

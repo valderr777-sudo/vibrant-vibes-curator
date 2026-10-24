@@ -71,3 +71,34 @@ export const submitMembership = createServerFn({ method: "POST" })
     });
     return { ok: true };
   });
+
+const rsvpSchema = z.object({
+  eventTitle: z.string().trim().min(1).max(200),
+  name: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(255),
+  phone: z.string().trim().max(30).optional().default(""),
+  guests: z.number().int().min(1).max(20),
+  note: z.string().trim().max(1000).optional().default(""),
+});
+
+export const submitRsvp = createServerFn({ method: "POST" })
+  .inputValidator((d: unknown) => rsvpSchema.parse(d))
+  .handler(async ({ data }) => {
+    const { specialEvents } = await import("@/content/site-content");
+    const event = specialEvents.find((e) => e.rsvp && e.title === data.eventTitle);
+    if (!event) throw new Error("This event is not accepting RSVPs.");
+    rateLimit(`rsvp:${data.email.toLowerCase()}`);
+    const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+    const id = crypto.randomUUID();
+    const eventDate = event.date ? formatEventDate(event.date) : undefined;
+    await sendTemplateEmail("rsvp-notification", "Reservations@WORWF.org", {
+      templateData: { ...data, eventDate },
+      idempotencyKey: `rsvp-notify-${id}`,
+      replyTo: data.email,
+    });
+    await sendTemplateEmail("rsvp-confirmation", data.email, {
+      templateData: { name: data.name, eventTitle: event.title, eventDate, guests: data.guests },
+      idempotencyKey: `rsvp-confirm-${id}`,
+    });
+    return { ok: true };
+  });
