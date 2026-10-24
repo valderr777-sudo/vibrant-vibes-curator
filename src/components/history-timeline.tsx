@@ -95,11 +95,11 @@ export function HistoryTimeline({ blocks, logo, logoCaption }: HistoryTimelinePr
             <li
               key={b.h}
               data-tl-reveal
-              className="tl-item relative mb-14 last:mb-0 md:grid md:grid-cols-2 md:gap-16"
+              className="tl-item relative mb-14 last:mb-0 md:grid md:grid-cols-2 md:gap-32"
             >
               <span
                 aria-hidden
-                className="tl-badge absolute left-9 top-0 flex size-16 -translate-x-1/2 items-center justify-center rounded-full bg-muted ring-8 ring-muted md:left-1/2 md:size-20"
+                className="tl-badge absolute left-9 top-0 flex size-16 -translate-x-1/2 items-center justify-center md:left-1/2 md:size-20"
               >
                 <img src={tangerineBadge} alt="" className="absolute inset-0 size-full object-contain" />
                 <span className="absolute left-[48%] top-[62%] -translate-x-1/2 -translate-y-1/2 text-2xl font-extrabold leading-none tracking-tight text-foreground tabular-nums md:text-[32px]">
