@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import tangerineBadge from "@/assets/tangerine-badge.png";
 
 interface HistoryBlock {
   h: string;
@@ -86,7 +87,7 @@ export function HistoryTimeline({ blocks, logo, logoCaption }: HistoryTimelinePr
         <span
           ref={lineRef}
           aria-hidden
-          className="tl-line absolute bottom-0 left-5 top-0 w-px origin-top bg-accent md:left-1/2 md:-translate-x-1/2"
+          className="tl-line absolute bottom-0 left-9 top-0 w-px origin-top bg-accent md:left-1/2 md:-translate-x-1/2"
         />
         {blocks.map((b, i) => {
           const left = i % 2 === 0;
@@ -98,12 +99,15 @@ export function HistoryTimeline({ blocks, logo, logoCaption }: HistoryTimelinePr
             >
               <span
                 aria-hidden
-                className="tl-badge absolute left-5 top-1 flex size-10 -translate-x-1/2 items-center justify-center rounded-full bg-accent text-sm font-extrabold text-accent-foreground shadow-[var(--shadow-elegant)] ring-8 ring-muted md:left-1/2"
+                className="tl-badge absolute left-9 top-0 flex size-16 -translate-x-1/2 items-center justify-center rounded-full bg-muted ring-8 ring-muted md:left-1/2 md:size-20"
               >
-                {i + 1}
+                <img src={tangerineBadge} alt="" className="absolute inset-0 size-full object-contain" />
+                <span className="absolute left-[48%] top-[62%] -translate-x-1/2 -translate-y-1/2 text-2xl font-extrabold leading-none tracking-tight text-foreground tabular-nums md:text-[32px]">
+                  {i + 1}
+                </span>
               </span>
               <div
-                className={`tl-text pl-16 md:pl-0 ${left ? "md:col-start-1 md:text-right" : "md:col-start-2"}`}
+                className={`tl-text pl-24 md:pl-0 ${left ? "md:col-start-1 md:text-right" : "md:col-start-2"}`}
               >
                 <p className="text-sm font-bold uppercase tracking-widest text-primary">{b.tag}</p>
                 <h3 className="mt-2 text-2xl font-extrabold text-foreground md:text-3xl [text-wrap:balance]">
