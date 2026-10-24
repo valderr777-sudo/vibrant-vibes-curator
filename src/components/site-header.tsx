@@ -4,6 +4,7 @@ import tangerineIcon from "@/assets/tangerine-icon.png";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
+import groveMenuBg from "@/assets/orange-grove-hero.jpg.asset.json";
 
 const primaryLinks: {
   label: string;
@@ -157,7 +158,14 @@ export function SiteHeader() {
         {/* Full screen mobile menu */}
         {open && (
           <div className="fixed inset-0 z-[60] flex flex-col overflow-y-auto overscroll-contain bg-background lg:hidden" role="dialog" aria-modal="true">
-            <div className="flex items-center justify-between px-4 py-3">
+            <img
+              src={groveMenuBg.url}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-background/92" aria-hidden="true" />
+            <div className="relative flex items-center justify-between px-4 py-3">
               <Link to="/" className="flex items-center">
                 <img src={worwfLogo} alt="WORWF" className="size-14 object-contain" />
               </Link>
