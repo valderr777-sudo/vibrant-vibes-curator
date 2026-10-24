@@ -15,7 +15,7 @@ type GetInvolvedLink = { label: string; to?: string; href?: string };
 
 const getInvolvedLinks: GetInvolvedLink[] = [
   { label: "Become a Member", to: "/membership" },
-  { label: "Donate", href: "/donate" },
+  { label: "Donate", to: "/donate" },
   { label: "Members Only", to: "/members" },
   { label: "Contact Us", to: "/contact-us" },
 ];
