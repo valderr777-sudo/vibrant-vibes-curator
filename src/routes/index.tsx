@@ -165,11 +165,17 @@ function CheckBadge() {
       <svg
         viewBox="0 0 24 24"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        className="relative size-3 text-white"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="relative size-4 text-white"
       >
-        <polyline points="20 6 9 17 4 12" />
+        <polyline
+          points="20 6 9 17 4 12"
+          stroke="var(--color-secondary)"
+          strokeWidth="9"
+          opacity="0.5"
+        />
+        <polyline points="20 6 9 17 4 12" stroke="currentColor" strokeWidth="5" />
       </svg>
     </span>
   );
