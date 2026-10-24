@@ -20,13 +20,13 @@ export function UnitedQuoteBand({ background = "muted", showQuote = true }: Unit
           <p className="mt-5 text-sm text-muted-foreground">Women strengthening our community</p>
         </div>
       )}
-      <div className={`mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-10 px-6 md:gap-14 ${showQuote ? "mt-12" : ""}`}>
-        <a href="https://www.facebook.com/FFRWomen/" target="_blank" rel="noopener noreferrer" className="order-2 md:order-1">
-          <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-24 w-auto object-contain transition-opacity hover:opacity-80 md:h-24" />
+      <div className={`mx-auto flex max-w-4xl items-center justify-center gap-5 px-6 md:gap-14 ${showQuote ? "mt-12" : ""}`}>
+        <a href="https://www.facebook.com/FFRWomen/" target="_blank" rel="noopener noreferrer">
+          <img src={ffrwLogo} alt="Florida Federation of Republican Women" className="h-14 w-auto object-contain transition-opacity hover:opacity-80 md:h-24" />
         </a>
-        <img src={worwfLogo} alt="WORWF" className="order-1 h-40 w-full object-contain md:order-2 md:h-44 md:w-auto" />
-        <a href="https://www.nfrw.org/" target="_blank" rel="noopener noreferrer" className="order-3">
-          <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-28 w-auto object-contain transition-opacity hover:opacity-80 md:h-28" />
+        <img src={worwfLogo} alt="WORWF" className="h-16 w-auto object-contain md:h-44" />
+        <a href="https://www.nfrw.org/" target="_blank" rel="noopener noreferrer">
+          <img src={nfrwLogo} alt="National Federation of Republican Women" className="h-14 w-auto object-contain transition-opacity hover:opacity-80 md:h-28" />
         </a>
       </div>
     </section>

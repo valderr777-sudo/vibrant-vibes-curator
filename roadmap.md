@@ -56,3 +56,10 @@
 - [x] Branded automatic emails: contact and membership live on notify.starsandstripesmarketing.com; RSVP branded emails added for special events
 - On-site Square payments for Donate and membership: waiting on client Square access (no action needed)
 - [x] Assistant-written copy (membership note, Donate page, FAQ answer, timeline labels) approved by client Oct 24
+
+## Mobile audit (Oct 24)
+- [x] Hamburger menu verified tappable; full-screen with grove photo behind light overlay, logo, Donate/Join, socials, centered More row, background scroll locked
+- [x] Footer on phones: two-column link sections, left-aligned bottom bar, tighter spacing
+- [x] Hero tagline with stars forced to one line on phones
+- [x] FFRW/WORWF/NFRW logos shrunk onto one line on phones
+- [x] No horizontal overflow on any page at 390px; no console errors

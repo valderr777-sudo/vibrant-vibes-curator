@@ -220,7 +220,7 @@ function Index() {
           }}
         />
         <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-20">
-          <p className="animate-fade-up text-sm font-semibold uppercase tracking-[0.25em] text-accent">
+          <p className="animate-fade-up whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.15em] text-accent min-[420px]:text-xs sm:text-sm sm:tracking-[0.25em]">
             ★ Women strengthening West Orange County ★
           </p>
           <h1 className="animate-fade-up mt-5 max-w-5xl text-5xl font-bold leading-[1.05] text-primary-foreground [text-shadow:0_4px_24px_oklch(0_0_0/0.45)] sm:text-6xl lg:text-7xl">

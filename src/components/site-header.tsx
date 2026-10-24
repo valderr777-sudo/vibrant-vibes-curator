@@ -4,6 +4,7 @@ import tangerineIcon from "@/assets/tangerine-icon.png";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import worwfLogo from "@/assets/worwf/worwf-logo.png";
+import groveMenuBg from "@/assets/orange-grove-hero.jpg.asset.json";
 
 const primaryLinks: {
   label: string;
@@ -157,7 +158,14 @@ export function SiteHeader() {
         {/* Full screen mobile menu */}
         {open && (
           <div className="fixed inset-0 z-[60] flex flex-col overflow-y-auto overscroll-contain bg-background lg:hidden" role="dialog" aria-modal="true">
-            <div className="flex items-center justify-between px-4 py-3">
+            <img
+              src={groveMenuBg.url}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-background/92" aria-hidden="true" />
+            <div className="relative flex items-center justify-between px-4 py-3">
               <Link to="/" className="flex items-center">
                 <img src={worwfLogo} alt="WORWF" className="size-14 object-contain" />
               </Link>
@@ -170,7 +178,7 @@ export function SiteHeader() {
                 <X className="size-5" />
               </button>
             </div>
-            <nav className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center gap-1 px-6 py-6 text-center">
+            <nav className="relative mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center gap-1 px-6 py-6 text-center">
               {primaryLinks.map((l) => {
                 const active = pathname === l.to;
                 return (
@@ -189,10 +197,12 @@ export function SiteHeader() {
                 type="button"
                 aria-expanded={sponsorsOpen}
                 onClick={() => setSponsorsOpen((v) => !v)}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md px-3 py-3 text-xl font-medium text-foreground hover:bg-muted"
+                className="inline-flex w-full items-center justify-center rounded-md px-3 py-3 text-xl font-medium text-foreground hover:bg-muted"
               >
-                More
-                <ChevronDown className={`size-5 transition-transform ${sponsorsOpen ? "rotate-180" : ""}`} />
+                <span className="relative">
+                  More
+                  <ChevronDown className={`absolute left-full top-1/2 ml-1.5 size-5 -translate-y-1/2 transition-transform ${sponsorsOpen ? "rotate-180" : ""}`} />
+                </span>
               </button>
               <div className={`grid w-full transition-all duration-300 ${sponsorsOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
