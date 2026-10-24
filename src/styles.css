@@ -19,6 +19,9 @@
  */
 
 @theme inline {
+  --font-sans: "Lato", "Segoe UI", Arial, sans-serif;
+  --font-serif: "Montserrat", sans-serif;
+  --font-display: "Montserrat", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -151,16 +154,17 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Times New Roman", Times, "Source Serif Pro", Georgia, serif;
+    font-family: var(--font-display);
     text-wrap: balance;
     overflow-wrap: break-word;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
   }
 }
 
-/* Editorial serif for display text that is not a heading. */
+/* Display face for standout text that is not a heading. */
 .font-display {
-  font-family: "Times New Roman", Times, "Source Serif Pro", Georgia, serif;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 /* Preserve editorial subjects rather than enlarging photos past their frame. */
