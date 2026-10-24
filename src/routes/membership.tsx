@@ -594,11 +594,11 @@ function MembershipForm({
             </div>
             <h3 className="mt-5 text-2xl font-bold text-foreground">Almost done!</h3>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Your email app should have opened with your completed application addressed to{" "}
+              Your application was sent to our Membership Chair, and a confirmation is on its way to your inbox. Questions? Write to{" "}
               <a href="mailto:Membership@WORWF.org" className="font-semibold text-secondary underline">
                 Membership@WORWF.org
               </a>
-              . Just press send, and our Membership Chair will confirm your application.
+              .
             </p>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
               To finish, pay your dues securely through Square:
