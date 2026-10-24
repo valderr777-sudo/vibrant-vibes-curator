@@ -50,3 +50,8 @@
 - Confirmed 2027 officers after the November 12 election
 - Confirmation of rights for the orange grove photos
 - [x] Home hero: flat orange grove photo (no hills), same gradient
+
+## Self-hosted documents and backend approval (Oct 23)
+- [x] Copy all old-site member and public documents onto the new site's file hosting and repoint links
+- [ ] Branded automatic emails (backend approved Oct 23); blocked on sender domain setup for starsandstripesmarketing.com
+- [ ] On-site Square payments for Donate and membership (backend approved Oct 23); blocked on club Square account access
